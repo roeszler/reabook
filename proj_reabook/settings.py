@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-!0f+g6#u9mg7z8!h5h=@cv$hhc%&=p0eqvm$st129i5m9e9dsy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'app_blog',
+    'app_bookings',
 ]
 
 # With 'django.contrib.sites', used by the social account app to create the
