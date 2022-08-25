@@ -1,22 +1,24 @@
 ![YodaKode.com](https://res.cloudinary.com/rgcommercial/image/upload/v1660283182/static/images/yodaKode-256_wsgzti.png)
 
-# ReaBook - Matching People with Spaces
+# ReaBook - Property Promoter and Viewing Appointment Manager 
 ## Full Stack Software Devlopment - Portfolio Project 4
 ### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL)
 
 * Repository link : https://github.com/roeszler/reabook
 * Terminal : https://reabook.herokuapp.com/
+* User Stories : https://github.com/users/roeszler/projects/4
 
 
 ## 1. Project Purpose
 
-It is a.... application presenting the use of a Full Stack Framework... , which runs in the [Code Institutes](https://codeinstitute.net/) python terminal deployed [Heroku](https://www.heroku.com/platform).
-* Users can select and submit orders for the N3D product range of printed foot insoles produced at [northotics.com](https://northotics.com/shop/semi-customised-orthosis/n3d/). 
-* Users can create, retrieve and navigate through orders to update information, check production status and/or re-order products. 
+ReaBook is a real estate management application presenting the use of a Full Stack Framework... , which runs in the [Code Institutes](https://codeinstitute.net/) python terminal deployed [Heroku](https://www.heroku.com/platform).
+* Users can select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
+* Users can create, retrieve and navigate through orders to update information, check production status and/or re-book properties.
+* Business owner users can list, edit and advertise times for potential customers to view properties currently for sale or rent in their portfolio.
 
 [A live version of the app can be accessed here](https://reabook.herokuapp.com/)
 
-The ReaBook is a business in the 'reveal'-estate services industry, matching office and private living space to those looking for relatively short term occupancies. It's simple business premise is to match empty spaces directly with those affordable short term housing or work spaces.
+The ReaBook is a theoretical business in the 'reveal'-estate services industry, matching properties for sale or rent (including office and private living spaces) to those looking for a property solution. It's simple business premise is to extend the versatility of the property seeking and viewing process.
 
 
 ```

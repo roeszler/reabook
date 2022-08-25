@@ -1,11 +1,11 @@
-# Space Scoper - Project 4 - UCD Strategy Plane
+# ReaBook - Project 4 - UCD Strategy Plane
 Stuart Roeszler - Portfolio Project 4
 
 ### Project Mission Statement
 To demonstrate the application and deployment of a full stack framework(s) using HTML, CSS, JavaScript, Python+Django and a relational databases (PostgreSQL).
 
 ### Business Mission Statement
-To facilitate the reduction in vacant building spaces by matching those looking for workplace or residential accommodation.
+To facilitate the property sales / renting process by curating properties and managing interest in those looking to view them through a location based filter.
 
 ### Business Values
 * Innovation 
