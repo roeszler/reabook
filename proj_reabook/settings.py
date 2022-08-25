@@ -105,6 +105,7 @@ DATABASES = {
     }
 
 # Live DB after testing complete and site ready to go live:
+# HEROKU WON'T WORK WITHOUT THIS!!!
 
 # if 'DATABASE_URL' in os.environ:
 #     DATABASES = {
