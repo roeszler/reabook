@@ -7,6 +7,9 @@
 * Repository link : https://github.com/roeszler/reabook
 * Terminal : https://reabook.herokuapp.com/
 * User Stories : https://github.com/users/roeszler/projects/4
+* GitPod Admin Panel : [GP Admin Log In](https://8000-roeszler-reabook-nqaw4dtiyn0.ws-eu62.gitpod.io/admin/login/)
+* Heroku Admin Panel : [HK Admin Log In](https://reabook.herokuapp.com/admin/)
+
 
 
 ## 1. Project Purpose

@@ -1,3 +1,19 @@
+""" Import Modules """
 from django.test import TestCase
 
-# Create your tests here.
+class TestDjango(TestCase):
+
+    # def test_test_case_works(self):
+    #     self.assertEqual(1, 1)
+
+
+    # def test_test_case_works(self):
+    #     self.assertEqual(1, 2)
+
+
+    # def test_test_case_works(self):
+    #     self.assertEqual(1, )
+
+
+    def test_test_case_works(self):
+        self.assertEqual(1, 5)
