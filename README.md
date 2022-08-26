@@ -1,6 +1,6 @@
 ![YodaKode.com](https://res.cloudinary.com/rgcommercial/image/upload/v1660283182/static/images/yodaKode-256_wsgzti.png)
 
-# ReaBook - Property Promoter and Viewing Appointment Manager 
+# ReaBook - Your Real Estate Notebook 
 ## Full Stack Software Devlopment - Portfolio Project 4
 ### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL)
 
@@ -21,7 +21,7 @@ ReaBook is a real estate management application presenting the use of a Full Sta
 
 [A live version of the app can be accessed here](https://reabook.herokuapp.com/)
 
-The ReaBook is a theoretical business in the 'reveal'-estate services industry, matching properties for sale or rent (including office and private living spaces) to those looking for a property solution. It's simple business premise is to extend the versatility of the property seeking and viewing process.
+The ReaBook is a theoretical business in the 'reveal'-estate services industry, matching properties for sale or rent (including office and private living spaces) to those looking for a property solution. It's simple business premise is to extend the versatility of the property seeking and viewing process. This app is a Promoter and Viewing Appointment Manager.
 
 
 ```
@@ -58,11 +58,11 @@ SpaceScope has not been created within a team, rather the efforts of the main au
 #### Requirements Engineering:
 * Planning
     - User Centered Design Process
-        - [Strategy](static/ucd/1-strategy.md)
-        - [Scope](static/ucd/2-scope.md)
-        - [Structure](static/ucd/3-structure.md)
-        - [Skeleton](static/ucd/4-skeleton.md)
-        - [Surface](static/ucd/5-surface.md)
+        - [Strategy](static/documentation/ucd/1-strategy.md)
+        - [Scope](static/documentation/ucd/2-scope.md)
+        - [Structure](static/documentation/ucd/3-structure.md)
+        - [Skeleton](static/documentation/ucd/4-skeleton.md)
+        - [Surface](static/documentation/ucd/5-surface.md)
 
 * Understanding Requirements 
 * Analyze requirements 
@@ -78,8 +78,7 @@ SpaceScope has not been created within a team, rather the efforts of the main au
 #### Epics
 
 #### User Stories
-- Cards:
-https://github.com/users/roeszler/projects/4/views/1
+- Cards: https://github.com/users/roeszler/projects/4/views/1
 - Acceptance Criteria
 - Tasks
 - Story Point Value
