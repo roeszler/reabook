@@ -1,14 +1,57 @@
+.btn-outline-reabook {
+    color: #20514C;
+    border-color: #20514C;
+}
 
+.btn-outline-reabook:hover {
+    color: #fff;
+    border-color: #707070;
+    background-color: #20514C;
+}
 
 /* ------------------------ Media Queries */
 
 /* ------ Slightly larger container - min-width: 1200px - in XL screens */
-
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+  }
 
 
 /* ------ Med to Large container - min-width: 992px - MED Screens and UPWARDS */
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
 
+    /* 
+    Add 164 pixels of padding to our header container class to 
+    push the body down to the bottom of the main page navbar.
+    */
+    .header-container {
+        padding-top: 164px;
+    }
+}
 
 
 /* ------ Med to Large container - max-width: 991px - SML Screens and DOWNWARDS */
+@media (max-width: 991px) {
 
+    /*
+    Pad the top with 116px when navbar is collapsed on mobile 
+    116 is the height of the main site header on mobile.
+    */
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+}
