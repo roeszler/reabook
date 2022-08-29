@@ -28,6 +28,7 @@
     <!-- Core Scripts to load on the base.html page -->
     {% block core_js %}
     <!-- <script src="https://kit.fontawesome.com/c2dc8de795.js" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     {% endblock %}
 
     <!-- Section to add additional Js to add to each page as needed -->
@@ -39,9 +40,9 @@
 <body>
     <header>
         <!-- Div to contain logo home links, small search, my account and diary cart  -->
-        <div>
+        <!-- <div>
             <h1>Base Template Showing</h1>
-        </div>
+        </div> -->
 
         <!-- Site central navigation bar -->
         <div class="row bg-white">
@@ -66,7 +67,7 @@
                   </ul>
                   <form class="form form-inline my-2 my-lg-0" id="header-search">
                     {% csrf_token %}
-                    <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search in your area" aria-label="Search">
                     <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </div>
