@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block meta %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    {% endblock %}
+
+    <!-- Section to add additional meta to add to each page as needed -->
+    {% block extra_meta %}
+    {% endblock %}
+
+    <!-- Core css to add to each page -->
+    {% block core_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/yodakode/image/upload/v1661429849/YodaKode/yodaKode-favicon_bep1z3.ico">
+    {% endblock %}
+
+    <!-- Section to add additional css to add to each page as needed -->
+    {% block extra_css %}
+    {% endblock %}
+
+    <!-- Core Scripts to load on the base.html page -->
+    {% block core_js %}
+    <script></script>
+    {% endblock %}
+
+    <!-- Section to add additional Js to add to each page as needed -->
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>ReaBook {% block extra_title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <!-- Div to contain logo home links, small search, my account and diary cart  -->
+        <div>
+            <h1>Base Template</h1>
+        </div>
+
+        <!-- Site central navigation bar -->
+        <div>
+            <nav>
+                <!-- <ul><a href="">Buy</a></ul> -->
+                <!-- <ul><a href="">Sell</a></ul> -->
+                <!-- <ul><a href="">Rent</a></ul> -->
+                <ul><a href="{% url 'properties' %}">View</a></ul>
+                <ul><a href="{% url 'book' %}">Book</a></ul>
+            </nav>
+        </div>
+        
+        <!-- Delivery banner section -->
+        <div></div>
+
+    </header>
+
+    <!-- Message container section -->
+    {% if messages %}
+    <div></div>
+    {% endif %}
+
+    <!-- Subheader info header underneath the main header -->
+    {% block page_header %}
+    {% endblock %}
+
+    <!-- Main page content  -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Js to load at end -->
+    {% block postload_js %}
+    <script></script>
+    {% endblock %}
+</body>
+</html>

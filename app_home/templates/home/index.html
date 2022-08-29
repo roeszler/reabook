@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Central Page Container -->
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                app_home > index.html - The new property listings are here
+            </h1>
+
+            <!-- Book now Button -->
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'book' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Book Now</a>
+                </h4>
+            </div>
+
+            <!-- Central search bar section -->
+            <div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

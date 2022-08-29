@@ -56,6 +56,8 @@ INSTALLED_APPS = [
 
     'app_blog',
     'app_bookings',
+    'app_home',
+    'app_properties',
 ]
 
 # With 'django.contrib.sites', used by the social account app to create the
