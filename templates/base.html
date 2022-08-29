@@ -40,18 +40,19 @@
     <header>
         <!-- Div to contain logo home links, small search, my account and diary cart  -->
         <div>
-            <h1>Base Template</h1>
+            <h1>Base Template Showing</h1>
         </div>
 
         <!-- Site central navigation bar -->
         <div>
             <nav>
-                <!-- <ul><a href="">Buy</a></ul> -->
-                <!-- <ul><a href="">Sell</a></ul> -->
-                <!-- <ul><a href="">Rent</a></ul> -->
                 <ul><a href="{% url 'home' %}">Home</a></ul>
                 <ul><a href="{% url 'view_properties' %}">View</a></ul>
                 <ul><a href="{% url 'view_bookings' %}">Book</a></ul>
+                <!-- <ul><a href="">Buy</a></ul> -->
+                <!-- <ul><a href="">Sell</a></ul> -->
+                <!-- <ul><a href="">Rent</a></ul> -->
+                <!-- <ul><a href="{% url 'view_blogs' %}">Blog</a></ul> -->
             </nav>
         </div>
         
