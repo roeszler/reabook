@@ -1,3 +1,42 @@
+html {
+    height: 100%;
+}
+
+.masthead {
+    position: relative;
+    background-color: #343a40;
+    /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1660294528/samples/landscapes/architecture-signs.jpg") no-repeat center center fixed; */
+    /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/swimming-1661799586393-8852_kktuso.jpg") no-repeat top center fixed; */
+    background: url("https://res.cloudinary.com/yodakode/image/upload/v1661800784/ReaBook/richard-james-87J-YV_UFrM-unsplash_abvypq.jpg") no-repeat bottom center fixed;
+    background-size: cover;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    font-family: 'Roboto';
+  }
+
+.masthead:before {
+    content: "";
+    position: absolute;
+    background-color: #20514C;
+    /* background-color: #1c375e; */
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+}
+
+.masthead h1,
+.masthead span,
+.masthead .h1 {
+/* font-size: 3.5rem; */
+font-weight: 100;
+}
+
+.masthead span {
+    color: #000;
+}
+
 /* Green style to navbar search button */
 .btn-outline-reabook {
     color: #20514C;
@@ -10,6 +49,23 @@
     background-color: #20514C;
 }
 
+/* #headerSubmitButton {
+    color: #fff;
+    border-color: #fff;
+    background-color: #20514C;
+} */
+
+#headerSubmitButton:hover {
+    color: #20514C;
+    border-color: #f8f9fa;
+    background-color: #f8f9fa;
+}
+
+/* --------------- Cards */
+.property-card {
+    padding-top: 2.5rem;
+    text-align: center;
+}
 
 /* ------------------------ Media Queries */
 
@@ -55,5 +111,14 @@
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .masthead {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+
+    .masthead h1, .masthead .h1 {
+        font-size: 3rem;
     }
 }

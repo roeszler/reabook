@@ -2,32 +2,72 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
+<!-- Masthead-->
+<section class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center h-100">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="display-4 logo-font text-black mb-2">New property listings have arrived</h1>
+                    <span>
+                        <a class="col-2 d-inline-block text-white mt-1 mb-5">buy</a>|
+                        <a class="col-2 d-inline-block text-white mt-1 mb-5">sell</a>|
+                        <a class="col-2 d-inline-block text-white mt-1 mb-5">rent</a>|
+                        <a class="col-2 d-inline-block text-white mt-1 mb-5">lease</a>
+                    </span>
+                    <!-- Main header search bar-->
+                    <form class="form" id="headerSearchBar">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+                              <input class="form-control form-control-lg" type="search" placeholder="search in your area" aria-label="Search">
+                            </div>
+                            <div class="col-auto">
+                              <button class="btn btn-primary btn-lg" id="headerSubmitButton" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+  </section>
 {% endblock %}
 
 {% block content %}
 
 <!-- Central Page Container -->
-<div class="container h-100">
+<div class="property-card container h-100">
     <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">
-                New property listings are here
-            </h1>
-
+        <div class="col-3 col-md-3 my-auto">
+            <h4 class="logo-font text-black">property card 1...</h4>
             <!-- Book now Button -->
             <div class="my-5">
-                <h4>
-                    <a href="{% url 'view_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Book Viewings Now</a>
-                </h4>
+                <p><a href="{% url 'view_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
             </div>
-
-            <!-- Central search bar section -->
-            <div></div>
+        </div>
+        <div class="col-3 col-md-3 my-auto">
+            <h4 class="logo-font text-black">property card 2...</h4>
+            <!-- Book now Button -->
+            <div class="my-5">
+                <p><a href="{% url 'view_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+            </div>
+        </div>
+        <div class="col-3 col-md-3 my-auto">
+            <h4 class="logo-font text-black">property card 3...</h4>
+            <!-- Book now Button -->
+            <div class="my-5">
+                <p><a href="{% url 'view_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+            </div>
+        </div>
+        <div class="col-3 col-md-3 my-auto">
+            <h4 class="logo-font text-black">property card 4...</h4>
+            <!-- Book now Button -->
+            <div class="my-5">
+                <p><a href="{% url 'view_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+            </div>
         </div>
     </div>
 </div>
