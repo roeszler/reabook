@@ -2,6 +2,10 @@ html {
     height: 100%;
 }
 
+input:focus::placeholder {
+    color: transparent;
+  }
+
 .masthead {
     position: relative;
     background-color: #343a40;
@@ -9,8 +13,8 @@ html {
     /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/swimming-1661799586393-8852_kktuso.jpg") no-repeat top center fixed; */
     background: url("https://res.cloudinary.com/yodakode/image/upload/v1661800784/ReaBook/richard-james-87J-YV_UFrM-unsplash_abvypq.jpg") no-repeat bottom center fixed;
     background-size: cover;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 11rem;
+    padding-bottom: 11rem;
     font-family: 'Roboto';
   }
 
@@ -36,6 +40,8 @@ font-weight: 100;
 .masthead span {
     color: #000;
 }
+
+/* ------------ Navbar */
 
 /* Green style to navbar search button */
 .btn-outline-reabook {

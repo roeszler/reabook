@@ -26,5 +26,11 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
       "postload"
-   ]
+   ],
+   "[yaml]": {
+      "editor.tabSize": 4
+   },
+   "[dockercompose]": {
+      "editor.tabSize": 4
+   }
 }
