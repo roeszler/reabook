@@ -1,0 +1,42 @@
+[
+    {
+      "pk": 1,
+      "model": "app_properties.category",
+      "fields": {
+        "name": "for_sale",
+        "friendly_name": "For Sale"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "app_properties.category",
+      "fields": {
+        "name": "for_rent",
+        "friendly_name": "For Rent"
+      }
+    },
+    {
+        "pk": 3,
+        "model": "app_properties.category",
+        "fields": {
+            "name": "for_lease",
+            "friendly_name": "Spaces For Lease"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "app_properties.category",
+        "fields": {
+            "name": "residential",
+            "friendly_name": "Residential Properties"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "app_properties.category",
+        "fields": {
+            "name": "commercial",
+            "friendly_name": "Commercial Properties"
+        }
+    }
+]
