@@ -14,18 +14,46 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font"><i class="fas fa-bookmark"></i> ReaBook Properties</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Properties</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
     <!-- Property Container -->
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2">
-                <div class="row">
-                    {% for property in properties %}
-                    {% endfor %}
+            <div class="row mt-1 mb-2"></div>
+            <div class="row">
+                {% for property in properties %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 border-0">
+                        {% if property.image %}
+                        <a href="">
+                            <img src="{{ property.image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ property.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ property.name }}</p>
+                        </div>
+                        <div class="card-footer bg-light pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">
+                                        {% if property.sale_price > 0 %}
+                                            Property for Sale. Make an offer: ${{ property.sale_price }}
+                                        {% else %}
+                                            Property available for Rent: ${{ property.rent_pw }} per week, starting {{ property.list }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
