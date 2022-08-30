@@ -5,17 +5,17 @@
       "fields": {
         "sku": "pp5001340155",
         "name": "Arizona Delight",
-        "description": "A superb bungalow. House Ideally positioned in one of Adelaide's most popular and convenient blueribbon neighbourhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
-        "sale_price": 1039000.00,
-        "rent_pw": 1390.00,
-        "category": 1, // for sale
+        "description": "A superb bungalow. House Ideally positioned in one of Adelaide's most popular and convenient blue ribbon neighborhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
+        "sale_price": 1039000,
+        "rent_pw": 1390,
+        "category": 1,
         "rating": 4.6,
         "main_image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0709201205510679M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
-        "main_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "bath_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "kitchen_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "bedroom_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "living_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
+        "main_image": "DP0709201205510679M.jpg",
+        "bath_image": "DP0709201205510679M.jpg",
+        "kitchen_image": "DP0709201205510679M.jpg",
+        "bedroom_image": "DP0709201205510679M.jpg",
+        "living_image": "DP0709201205510679M.jpg",
         "bedrooms": 4,
         "bathrooms": 2,
         "carports": 2,
@@ -29,8 +29,8 @@
         "state": "Arizona",
         "country": "USA",
         "postcode": "85750",
-        "build_date": 08302074,
-        "list_date": 08302022
+        "build_date": "1972-04-30",
+        "list_date": "1922-04-30"
       }
     },
     {
@@ -39,17 +39,17 @@
       "fields": {
         "sku": "pp5001600425",
         "name": "Classic Adelaide Bungalow",
-        "description": "A superb bungalow. House Ideally positioned in one of Adelaide's most popular and convenient blueribbon neighbourhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
-        "sale_price": 1289000.00,
-        "rent_pw": 1740.00,
-        "category": 2, // for rent
+        "description": "A superb bungalow. House Ideally positioned in one of Adelaide's most popular and convenient blue ribbon neighborhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
+        "sale_price": 1289000,
+        "rent_pw": 1740,
+        "category": 2,
         "rating": 4.6,
         "main_image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0113201617034987M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
-        "main_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "bath_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "kitchen_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "bedroom_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-        "living_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
+        "main_image": "DP0709201205510679M.jpg",
+        "bath_image": "DP0709201205510679M.jpg",
+        "kitchen_image": "DP0709201205510679M.jpg",
+        "bedroom_image": "DP0709201205510679M.jpg",
+        "living_image": "DP0709201205510679M.jpg",
         "bedrooms": 4,
         "bathrooms": 2,
         "carports": 2,
@@ -63,8 +63,8 @@
         "state": "South Australia",
         "country": "Australia",
         "postcode": "5045",
-        "build_date": 08302074,
-        "list_date": 08302022
+        "build_date": "1972-04-30",
+        "list_date": "1922-04-30"
       }
     },
     {
@@ -73,17 +73,17 @@
         "fields": {
           "sku": "pp5001600425",
           "name": "Central London Living",
-          "description": "A superb apartment. House Ideally positioned in one of London's most popular and convenient neighbourhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
-          "sale_price": 1189000.00,
-          "rent_pw": 1390.00,
-          "category": 2, // for rent
+          "description": "A superb apartment. House Ideally positioned in one of London's most popular and convenient neighborhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
+          "sale_price": 1189000,
+          "rent_pw": 1390,
+          "category": 2,
           "rating": 3.6,
           "main_image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0113201617034987M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
-          "main_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "bath_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "kitchen_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "bedroom_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "living_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
+          "main_image": "DP0709201205510679M.jpg",
+          "bath_image": "DP0709201205510679M.jpg",
+          "kitchen_image": "DP0709201205510679M.jpg",
+          "bedroom_image": "DP0709201205510679M.jpg",
+          "living_image": "DP0709201205510679M.jpg",
           "bedrooms": 3,
           "bathrooms": 1,
           "carports": 0,
@@ -97,8 +97,8 @@
           "state": "Middlesex",
           "country": "United Kingdom",
           "postcode": "N15NY",
-          "build_date": 08302074,
-          "list_date": 08302022,
+          "build_date": "1972-04-30",
+          "list_date": "1922-04-30"
         }
       },
       {
@@ -107,17 +107,17 @@
         "fields": {
           "sku": "pp5001600425",
           "name": "Superb Stockholm Apartment",
-          "description": "A superb apartment. House Ideally positioned in one of Adelaide's most popular and convenient blueribbon neighbourhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
-          "price": 1189000.00,
-          "rent_pw": 1390.00,
-          "category": 3, // for lease
+          "description": "A superb apartment. House Ideally positioned in one of Adelaide's most popular and convenient blue ribbon neighborhoods. This period feature home delivers a ready to enjoy lifestyle at one of the cities premiere beaches. Listed 5 days ago. Character bungalow with big land_area, north facing, rear access.\" Available for bookings online only",
+          "price": 1189000,
+          "rent_pw": 1390,
+          "category": 3,
           "rating": 4.8,
           "main_image_url": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "main_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "bath_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "kitchen_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "bedroom_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
-          "living_image": "https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/interior-1661799603503-244_iq2gjq.jpg",
+          "main_image": "DP0709201205510679M.jpg",
+          "bath_image": "DP0709201205510679M.jpg",
+          "kitchen_image": "DP0709201205510679M.jpg",
+          "bedroom_image": "DP0709201205510679M.jpg",
+          "living_image": "DP0709201205510679M.jpg",
           "bedrooms": 3, 
           "bathrooms": 1,
           "carports": 1,
@@ -131,8 +131,8 @@
           "state": "Stockholm län",
           "country": "Sweden",
           "postcode": "12345",
-          "build_date": 08302074,
-          "list_date": 08302022
+          "build_date": "1972-04-30",
+          "list_date": "1922-04-30"
         }
       }
 ]
