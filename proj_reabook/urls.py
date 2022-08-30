@@ -24,8 +24,8 @@ urlpatterns = [
     path('blog/', include('app_blog.urls')),
     path('book/', include('app_bookings.urls')),
     path('', include('app_home.urls')),
-    path('properties/', include('app_properties.urls')),
-    
+    path('properties/', include('app_properties.urls'))
 ]
+
 
 handler404 = 'proj_reabook.views.handler404'

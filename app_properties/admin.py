@@ -6,9 +6,8 @@ from .models import Property, Category, Sector
 class PropertyAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for properties """
     list_display = (
-        'pk',
-        'list_date',
         'title_no',
+        'list_date',
         # 'owner_fname',
         # 'owner_lname',
         # 'unit_no',
@@ -21,12 +20,13 @@ class PropertyAdmin(admin.ModelAdmin):
         'sale_price',
         'rent_pw',
         # 'category',
+        'pk',
         'main_image',
     )
 
     ordering = (
-        '-pk', 'list_date', 'sale_price', 'rent_pw', 'owner_lname',
-        'city', 'postcode', 'title_no', 'category'
+        'title_no', 'list_date', 'pk', 'sale_price', 'rent_pw', 'owner_lname',
+        'city', 'postcode', 'category'
     )
 
 

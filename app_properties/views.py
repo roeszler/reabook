@@ -1,10 +1,19 @@
 """ Import Modules """
 from django.shortcuts import render
 
+from .models import Property
 
-def view_properties(request):
+
+def all_properties(request):
     """
-    View to render the properties page
-    Looks within the current directory app_properties/templates/properties/properties.html
+    View to render all properties page that includes search queries and sorting
     """
-    return render(request, 'properties/properties.html')
+
+    properties = Property.objects.all()
+
+    context = {
+        'properties': properties,
+    }
+
+
+    return render(request, 'properties/properties.html', context)
