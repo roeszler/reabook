@@ -6,6 +6,7 @@ class Category(models.Model):
     """ To contain the data from the categories.json fixtures file  """
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    verbose_name_plural = 'Categories'
 
     def __str__(self):
         """ Takes in the category model to return db name """
@@ -32,8 +33,12 @@ class Sector(models.Model):
 
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
+    verbose_name_plural = 'Properties'
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL
+        )
+    sector = models.ForeignKey(
+        'Sector', null=True, blank=True, on_delete=models.SET_NULL
         )
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
