@@ -32,7 +32,9 @@
                         </a>
                         {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ property.name }}"> -->
+                            <!-- <img class="card-img-top img-fluid" src="/media/noimage.png" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661879668/ReaBook/noimage_lqtasa.png" alt="{{ property.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
@@ -43,16 +45,41 @@
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">
                                         {% if property.sale_price > 0 %}
-                                            Property for Sale. Make an offer: ${{ property.sale_price }}
+                                        <small class="fw-lighter"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.<br>Make an offer: ${{ property.sale_price }}</small>
                                         {% else %}
-                                            Property available for Rent: ${{ property.rent_pw }} per week, starting {{ property.list }}
+                                        <small class="text-muted"><i class="fas fa-tasks reabook-logo"></i> Property available for Rent:<br>${{ property.rent_pw }} per week, starting {{ property.date_available }}</small>
                                         {% endif %}
                                     </p>
+                                    {% if property.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ property.rating }} / 5</small>
+                                    {% else %}
+                                    <small class="text-muted">Not Rating Yet</small>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
