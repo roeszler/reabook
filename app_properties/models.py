@@ -16,6 +16,20 @@ class Category(models.Model):
         return self.friendly_name
 
 
+class Sector(models.Model):
+    """ To contain the data from the categories.json fixtures file  """
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        """ Takes in the category model to return db name """
+        return self.name
+
+    def get_friendly_name(self):
+        """ Takes in the category model to return friendly_name """
+        return self.friendly_name
+
+
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
     category = models.ForeignKey(
