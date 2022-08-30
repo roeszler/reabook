@@ -23,7 +23,7 @@ class PropertyAdmin(admin.ModelAdmin):
         # 'category',
         'pk',
         'main_image',
-        # 'avail_date',
+        # 'date_available',
     )
 
     ordering = (

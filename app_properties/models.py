@@ -74,7 +74,7 @@ class Property(models.Model):
     postcode = models.CharField(max_length=10)
     build_date = models.DateField(null=True, blank=True)
     list_date = models.DateField()
-    # avail_date = models.DateField(null=True, blank=True)
+    date_available = models.DateField(null=True, blank=True)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
 
