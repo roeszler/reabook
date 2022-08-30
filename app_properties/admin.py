@@ -7,8 +7,16 @@ class PropertyAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for properties """
     list_display = (
         'title_no',
-        'sku',
-        'name',
+        'owner_fname',
+        'owner_lname',
+        'unit_no',
+        'suburb',
+        'house_no',
+        'house_no',
+        'house_no',
+        'house_no',
+        'category',
+        'main_image',
     )
 
 

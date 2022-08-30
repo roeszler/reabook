@@ -65,6 +65,8 @@ class Property(models.Model):
     air_conditioning = models.IntegerField(null=False, blank=False)
     unit_no = models.IntegerField(null=True, blank=True)
     house_no = models.IntegerField(null=True, blank=True)
+    level = models.IntegerField(null=True, blank=True)
+    street = models.CharField(max_length=40, null=True, blank=True)
     suburb = models.CharField(max_length=40)
     city = models.CharField(max_length=40)
     state = models.CharField(max_length=40, null=True, blank=True)
