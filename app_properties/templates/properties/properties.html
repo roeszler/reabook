@@ -38,16 +38,18 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ property.name }}</p>
+                            <p class="mb-0 font-weight-bold">{{ property.name }}</p>
                         </div>
                         <div class="card-footer bg-light pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">
                                         {% if property.sale_price > 0 %}
-                                        <small class="fw-lighter"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.<br>Make an offer: ${{ property.sale_price }}</small>
+                                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> Make an offer: $<strong>{{ property.sale_price }}</strong></p>
                                         {% else %}
-                                        <small class="text-muted"><i class="fas fa-tasks reabook-logo"></i> Property available for Rent:<br>${{ property.rent_pw }} per week, starting {{ property.date_available }}</small>
+                                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk starts {{ property.date_available }}</p>
                                         {% endif %}
                                     </p>
                                     {% if property.rating %}
