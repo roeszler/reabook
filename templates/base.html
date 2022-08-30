@@ -57,6 +57,7 @@
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <a class="navbar-brand" href="{% url 'home' %}"><img
                             src="https://res.cloudinary.com/yodakode/image/upload/v1661790292/ReaBook/ReaBook_Icon_00402B_gray_nxe3tn.png"
@@ -82,14 +83,14 @@
                         <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
                     </form>
 
-                    <!-- Account Controls -->
+                    <!-- Dropdown Account Controls -->
                     <ul class="navbar-nav ml-4 navbar-right">
-                        <li class="dropdown nav-item">
-                            <a id="user-options" href="#" class="nav-link">
-                                <span class="fas fa-sign-in-alt" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span> My Account
+                        <li class="dropdown">
+                            <a id="user-options" href="#" class="dropdown-header nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="fas fa-user"></span> My Account
                             </a>
 
-                            <!-- dropdown menu items -->
+                            <!-- Dropdown menu items -->
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 <h6 class="dropdown-header">Dropdown header test</h6>
                                 {% if request.user.is_authenticated %}
@@ -106,8 +107,8 @@
                         </li>
 
                         <!-- Bookings diary with display of total current appointments -->
-                        <li class="nav-item"><a href="#" class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"><span class="fas fa-book" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"></span> Bookings: <span class="my-0">
+                        <li class="nav-item"><a href="#" class="dropdown-header {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span class="fas fa-book"></span> Bookings: <span class="my-0">
                                     {% if grand_total %}
                                     ${{ grand_total | floatformat:2 }}
                                     {% else %}
@@ -115,9 +116,6 @@
                                     {% endif %}
                                 </span></a>
                         </li>
-                    </ul>
-        
-                        
                     </ul>
                 </div>
             </nav>
@@ -148,11 +146,9 @@
 
     <!-- Js to load at end -->
     {% block postload_js %}
-    <!-- <script>
-        $("#user-options").click(function(){ // on image click
-            $("#user-options").toggleClass("active"); // toggle dropdown display
-        });
-    </script> -->
+    <script>
+        $('.dropdown-toggle').dropdown();
+    </script>
     {% endblock %}
 </body>
 
