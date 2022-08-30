@@ -53,4 +53,5 @@ class Property(models.Model):
     list_date = models.DateField()
 
     def __str__(self):
+        """ Takes in product display model and returns name """
         return self.name
