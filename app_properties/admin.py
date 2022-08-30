@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from .models import Property, Category, Sector
 
+
 class PropertyAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for properties """
     list_display = (
@@ -22,6 +23,7 @@ class PropertyAdmin(admin.ModelAdmin):
         # 'category',
         'pk',
         'main_image',
+        # 'avail_date',
     )
 
     ordering = (
@@ -41,13 +43,14 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class SectorAdmin(admin.ModelAdmin):
-    """ To edit the fields shown on the django admin section for market sectors """
+    """ To edit the fields shown on the django admin section 'sectors' """
     list_display = (
         'friendly_name',
         'name',
     )
 
     ordering = ('-friendly_name', )
+
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Category, CategoryAdmin)

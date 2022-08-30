@@ -15,5 +15,4 @@ def all_properties(request):
         'properties': properties,
     }
 
-
     return render(request, 'properties/properties.html', context)

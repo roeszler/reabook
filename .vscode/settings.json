@@ -26,7 +26,8 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
     "Glenelg",
-    "postload"
+    "postload",
+    "Radbrook"
 ],
    "[yaml]": {
       "editor.tabSize": 4
