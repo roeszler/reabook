@@ -55,6 +55,10 @@ font-weight: 100;
     background-color: #20514C;
 }
 
+.dropdown {
+    z-index: 9999;
+}
+
 /* #headerSubmitButton {
     color: #fff;
     border-color: #fff;
