@@ -72,8 +72,59 @@ font-weight: 100;
 /* --------------- Cards */
 .property-card {
     padding-top: 2.5rem;
-    text-align: center;
+    /* text-align: center; */
 }
+
+/* Property card ribbon */
+.property-card > p {
+    position: absolute;
+	width: 65%;
+	padding: 3px 20px 3px 10px;
+	margin: 10px 10px 10px -5px;
+	color: #fff;
+	background-color: #20514C;
+    border-radius: 0px 3px 3px 0px;
+	box-shadow: 0px 1px 2px #000;
+	-webkit-box-shadow: 0px 1px 2px #000;
+	-moz-box-shadow: 0px 1px 2px #000;
+}
+
+/* ------ Ribbon wrap around effect */
+.property-card > p:before, 
+.property-card > p:after {
+	content: ' ';
+	position: absolute;
+}
+
+.property-card > p:after {
+	left: 0px;
+	top: 100%;
+	border-width: 5px 3px;
+	border-style: solid;
+	border-color: #000 #000 transparent transparent;
+}
+
+/* ------ Ribbon feather flag cutaway */
+
+/* 
+.property-card > p:before {
+	border-width: 15px 10px;
+	border-style: solid;
+	border-color: #999 #999 #999 transparent;
+}
+
+.property-card > p.simple:before {
+	display: none;
+}
+
+.property-card > p.ribbon:before {
+	width: 0px;
+	left: auto;
+	right: -2px;
+	top: 0px;
+	border-color: transparent #fff transparent transparent;
+} 
+*/
 
 /* ------------------------ Media Queries */
 
