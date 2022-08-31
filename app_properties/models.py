@@ -44,6 +44,7 @@ class Property(models.Model):
         )
     title_no = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=30)
+    ribbon_feature = models.CharField(max_length=20, default="New Listing")
     description = models.TextField()
     sale_price = models.IntegerField(null=False, blank=False, default=0)
     rent_pw = models.IntegerField(null=False, blank=False, default=0)
