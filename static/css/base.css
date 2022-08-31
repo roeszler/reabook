@@ -136,6 +136,20 @@ font-weight: 100;
 .property-card a:hover {
     opacity: 1;
     transition: .5s ease;
+    background-color: #20514C;
+
+    animation-name: property-card-zoom;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes property-card-zoom {
+    from{
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.02) rotate(1deg);
+    }
 }
 
 /* ------------------------ Media Queries */
