@@ -43,10 +43,10 @@ class Property(models.Model):
         'Sector', null=True, blank=True, on_delete=models.SET_NULL
         )
     title_no = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=30)
     description = models.TextField()
-    sale_price = models.IntegerField(null=False, blank=False)
-    rent_pw = models.IntegerField(null=False, blank=False)
+    sale_price = models.IntegerField(null=False, blank=False, default=0)
+    rent_pw = models.IntegerField(null=False, blank=False, default=0)
     rating = models.DecimalField(
         max_digits=3, decimal_places=1, null=True, blank=True
         )
@@ -74,6 +74,7 @@ class Property(models.Model):
     postcode = models.CharField(max_length=10)
     build_date = models.DateField(null=True, blank=True)
     list_date = models.DateField()
+    list_duration = models.IntegerField(null=False, blank=False, default=30)
     date_available = models.DateField(null=True, blank=True)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
