@@ -1,34 +1,34 @@
 [
-    {
-        "pk": 1,
-        "model": "app_properties.sector",
-        "fields": {
-            "name": "residential",
-            "friendly_name": "Residential Properties"
-        }
-    },
-    {
-        "pk": 2,
-        "model": "app_properties.sector",
-        "fields": {
-            "name": "commercial",
-            "friendly_name": "Commercial Properties"
-        }
-    },
-    {
-        "pk": 3,
-        "model": "app_properties.sector",
-        "fields": {
-            "name": "rural_residential",
-            "friendly_name": "Rural Residential Properties"
-        }
-    },
-    {
-        "pk": 4,
-        "model": "app_properties.sector",
-        "fields": {
-            "name": "rural_commercial",
-            "friendly_name": "Rural Commercial Properties"
-        }
+{
+    "pk": 1,
+    "model": "app_properties.sector",
+    "fields": {
+        "name": "residential",
+        "friendly_name": "Residential Properties"
     }
+},
+{
+    "pk": 2,
+    "model": "app_properties.sector",
+    "fields": {
+        "name": "commercial",
+        "friendly_name": "Commercial Properties"
+    }
+},
+{
+    "pk": 3,
+    "model": "app_properties.sector",
+    "fields": {
+        "name": "rural_residential",
+        "friendly_name": "Rural Residential Properties"
+    }
+},
+{
+    "pk": 4,
+    "model": "app_properties.sector",
+    "fields": {
+        "name": "rural_commercial",
+        "friendly_name": "Rural Commercial Properties"
+    }
+}
 ]

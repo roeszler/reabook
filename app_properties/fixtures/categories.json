@@ -1,26 +1,25 @@
-[
-    {
-      "pk": 1,
-      "model": "app_properties.category",
-      "fields": {
+[{
+    "pk": 1,
+    "model": "app_properties.category",
+    "fields": {
         "name": "for_sale",
         "friendly_name": "For Sale"
-      }
-    },
-    {
-      "pk": 2,
-      "model": "app_properties.category",
-      "fields": {
+    }
+},
+{
+    "pk": 2,
+    "model": "app_properties.category",
+    "fields": {
         "name": "for_rent",
         "friendly_name": "For Rent"
-      }
-    },
-    {
-        "pk": 3,
-        "model": "app_properties.category",
-        "fields": {
-            "name": "for_lease",
-            "friendly_name": "Spaces For Lease"
-        }
     }
+},
+{
+    "pk": 3,
+    "model": "app_properties.category",
+    "fields": {
+        "name": "for_lease",
+        "friendly_name": "Spaces For Lease"
+    }
+}
 ]

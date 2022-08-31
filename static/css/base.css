@@ -11,10 +11,12 @@ input:focus::placeholder {
     background-color: #343a40;
     /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1660294528/samples/landscapes/architecture-signs.jpg") no-repeat center center fixed; */
     /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1661799738/ReaBook/swimming-1661799586393-8852_kktuso.jpg") no-repeat top center fixed; */
-    background: url("https://res.cloudinary.com/yodakode/image/upload/v1661800784/ReaBook/richard-james-87J-YV_UFrM-unsplash_abvypq.jpg") no-repeat bottom center fixed;
+    background: url("https://res.cloudinary.com/yodakode/image/upload/v1661965930/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg") no-repeat bottom center fixed;
+    /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1661965929/ReaBook/tiago-rodrigues-yKRdX-kY8TE-unsplash_taoxmg.jpg") no-repeat bottom center fixed; */
+    /* background: url("https://res.cloudinary.com/yodakode/image/upload/v1661965929/ReaBook/evelyn-paris-QR_vT8_hBZM-unsplash_bupcq2.jpg") no-repeat bottom center fixed; */
     background-size: cover;
-    padding-top: 11rem;
-    padding-bottom: 11rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
     font-family: 'Roboto';
   }
 
@@ -87,6 +89,7 @@ font-weight: 100;
 	box-shadow: 0px 1px 2px #000;
 	-webkit-box-shadow: 0px 1px 2px #000;
 	-moz-box-shadow: 0px 1px 2px #000;
+    z-index: 2;
 }
 
 /* ------ Ribbon wrap around effect */
@@ -125,6 +128,15 @@ font-weight: 100;
 	border-color: transparent #fff transparent transparent;
 } 
 */
+
+.property-card a {
+    opacity: 0.5;
+}
+
+.property-card a:hover {
+    opacity: 1;
+    transition: .5s ease;
+}
 
 /* ------------------------ Media Queries */
 
