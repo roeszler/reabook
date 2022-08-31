@@ -26,7 +26,7 @@
                 {% for property in properties %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card property-card h-100 border-0">
-                        <p class="ribbon">{{ property.ribbon_feature }}</p>
+                        <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
                         {% if property.main_image %}
                         <a href="">
                             <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
