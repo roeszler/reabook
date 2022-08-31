@@ -26,13 +26,13 @@
                 {% for property in properties %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
-                        {% if property.image %}
+                        {% if property.main_image %}
                         <a href="">
-                            <img src="{{ property.image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
+                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
                         </a>
                         {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661879668/ReaBook/noimage_lqtasa.png" alt="{{ property.name }}">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
