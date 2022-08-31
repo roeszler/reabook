@@ -9,21 +9,14 @@ class PropertyAdmin(admin.ModelAdmin):
     list_display = (
         'title_no',
         'list_date',
-        # 'owner_fname',
-        # 'owner_lname',
-        # 'unit_no',
         'house_no',
         'street',
-        # 'suburb',
         'city',
-        # 'country',
         'postcode',
         'sale_price',
         'rent_pw',
-        # 'category',
         'pk',
         'main_image',
-        # 'date_available',
     )
 
     ordering = (

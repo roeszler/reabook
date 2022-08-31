@@ -103,6 +103,10 @@ font-weight: 100;
     .header-container {
         padding-top: 164px;
     }
+
+    .header-container-subpages {
+        padding-top: 104px;
+    }
 }
 
 
@@ -115,6 +119,10 @@ font-weight: 100;
     */
     .header-container {
         padding-top: 116px;
+    }
+
+    .header-container-subpages {
+        padding-top: 75px;
     }
 
     body {

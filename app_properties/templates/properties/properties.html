@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container header-container-subpages">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -46,10 +46,13 @@
                                     <p class="lead mb-0 text-left font-weight-bold">
                                         {% if property.sale_price > 0 %}
                                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
-                                                <br><i class="fas fa-bookmark reabook-logo"></i> Make an offer: $<strong>{{ property.sale_price }}</strong></p>
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price }}</strong>
+                                                <br><small>Listed: {{ property.list_date }}</small></p>
+                                            </p>
                                         {% else %}
                                             <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
-                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk starts {{ property.date_available }}</p>
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk
+                                                <br><small>Available: {{ property.date_available }}</small></p>
                                         {% endif %}
                                     </p>
                                     {% if property.rating %}
@@ -62,6 +65,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Adaptive of horizontal rules -->
                 {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
                         <hr>
