@@ -24,7 +24,7 @@
                               <input class="form-control form-control-lg" type="search" placeholder="search for properties in your area" aria-label="Search">
                             </div>
                             <div class="col-auto">
-                              <button class="btn btn-outline-reabook-yellow btn-lg" id="headerSubmitButton" type="submit">Search</button>
+                              <button class="btn btn-primary btn-lg" id="headerSubmitButton" type="submit">Search</button>
                             </div>
                         </div>
                     </form>
@@ -42,7 +42,7 @@
     <!-- Heading -->
     <div class="row">
         <div class="col text-center mt-5">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Newly Listed Properties</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Today</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
@@ -54,14 +54,15 @@
             <div class="row">
                 
                 <!-- Buy -->
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
-                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <p class="ribbon">Buy Properties</p>
                         <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1662052712/ReaBook/photo-1523217582562-09d0def993a6.avif_jb4l0z.png" alt="{{ property.name }}">
                         </a>
                         <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">Property Name</p>
+                            <p class="mb-0 font-weight-bold">Hilltop Splendor</p>
                         </div>
                         <div class="card-footer bg-light mt-1 bt-1">
                             <div class="row">
@@ -75,7 +76,7 @@
                                     <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                            <a href="#" class="btn btn-primary text-center btn-block">Inspect</a>
                         </div>
                         <!-- Import DB from other app -->
                         <!-- <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
@@ -119,14 +120,15 @@
                 </div>
 
                 <!-- Sell -->
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
-                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <p class="ribbon">Sell Properties</p>
                         <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1662053287/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_wkhau3.png" alt="{{ property.name }}">
                         </a>
                         <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">Property Name</p>
+                            <p class="mb-0 font-weight-bold">Beachside Beauty</p>
                         </div>
                         <div class="card-footer bg-light mt-1 bt-1">
                             <div class="row">
@@ -140,20 +142,21 @@
                                     <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                            <a href="#" class="btn btn-primary text-center btn-block">List</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rent -->
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
-                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <p class="ribbon">Rent Properties</p>
                         <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1662053486/ReaBook/pexels-max-vakhtbovych-6492402-squared_nwszn8.jpg" alt="{{ property.name }}">
                         </a>
                         <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">Property Name</p>
+                            <p class="mb-0 font-weight-bold">Central Style</p>
                         </div>
                         <div class="card-footer bg-light mt-1 bt-1">
                             <div class="row">
@@ -167,7 +170,35 @@
                                     <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                            <a href="#" class="btn btn-primary text-center btn-block">Find</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lease -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                    <div class="card index-property-card h-100 border-0 text-center">
+                        <p class="ribbon">Lease Space</p>
+                        <a href="">
+                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1662054656/ReaBook/jason-leung-poI7DelFiVA-unsplash_l6e6kr.png" alt="{{ property.name }}">
+                        </a>
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">A Tasty Treat</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold"></p>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
+                                        <br><small>Listed: Monday 29 August 2022</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    </p>
+                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary text-center btn-block">Learn</a>
                         </div>
                     </div>
                 </div>

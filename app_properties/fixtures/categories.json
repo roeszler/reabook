@@ -19,7 +19,7 @@
     "model": "app_properties.category",
     "fields": {
         "name": "for_lease",
-        "friendly_name": "Spaces For Lease"
+        "friendly_name": "Spaces for Lease"
     }
 }
 ]

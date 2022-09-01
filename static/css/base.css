@@ -73,11 +73,11 @@ font-weight: 100;
 
 /* ------------ Landing page search bar */
 
-.btn-outline-reabook-yellow {
+/* .btn-outline-reabook-yellow {
     color: #000;
     border-color: #F8C176;
     background-color: #F8C176;
-}
+} */
 
 /* --------------- Cards */
 .property-card {
@@ -154,9 +154,11 @@ font-weight: 100;
 @keyframes property-card-zoom {
     from{
         transform: scale(1);
+        /* margin-left: 0%; */
     }
     to {
         transform: scale(1.02) rotate(1deg);
+        /* margin-left: 1.5%; */
     }
 }
 
@@ -174,7 +176,8 @@ font-weight: 100;
 	padding: 3px 20px 3px 10px;
 	margin: 10px 10px 10px -5px;
 	color: #fff;
-	background-color: #20514C;
+	/* background-color: #007BFF; */
+    background-color: #000;
     border-radius: 0px 3px 3px 0px;
 	box-shadow: 0px 1px 2px #000;
 	-webkit-box-shadow: 0px 1px 2px #000;
@@ -220,9 +223,11 @@ font-weight: 100;
 @keyframes index-property-card-zoom {
     from{
         transform: scale(1);
+        margin-left: 0%;
     }
     to {
-        transform: scale(1.02);
+        transform: scale(1.02)
+        margin-left: 1.5%;
     }
 }
 
