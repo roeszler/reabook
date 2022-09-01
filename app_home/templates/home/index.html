@@ -38,7 +38,81 @@
 
 {% block content %}
 
-<!-- Central Page Container -->
+<div class="container-fluid">
+    <!-- Heading -->
+    <div class="row">
+        <div class="col text-center mt-5">
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Newly Listed Properties</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+
+    <!-- Central Page Container -->
+    <div class="property-card container h-100">
+        <div class="row h-100">
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-auto">
+                <h4 class="logo-font text-black">property card 1...</h4>
+                <!-- Book now Button -->
+                <div class="my-5">
+                    <p><a href="{% url 'view_bookings' %}"
+                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 my-auto">
+                <h4 class="logo-font text-black">property card 2...</h4>
+                <!-- Book now Button -->
+                <div class="my-5">
+                    <p><a href="{% url 'view_bookings' %}"
+                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 my-auto">
+                <h4 class="logo-font text-black">property card 3...</h4>
+                <!-- Book now Button -->
+                <div class="my-5">
+                    <p><a href="{% url 'view_bookings' %}"
+                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 my-auto">
+                <h4 class="logo-font text-black">property card 4...</h4>
+                <!-- Book now Button -->
+                <div class="my-5">
+                    <p><a href="{% url 'view_bookings' %}"
+                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Feature Card -->
+<div class="card text-center">
+    <div class="card-header">
+        Featured
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>
+
+<!-- insert -->
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
+<!-- Old Container -->
 <div class="property-card container h-100">
     <div class="row h-100">
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-auto">
