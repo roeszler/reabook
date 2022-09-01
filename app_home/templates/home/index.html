@@ -21,10 +21,10 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col">
-                              <input class="form-control form-control-lg" type="search" placeholder="search in your area" aria-label="Search">
+                              <input class="form-control form-control-lg" type="search" placeholder="search for properties in your area" aria-label="Search">
                             </div>
                             <div class="col-auto">
-                              <button class="btn btn-primary btn-lg" id="headerSubmitButton" type="submit">Search</button>
+                              <button class="btn btn-outline-reabook-yellow btn-lg" id="headerSubmitButton" type="submit">Search</button>
                             </div>
                         </div>
                     </form>
@@ -48,46 +48,137 @@
     </div>
 
     <!-- Central Page Container -->
-    <div class="property-card container h-100">
-        <div class="row h-100">
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-auto">
-                <h4 class="logo-font text-black">property card 1...</h4>
-                <!-- Book now Button -->
-                <div class="my-5">
-                    <p><a href="{% url 'view_bookings' %}"
-                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+    <div class="row">
+        <div class="product-container col-10 offset-1">
+            <div class="row mt-1 mb-2"></div>
+            <div class="row">
+                
+                <!-- Buy -->
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                    <div class="card index-property-card h-100 border-0 text-center">
+                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        </a>
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">Property Name</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold"></p>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
+                                        <br><small>Listed: Monday 29 August 2022</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    </p>
+                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                        </div>
+                        <!-- Import DB from other app -->
+                        <!-- <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
+                        {% if property.main_image %}
+                        <a href="">
+                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">{{ property.name }}</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">
+                                        {% if property.sale_price > 0 %}
+                                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price }}</strong>
+                                                <br><small>Listed: {{ property.list_date }}</small></p>
+                                            </p>
+                                        {% else %}
+                                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk
+                                                <br><small>Available: {{ property.date_available }}</small></p>
+                                        {% endif %}
+                                    </p>
+                                    {% if property.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ property.rating }} / 5</small>
+                                    {% else %}
+                                    <small class="text-muted">Not Rating Yet</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                    </div>
                 </div>
-            </div>
-            <div class="col-3 col-md-3 my-auto">
-                <h4 class="logo-font text-black">property card 2...</h4>
-                <!-- Book now Button -->
-                <div class="my-5">
-                    <p><a href="{% url 'view_bookings' %}"
-                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+
+                <!-- Sell -->
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                    <div class="card index-property-card h-100 border-0 text-center">
+                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        </a>
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">Property Name</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold"></p>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
+                                        <br><small>Listed: Monday 29 August 2022</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    </p>
+                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-3 col-md-3 my-auto">
-                <h4 class="logo-font text-black">property card 3...</h4>
-                <!-- Book now Button -->
-                <div class="my-5">
-                    <p><a href="{% url 'view_bookings' %}"
-                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
+
+                <!-- Rent -->
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                    <div class="card index-property-card h-100 border-0 text-center">
+                        <p class="ribbon font-weight-light">Buy Properties</p>
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        </a>
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">Property Name</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold"></p>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
+                                        <br><small>Listed: Monday 29 August 2022</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    </p>
+                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-danger text-center">Inspect Properties for Sale</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-3 col-md-3 my-auto">
-                <h4 class="logo-font text-black">property card 4...</h4>
-                <!-- Book now Button -->
-                <div class="my-5">
-                    <p><a href="{% url 'view_bookings' %}"
-                            class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
-                </div>
+
             </div>
         </div>
     </div>
 </div>
 
 <!-- Feature Card -->
-<div class="card text-center">
+<div class="card text-center mt-5">
     <div class="card-header">
         Featured
     </div>
@@ -98,17 +189,6 @@
     </div>
     <div class="card-footer text-muted">
         2 days ago
-    </div>
-</div>
-
-<!-- insert -->
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
 
@@ -145,4 +225,50 @@
         </div>
     </div>
 </div>
+
+<!-- Card Decks -->
+<div class="property-card container h-100">
+    <div class="row h-100">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
