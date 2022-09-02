@@ -38,25 +38,13 @@ input:focus::placeholder {
     color: #f8f9fa;
 }
 
-/* Fade elements on scroll */
-/* .scrollFade {
-    opacity: 1;
-    pointer-events: all;
+.text-blue {
+    color: #047AFB;
 }
 
-.scrollFade--hidden {
-    opacity: 0;
-    pointer-events: none;
+.text-blue-hover {
+    color: #016ADA;
 }
-
-.scrollFade--visible {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.scrollFade--animate {
-    transition: opacity 0.4s ease-in-out;
-} */
 
 /* Format index.html page heading */
 
@@ -92,6 +80,15 @@ font-weight: 100;
 }
 
 /* ------------ Navbar */
+
+#topnav a {
+    color: #7F7F7F;
+}
+
+#topnav a:hover {
+    color: #20514C;
+    /* color: #016ADA; */
+}
 
 /* Green style to navbar search button */
 .btn-outline-reabook {
