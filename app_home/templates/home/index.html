@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block page_header %}
-<!-- Masthead-->
+<!-- Masthead top title, header image and searchbar-->
 <section class="masthead">
     <div class="container position-relative">
         <div class="row justify-content-center h-100">
             <div class="col-xl-7">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="display-5 logo-font text-black mb-5">Manage the search for your new home in one place.</h1>
+                    <h1 class="display-5 logo-font text-white mb-5">Manage the search for your new home in one place.</h1>
                     <!-- <span>
                         <a class="col-2 d-inline-block text-white mt-1 mb-5">buy</a>|
                         <a class="col-2 d-inline-block text-white mt-1 mb-5">sell</a>|
@@ -17,7 +17,7 @@
                         <a class="col-2 d-inline-block text-white mt-1 mb-5">lease</a>
                     </span> -->
                     <!-- Main header search bar-->
-                    <form class="form" id="headerSearchBar">
+                    <form method="GET" class="form" id="headerSearchBar">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col">

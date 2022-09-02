@@ -32,6 +32,7 @@
     {% block core_js %}
     <script src="https://kit.fontawesome.com/c2dc8de795.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     {% endblock %}
 
     <!-- Section to add additional Js to add to each page as needed -->
@@ -42,94 +43,106 @@
 </head>
 
 <body>
-    <header>
+    <header class="container-fluid fixed-top">
+        <nav id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
 
-        <!-- Div to contain logo home links, small search, my account and diary cart  -->
-        <!-- <div>
-            <h1>Base Template Showing</h1>
-        </div> -->
+            <!-- to contain our logo and links in the header -->
+            <div class="col-12 col-lg-5 my-auto py-1 py-lg-0 text-center text-lg-left w-100" id="home-nav">
+                <!-- Navbar Navigation -->
+                <ul class="mr-auto m-1 mt-2 mt-lg-0 list-inline">
+                    <li class="list-inline-item">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <h2>
+                                <i class="fas fa-bookmark reabook-logo"></i><strong class="text-black"> ReaBook</strong>
+                            </h2>
+                        </a>
+                    </li>
+                    <li class="list-inline-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="{% url 'properties' %}">View <span class="sr-only"></span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="{% url 'view_bookings' %}">Book <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
 
-        <!-- Site central navigation bar -->
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100 fixed-top opacity-25 bg-light" id="main-nav">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- contain the my account and diary links in the header -->
+            <div class="col-12 col-lg-7 my-auto py-1 py-lg-0 ">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+
+                    <!-- Quicksearch Form -->
+                    <li class="list-inline-item">
+                        <form method="GET" action="#" class="form form-inline my-2 my-lg-0" id="header-search">
+                            {% csrf_token %}
+                            <input class="form-control mr-sm-2" type="search" placeholder="quick search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+
+                     <!-- My Account Header link -->
+                    <li class="list-inline-item dropdown">
+                        <a id="user-options" href="#" class="dropdown-header nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fas fa-user"></span> My Account
+                        </a>
+
+                        <!-- dropdown menu items -->
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="#" class="dropdown-item">Property Management</a>
+                                {% endif %}
+                                <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="#" class="dropdown-item">Register</a>
+                                <a href="#" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+
+                    <!-- appearance of the diary and display of totals within -->
+                    <li class="list-inline-item">
+                        <a href="#"
+                            class="dropdown-header {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %} nav-link"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                class="fa-solid fa-book-bookmark"></span> Bookings: <span class="my-0">
+                                {% if grand_total %}
+                                    ${{ grand_total | floatformat:2 }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main site central sub-navigation bar -->
+        <div class="row">
+            <nav id="subnav" class="navbar navbar-expand-lg w-100 navbar-light">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+
+                <!-- toggle button for main navigation -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <a class="navbar-brand" href="{% url 'home' %}">
-                        <!-- <img
-                            src="https://res.cloudinary.com/yodakode/image/upload/v1661790292/ReaBook/ReaBook_Icon_00402B_gray_nxe3tn.png"
-                            width="30" height="30" class="d-inline-block align-top" alt="ReaBook logo file"> -->
-                            <i class="fas fa-bookmark reabook-logo"></i>
-                        <strong>ReaBook</strong></a>
-                    <ul class="navbar-nav mr-auto m-1 mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'properties' %}">View</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'view_bookings' %}">Book</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#">Buy</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#">Sell</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#">Rent</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'view_blogs' %}">Blog</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li> -->
-                    </ul>
-                    <!-- Navbar Search -->
-                    <form class="form form-inline my-2 my-lg-0" id="header-search">
-                        {% csrf_token %}
-                        <input class="form-control mr-sm-2" type="search" placeholder="quick search"
-                            aria-label="Search">
-                        <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-
-                    <!-- Dropdown Account Controls -->
-                    <ul class="navbar-nav ml-4 navbar-right">
-                        <li class="dropdown">
-                            <a id="user-options" href="#" class="dropdown-header nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="fas fa-user"></span> My Account
-                            </a>
-
-                            <!-- Dropdown menu items -->
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                <h6 class="dropdown-header">Dropdown header test</h6>
-                                {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item fas fa-laptop-house">Property Management</a>
-                                {% endif %}
-                                    <a href="#" class="dropdown-item fas fa-user">My Profile</a>
-                                    <a href="#" class="dropdown-item fas fa-sign-out-alt">Logout</a>
-                                {% else %}
-                                    <a href="#" class="dropdown-item fas fa-pencil-alt">Register</a>
-                                    <a href="#" class="dropdown-item fas fa-sign-in-alt">Login</a>
-                                {% endif %}
-                            </div>
-                        </li>
-
-                        <!-- Bookings diary with display of total current appointments -->
-                        <li class="nav-item"><a href="#" class="dropdown-header {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><span class="fas fa-book"></span> Bookings: <span class="my-0">
-                                    {% if grand_total %}
-                                    ${{ grand_total | floatformat:2 }}
-                                    {% else %}
-                                    0
-                                    {% endif %}
-                                </span></a>
-                        </li>
-                    </ul>
-                </div>
+                <!-- include versions of the top header from templates > includes > ... -->
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
             </nav>
         </div>
 
-        <!-- contain the my account and shopping bag links in the header -->
-        <!-- <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            
+        <!-- delivery banner -->
+        <!-- <div id="delivery-banner" class="row text-center">
+            <div class="col bg-black text-white">
+                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
+            </div>
         </div> -->
-
-        <!-- Delivery banner section -->
-        <div></div>
-
     </header>
 
     <!-- Message container section -->
