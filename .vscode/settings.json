@@ -28,7 +28,10 @@
     "CUST",
     "Glenelg",
     "postload",
-    "Radbrook"
+    "Radbrook",
+    "subnav",
+    "subpages",
+    "topnav"
 ],
    "[yaml]": {
       "editor.tabSize": 4

@@ -14,6 +14,12 @@ html {
     padding-bottom: 12rem;
 } */
 
+
+footer {
+    padding-top: 5rem;
+}
+
+
 input:focus::placeholder {
     color: transparent;
 }
@@ -284,12 +290,11 @@ font-weight: 100;
 }
 
 @keyframes index-property-card-zoom {
-    from{
+    from {
         transform: scale(1);
         margin-left: 0%;
-    }
-    to {
-        transform: scale(1.02)
+    } to {
+        transform: scale(1.02) 
         margin-left: 1.5%;
     }
 }

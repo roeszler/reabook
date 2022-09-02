@@ -74,7 +74,7 @@
             <div class="col-12 col-lg-7 my-auto py-1 py-lg-0 ">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
 
-                    <!-- Quicksearch Form -->
+                    <!-- Quick search Form -->
                     <li class="list-inline-item">
                         <form method="GET" action="#" class="form form-inline my-2 my-lg-0" id="header-search">
                             {% csrf_token %}
@@ -151,13 +151,22 @@
     <div></div>
     {% endif %}
 
-    <!-- Subheader info header underneath the main header -->
+    <!-- Information alert header underneath the main header -->
     {% block page_header %}
     {% endblock %}
 
     <!-- Main page content  -->
     {% block content %}
     {% endblock %}
+
+    <footer>
+        <!-- <div class="row h-5 sticky-bottom"> -->
+        <div class="row h-5 fixed-bottom px-2">
+            <div class="col-4 bg-info text-lg-left">Left Column</div>
+            <div class="col-4 bg-success text-lg-center">Middle Column</div>
+            <div class="col-4 bg-warning text-lg-right">Right Column</div>
+        </div>
+    </footer>
 
     <!-- Js to load at end -->
     {% block postload_js %}
