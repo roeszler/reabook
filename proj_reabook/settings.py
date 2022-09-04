@@ -32,8 +32,9 @@ CUST_ALLAUTH_DIR = os.path.join(BASE_DIR, 'templates', 'allauth')
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = True
+# DEBUG = os.environ.get('DEVELOPMENT')
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['reabook.herokuapp.com', 'localhost']
 
