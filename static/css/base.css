@@ -303,6 +303,11 @@ font-weight: 100;
     }
 }
 
+/* Bookings Section */
+a, a:hover {
+    text-decoration: none;
+}
+
 
 /* ------------------------ Media Queries */
 
