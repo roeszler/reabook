@@ -24,6 +24,10 @@ input:focus::placeholder {
     color: transparent;
 }
 
+ul {
+    list-style: none;
+}
+
 .text-black {
     color: #000;
 }
