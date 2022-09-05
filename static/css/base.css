@@ -36,6 +36,10 @@ input:focus::placeholder {
     color: #20514C;
 }
 
+.bg-green {
+    background-color: #20514C;
+}
+
 .text-white {
     color: #fff;
 }
@@ -299,6 +303,7 @@ font-weight: 100;
     }
 }
 
+
 /* ------------------------ Media Queries */
 
 /* ------ Slightly larger container - min-width: 1200px - in XL screens */
@@ -371,7 +376,8 @@ font-weight: 100;
         animation-name: none;
     }
 
-    #headerSearchBar {
+    #headerSearchBar,
+    #bookingsHeaderSearchBar {
         display: none;
     }
 

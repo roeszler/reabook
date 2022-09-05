@@ -15,13 +15,13 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Properties</h2>
-            <hr class="w-50 mb-1">
+            <hr class="w-50 mb-2">
         </div>
     </div>
     <!-- Property Container -->
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mb-2"></div>
             <div class="row">
                 {% for property in properties %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -29,11 +29,11 @@
                         <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
                         {% if property.main_image %}
                         <a href="">
-                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
+                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
                         </a>
                         {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
