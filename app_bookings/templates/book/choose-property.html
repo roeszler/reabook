@@ -45,19 +45,26 @@
                     </div>
                     <p>search header</p>
                     <div class="row mb-3">
+
+                        <!-- List of properties returned from search -->
                         <div class="col-md-12 col-lg-4">
-                            <div class="list-group list-group-flush" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Property 1</a>
-                                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Property 2</a>
-                                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Property 3</a>
-                                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Property 4</a>
-                                <a class="list-group-item list-group-item-action" id="property-n-list" data-toggle="list" href="#property-n" role="tab" aria-controls="settings">Property n...</a>
+                            <div class="list-group list-group-flush" id="choice-list" role="tablist">
+                                <a class="list-group-item list-group-item-action active" data-toggle="list" href="#property-n" role="tab">Property id: "n"</a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-1" role="tab">Property 1</a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-2" role="tab">Property 2</a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-3" role="tab">Property 3</a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-4" role="tab">Property 4</a>
                             </div>
                         </div>
+
+                        <!-- Fade appear details on the selection of each property controlled by js -->
                         <div class="col-md-12 col-lg-8">
-                            <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active bg-success" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                                    <p class="col-12">Property 1 content detail</p>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="property-n" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12"></div>
+                                        <h5 class="col-md-8 col-sm-12 pr-3 font-weight-bold text-left">Property "N" content detail</h5>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <a href="">
@@ -67,16 +74,16 @@
                                         <div class="col-md-8 col-sm-12 pr-3 text-left">
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere maxime esse beatae ullam ex magni molestiae quaerat minus et nemo aliquam quidem vero, officia sed odit officiis eveniet in adipisci.</p>
                                             <div class="text-right mr-md-4 my-1 mx-sm-1">
-                                                <button class="btn col-md-4 col-sm-12 bg-clear pull-left">View</button>
-                                                <button class="btn col-md-4 col-sm-12 bg-green text-bone pull-right">Book</button>
+                                                <button class="btn col-md-4 col-sm-12 bg-clear font-weight-light text-muted pull-left">View</button>
+                                                <button class="btn col-md-4 col-sm-12 btn-outline-reabook pull-right">Book</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Property 2 content detail</div>
-                                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Property 3 content detail</div>
-                                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Property 4 content detail</div>
-                                <div class="tab-pane fade" id="property-n" role="tabpanel" aria-labelledby="property-n-list">Property 'N' content detail</div>
+                                <div class="tab-pane fade" id="property-1" role="tabpanel">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum corrupti, minima molestiae provident rem consectetur fugiat neque dignissimos molestias natus, adipisci nemo! Veritatis, porro ducimus. Ad quae iure tempora possimus?</div>
+                                <div class="tab-pane fade" id="property-2" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ea ut harum ratione? Rerum esse maxime sit asperiores dolorem ratione tenetur atque temporibus hic. Dolorem modi est reprehenderit. Obcaecati, magni?</div>
+                                <div class="tab-pane fade" id="property-3" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sed harum illum animi nesciunt sapiente, dolorum repudiandae, hic aperiam perferendis, voluptatibus esse quibusdam voluptates alias aut eveniet non asperiores ad?</div>
+                                <div class="tab-pane fade" id="property-4" role="tabpanel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dicta repellat ratione repudiandae eos quas saepe ea mollitia sequi asperiores et molestiae, delectus aut expedita, tempora eligendi porro dolores distinctio.</div>
                             </div>
                         </div>
                     </div>
@@ -87,4 +94,14 @@
         <div class="col-sm-12 col-md-6 col-lg-3 pl-5 bg-warning">User Calendar col-3</div>
     </div>
 </div>
+
+
+<!-- <script src="static/js/scrollfade.js"></script> -->
+<script>
+$('#choice-list a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+});
+</script>
+
 {% endblock %}
