@@ -89,3 +89,10 @@
     </div>
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
+
+{% endblock %}

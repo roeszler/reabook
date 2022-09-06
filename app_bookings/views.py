@@ -8,7 +8,7 @@ def view_my_bookings(request):
     View to render the bookings page
     Looks within the current directory app_bookings/templates/book/book.html
     """
-    return render(request, 'book/bookings.html')
+    return render(request, 'book/a-bookings.html')
 
 
 def choose_bookings(request):
@@ -33,7 +33,7 @@ def choose_bookings(request):
         'prop4': prop4,
         'prop5': prop5,
     }
-    return render(request, 'book/choose-property.html', context)
+    return render(request, 'book/b-choose-property.html', context)
 
 
 def view_bookings_home(request):
@@ -58,4 +58,4 @@ def view_bookings_home(request):
         'prop4': prop4,
         'prop5': prop5,
     }
-    return render(request, 'book/bookings.html', context)
+    return render(request, 'book/a-bookings.html', context)

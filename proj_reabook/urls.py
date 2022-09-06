@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import handler404
+# from app_bookings.views import view_bookings_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),

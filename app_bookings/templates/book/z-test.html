@@ -1,0 +1,22 @@
+{% extends 'bookings-base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container-subpages">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>test.html</h1>
+
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
+
+{% endblock %}

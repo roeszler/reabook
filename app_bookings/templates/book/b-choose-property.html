@@ -105,13 +105,11 @@
     </div>
 </div>
 
+{% endblock %}
 
-<!-- <script src="static/js/scrollfade.js"></script> -->
-<script>
-$('#choice-list a').on('click', function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-});
-</script>
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
 
 {% endblock %}

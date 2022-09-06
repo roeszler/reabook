@@ -170,8 +170,13 @@
 
     <!-- Js to load at end -->
     {% block postload_js %}
+    <script>$('.dropdown-toggle').dropdown();</script>
+    <script src="static/js/scrollfade.js"></script>
     <script>
-        $('.dropdown-toggle').dropdown();
+        $('#choice-list a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
     </script>
     {% endblock %}
 </body>
