@@ -11,6 +11,13 @@ def view_my_bookings(request):
     return render(request, 'book/a-bookings.html')
 
 
+def view_bookings_login(request):
+    """
+    View to render the bookings login page
+    """
+    return render(request, 'book/c-login.html')
+
+
 def choose_bookings(request):
     """
     View to render the bookings page
