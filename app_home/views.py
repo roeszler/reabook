@@ -10,12 +10,3 @@ def index(request):
     """
     return render(request, 'home/index.html')
 
-
-# def all_properties(request):
-#     """ A view to show all properties, including sorting and search queries """
-#     properties = ViewPropertyCategories.objects.all()
-
-#     context = {
-#         'properties': properties,
-#     }
-#     return render(request, 'home/index.html', context)

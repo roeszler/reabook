@@ -2,8 +2,6 @@
 from django.shortcuts import render, redirect, reverse
 from app_properties.models import Property
 
-    
-
 
 def view_my_bookings(request):
     """
@@ -60,4 +58,4 @@ def view_bookings_home(request):
         'prop4': prop4,
         'prop5': prop5,
     }
-    return render(request, 'book/bookings-base.html', context)
+    return render(request, 'book/bookings.html', context)

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container-subpages">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <h2 class="logo-font"><i class="fa-solid fa-book-bookmark reabook-logo"></i> <span class="text-black">Rea</span>Book Inspections</h2>
+            <hr class="w-50 mb-4">
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <!-- Navigation col-3 -->
+        <div class="col-lg-3 col-xl-3 pr-3 bg-info" id="bookingsHeaderSearchBar">
+            <h4 class="heading-section text-center font-weight-light">Heading</h4>
+            <div class="list-group list-group list-group-flush text-lg-right">
+                <a href="{% url 'choose_bookings' %}">
+                    <button type="button" class="list-group-item list-group-item-action">Book Inspection  <i class="fa-solid fa-clipboard-list"></i></button>
+                </a>
+                <a href="{% url 'my_bookings' %}">
+                    <button type="button" class="list-group-item list-group-item-action">My Inspections  <i class="fas fa-book-bookmark"></i></button>
+                </a>
+                <a href="#">
+                    <button type="button" class="list-group-item list-group-item-action">My Communications  <i class="fa-regular fa-comment-dots"></i></button>
+                </a>
+                <a href="#">
+                    <button type="button" class="list-group-item list-group-item-action">My Profile  <i class="fa-solid fa-user"></i></button>
+                </a>
+                <a href="#">
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Lease / Sell  <i class="fa-solid fa-gavel"></i></button>
+                </a>
+              </div>
+        </div>
+
+        <!-- Booking Content col-6</div> -->
+        <div class="col-md-6 col-sm-12 text-center">
+            <h2 class="heading-section">...bookings-base.html Template...</h2>
+        </div>
+        <!-- User Calendar -->
+        <div class="col-sm-12 col-md-6 col-lg-3 pl-5 bg-warning">User Calendar col-3</div>
+    </div>
+</div>
+
+<div class="row">
+    {% if properties %}
+    <div class="col-4">
+        <div class="list-group" id="myList" role="tablist">
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#prop1" role="tab">{{ prop1.name }}</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#prop2" role="tab">{{ prop2.name }}</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#prop3" role="tab">{{ prop3.name }}</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#prop4" role="tab">{{ prop4.name }}</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#prop5" role="tab">{{ prop5.name }}</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="prop1" role="tabpanel">{{ prop1.description }}</div>
+            <div class="tab-pane fade" id="prop2" role="tabpanel">{{ prop2.description }}</div>
+            <div class="tab-pane fade" id="prop3" role="tabpanel">{{ prop3.description }}</div>
+            <div class="tab-pane fade" id="prop4" role="tabpanel">{{ prop4.description }}</div>
+            <div class="tab-pane fade" id="prop5" role="tabpanel">{{ prop5.description }}</div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    $('#myList a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
+{% endblock %}
