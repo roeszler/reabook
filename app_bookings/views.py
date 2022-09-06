@@ -52,6 +52,7 @@ def choose_bookings(request):
     prop3 = Property.objects.get(pk=3)
     prop4 = Property.objects.get(pk=4)
     prop5 = Property.objects.get(pk=5)
+    prop6 = Property.objects.get(pk=6)
 
     context = {
         'properties': properties,
@@ -60,6 +61,7 @@ def choose_bookings(request):
         'prop3': prop3,
         'prop4': prop4,
         'prop5': prop5,
+        'prop6': prop6,
     }
     return render(request, 'book/b-booking-choose-property.html', context)
 

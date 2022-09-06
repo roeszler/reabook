@@ -1,14 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container-subpages">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 {% include 'includes/bookings-base.html' %}
@@ -30,6 +22,7 @@
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-2" role="tab">{{ prop3.house_no }} {{ prop3.street }}</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-3" role="tab">{{ prop4.house_no }} {{ prop4.street }}</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-4" role="tab">{{ prop5.house_no }} {{ prop5.street }}</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-5" role="tab">{{ prop6.house_no }} {{ prop6.street }}</a>
                 </div>
             </div>
 
@@ -68,6 +61,7 @@
                     <div class="tab-pane fade" id="property-2" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ea ut harum ratione? Rerum esse maxime sit asperiores dolorem ratione tenetur atque temporibus hic. Dolorem modi est reprehenderit. Obcaecati, magni?</div>
                     <div class="tab-pane fade" id="property-3" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sed harum illum animi nesciunt sapiente, dolorum repudiandae, hic aperiam perferendis, voluptatibus esse quibusdam voluptates alias aut eveniet non asperiores ad?</div>
                     <div class="tab-pane fade" id="property-4" role="tabpanel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dicta repellat ratione repudiandae eos quas saepe ea mollitia sequi asperiores et molestiae, delectus aut expedita, tempora eligendi porro dolores distinctio.</div>
+                    <div class="tab-pane fade" id="property-5" role="tabpanel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dicta repellat ratione repudiandae eos quas saepe ea mollitia sequi asperiores et molestiae, delectus aut expedita, tempora eligendi porro dolores distinctio.</div>
                 </div>
             </div>
             {% endif %}

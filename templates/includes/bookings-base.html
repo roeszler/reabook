@@ -1,34 +1,41 @@
+{% block page_header %}
+<div class="container header-container-subpages">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center mt-3">
-                <h2 class="logo-font"><i class="fa-solid fa-book-bookmark reabook-logo"></i> <span class="text-black">Rea</span>Book Inspections</h2>
-                <hr class="w-50 mb-4">
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <h2 class="logo-font"><i class="fa-solid fa-book-bookmark reabook-logo"></i> <span class="text-black">Rea</span>Book Inspections</h2>
+            <hr class="w-50 mb-4">
         </div>
-    
-        <div class="row mb-2">
-            <!-- Navigation col-3 -->
-            <div class="col-lg-3 col-xl-3 pr-3 bg-info" id="bookingsHeaderSearchBar">
-                <h4 class="heading-section text-center font-weight-light">Heading</h4>
-                <div class="list-group list-group list-group-flush text-lg-right">
-                    <a href="{% url 'choose_bookings' %}">
-                        <button type="button" class="list-group-item list-group-item-action">Book Inspection  <i class="fa-solid fa-clipboard-list"></i></button>
-                    </a>
-                    <a href="{% url 'my_bookings' %}">
-                        <button type="button" class="list-group-item list-group-item-action">My Inspections  <i class="fas fa-book-bookmark"></i></button>
-                    </a>
-                    <a href="{% url 'bookings_login' %}">
-                        <button type="button" class="list-group-item list-group-item-action">My Communications  <i class="fa-regular fa-comment-dots"></i></button>
-                    </a>
-                    <a href="{% url 'bookings_login' %}">
-                        <button type="button" class="list-group-item list-group-item-action">My Profile  <i class="fa-solid fa-user"></i></button>
-                    </a>
-                    <a href="{% url 'bookings_login' %}">
-                        <button type="button" class="list-group-item list-group-item-action" disabled>Lease / Sell  <i class="fa-solid fa-gavel"></i></button>
-                    </a>
-                  </div>
-            </div>
-    
-            <!-- Booking Content col-6</div> -->
-            <div class="col-md-6 col-sm-12 text-center">
+    </div>
+
+    <div class="row mb-2">
+        <!-- Navigation col-3 -->
+        <div class="col-lg-3 col-xl-3 pr-3 bg-info" id="bookingsHeaderSearchBar">
+            <h4 class="heading-section text-center font-weight-light">Heading</h4>
+            <div class="list-group list-group list-group-flush text-lg-right">
+                <a href="{% url 'choose_bookings' %}">
+                    <button type="button" class="list-group-item list-group-item-action">Book Inspection  <i class="fa-solid fa-clipboard-list"></i></button>
+                </a>
+                <a href="{% url 'my_bookings' %}">
+                    <button type="button" class="list-group-item list-group-item-action" disabled>My Inspections  <i class="fas fa-book-bookmark"></i></button>
+                </a>
+                <a href="{% url 'bookings_login' %}">
+                    <button type="button" class="list-group-item list-group-item-action" disabled>My Communications  <i class="fa-regular fa-comment-dots"></i></button>
+                </a>
+                <a href="{% url 'bookings_login' %}">
+                    <button type="button" class="list-group-item list-group-item-action" disabled>My Profile  <i class="fa-solid fa-user"></i></button>
+                </a>
+                <a href="{% url 'bookings_login' %}">
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Lease / Sell  <i class="fa-solid fa-gavel"></i></button>
+                </a>
+                </div>
+        </div>
+
+        <!-- Booking Content col-6 -->
+        <div class="col-md-6 col-sm-12 text-center bg-success">

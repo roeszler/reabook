@@ -1,98 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container-subpages">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 text-center mt-3">
-            <h2 class="logo-font"><i class="fa-solid fa-book-bookmark reabook-logo"></i> <span class="text-black">Rea</span>Book Inspections</h2>
-            <hr class="w-50 mb-4">
+{% include 'includes/bookings-base.html' %}
+<div class="row">
+    <div class="col-md-12 text-center mb-md-5 h-100">
+        <h2 class="heading-section">My Inspections</h2>
+        <p>search header</p>
+        <div class="row mb-3">
+            <div class="col text-lg-left">
+                <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Property</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Bakers Delight</td>
+                                <td>12:30</td>
+                                <td>23/10/22</td>
+                                <td>Bournville</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Fishermans Wharf</td>
+                                <td>15:45</td>
+                                <td>23/10/22</td>
+                                <td>Perthshire</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>09:15</td>
+                                <td>23/10/22</td>
+                                <td>Mars</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="row mb-2">
-        <!-- Navigation col-3 -->
-        <div class="col-lg-3 col-xl-3 pr-3 bg-info" id="bookingsHeaderSearchBar">
-            <h4 class="heading-section text-center font-weight-light">Heading</h4>
-            <div class="list-group list-group list-group-flush text-lg-right">
-                <a href="{% url 'choose_bookings' %}" >
-                    <button type="button" class="list-group-item list-group-item-action">Book Inspection  <i class="fa-solid fa-clipboard-list"></i></button>
-                </a>
-                <a href="{% url 'my_bookings' %}">
-                    <button type="button" class="list-group-item list-group-item-action">My Inspections  <i class="fas fa-book-bookmark"></i></button>
-                </a>
-                <button type="button" class="list-group-item list-group-item-action">My Communications  <i class="fa-regular fa-comment-dots"></i></button>
-                <button type="button" class="list-group-item list-group-item-action">My Profile  <i class="fa-solid fa-user"></i></button>
-                <button type="button" class="list-group-item list-group-item-action" disabled>Lease / Sell  <i class="fa-solid fa-gavel"></i></button>
-              </div>
-        </div>
-
-        <!-- Booking Content col-6</div> -->
-        <div class="col-md-6 col-sm-12 text-center bg-success">
-            <div class="row">
-				<div class="col-md-12 text-center mb-md-5 h-100">
-					<h2 class="heading-section">My Inspections</h2>
-                    <p>search header</p>
-                    <div class="row mb-3">
-                        <div class="col text-lg-left">
-                            <div class="list-group list-group-flush" id="list-tab" role="tablist">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Property</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Location</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Bakers Delight</td>
-                                            <td>12:30</td>
-                                            <td>23/10/22</td>
-                                            <td>Bournville</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Fishermans Wharf</td>
-                                            <td>15:45</td>
-                                            <td>23/10/22</td>
-                                            <td>Perthshire</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>09:15</td>
-                                            <td>23/10/22</td>
-                                            <td>Mars</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-				</div>
-			</div>
-        </div>
-        <!-- User Calendar -->
-        <div class="col-sm-12 col-md-6 col-lg-3 pl-5 bg-warning">User Calendar col-3</div>
     </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-    <!-- To include the parent block -->
-    {{ block.super }}
-    
-
+{% include 'includes/bookings-base-calendar.html' %}
 {% endblock %}
