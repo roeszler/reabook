@@ -310,6 +310,17 @@ font-weight: 100;
 /* Bookings Section */
 a, a:hover {
     text-decoration: none;
+    color: #b7b7b7;
+}
+
+.choose-hlink {
+    /* color: red; */
+    color: #b7b7b7;
+}
+
+.choose-hlink:hover {
+    /* color: red; */
+    color: #20514C;
 }
 
 
