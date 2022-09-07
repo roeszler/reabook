@@ -95,6 +95,7 @@ ReaBook has not been created within a team, rather the efforts of single student
 
 ## 3. Wireframes
 
+* [Booking App Page Wireframe](/static/documentation/wireframes/Bookings%20Page.png)
 * [Inital Landing Page Wireframe](static/documentation/wireframes/ReaBook_Index_v1.0.png)
 
 ## 4. 
