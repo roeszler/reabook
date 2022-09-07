@@ -180,21 +180,21 @@ function show_events(events, month, day) {
     console.log(event_data["events"]);
     // If there are no events for this date, notify the user
     if(events.length===0) {
-        var event_card = $("<div class='event-card'></div>");
-        var event_name = $("<div class='event-name'>There are no events planned for "+month+" "+day+".</div>");
-        $(event_card).css({ "border-left": "10px solid #FF1744" });
+        var event_card = $("<div class='cal-event-card'></div>");
+        var event_name = $("<div class='event-name pl-1'> There are no events planned for "+month+" "+day+".</div>");
+        $(event_card).css({ "border-left": "5px solid #20514C" });
         $(event_card).append(event_name);
         $(".events-container").append(event_card);
     }
     else {
         // Go through and add each event as a card to the events container
         for(var i=0; i<events.length; i++) {
-            var event_card = $("<div class='event-card'></div>");
+            var event_card = $("<div class='cal-event-card'></div>");
             var event_name = $("<div class='event-name'>"+events[i]["occasion"]+":</div>");
             var event_count = $("<div class='event-count'>"+events[i]["invited_count"]+" Invited</div>");
             if(events[i]["cancelled"]===true) {
                 $(event_card).css({
-                    "border-left": "10px solid #FF1744"
+                    "border-left": "5px solid #20514C pl-1"
                 });
                 event_count = $("<div class='event-cancelled'>Cancelled</div>");
             }

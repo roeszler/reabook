@@ -323,7 +323,6 @@ a, a:hover {
 }
 
 .choose-hlink:hover {
-    /* color: red; */
     color: #20514C;
 }
 
@@ -420,18 +419,6 @@ a, a:hover {
     transition: all 250ms;
 }
 
-@media (max-width: 991.98px) {
-    .month {
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .month {
-        font-size: 10.5px;
-    }
-}
-
 .active-month {
     font-weight: 700;
     color: #000;
@@ -440,6 +427,87 @@ a, a:hover {
 .month:hover {
     color: #20514C;
 }
+
+.cal-event-card {
+    border-left: 5px solid;
+    border-color: #20514C;
+}
+
+/* ------------ Events Section */
+
+/*  Events display */
+.events-container {
+    font-size: smaller;
+    /* color: #000; */
+    /* overflow-y: scroll; */
+    /* height: 100%; */
+    /* width: 100%; */
+    /* float: right; */
+    /* margin: 0px auto; */
+    /* display: inline-block; */
+    /* padding: 0px; */
+    /* border-bottom-right-radius: 3px; */
+    /* border-top-right-radius: 3px; */
+    /* padding: 0; */
+}
+
+/* @media (max-width: 767.98px) {
+    .events-container {
+        width: 100%;
+        height: auto;
+    }
+} */
+
+/* .events-container:after {
+    clear: both;
+} */
+
+/* .event-card {
+    padding: 20px 0;
+    max-width: 100%;
+    display: block;
+    background: #fff;
+    border: none !important;
+    margin: 20px;
+    margin-left: 12px;
+} */
+
+/* @media (max-width: 991.98px) {
+    .event-card {
+        margin: 10px;
+    }
+} */
+
+/* 
+@media (max-width: 767.98px) {
+    .event-card {
+        margin: 0;
+        background: #e6e6e6;
+    }
+} */
+
+/* .event-count,
+.event-name,
+.event-cancelled {
+    display: inline;
+    padding: 0 10px;
+    font-size: 1rem;
+} */
+
+/* .event-count {
+    color: #7e0cf5;
+    text-align: right;
+} */
+
+/* .event-name {
+    padding-right: 0;
+    text-align: left;
+} */
+
+/* .event-cancelled {
+    color: #cd4dcc;
+    text-align: right;
+} */
 
 
 /* ------------------------ Media Queries */
@@ -453,6 +521,18 @@ a, a:hover {
         -webkit-transition: none;
         -o-transition: none;
         transition: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .month {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .month {
+        font-size: 10.5px;
     }
 }
 
