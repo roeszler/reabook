@@ -36,6 +36,10 @@ ul {
     color: #7F7F7F;
 }
 
+.text-light-gray {
+    color: #cccccc;
+}
+
 .text-green {
     color: #20514C;
 }
@@ -307,15 +311,15 @@ font-weight: 100;
     }
 }
 
-/* Bookings Section */
+/* ------------ Bookings Section */
 a, a:hover {
     text-decoration: none;
-    color: #b7b7b7;
+    color: #cccccc;
 }
 
 .choose-hlink {
     /* color: red; */
-    color: #b7b7b7;
+    color: #cccccc;
 }
 
 .choose-hlink:hover {
@@ -323,8 +327,135 @@ a, a:hover {
     color: #20514C;
 }
 
+/* ------------ Calendar */
+
+.calendar-container {
+    font-size: smaller;
+}
+
+
+/* ------ Calendar Header */
+.year-header {
+    background: #fff;
+    height: 40px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    border-top-left-radius: 3px;
+    margin-top: 20px;
+}
+  
+.year-header span {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000;
+}
+
+.left-cal-button,
+.right-cal-button {
+    cursor: pointer;
+    width: 28px;
+    text-align: center;
+    position: absolute;
+    color: #cccccc !important;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 14px !important;
+}
+
+.left-cal-button:hover,
+.right-cal-button:hover {
+    color: #20514C !important;
+}
+
+.left-cal-button {
+    left: 0;
+}
+
+.right-cal-button {
+    right: 0;
+    top: 0;
+}
+
+.active-month {
+    font-weight: 700;
+    color: #000;
+}
+
+/* ---------- Calendar Day */
+
+/* Days/months tables */
+.days-table,
+.dates-table,
+.months-table {
+    border-collapse: separate;
+    text-align: center;
+}
+
+.day {
+    height: 20px;
+    width: 20px;
+    padding: 0 10px;
+    line-height: 26px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #000;
+}
+
+.month {
+    cursor: default;
+    height: 20px;
+    width: 20px;
+    padding: 0 2px;
+    padding-top: 10px;
+    line-height: 26px;
+    text-transform: uppercase;
+    font-size: x-small;
+    color: #cccccc;
+    -webkit-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
+}
+
+@media (max-width: 991.98px) {
+    .month {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .month {
+        font-size: 10.5px;
+    }
+}
+
+.active-month {
+    font-weight: 700;
+    color: #000;
+}
+
+.month:hover {
+    color: #20514C;
+}
+
 
 /* ------------------------ Media Queries */
+
+/* ----------- Calendar */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .left-button,
+    .right-button {
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none;
+    }
+}
+
 
 /* ------ Slightly larger container - min-width: 1200px - in XL screens */
 @media (min-width: 1200px) {
