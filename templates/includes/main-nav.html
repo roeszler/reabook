@@ -12,9 +12,9 @@
 
         <!-- All products dropdown list -->
         <li class="nav-item dropdown">
-            <a href="{% url 'properties' %}" class="logo-font font-weight-light nav-link text-black mr-5" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="{% url 'properties' %}" class="logo-font font-weight-light nav-link text-black mr-5" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Properties
-            </a>
+            </span>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'properties' %}?sort=price&direction=ascending" class="dropdown-item">By Price</a>
                 <a href="{% url 'properties' %}?sort=rating&direction=descending" class="dropdown-item">By Rating</a>
@@ -25,25 +25,25 @@
 
         <!-- Clothing dropdown list -->
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="properties-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Sale
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-            <!-- 
+            </span>
+            <div class="dropdown-menu border-0 text-black" aria-labelledby="properties-link">
+            
                 <a href="{% url 'properties' %}?category=for_sale,residential,rural_residential" class="dropdown-item">Residential</a>
                 <a href="{% url 'properties' %}?category=for_sale,commercial,rural_commercial" class="dropdown-item">Commercial</a>
                 <a href="{% url 'properties' %}?category=for_sale,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
                 <a href="{% url 'properties' %}?category=for_sale,residential,commercial" class="dropdown-item">Metro</a>
                 <a href="{% url 'properties' %}?category=for_sale,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">Residential &amp; Commercial</a> 
-            -->
+           
             </div>
         </li>
 
         <!-- Homeware dropdown list -->
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Rent
-            </a>
+            </span>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
                 <!-- <a href="{% url 'properties' %}?category=for_sale" class="dropdown-item">Bed &amp; Bath</a>
                 <a href="{% url 'properties' %}?category=kitchen_dining" class="dropdown-item">Kitchen &amp; Dining</a>
@@ -53,9 +53,9 @@
 
         <!-- Special offers dropdown list -->
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Lease
-            </a>
+            </span>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <!-- <a href="{% url 'properties' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
                 <a href="{% url 'properties' %}?category=deals" class="dropdown-item">Deals</a>

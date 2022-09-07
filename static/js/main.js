@@ -4,13 +4,13 @@
 
 	"use strict";
 
-	// Setup the calendar with the current date
+// Setup the calendar with the current date
 $(document).ready(function(){
     var date = new Date();
     var today = date.getDate();
     // Set click handlers for DOM elements
-    $(".right-button").click({date: date}, next_year);
-    $(".left-button").click({date: date}, prev_year);
+    $(".right-cal-button").click({date: date}, next_year);
+    $(".left-cal-button").click({date: date}, prev_year);
     $(".month").click({date: date}, month_click);
     $("#add-button").click({date: date}, new_event);
     // Set current month as active
