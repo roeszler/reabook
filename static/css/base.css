@@ -311,6 +311,15 @@ font-weight: 100;
     }
 }
 
+
+/* Control Bar */
+
+.list-group-item {
+    border-width: 0 0 1px;
+}
+
+
+
 /* ------------ Bookings Section */
 a, a:hover {
     text-decoration: none;
@@ -326,7 +335,7 @@ a, a:hover {
     color: #20514C;
 }
 
-/* ------------ Calendar 
+/* ------------------------ Calendar 
 Calendar modified from source: colorlib.com calendar-04
 https://colorlib.com/wp/bootstrap-calendars/
 */
@@ -339,32 +348,32 @@ https://colorlib.com/wp/bootstrap-calendars/
 /* ------ Calendar Header */
 .year-header {
     background: #fff;
-    height: 40px;
+    height: 2.5rem;
     text-align: center;
     position: relative;
     color: #fff;
     border-top-left-radius: 3px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
   
 .year-header span {
     display: inline-block;
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
     color: #000;
 }
 
 .left-cal-button,
 .right-cal-button {
     cursor: pointer;
-    width: 28px;
+    width: 1.75rem;
     text-align: center;
     position: absolute;
     color: #cccccc !important;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    font-size: 14px !important;
+    font-size: 0.875rem !important;
 }
 
 .left-cal-button:hover,
@@ -437,8 +446,14 @@ https://colorlib.com/wp/bootstrap-calendars/
 }
 
 .cal-event-card {
-    border-left: 5px solid;
+    border-left: 0.3125rem solid;
     border-color: #20514C;
+}
+
+.cal-btn {
+    border: none;
+    font-size: 0.65rem !important;
+    color: #cccccc;
 }
 
 /* ------------ Events Section */
@@ -629,6 +644,11 @@ https://colorlib.com/wp/bootstrap-calendars/
     #subnav a:hover {
         color: #7F7F7F;
         opacity: 1;
+    }
+
+    .cal-btn {
+        width: 100%;
+        font-size: 0.5rem !important;
     }
 }
 
