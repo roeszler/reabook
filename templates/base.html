@@ -86,7 +86,7 @@
 
                      <!-- My Account Header link -->
                     <li class="list-inline-item dropdown">
-                        <a id="user-options" href="#" class="dropdown-header nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a id="user-options" href="#" class="dropdown-header nav-link auto-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fas fa-user"></span> My Account
                         </a>
 
@@ -175,23 +175,25 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/main.js"></script>
 
-    <script>$('.dropdown-toggle').dropdown();</script>
-    <script>
+    <!-- Custom Js -->
+    <script src="static/js/scrollfade.js"></script>
+
+    <!-- <script>$('.dropdown-toggle').dropdown();</script> -->
+    <!-- <script>
         /* Fade #main-nav on scroll */
         $(document).ready(function () {
             $(window).scroll(function () {
                 $("#sub-nav").css("opacity", 1 - $(window).scrollTop() / ($('#sub-nav').height() / 2));
-                $("#sub-nav-dark").css("opacity", 1 - $(window).scrollTop() / ($('#sub-nav-dark').height() / 2));
                 $("#topnav").css("opacity", 1 - $(window).scrollTop() / ($('#topnav').height() / 0.01));
             });
         });
-    </script>
-    <script>
+    </script> -->
+    <!-- <script>
         $('#choice-list a').on('click', function (e) {
             e.preventDefault()
             $(this).tab('show')
         });
-    </script>
+    </script> -->
     {% endblock %}
 </body>
 

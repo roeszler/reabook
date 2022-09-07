@@ -110,6 +110,7 @@ font-weight: 100;
 #topnav a:hover {
     color: #20514C;
     /* color: #016ADA; */
+    border: none;
 }
 
 /* Green style to navbar search button */
@@ -134,6 +135,10 @@ font-weight: 100;
     color: #20514C;
     border-color: #f8f9fa;
     background-color: #f8f9fa;
+}
+
+#user-options:hover {
+    border: none;
 }
 
 .reabook-logo {
@@ -168,6 +173,9 @@ font-weight: 100;
     border-radius: 0.3125rem;
     opacity: 1;
     cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
     /* font-weight: 200; */
 }
 
@@ -485,7 +493,8 @@ https://colorlib.com/wp/bootstrap-calendars/
     line-height: 1.25rem;
     /* line-height: 16px; */
     /* text-align: center; */
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    border-radius: 0.3125rem;
     /* border: 1px solid transparent; */
     -webkit-transition: all 250ms;
     -o-transition: all 250ms;

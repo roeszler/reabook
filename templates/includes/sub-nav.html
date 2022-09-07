@@ -12,10 +12,10 @@
 
         <!-- All Properties dropdown list -->
         <li class="nav-item dropdown">
-            <span href="{% url 'properties' %}" class="logo-font font-weight-light nav-link text-black mr-5" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="{% url 'properties' %}" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="all-properties-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Properties
             </span>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0" aria-labelledby="all-properties-link">
                 <a href="{% url 'properties' %}?sort=price&direction=ascending" class="dropdown-item">By Price</a>
                 <a href="{% url 'properties' %}?sort=rating&direction=descending" class="dropdown-item">By Rating</a>
                 <a href="{% url 'properties' %}?sort=category&direction=ascending" class="dropdown-item">By Category</a>
@@ -25,10 +25,10 @@
 
         <!-- For Sale dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="properties-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="sale-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Sale
             </span>
-            <div class="dropdown-menu border-0 text-black" aria-labelledby="properties-link">
+            <div class="dropdown-menu border-0 text-black" aria-labelledby="sale-link">
             
                 <a href="{% url 'properties' %}?category=for_sale,residential,rural_residential" class="dropdown-item">Residential</a>
                 <a href="{% url 'properties' %}?category=for_sale,commercial,rural_commercial" class="dropdown-item">Commercial</a>
@@ -41,29 +41,32 @@
 
         <!-- For Rent dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="rent-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Rent
             </span>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <!-- <a href="{% url 'properties' %}?category=for_sale" class="dropdown-item">Bed &amp; Bath</a>
-                <a href="{% url 'properties' %}?category=kitchen_dining" class="dropdown-item">Kitchen &amp; Dining</a>
-                <a href="{% url 'properties' %}?category=bed_bath,kitchen_dining" class="dropdown-item">All Homeware</a> -->
+            <div class="dropdown-menu border-0" aria-labelledby="rent-link">
+                <a href="{% url 'properties' %}?category=for_rent,residential,rural_residential" class="dropdown-item">Residential</a>
+                <a href="{% url 'properties' %}?category=for_rent,commercial,rural_commercial" class="dropdown-item">Commercial</a>
+                <a href="{% url 'properties' %}?category=for_rent,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
+                <a href="{% url 'properties' %}?category=for_rent,residential,commercial" class="dropdown-item">Metro</a>
+                <a href="{% url 'properties' %}?category=for_rent,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
             </div>
         </li>
 
         <!-- For Lease dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black mr-5" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="lease-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Lease
             </span>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <!-- <a href="{% url 'properties' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
-                <a href="{% url 'properties' %}?category=deals" class="dropdown-item">Deals</a>
-                <a href="{% url 'properties' %}?category=clearance" class="dropdown-item">Clearance</a>
-                <a href="{% url 'properties' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a> -->
+            <div class="dropdown-menu border-0" aria-labelledby="lease-link">
+                <a href="{% url 'properties' %}?category=for_lease,residential,rural_residential" class="dropdown-item">Residential</a>
+                <a href="{% url 'properties' %}?category=for_lease,commercial,rural_commercial" class="dropdown-item">Commercial</a>
+                <a href="{% url 'properties' %}?category=for_lease,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
+                <a href="{% url 'properties' %}?category=for_lease,residential,commercial" class="dropdown-item">Metro</a>
+                <a href="{% url 'properties' %}?category=for_lease,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
             </div>
         </li>
     </ul>
 </nav>
 
-<script src="static/js/scrollfade.js"></script>
+<!-- <script src="static/js/scrollfade.js"></script> -->
