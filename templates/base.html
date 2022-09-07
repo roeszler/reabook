@@ -125,16 +125,16 @@
 
         <!-- Main site central sub-navigation bar -->
         <div class="row">
-            <nav id="" class="navbar navbar-expand-lg w-100 font-weight-light subnav">
+            <nav id="" class="navbar navbar-expand-lg w-100 font-weight-light subnav-light">
                 <!-- <a class="navbar-brand" href="#">Navbar</a> -->
 
                 <!-- toggle button for main navigation -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sub-nav" aria-controls="sub-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
                 </button>
                 <!-- include versions of the top header from templates > includes > ... -->
                 {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
+                {% include 'includes/sub-nav.html' %}
             </nav>
         </div>
 
@@ -180,8 +180,8 @@
         /* Fade #main-nav on scroll */
         $(document).ready(function () {
             $(window).scroll(function () {
-                $("#main-nav").css("opacity", 1 - $(window).scrollTop() / ($('#main-nav').height() /
-                2));
+                $("#sub-nav").css("opacity", 1 - $(window).scrollTop() / ($('#sub-nav').height() / 2));
+                $("#sub-nav-dark").css("opacity", 1 - $(window).scrollTop() / ($('#sub-nav-dark').height() / 2));
                 $("#topnav").css("opacity", 1 - $(window).scrollTop() / ($('#topnav').height() / 0.01));
             });
         });

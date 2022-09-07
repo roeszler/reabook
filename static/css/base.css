@@ -99,6 +99,10 @@ font-weight: 100;
 
 /* ------------ Navbar */
 
+.nav-link {
+    padding: 0.5rem 0.5rem;
+}
+
 #topnav a {
     color: #7F7F7F;
 }
@@ -136,25 +140,39 @@ font-weight: 100;
     color: #20514C;
 }
 
-.subnav {
+.subnav-light {
     background-color: none;
 }
 
-.subnav span {
+.subnav-light span {
     color: #cccccc;
     opacity: 0.3;
     font-weight: 200;
 }
 
-.subnav span:hover {
+
+/* .navbar-toggler-icon {
+    color: #7F7F7F !important;
+    opacity: 1;
+    font-weight: 200;
+} */
+
+.subnav-light span:hover {
     color: #fff;
+    /* color: #000; */
+    /* color: #007BFF; */
+    /* color: #20514C; */
+    /* text-shadow: 0.5px 0.5px 10px #20514C; */
+    /* background-color: #20514C; */
+    background-color: #000;
+    border-radius: 0.3125rem;
     opacity: 1;
     cursor: pointer;
     /* font-weight: 200; */
 }
 
 
-/* .subnav a {
+/* .subnav-light a {
     color: #000;
     opacity: 1;
     font-weight: 200;
@@ -594,14 +612,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     }
 }
 
-@media (max-width: 992px) {
-    .month {
-        font-size: 0.5rem;
-    }
-}
-
-
-
 
 /* ------ Slightly larger container - min-width: 1200px - in XL screens */
 @media (min-width: 1200px) {
@@ -631,7 +641,14 @@ https://colorlib.com/wp/bootstrap-calendars/
     }
 
     .header-container-subpages {
-        padding-top: 104px;
+        padding-top: 7.75rem;
+        /* border-bottom-left-radius: 50%; */
+        /* border-bottom-right-radius: 50%; */
+        /* background-color: #f8f9fa; */
+        /* background-color: #20514C; */
+        /* background-color: #4B2B20; */
+        /* opacity: 0.1; */
+        border-radius: .75rem;
     }
 }
 
@@ -683,12 +700,12 @@ https://colorlib.com/wp/bootstrap-calendars/
         display: none;
     }
 
-    .subnav {
+    .subnav-light {
         background-color: #fff;
     }
 
-    .subnav span,
-    .subnav span:hover {
+    .subnav-light span,
+    .subnav-light span:hover {
         color: #7F7F7F;
         opacity: 1;
         cursor: pointer;
