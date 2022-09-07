@@ -1,3 +1,5 @@
+// Calendar sourced and modified directly from colorlib.com calendar-04
+// https://colorlib.com/wp/bootstrap-calendars/
 (function($) {
 
 	"use strict";
@@ -181,7 +183,7 @@ function show_events(events, month, day) {
     // If there are no events for this date, notify the user
     if(events.length===0) {
         var event_card = $("<div class='cal-event-card'></div>");
-        var event_name = $("<div class='event-name pl-1'> There are no events planned for "+month+" "+day+".</div>");
+        var event_name = $("<div class='event-name pl-1'> There are no inspections planned for "+month+" "+day+".</div>");
         $(event_card).css({ "border-left": "5px solid #20514C" });
         $(event_card).append(event_name);
         $(".events-container").append(event_card);

@@ -326,7 +326,10 @@ a, a:hover {
     color: #20514C;
 }
 
-/* ------------ Calendar */
+/* ------------ Calendar 
+Calendar modified from source: colorlib.com calendar-04
+https://colorlib.com/wp/bootstrap-calendars/
+*/
 
 .calendar-container {
     font-size: smaller;
@@ -389,34 +392,39 @@ a, a:hover {
 .days-table,
 .dates-table,
 .months-table {
-    border-collapse: separate;
+    /* border-collapse: separate; */
+    /* border-collapse: inherit; */
+    /* border-collapse: collapse; */
     text-align: center;
 }
 
 .day {
-    height: 20px;
-    width: 20px;
-    padding: 0 10px;
-    line-height: 26px;
+    height: 1.25rem; /* same as 20px */
+    width: 1.25rem;
+    /* padding: 0 0.625rem; */
+    line-height: 1.625rem; /* same as 26px */
     border: 2px solid transparent;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 0.625rem; /* same as 10px */
     color: #000;
 }
 
 .month {
     cursor: default;
-    height: 20px;
-    width: 20px;
-    padding: 0 2px;
-    padding-top: 10px;
-    line-height: 26px;
+    height: 1.25rem;
+    width: 1.25rem;
+    /* padding: 0 0.125rem; */
+    padding-top: 0.625rem;
+    line-height: 1.625rem;
     text-transform: uppercase;
     font-size: x-small;
     color: #cccccc;
     -webkit-transition: all 250ms;
     -o-transition: all 250ms;
     transition: all 250ms;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform:rotate(-45deg);
 }
 
 .active-month {
@@ -524,17 +532,13 @@ a, a:hover {
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
     .month {
-        font-size: 8px;
+        font-size: 0.5rem;
     }
 }
 
-@media (max-width: 767.98px) {
-    .month {
-        font-size: 10.5px;
-    }
-}
+
 
 
 /* ------ Slightly larger container - min-width: 1200px - in XL screens */
@@ -607,6 +611,11 @@ a, a:hover {
         animation-name: none;
     }
 
+    .month {
+        /* font-size: 0.5rem; */
+        font-size: 8px;
+    }
+
     #headerSearchBar,
     #bookingsHeaderSearchBar {
         display: none;
@@ -620,5 +629,13 @@ a, a:hover {
     #subnav a:hover {
         color: #7F7F7F;
         opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .month {
+        /* font-size: 0.75rem; */
+        font-size: 10.5px;
     }
 }
