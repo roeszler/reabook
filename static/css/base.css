@@ -255,7 +255,7 @@ font-weight: 100;
 */
 
 .property-card a {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .property-card a:hover {

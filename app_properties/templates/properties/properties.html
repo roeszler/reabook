@@ -24,39 +24,39 @@
         <div class="product-container col-10 offset-1">
             <div class="row mb-2"></div>
             <div class="row">
-                {% for property in properties %}
+                {% for prop in properties %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card property-card h-100 border-0">
-                        <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
-                        {% if property.main_image %}
-                        <a href="{% url 'property_detail' property.id %}">
-                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
+                        <p class="ribbon font-weight-light">{{ prop.ribbon_feature }}</p>
+                        {% if prop.main_image %}
+                        <a href="{% url 'property_detail' prop.id %}">
+                            <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                         </a>
                         {% else %}
-                        <a href="{% url 'property_detail' property.id %}">
-                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        <a href="{% url 'property_detail' prop.id %}">
+                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">{{ property.name }}</p>
+                            <p class="mb-0 font-weight-bold">{{ prop.name }}</p>
                         </div>
                         <div class="card-footer bg-light mt-1 bt-1 text-left">
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">
-                                        {% if property.sale_price > 0 %}
+                                        {% if prop.sale_price > 0 %}
                                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
-                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price|intcomma }}</strong>
-                                                <br><small>Listed: {{ property.list_date }}</small></p>
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
+                                                <br><small>Listed: {{ prop.list_date }}</small></p>
                                             </p>
                                         {% else %}
                                             <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
-                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw|intcomma }}</strong> /wk
-                                                <br><small>Available: {{ property.date_available }}</small></p>
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
+                                                <br><small>Available: {{ prop.date_available }}</small></p>
                                         {% endif %}
                                     </p>
-                                    {% if property.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ property.rating }} / 5</small>
+                                    {% if prop.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ prop.rating }} / 5</small>
                                     {% else %}
                                     <small class="text-muted">Not Rating Yet</small>
                                     {% endif %}
