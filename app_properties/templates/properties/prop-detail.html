@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> {% if property %}{{ property.house_no }} {{ property.street }}{% else %} Property Details{% endif %}</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> {% if prop %}{{ prop.house_no }} {{ prop.street }}, {{ prop.city }}{% else %} Property Details{% endif %}</h2>
             <hr class="w-50 mb-2">
         </div>
     </div>
@@ -26,13 +26,13 @@
             
             <!-- Card top with image -->
             <div class="image-container my-5">
-                {% if property.main_image %}
-                    <a href="{{ property.main_image.url }}" target="_blank">
-                        <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
+                {% if prop.main_image %}
+                    <a href="{{ prop.main_image.url }}" target="_blank">
+                        <img src="{{ prop.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
                     </a>
                 {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
                     </a>
                 {% endif %}
             </div>
@@ -42,8 +42,7 @@
         <div class="col-12 col-md-6 col-lg-4 bg-warning">
             <div class="property-details-container mb-5 mt-md-5">
                 <p>Property Details</p>
-                <img src="{{ property.main_image.url }}" alt="main_image">
-                <img src="{{ property.main_image_url.url }}" alt="main_image_url">
+                <img src="{{ prop.main_image.url }}" alt="main_image">
             </div>
         </div>
     </div>

@@ -33,7 +33,8 @@
                         </a>
                         {% else %}
                         <a href="{% url 'property_detail' property.id %}">
-                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}noimage_448px_axbj9j.png" alt="{{ property.name }}"> -->
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
