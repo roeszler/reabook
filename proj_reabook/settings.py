@@ -172,7 +172,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # MEDIA_URL = '/media/'
 MEDIA_URL = '/ReaBook/'
-# MEDIA_URL = 'https://res.cloudinary.com/yodakode/image/upload/ReaBook/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
