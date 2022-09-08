@@ -1,5 +1,5 @@
 """ Import Modules """
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .models import Property
 
@@ -13,3 +13,12 @@ def all_properties(request):
         'properties': properties,
     }
     return render(request, 'properties/properties.html', context)
+
+
+def property_detail(request, property_id):
+    """ A view to show individual property details """
+    prop = get_object_or_404(Property, pk=property_id)
+    context = {
+        'prop': prop,
+    }
+    return render(request, 'properties/prop-detail.html', context)
