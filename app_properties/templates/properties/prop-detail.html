@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block page_header %}
 <div class="container header-container-subpages">
@@ -14,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> {% if prop %}{{ prop.house_no }} {{ prop.street }}, {{ prop.city }}{% else %} Property Details{% endif %}</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> {% if prop %}{{ prop.house_no }} {{ prop.street }} | {{ prop.city }}{% else %} Property Details{% endif %}</h2>
             <hr class="w-50 mb-2">
         </div>
     </div>
@@ -41,7 +42,29 @@
         <!-- property details section  -->
         <div class="col-12 col-md-6 col-lg-4 bg-warning">
             <div class="property-details-container mb-5 mt-md-5">
-                <p>Property Details</p>
+
+                <!-- <div class="col-12 col-md-6 col-lg-4"> -->
+                    <div class="prop-details-container mb-5 mt-md-5">
+                        <h2 class="mb-0">{{ prop.name }}</h2>
+                        {% if prop.sale_price > 0 %}
+                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property currently For Sale
+                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
+                                <br><small>Listed: {{ prop.list_date }}</small></p>
+                            </p>
+                        {% else %}
+                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property currently For Rent:
+                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
+                                <br><small>Available: {{ prop.date_available }}</small></p>
+                        {% endif %}
+                        {% if prop.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ prop.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        <p class="mt-3">{{ prop.description }}</p>
+                    </div>
+                <!-- </div> -->
+
                 {% if prop.main_image %}
                 <a href="{{ prop.main_image.url }}" target="_blank">
                     <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.main_image.url }}" alt="main_image">
@@ -94,6 +117,8 @@
             </div>
         </div>
     </div>
+
+    
 
 </div>
 {% endblock %}

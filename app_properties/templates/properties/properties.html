@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block page_header %}
 <div class="container header-container-subpages">
@@ -33,8 +34,7 @@
                         </a>
                         {% else %}
                         <a href="{% url 'property_detail' property.id %}">
-                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
-                            <!-- <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}noimage_448px_axbj9j.png" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
@@ -46,12 +46,12 @@
                                     <p class="lead mb-0 text-left font-weight-bold">
                                         {% if property.sale_price > 0 %}
                                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
-                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price }}</strong>
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price|intcomma }}</strong>
                                                 <br><small>Listed: {{ property.list_date }}</small></p>
                                             </p>
                                         {% else %}
                                             <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
-                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw|intcomma }}</strong> /wk
                                                 <br><small>Available: {{ property.date_available }}</small></p>
                                         {% endif %}
                                     </p>

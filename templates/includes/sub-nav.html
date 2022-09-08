@@ -25,7 +25,7 @@
 
         <!-- For Sale dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="sale-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="{% url 'properties' %}?category=for_sale" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="sale-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Sale
             </span>
             <div class="dropdown-menu border-0 text-black" aria-labelledby="sale-link">
@@ -41,7 +41,7 @@
 
         <!-- For Rent dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="rent-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="{% url 'properties' %}?category=for_rent" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="rent-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Rent
             </span>
             <div class="dropdown-menu border-0" aria-labelledby="rent-link">
@@ -55,7 +55,7 @@
 
         <!-- For Lease dropdown list -->
         <li class="nav-item dropdown">
-            <span href="#" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="lease-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span href="{% url 'properties' %}?category=for_lease" class="logo-font font-weight-light nav-link text-black px-3 mr-5 auto-dropdown" id="lease-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 For Lease
             </span>
             <div class="dropdown-menu border-0" aria-labelledby="lease-link">
