@@ -58,6 +58,7 @@ class Property(models.Model):
     bedroom_image = models.ImageField(null=True, blank=True)
     living_image = models.ImageField(null=True, blank=True)
     main_image = models.ImageField(null=True, blank=True)
+    # main_image = models.URLField(max_length=1024, null=True, blank=True)
     bedrooms = models.IntegerField(null=False, blank=False)
     bathrooms = models.IntegerField(null=False, blank=False)
     carports = models.IntegerField(null=False, blank=False)

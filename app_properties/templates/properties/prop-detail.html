@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Property Street</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> {% if property %}{{ property.house_no }} {{ property.street }}{% else %} Property Details{% endif %}</h2>
             <hr class="w-50 mb-2">
         </div>
     </div>
@@ -27,7 +27,7 @@
             <!-- Card top with image -->
             <div class="image-container my-5">
                 {% if property.main_image %}
-                    <a href="{{ property.main_image_url.url }}" target="_blank">
+                    <a href="{{ property.main_image.url }}" target="_blank">
                         <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
                     </a>
                 {% else %}
@@ -42,6 +42,8 @@
         <div class="col-12 col-md-6 col-lg-4 bg-warning">
             <div class="property-details-container mb-5 mt-md-5">
                 <p>Property Details</p>
+                <img src="{{ property.main_image.url }}" alt="main_image">
+                <img src="{{ property.main_image_url.url }}" alt="main_image_url">
             </div>
         </div>
     </div>
