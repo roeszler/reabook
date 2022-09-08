@@ -5,7 +5,7 @@ html {
 /* body {
     position: relative;
     background-color: #343a40;
-    background: url('https://res.cloudinary.com/yodakode/image/upload/v1661965930/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg') no-repeat center center fixed;
+    background: url('https://res.cloudinary.com/yodakode/image/upload/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #000;
@@ -69,7 +69,8 @@ ul {
 .masthead {
     position: relative;
     background-color: #343a40;
-    background: url("https://res.cloudinary.com/yodakode/image/upload/v1661965930/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg") no-repeat bottom center fixed;
+    background: url("https://res.cloudinary.com/yodakode/image/upload/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg") no-repeat bottom center fixed;
+    /* background: url("https://res.cloudinary.com/yodakode/image/upload/ReaBook/nathan-fertig-U8zsjmKA840-unsplash_mzlljq.jpg") no-repeat center center fixed; */
     background-size: cover;
     padding-top: 14rem;
     padding-bottom: 12rem;

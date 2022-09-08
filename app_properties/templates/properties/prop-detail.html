@@ -26,14 +26,14 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2 bg-success">
             
             <!-- Card top with image -->
-            <div class="image-container my-5">
+            <div class="image-container my-5 text-center">
                 {% if prop.main_image %}
                     <a href="{{ prop.main_image.url }}" target="_blank">
-                        <img src="{{ prop.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
+                        <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="{{ prop.main_image.url }}" alt="{{ property.name }}">
                     </a>
                 {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
                     </a>
                 {% endif %}
             </div>
