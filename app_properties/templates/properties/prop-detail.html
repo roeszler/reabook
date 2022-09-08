@@ -14,11 +14,37 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Properties</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Property Street</h2>
             <hr class="w-50 mb-2">
         </div>
     </div>
     <!-- Property Container -->
     
+    <!-- property heading  -->
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            
+            <!-- Card top with image -->
+            <div class="image-container my-5">
+                {% if property.main_image %}
+                    <a href="{{ property.main_image.url }}" target="_blank">
+                        <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid rounded">
+                    </a>
+                {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- property details section  -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-details-container mb-5 mt-md-5">
+                <p>Property Details</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
