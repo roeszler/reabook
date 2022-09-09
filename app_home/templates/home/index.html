@@ -60,6 +60,7 @@
                         <p class="ribbon">Buy Properties</p>
                         
                         {% for prop in properties %}
+                        {% with properties|first as prop %}
                             {% if prop.main_image %}
                                 <a href="{% url 'property_detail' prop.id %}">
                                     <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
@@ -86,8 +87,9 @@
                                     <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">Inspect</a>
+                            <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
                         </div>
+                        {{ prop.id }}{% endwith %}
                         {% endfor %}
                         <!-- Import DB from other app -->
                         <!-- <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>

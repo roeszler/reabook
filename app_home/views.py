@@ -11,11 +11,13 @@ def index(request):
     properties = Property.objects.all()
     categories = Category.objects.all()
     sectors = Sector.objects.all()
+    # latest = Property.objects.latest('list_date')
 
     context = {
         'properties': properties,
         'categories': categories,
         'sectors': sectors,
+        # 'latest': latest,
     }
     return render(request, 'home/index.html', context)
 

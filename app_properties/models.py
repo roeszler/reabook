@@ -83,6 +83,7 @@ class Property(models.Model):
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
         verbose_name_plural = 'Properties'
+        get_latest_by = 'list_date'
 
     def __str__(self):
         """ Takes in product display model and returns name """
