@@ -1,5 +1,6 @@
 """ Import Models """
 from django.shortcuts import render, redirect, reverse
+
 from app_properties.models import Property
 
 

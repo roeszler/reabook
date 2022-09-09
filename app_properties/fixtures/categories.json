@@ -3,7 +3,7 @@
     "model": "app_properties.category",
     "fields": {
         "name": "for_sale",
-        "friendly_name": "For Sale"
+        "friendly_name": "for Sale"
     }
 },
 {
@@ -11,7 +11,7 @@
     "model": "app_properties.category",
     "fields": {
         "name": "for_rent",
-        "friendly_name": "For Rent"
+        "friendly_name": "for Rent"
     }
 },
 {
@@ -19,7 +19,7 @@
     "model": "app_properties.category",
     "fields": {
         "name": "for_lease",
-        "friendly_name": "Spaces for Lease"
+        "friendly_name": "space for Lease"
     }
 }
 ]

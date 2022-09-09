@@ -58,28 +58,37 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
                         <p class="ribbon">Buy Properties</p>
-                        <a href="">
-                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/photo-1523217582562-09d0def993a6.avif_jb4l0z.png" alt="{{ property.name }}">
-                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/nathan-fertig-U8zsjmKA840-unsplash_mzlljq.jpg" alt="{{ property.name }}"> -->
-                        </a>
+                        
+                        {% for prop in properties %}
+                            {% if prop.main_image %}
+                                <a href="{% url 'property_detail' prop.id %}">
+                                    <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'property_detail' prop.id %}">
+                                    <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
+                                </a>
+                            {% endif %}
+
+                        
                         <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">Hilltop Splendor</p>
+                            <p class="mb-0 font-weight-bold">{{ prop.name }}</p>
                         </div>
                         <div class="card-footer bg-light mt-1 bt-1">
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold"></p>
-                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
-                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
-                                        <br><small>Listed: Monday 29 August 2022</small>
-                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> {{ prop.suburb }} <span class="reabook-logo">|</span> {{ prop.city }}
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
+                                        <br><small>Listed: {{ prop.list_date|naturalday }}</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>{{ prop.rating }} / 5</small>
                                     </p>
                                     <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-primary text-center btn-block">Inspect</a>
+                            <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">Inspect</a>
                         </div>
+                        {% endfor %}
                         <!-- Import DB from other app -->
                         <!-- <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
                         {% if property.main_image %}
