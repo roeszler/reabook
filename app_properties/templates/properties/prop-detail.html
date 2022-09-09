@@ -46,13 +46,17 @@
                 <!-- <div class="col-12 col-md-6 col-lg-4"> -->
                     <div class="prop-details-container mb-5 mt-md-5">
                         <h2 class="mb-0">{{ prop.name }}</h2>
-                        {% if prop.sale_price > 0 %}
-                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property currently For Sale
+                        {% if prop.category.pk == 1 %}
+                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
                                 <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
                                 <br><small>Listed: {{ prop.list_date }}</small></p>
                             </p>
+                        {% elif prop.category.pk == 2 %}
+                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
+                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
+                                <br><small>Available: {{ prop.date_available }}</small></p>
                         {% else %}
-                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property currently For Rent:
+                            <p class="fw-lighter fs-6"><i class="fa-solid fa-scroll reabook-logo"></i> Space for Lease:
                                 <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
                                 <br><small>Available: {{ prop.date_available }}</small></p>
                         {% endif %}

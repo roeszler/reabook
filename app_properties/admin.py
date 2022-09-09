@@ -7,21 +7,25 @@ from .models import Property, Category, Sector
 class PropertyAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for properties """
     list_display = (
+        'pk',
         'title_no',
         'list_date',
         'house_no',
         'street',
         'city',
         'postcode',
+        'city',
+        'country',
+        'category',
+        'sector',
         'sale_price',
         'rent_pw',
-        'pk',
-        'main_image',
+        # 'main_image',
     )
 
     ordering = (
-        'title_no', 'list_date', 'pk', 'sale_price', 'rent_pw', 'owner_lname',
-        'city', 'postcode', 'category'
+        'pk', 'title_no', 'list_date', 'sale_price', 'rent_pw', 'owner_lname',
+        'city', 'postcode', 'country', 'category', 'sector',
     )
 
 

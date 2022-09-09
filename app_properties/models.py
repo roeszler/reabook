@@ -26,11 +26,11 @@ class Sector(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        """ Takes in the category model to return db name """
+        """ Takes in the sector model to return db name """
         return self.name
 
     def get_friendly_name(self):
-        """ Takes in the category model to return friendly_name """
+        """ Takes in the sector model to return friendly_name """
         return self.friendly_name
 
 
@@ -46,8 +46,8 @@ class Property(models.Model):
     name = models.CharField(max_length=30)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     description = models.TextField()
-    sale_price = models.IntegerField(null=False, blank=False, default=0)
-    rent_pw = models.IntegerField(null=False, blank=False, default=0)
+    sale_price = models.IntegerField(null=False, blank=False, default=1000000)
+    rent_pw = models.IntegerField(null=False, blank=False, default=100000)
     rating = models.DecimalField(
         max_digits=3, decimal_places=1, null=True, blank=True
         )
