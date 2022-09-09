@@ -74,7 +74,7 @@ class Property(models.Model):
     country = models.CharField(max_length=40, null=True, blank=True)
     postcode = models.CharField(max_length=10)
     build_date = models.DateField(null=True, blank=True)
-    list_date = models.DateField()
+    list_date = models.DateField(auto_now_add=True)
     list_duration = models.IntegerField(null=False, blank=False, default=30)
     date_available = models.DateField(null=True, blank=True)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
@@ -84,6 +84,7 @@ class Property(models.Model):
         """ to adjust the verbose name or the plural form from defaults """
         verbose_name_plural = 'Properties'
         get_latest_by = 'list_date'
+        # order_by = 'list_date'
 
     def __str__(self):
         """ Takes in product display model and returns name """
