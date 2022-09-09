@@ -30,11 +30,11 @@
             </span>
             <div class="dropdown-menu border-0 text-black" aria-labelledby="sale-link">
             
-                <a href="{% url 'properties' %}?category=for_sale,residential,rural_residential" class="dropdown-item">Residential</a>
-                <a href="{% url 'properties' %}?category=for_sale,commercial,rural_commercial" class="dropdown-item">Commercial</a>
-                <a href="{% url 'properties' %}?category=for_sale,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
-                <a href="{% url 'properties' %}?category=for_sale,residential,commercial" class="dropdown-item">Metro</a>
-                <a href="{% url 'properties' %}?category=for_sale,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
+                <a href="{% url 'properties' %}?category=for_sale?sector=residential,rural_residential" class="dropdown-item">Residential</a>
+                <a href="{% url 'properties' %}?category=for_sale?sector=commercial,rural_commercial" class="dropdown-item">Commercial</a>
+                <a href="{% url 'properties' %}?category=for_sale?sector=rural_residential,rural_commercial" class="dropdown-item">Rural</a>
+                <a href="{% url 'properties' %}?category=for_sale?sector=residential,commercial" class="dropdown-item">Metro</a>
+                <a href="{% url 'properties' %}?category=for_sale?sector=residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
            
             </div>
         </li>
@@ -45,11 +45,11 @@
                 For Rent
             </span>
             <div class="dropdown-menu border-0" aria-labelledby="rent-link">
-                <a href="{% url 'properties' %}?category=for_rent,residential,rural_residential" class="dropdown-item">Residential</a>
-                <a href="{% url 'properties' %}?category=for_rent,commercial,rural_commercial" class="dropdown-item">Commercial</a>
-                <a href="{% url 'properties' %}?category=for_rent,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
-                <a href="{% url 'properties' %}?category=for_rent,residential,commercial" class="dropdown-item">Metro</a>
-                <a href="{% url 'properties' %}?category=for_rent,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
+                <a href="{% url 'properties' %}?category=for_rent?sector=residential,rural_residential" class="dropdown-item">Residential</a>
+                <a href="{% url 'properties' %}?category=for_rent?sector=commercial,rural_commercial" class="dropdown-item">Commercial</a>
+                <a href="{% url 'properties' %}?category=for_rent?sector=rural_residential,rural_commercial" class="dropdown-item">Rural</a>
+                <a href="{% url 'properties' %}?category=for_rent?sector=residential,commercial" class="dropdown-item">Metro</a>
+                <a href="{% url 'properties' %}?category=for_rent?sector=residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
             </div>
         </li>
 
@@ -59,11 +59,11 @@
                 For Lease
             </span>
             <div class="dropdown-menu border-0" aria-labelledby="lease-link">
-                <a href="{% url 'properties' %}?category=for_lease,residential,rural_residential" class="dropdown-item">Residential</a>
-                <a href="{% url 'properties' %}?category=for_lease,commercial,rural_commercial" class="dropdown-item">Commercial</a>
-                <a href="{% url 'properties' %}?category=for_lease,rural_residential,rural_commercial" class="dropdown-item">Rural</a>
-                <a href="{% url 'properties' %}?category=for_lease,residential,commercial" class="dropdown-item">Metro</a>
-                <a href="{% url 'properties' %}?category=for_lease,residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
+                <a href="{% url 'properties' %}?category=for_lease?sector=residential,rural_residential" class="dropdown-item">Residential</a>
+                <a href="{% url 'properties' %}?category=for_lease?sector=commercial,rural_commercial" class="dropdown-item">Commercial</a>
+                <a href="{% url 'properties' %}?category=for_lease?sector=rural_residential,rural_commercial" class="dropdown-item">Rural</a>
+                <a href="{% url 'properties' %}?category=for_lease?sector=residential,commercial" class="dropdown-item">Metro</a>
+                <a href="{% url 'properties' %}?category=for_lease?sector=residential,rural_residential,commercial,rural_commercial" class="dropdown-item">All Properties</a> 
             </div>
         </li>
     </ul>
