@@ -77,9 +77,9 @@
 
                     <!-- Quick search Form -->
                     <li class="list-inline-item">
-                        <form method="GET" action="#" class="form form-inline my-2 my-lg-0" id="header-search">
+                        <form method="GET" action="{% url 'properties' %}" class="form form-inline my-2 my-lg-0" id="header-search">
                             {% csrf_token %}
-                            <input class="form-control mr-sm-2" type="search" placeholder="quick search"
+                            <input class="form-control mr-sm-2" type="text" name="q" placeholder="quick search"
                                 aria-label="Search">
                             <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
                         </form>
