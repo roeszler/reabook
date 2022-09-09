@@ -60,75 +60,59 @@
                         <p class="ribbon">Buy Properties</p>
                         
                         {% for prop in properties %}
-                        {% with properties|first as prop %}
-                            {% if prop.main_image %}
-                                <a href="{% url 'property_detail' prop.id %}">
-                                    <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'property_detail' prop.id %}">
-                                    <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
-                                </a>
+                            {% if prop.category.name == "for_sale" %}
+                                {% if forloop.first %}
+                                    {% if prop.main_image %}
+                                        <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                        <a href="{% url 'properties' %}?category=for_sale">
+                                            <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
+                                        </a>
+                                    {% else %}
+                                        <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                        <a href="{% url 'properties' %}?category=for_sale">
+                                            <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
+                                        </a>
+                                    {% endif %}
+                                
+                                <div class="card-body pb-2">
+                                    <p class="mb-0 font-weight-bold">{{ prop.name }}</p>
+                                </div>
+                                <div class="card-footer bg-light mt-1 bt-1">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold"></p>
+                                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> {{ prop.suburb }} <span class="reabook-logo">|</span> {{ prop.city }}
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
+                                                <br><small>Listed: {{ prop.list_date|naturalday }}</small>
+                                                <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>{{ prop.rating }} / 5</small>
+                                            </p>
+                                            <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
+                                </div>
+                                {% endif %}
                             {% endif %}
 
-                        
-                        <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">{{ prop.name }}</p>
-                        </div>
-                        <div class="card-footer bg-light mt-1 bt-1">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold"></p>
-                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> {{ prop.suburb }} <span class="reabook-logo">|</span> {{ prop.city }}
-                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
-                                        <br><small>Listed: {{ prop.list_date|naturalday }}</small>
-                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>{{ prop.rating }} / 5</small>
-                                    </p>
-                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
-                                </div>
-                            </div>
-                            <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
-                        </div>
-                        {{ prop.id }}{% endwith %}
+                            
+                            {% if forloop.last %}
+                                {{ prop.category.name }}
+                            {% endif %}
+
+                            {% if prop.category.name == "for_rent" %}
+                                {{ prop.category.name }}
+                            {% endif %}
+
+                            {% if prop.category.name == "for_rent" %}
+                                {% if forloop.last %}
+                                    {{ prop.category.name }}
+                                {% endif %}
+                            {% endif %}
+
+
+
+
                         {% endfor %}
-                        <!-- Import DB from other app -->
-                        <!-- <p class="ribbon font-weight-light">{{ property.ribbon_feature }}</p>
-                        {% if property.main_image %}
-                        <a href="">
-                            <img src="{{ property.main_image.url }}" alt="{{ property.name }}" class="card-img-top img-fluid">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">{{ property.name }}</p>
-                        </div>
-                        <div class="card-footer bg-light mt-1 bt-1 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">
-                                        {% if property.sale_price > 0 %}
-                                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
-                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ property.sale_price }}</strong>
-                                                <br><small>Listed: {{ property.list_date }}</small></p>
-                                            </p>
-                                        {% else %}
-                                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
-                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ property.rent_pw }}</strong> /wk
-                                                <br><small>Available: {{ property.date_available }}</small></p>
-                                        {% endif %}
-                                    </p>
-                                    {% if property.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ property.rating }} / 5</small>
-                                    {% else %}
-                                    <small class="text-muted">Not Rating Yet</small>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    -->
                     </div>
                 </div>
 
@@ -136,9 +120,10 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
                         <p class="ribbon">Sell Properties</p>
-                        <a href="">
+                        <a href="{% url 'choose_bookings' %}">
                             <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}">
+                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}"> -->
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/pexels-sevenstorm-juhaszimrus-575380_n0mnmg.png" alt="{{ property.name }}">
                         </a>
                         <div class="card-body pb-2">
                             <p class="mb-0 font-weight-bold">Beachside Beauty</p>
