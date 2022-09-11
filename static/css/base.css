@@ -350,7 +350,8 @@ font-weight: 100;
 
 /* Control Bar */
 
-.list-group-item {
+.list-group-item, 
+#list-tab {
     border-width: 0 0 1px;
     font-size: smaller;
 }

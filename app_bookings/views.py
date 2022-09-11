@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, reverse
 
 from app_properties.models import Property
+from .models import Booking
 
 
 def view_my_bookings(request):
@@ -46,6 +47,14 @@ def choose_bookings(request):
     Looks within the current directory app_bookings/templates/book/book.html
     """
     properties = Property.objects.all()
+    # bookings = Booking.objects.all()
+
+    # select_property = request.POST.get('booking_available', False)
+    # if select_property == 'on':
+    #     select_property = True
+
+    # save(update_fields=['booking_available'])
+    # print('Propery selected')
 
     # Retrieves a single instance of a property in the DB
     prop1 = Property.objects.get(pk=1)
@@ -57,6 +66,7 @@ def choose_bookings(request):
 
     context = {
         'properties': properties,
+        # 'bookings': bookings,
         'prop1': prop1,
         'prop2': prop2,
         'prop3': prop3,

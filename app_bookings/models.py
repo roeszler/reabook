@@ -8,6 +8,7 @@ class Booking(models.Model):
     """ To contain the data from the categories.json fixtures file  """
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    booking_available = models.BooleanField(default=False)
 
     user = models.ForeignKey(
         'User', null=True, blank=True, on_delete=models.SET_NULL

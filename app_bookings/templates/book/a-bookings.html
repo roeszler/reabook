@@ -5,7 +5,7 @@
 {% include 'includes/bookings-base.html' %}
 <div class="row">
     <div class="col-md-12 text-center mb-md-5 h-100">
-        <h2 class="heading-section">My Inspections</h2>
+        <h2 class="heading-section">My Properties to View</h2>
         <p>search header</p>
         <div class="row mb-3">
             <div class="col text-lg-left">
@@ -21,6 +21,15 @@
                             </tr>
                         </thead>
                         <tbody class="font-weight-light">
+                            {% for prop in bookings %}
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ prop.name }}</td>
+                                    <td>{{ prop.booking_time }}</td>
+                                    <td>{{ prop.booking_date }}</td>
+                                    <td>{{ prop.booking_location }}</td>
+                                </tr>
+                            {% endfor %}
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Bakers Delight</td>
