@@ -48,56 +48,19 @@ def choose_bookings(request):
     """
     properties = Property.objects.all()
     props_with_viewings = properties.filter(viewings=True)
+    props_selected_to_view = properties.filter(selected=True)
 
     # select_property = request.POST.get('booking_available', False)
     # if select_property == 'on':
     #     select_property = True
 
     # save(update_fields=['booking_available'])
-    # print('Propery selected')
+    # print('Property selected')
 
-    # Retrieves a single instance of a property in the DB
-    # prop1 = properties.get(pk=1)
-    # prop2 = properties.get(pk=2)
-    # prop3 = properties.get(pk=3)
-    # prop4 = properties.get(pk=4)
-    # prop5 = properties.get(pk=5)
-    # prop6 = properties.get(pk=6)
 
     context = {
         'properties': properties,
         'props_with_viewings': props_with_viewings,
-
-        # 'prop1': prop1,
-        # 'prop2': prop2,
-        # 'prop3': prop3,
-        # 'prop4': prop4,
-        # 'prop5': prop5,
-        # 'prop6': prop6,
+        'props_selected_to_view': props_selected_to_view,
     }
     return render(request, 'book/b-booking-choose-property.html', context)
-
-
-# def view_bookings_home(request):
-#     """
-#     View to render the bookings home page
-#     Looks within the current directory app_bookings/templates/book/book.html
-#     """
-#     properties = Property.objects.all()
-
-#     # Retrieves a single instance of a property in the DB
-#     prop1 = Property.objects.get(pk=1)
-#     prop2 = Property.objects.get(pk=2)
-#     prop3 = Property.objects.get(pk=3)
-#     prop4 = Property.objects.get(pk=4)
-#     prop5 = Property.objects.get(pk=5)
-
-#     context = {
-#         'properties': properties,
-#         'prop1': prop1,
-#         'prop2': prop2,
-#         'prop3': prop3,
-#         'prop4': prop4,
-#         'prop5': prop5,
-#     }
-#     return render(request, 'book/a-bookings.html', context)

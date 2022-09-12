@@ -80,12 +80,12 @@ class Property(models.Model):
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
     viewings = models.BooleanField(default=True)
+    selected = models.BooleanField(default=False)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
         verbose_name_plural = 'Properties'
         get_latest_by = 'list_date'
-        # order_by = 'list_date'
 
     def __str__(self):
         """ Takes in product display model and returns name """

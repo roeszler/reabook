@@ -342,7 +342,7 @@ font-weight: 100;
         transform: scale(1);
         margin-left: 0%;
     } to {
-        transform: scale(1.02) 
+        transform: scale(1.02);
         margin-left: 1.5%;
     }
 }
