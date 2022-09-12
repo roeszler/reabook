@@ -1,6 +1,6 @@
 [{
-    "pk": 1,
     "model": "app_bookings.bookings",
+    "pk": 1,
     "fields": {
         "prop_id": "app_properties.properties.pk",
         "prop_name": "app_properties.properties.name",
@@ -12,7 +12,6 @@
             "user_email": "user_email",
             "user_id": "user_id"
         }
-
     }
 }
 ]

@@ -122,10 +122,15 @@
                         </h2>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionBookings">
-                        <div class="card-body">
+                        <div class="card-body row">
+                            <div class="col-lg-6 bg-primary">
                             {% for prop in props_selected_to_view %}
                                 {{ prop.name }}
                             {% endfor %}
+                            </div>
+                            <div class="col-lg-6 bg-info">
+                                {{ appointment_types }}
+                            </div>
                         </div>
                     </div>
                 </div>
