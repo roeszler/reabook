@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'includes/bookings-base.html' %}
+<div class="row justify-content-center">
+    <div class="col-md-12 text-center mb-md-5 h-100">
+        <h4 class="heading-section">Select Property to Visit</h4>
+        <div class="progress ">
+            <div class="progress-bar bg-green" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <form action="POST" class="w-100">
+
+            <!-- Find Properties to view personally -->
+            <div class="accordion-toggle w-100" id="bookings-accordion">
+
+                <div class="row-12 row-hover" id="find-prop-to-view">
+                    <h2 class="accordion-header mt-3">
+                        <button class="btn w-100 text-left" type="button" data-toggle="collapse" data-target="#findPropCollapse"
+                            aria-expanded="false" aria-controls="findPropCollapse"><span class="accordion-number">1.</span>
+                            Find Properties<span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                    </h2>
+                </div>
+    
+                <!-- User Booking Form -->
+                <div id="findPropCollapse" class="collapse show" aria-labelledby="find-prop-to-view"
+                    data-parent="#bookings-accordion">
+                    <div class="card-body">
+                        <p>search header</p>
+                        <div class="row mb-3">
+                            <table class="table table-hover text-lg-left font-weight-light">
+                                <caption class="col-11"><small>List of properties currently available to view within your
+                                        search
+                                        criteria</small></caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Property</th>
+                                        <th scope="col">Suburb</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Available From</th>
+                                        <th scope="col">Select</th>
+                                    </tr>
+                                </thead>
+                                <!-- List of properties returned from search -->
+                                <tbody class="font-weight-light">
+                                    {% for prop in props_with_viewings %}
+                                    <tr>
+                                        <th scope="row" class="row-hlink"><a
+                                                href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a>
+                                        </th>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
+                                        <td class="row-hlink text-center">
+                                            <input type="checkbox" class="form-check-input" id="select-for-viewing">
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                            </table>
+                            <button type="submit" class="btn btn-primary">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Choose Time -->
+            <div class="accordion-toggle w-100" id="find-time-accordion">
+                <div class="row-12 row-hover" id="find-time-to-view">
+                    <h2 class="accordion-header mt-3">
+                        <button class="btn w-100 text-left" type="button" data-toggle="collapse" data-target="#findPropCollapse"
+                            aria-expanded="false" aria-controls="findPropCollapse"><span class="accordion-number">1.</span>
+                            Find Properties<span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                    </h2>
+                </div>
+    
+                <!-- User Booking Form -->
+                <div id="findPropCollapse" class="collapse show" aria-labelledby="find-time-to-view"
+                    data-parent="#bookings-accordion">
+                    <div class="card-body">
+                        <p>search header</p>
+                        <div class="row mb-3">
+                            <table class="table table-hover text-lg-left font-weight-light">
+                                <caption class="col-11"><small>List of properties currently available to view within your
+                                        search
+                                        criteria</small></caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Property</th>
+                                        <th scope="col">Suburb</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Available From</th>
+                                        <th scope="col">Select</th>
+                                    </tr>
+                                </thead>
+                                <!-- List of properties returned from search -->
+                                <tbody class="font-weight-light">
+                                    {% for prop in props_with_viewings %}
+                                    <tr>
+                                        <th scope="row" class="row-hlink"><a
+                                                href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a>
+                                        </th>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a>
+                                        </td>
+                                        <td class="row-hlink">
+                                            <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
+                                        <td class="row-hlink text-center">
+                                            <input type="checkbox" class="form-check-input" id="select-for-viewing">
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                            </table>
+                            <button type="submit" class="btn btn-primary">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% include 'includes/bookings-base-calendar.html' %}
+
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    <script>
+        $(document).ready(function() {
+            $('.accordion-toggle').dropdown('toggle', function() {
+                if($('.chevron').hasClass('fa-chevron-down')) {
+                    $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+                } else {
+                    $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -383,6 +383,10 @@ a, a:hover {
     color: #20514C;
 }
 
+.row-hover:hover {
+    background-color: #f8f9fa;
+}
+
 /* ------------------------ Calendar 
 Calendar modified from source: colorlib.com calendar-04
 https://colorlib.com/wp/bootstrap-calendars/
