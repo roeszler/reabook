@@ -16,4 +16,11 @@ $(document).ready(function(){
         e.preventDefault()
         $(this).tab('show')
     });
+
+    // // Make table rows hyperlinks
+    // $('.row-hlink').on('click', function (e) {
+    //     e.preventDefault()
+    //     $(this).open(["{% url 'property_detail' prop.id %}"])
+    //     // $(this).tab('show')
+    // });
 });

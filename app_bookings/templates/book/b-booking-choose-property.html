@@ -12,15 +12,32 @@
         </div>
         <p>search header</p>
         <div class="row mb-3">
-
+            <table class="table table-hover text-lg-left font-weight-light">
+                <caption class="col-12"><small>List of properties currently available to view within your search criteria</small></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Property</th>
+                        <th scope="col">Suburb</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Available From</th>
+                    </tr>
+                </thead>
             <!-- List of properties returned from search -->
-            {% for prop in props_available_to_view %}
-                {{ prop.name }}
-            
-
+            <tbody class="font-weight-light">
+            {% for prop in props_with_viewings %}
+                <!-- <tr href="{% url 'property_detail' prop.id %}"> -->
+                <tr>
+                    <th scope="row" class="row-hlink"><a href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a></th>
+                    <td class="row-hlink"><a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a></td>
+                    <td class="row-hlink"><a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a></td>
+                    <td class="row-hlink"><a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a></td>
+                    <td class="row-hlink"><a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
+                </tr>
             <!-- Fade appear details on the selection of each property controlled by js -->
             
             {% endfor %}
+            </table>
         </div>
     </div>
 </div>

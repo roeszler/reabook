@@ -348,7 +348,7 @@ font-weight: 100;
 }
 
 
-/* Control Bar */
+/* ------ Control Bar */
 
 .list-group-item, 
 #list-tab {
@@ -356,6 +356,16 @@ font-weight: 100;
     font-size: smaller;
 }
 
+
+/* Viewings available search results table */
+
+tr a {
+    color: #000;
+}
+
+tr a:hover {
+    color: #20514C;
+}
 
 
 /* ------------ Bookings Section */

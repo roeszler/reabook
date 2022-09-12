@@ -47,7 +47,7 @@ def choose_bookings(request):
     Looks within the current directory app_bookings/templates/book/book.html
     """
     properties = Property.objects.all()
-    props_available_to_view = properties.filter(viewings=True)
+    props_with_viewings = properties.filter(viewings=True)
 
     # select_property = request.POST.get('booking_available', False)
     # if select_property == 'on':
@@ -57,23 +57,23 @@ def choose_bookings(request):
     # print('Propery selected')
 
     # Retrieves a single instance of a property in the DB
-    prop1 = properties.get(pk=1)
-    prop2 = properties.get(pk=2)
-    prop3 = properties.get(pk=3)
-    prop4 = properties.get(pk=4)
-    prop5 = properties.get(pk=5)
-    prop6 = properties.get(pk=6)
+    # prop1 = properties.get(pk=1)
+    # prop2 = properties.get(pk=2)
+    # prop3 = properties.get(pk=3)
+    # prop4 = properties.get(pk=4)
+    # prop5 = properties.get(pk=5)
+    # prop6 = properties.get(pk=6)
 
     context = {
         'properties': properties,
-        'props_available_to_view': props_available_to_view,
+        'props_with_viewings': props_with_viewings,
 
-        'prop1': prop1,
-        'prop2': prop2,
-        'prop3': prop3,
-        'prop4': prop4,
-        'prop5': prop5,
-        'prop6': prop6,
+        # 'prop1': prop1,
+        # 'prop2': prop2,
+        # 'prop3': prop3,
+        # 'prop4': prop4,
+        # 'prop5': prop5,
+        # 'prop6': prop6,
     }
     return render(request, 'book/b-booking-choose-property.html', context)
 
