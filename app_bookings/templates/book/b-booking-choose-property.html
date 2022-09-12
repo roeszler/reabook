@@ -14,57 +14,13 @@
         <div class="row mb-3">
 
             <!-- List of properties returned from search -->
-            {% if properties %}
-            <div class="col-md-12 col-lg-4">
-                <div class="list-group list-group-flush text-left" id="choice-list" role="tablist">
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-n" role="tab">{{ prop1.house_no }} {{ prop1.street }}</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-1" role="tab">{{ prop2.house_no }} {{ prop2.street }}</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-2" role="tab">{{ prop3.house_no }} {{ prop3.street }}</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-3" role="tab">{{ prop4.house_no }} {{ prop4.street }}</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-4" role="tab">{{ prop5.house_no }} {{ prop5.street }}</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#property-5" role="tab">{{ prop6.house_no }} {{ prop6.street }}</a>
-                </div>
-            </div>
+            {% for prop in props_available_to_view %}
+                {{ prop.name }}
+            
 
             <!-- Fade appear details on the selection of each property controlled by js -->
-            <div class="col-md-12 col-lg-8">
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="property-n" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12"></div>
-                            <h5 class="col-md-8 col-sm-12 pr-3 font-weight-bold text-left">{{ prop1.name }}</h5>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12">
-                                {% if prop1.main_image %}
-                                <a href="">
-                                    <img class="img-thumbnail w-lg-100 w-md-75 mb-2" src="{{ prop1.main_image.url }}" alt="{{ property.name }}">
-                                </a>
-                                {% else %}
-                                <a href="">
-                                    <img class="img-thumbnail w-lg-100 w-md-75 mb-2" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}">
-                                </a>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-8 col-sm-12 pr-3 text-left">
-                                <p>{{ prop1.description }}</p>
-                                <div class="text-right mr-md-4 my-1 mx-sm-1">
-                                    <button class="btn col-md-4 col-sm-12 bg-clear font-weight-light pull-left choose-hlink">View</button>
-                                    <a href="#">
-                                        <button class="btn col-md-4 col-sm-12 btn-outline-reabook pull-right">Book</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="property-1" role="tabpanel">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum corrupti, minima molestiae provident rem consectetur fugiat neque dignissimos molestias natus, adipisci nemo! Veritatis, porro ducimus. Ad quae iure tempora possimus?</div>
-                    <div class="tab-pane fade" id="property-2" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ea ut harum ratione? Rerum esse maxime sit asperiores dolorem ratione tenetur atque temporibus hic. Dolorem modi est reprehenderit. Obcaecati, magni?</div>
-                    <div class="tab-pane fade" id="property-3" role="tabpanel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sed harum illum animi nesciunt sapiente, dolorum repudiandae, hic aperiam perferendis, voluptatibus esse quibusdam voluptates alias aut eveniet non asperiores ad?</div>
-                    <div class="tab-pane fade" id="property-4" role="tabpanel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dicta repellat ratione repudiandae eos quas saepe ea mollitia sequi asperiores et molestiae, delectus aut expedita, tempora eligendi porro dolores distinctio.</div>
-                    <div class="tab-pane fade" id="property-5" role="tabpanel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dicta repellat ratione repudiandae eos quas saepe ea mollitia sequi asperiores et molestiae, delectus aut expedita, tempora eligendi porro dolores distinctio.</div>
-                </div>
-            </div>
-            {% endif %}
+            
+            {% endfor %}
         </div>
     </div>
 </div>

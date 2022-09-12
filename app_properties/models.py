@@ -79,6 +79,7 @@ class Property(models.Model):
     date_available = models.DateField(null=True, blank=True)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
+    viewings = models.BooleanField(default=True)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """

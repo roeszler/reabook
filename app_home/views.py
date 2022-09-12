@@ -1,7 +1,7 @@
 """ Import Modules """
 from django.shortcuts import render
 
-from app_properties.models import Property, Category, Sector
+from app_properties.models import Property, Category
 
 
 def index(request):
@@ -9,8 +9,8 @@ def index(request):
     View to return the index.html page
     """
     properties = Property.objects.all()
-    categories = Category.objects.all()
-    sectors = Sector.objects.all()
+    # categories = Category.objects.all()
+    # sectors = Sector.objects.all()
     
     # order_by = Property.objects.all().order_by('list_date')
     props_latest = properties.order_by('list_date')
@@ -20,8 +20,8 @@ def index(request):
 
     context = {
         'properties': properties,
-        'categories': categories,
-        'sectors': sectors,
+        # 'categories': categories,
+        # 'sectors': sectors,
         # 'order_by': order_by,
         'props_latest': props_latest,
         'props_for_rent': props_for_rent,

@@ -2,11 +2,10 @@
     "pk": 1,
     "model": "app_bookings.bookings",
     "fields": {
-        "booking_available": 1,
         "prop_id": "app_properties.properties.pk",
         "prop_name": "app_properties.properties.name",
-        "booking_time": 1,
-        "booking_date": 1,
+        "appointment_time": "17:45",
+        "booking_date": "2022-08-11T15:07:40Z",
         "booking_location": "app_properties.properties.city",
         "user": {
             "username": "username",
