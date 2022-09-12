@@ -374,6 +374,10 @@ a, a:hover {
     color: #cccccc;
 }
 
+.table-section {
+    overflow-y: auto;
+}
+
 .choose-hlink {
     /* color: red; */
     color: #cccccc;
@@ -385,6 +389,27 @@ a, a:hover {
 
 .row-hover:hover {
     background-color: #f8f9fa;
+}
+
+.accordion-number {
+    background-color: #20514C;
+    color: #fff;
+    border-radius: 0.5rem;
+    justify-content: center;
+    min-width: 3.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.accordion-text-heading {
+    font-size: larger;
+}
+
+.accordion-number, 
+.accordion-text-heading {
+    display: flex;
+    align-items: center;
+    padding: 1.125rem;
 }
 
 /* ------------------------ Calendar 

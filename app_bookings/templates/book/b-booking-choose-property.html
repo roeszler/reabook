@@ -13,114 +13,176 @@
 
         <form action="POST" class="w-100">
 
-        <div class="accordion-toggle w-100" id="accordionExample">
-            <div class="card mt-3">
-              <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <span class="accordion-number float-left">1.</span>
-                    <span class="text-heading">Find Properties</span>
-                    <span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                    <p>search header</p>
-                    <div class="row mb-3">
-                        <table class="table table-hover text-lg-left font-weight-light">
-                            <caption class="col-11"><small>List of properties currently available to view within your
-                                    search
-                                    criteria</small></caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Property</th>
-                                    <th scope="col">Suburb</th>
-                                    <th scope="col">City</th>
-                                    <th scope="col">Available From</th>
-                                    <th scope="col">Select</th>
-                                </tr>
-                            </thead>
-                            <!-- List of properties returned from search -->
-                            <tbody class="font-weight-light">
-                                {% for prop in props_with_viewings %}
-                                <tr>
-                                    <th scope="row" class="row-hlink"><a
-                                            href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a>
-                                    </th>
-                                    <td class="row-hlink">
-                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a>
-                                    </td>
-                                    <td class="row-hlink">
-                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a>
-                                    </td>
-                                    <td class="row-hlink">
-                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a>
-                                    </td>
-                                    <td class="row-hlink">
-                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
-                                    <td class="row-hlink text-center">
-                                        <input type="checkbox" class="form-check-input" id="select-for-viewing">
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                        </table>
-                        <button type="submit" class="btn btn-primary">Book</button>
+            <div class="accordion-toggle w-100" id="accordionBookings">
+                <div class="card mt-3">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span class="accordion-number float-left">1.</span>
+                                <span class="accordion-text-heading">Find Properties<span class="chevron"><i
+                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span></span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionBookings">
+                        <div class="card-body">
+
+                            <!-- <p>search header</p> -->
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <!-- <label for="#properties-for-sale inline-block">For Sale</label>
+                                    <input type="checkbox" class="form-check-input" id="properties-for-sale"> -->
+                                    <button class="btn btn-outline-reabook dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Category</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Properties For Sale</a>
+                                        <a class="dropdown-item" href="#">Properties For Rent</a>
+                                        <a class="dropdown-item" href="#">Spaces For Lease</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">All Properties</a>
+                                    </div>
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-reabook dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">City</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Adelaide</a>
+                                        <a class="dropdown-item" href="#">Dublin</a>
+                                        <a class="dropdown-item" href="#">London</a>
+                                        <a class="dropdown-item" href="#">Stockholm</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Lucky Dip</a>
+                                    </div>
+                                </div>
+                                <input type="search" class="form-control" aria-label="Text input with dropdown button" placeholder="search viewings">
+                                <button class="btn btn-outline-reabook"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+
+                            <!-- Table with search results -->
+                            <div class="row mb-3 table-section">
+                                <table class="table table-hover text-lg-left font-weight-light">
+                                    <caption class="col-11"><small>List of properties currently available to view within your search criteria</small></caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Property</th>
+                                            <th scope="col">Suburb</th>
+                                            <th scope="col">City</th>
+                                            <th scope="col">Available From</th>
+                                            <th scope="col">Select</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- List of properties returned from search -->
+                                    <tbody class="font-weight-light">
+                                        {% for prop in props_with_viewings %}
+                                        <tr>
+                                            <th scope="row" class="row-hlink"><a
+                                                    href="{% url 'property_detail' prop.id %}"
+                                                    target="_blank">{{ prop.id }}</a>
+                                            </th>
+                                            <td class="row-hlink">
+                                                <a href="{% url 'property_detail' prop.id %}"
+                                                    target="_blank">{{ prop.name }}</a>
+                                            </td>
+                                            <td class="row-hlink">
+                                                <a href="{% url 'property_detail' prop.id %}"
+                                                    target="_blank">{{ prop.suburb }}</a>
+                                            </td>
+                                            <td class="row-hlink">
+                                                <a href="{% url 'property_detail' prop.id %}"
+                                                    target="_blank">{{ prop.city }}</a>
+                                            </td>
+                                            <td class="row-hlink">
+                                                <a href="{% url 'property_detail' prop.id %}"
+                                                    target="_blank">{{ prop.date_available }}</a></td>
+                                            <td class="row-hlink text-center">
+                                                <input type="checkbox" class="form-check-input" id="select-for-viewing">
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="card mt-1">
-              <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <span class="accordion-number float-left">2.</span>
-                    <span class="text-heading">Choose Time</span>
-                    <span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <!-- Select viewings available in selected properties -->
+                <div class="card mt-1">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="accordion-number float-left">2.</span>
+                                <span class="accordion-text-heading">Choose Time<span class="chevron"><i
+                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionBookings">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                            probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="card mt-1">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="accordion-number float-left">3.</span>
+                                <span class="accordion-text-heading">Enter Details<span class="chevron"><i
+                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionBookings">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                            probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span class="accordion-number float-left">4.</span>
+                                <span class="accordion-text-heading">Confirm Booking<span class="chevron"><i
+                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                        data-parent="#accordionBookings">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                            probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                        <button type="submit" class="btn btn-outline-reabook mx-3 text-center">Add to My ReaBook Diary</button>
+                    </div>
+                </div>
             </div>
-            <div class="card mt-1">
-              <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <span class="accordion-number float-left">3.</span>
-                    <span class="text-heading">Enter Details</span>
-                    <span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-            <div class="card mt-1">
-                <div class="card-header" id="headingFour">
-                  <h2 class="mb-0">
-                    <button class="btn w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <span class="accordion-number float-left">4.</span>
-                        <span class="text-heading">Confirm Booking</span>
-                        <span class="chevron float-right"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                  <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  </div>
-                </div>
-              </div>
-          </div>
         </form>
     </div>
 </div>
@@ -133,6 +195,7 @@
     {{ block.super }}
     <script>
         $(document).ready(function() {
+
             $('.accordion-toggle').dropdown('toggle', function() {
                 if($('.chevron').hasClass('fa-chevron-down')) {
                     $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
