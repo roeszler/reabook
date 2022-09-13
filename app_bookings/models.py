@@ -6,6 +6,12 @@ from django.db import models
 
 class Booking(models.Model):
     """ To contain the data from the categories.json fixtures file  """
+    name = models.CharField(max_length=254, default="prop_viewing_booked")
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    class Meta:
+        """ to adjust the verbose name or the plural form from defaults """
+        verbose_name_plural = 'Bookings'
 
     def __str__(self):
         """ Takes in the sector model to return db name """

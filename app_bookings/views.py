@@ -1,5 +1,7 @@
 """ Import Models """
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 
 from app_properties.models import Property
 from .models import AppointmentTypes
@@ -43,29 +45,37 @@ def view_booking_success(request):
 
 
 def choose_bookings(request):
-    """
-    View to render the choose bookings page
-    Looks within the current directory app_bookings/templates/book/book.html
-    """
+    """ View to render the choose bookings page """
     properties = Property.objects.all()
     appointment_types = AppointmentTypes.objects.all()
     props_with_viewings = properties.filter(viewings=True)
     props_selected_to_view = properties.filter(selected=True)
-    # appointment_duration = appointment_types.filter(duration=15)
 
-    # select_property = request.POST.get('booking_available', False)
-    # if select_property == 'on':
-    #     select_property = True
+    # print('props_with_viewings', props_with_viewings)
+    # print('props_selected_to_view', props_selected_to_view)
+    # print('properties', properties)
 
-    # save(update_fields=['booking_available'])
-    # print('Property selected')
+    query = None
 
-
+    # Available viewings search function
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
+                return redirect(reverse('choose_bookings'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            props_with_viewings = props_with_viewings.filter(queries)
+            # print('found q', queries)
+    
     context = {
         'properties': properties,
         'appointment_types': appointment_types,
         'props_with_viewings': props_with_viewings,
         'props_selected_to_view': props_selected_to_view,
-        # 'appointment_duration': appointment_duration,
+        'search_term': query,
     }
-    return render(request, 'book/b-booking-choose-property.html', context)
+    return render(request, 'book/search-viewings.html', context)

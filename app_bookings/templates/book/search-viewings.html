@@ -11,8 +11,8 @@
             <div class="progress-bar bg-green" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
-        <form action="POST" class="w-100">
-
+        <!-- <form action="" method="POST" class="w-100">
+            {% csrf_token %} -->
             <div class="accordion-toggle w-100" id="accordionBookings">
                 <div class="card mt-3">
                     <div class="card-header" id="headingOne">
@@ -25,41 +25,50 @@
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionBookings">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionBookings">
+                    <!-- <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionBookings"> -->
                         <div class="card-body">
 
                             <!-- <p>search header</p> -->
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <!-- <label for="#properties-for-sale inline-block">For Sale</label>
-                                    <input type="checkbox" class="form-check-input" id="properties-for-sale"> -->
-                                    <button class="btn btn-outline-reabook dropdown-toggle" type="button"
-                                        data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">Category</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Properties For Sale</a>
-                                        <a class="dropdown-item" href="#">Properties For Rent</a>
-                                        <a class="dropdown-item" href="#">Spaces For Lease</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">All Properties</a>
+                            <form action="{% url 'choose_bookings' %}" method="GET">
+                                <!-- {% csrf_token %} -->
+                                <div class="input-group mb-4">
+                                    <input type="search" class="form-control" name="q" aria-label="Text input with dropdown button" placeholder="search available viewings">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-reabook" type="submit">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-reabook dropdown-toggle" type="button"
-                                        data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">City</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Adelaide</a>
-                                        <a class="dropdown-item" href="#">Dublin</a>
-                                        <a class="dropdown-item" href="#">London</a>
-                                        <a class="dropdown-item" href="#">Stockholm</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Lucky Dip</a>
+                                    <!-- <div class="input-group-prepend">
+                                        <button class="btn btn-outline-reabook dropdown-toggle" type="button"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Category</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Properties For Sale</a>
+                                            <a class="dropdown-item" href="#">Properties For Rent</a>
+                                            <a class="dropdown-item" href="#">Spaces For Lease</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">All Properties</a>
+                                        </div>
                                     </div>
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-reabook dropdown-toggle" type="button"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">City</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Adelaide</a>
+                                            <a class="dropdown-item" href="#">Dublin</a>
+                                            <a class="dropdown-item" href="#">London</a>
+                                            <a class="dropdown-item" href="#">Stockholm</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Lucky Dip</a>
+                                        </div>
+                                    </div> -->
+                        
+                                    
+                                    
                                 </div>
-                                <input type="search" class="form-control" aria-label="Text input with dropdown button" placeholder="search viewings">
-                                <button class="btn btn-outline-reabook"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
+                            </form>
 
                             <!-- Table with search results -->
                             <div class="row mb-3 table-section">
@@ -184,7 +193,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </div>
 {% include 'includes/bookings-base-calendar.html' %}
