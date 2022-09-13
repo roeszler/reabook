@@ -49,19 +49,24 @@
                         {% if prop.category.pk == 1 %}
                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
                                 <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
-                                <br><small>Listed: {{ prop.list_date }}</small></p>
+                                <br><small>Listed: {{ prop.list_date }}</small>
+                                {% include 'includes/property-icons.html' %}
                             </p>
                         {% elif prop.category.pk == 2 %}
                             <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
                                 <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
-                                <br><small>Available: {{ prop.date_available }}</small></p>
+                                <br><small>Available: {{ prop.date_available }}</small>
+                                {% include 'includes/property-icons.html' %}
+                            </p>
                         {% else %}
                             <p class="fw-lighter fs-6"><i class="fa-solid fa-scroll reabook-logo"></i> Space for Lease:
                                 <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
-                                <br><small>Available: {{ prop.date_available }}</small></p>
+                                <br><small>Available: {{ prop.date_available }}</small>
+                                {% include 'includes/property-icons.html' %}
+                            </p>
                         {% endif %}
                         {% if prop.rating %}
-                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ prop.rating }} / 5</small>
+                            <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
                         {% else %}
                             <small class="text-muted">No Rating</small>
                         {% endif %}
