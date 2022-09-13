@@ -25,16 +25,19 @@ $(document).ready(function(){
     // });
 
     let checkboxes = $("input[type=checkbox][name=property_to_view]")
-    let enabledView = [];
+    let selectedToView = [];
+    
     // Attach a change event handler to the checkboxes.
-    checkboxes.change(function () {
-        enabledView = checkboxes
+    checkboxes.change(function viewingCheckbox() {
+        selectedToView = checkboxes
             .filter(":checked") // Filter out unchecked boxes.
             .map(function () { // Extract values using jQuery map.
                 return this.value;
-            })
-            .get() // Get array.
+            }).get() // Get array.
+        
+        document.getElementById("properties-to-view").innerHTML = selectedToView;
 
-        console.log(enabledView);
+        console.log(selectedToView);
+        return selectedToView;
     });
 });

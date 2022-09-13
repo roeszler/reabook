@@ -14,9 +14,29 @@ def all_properties(request):
     query = None
     categories = None
     sectors = None
+    sort = None
+    direction = None
 
     # search function
     if request.GET:
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+
+            if sortkey == 'name':
+                sortkey = 'lower_name_annotation'
+                properties = properties.annotate(lower_name_annotation=Lower('name'))
+
+            if sortkey == 'category':
+                sortkey = 'category__name'
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'descending':
+                    sortkey = f'-{sortkey}'
+            
+            properties = properties.order_by(sortkey)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -41,11 +61,15 @@ def all_properties(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
             properties = properties.filter(queries)
 
+    # To return the current sorting methodology to the template
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'properties': properties,
         'search_term': query,
         'current_categories': categories,
         'current_sectors': sectors,
+        'current_sorting': current_sorting,
     }
     return render(request, 'properties/properties.html', context)
 

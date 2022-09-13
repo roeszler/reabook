@@ -59,6 +59,8 @@ def choose_bookings(request):
 
     # Available viewings search function
     if request.GET:
+
+        # Sub-query for properties available for viewing
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -71,7 +73,7 @@ def choose_bookings(request):
             props_with_viewings = props_with_viewings.filter(queries)
             # print('found q', queries)
     
-    # To see if checkbox is 'checked'
+    # # To see if checkbox is 'checked'
     # if request.POST.get('check', False):
     #     checked = request.POST('check')
     #     props_selected_to_view = props_selected_to_view.filter(checked)

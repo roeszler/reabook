@@ -125,7 +125,7 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick="viewingCheckbox()">
                                 <span class="accordion-number float-left">2.</span>
                                 <span class="accordion-text-heading">Choose Time<span class="chevron"><i
                                             class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
@@ -134,10 +134,12 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionBookings">
                         <div class="card-body row">
-                            <div class="col-lg-6 bg-primary">
+                            <div class="col-lg-6 bg-primary" id="properties-to-view">
+
                             {% for prop in props_selected_to_view %}
                                 {{ prop.name }}
                             {% endfor %}
+                            
                             </div>
                             <div class="col-lg-6 bg-info">
                                 {{ appointment_types }}
