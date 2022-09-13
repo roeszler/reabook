@@ -108,7 +108,7 @@
                                                 <a href="{% url 'property_detail' prop.id %}"
                                                     target="_blank">{{ prop.date_available }}</a></td>
                                             <td class="row-hlink text-center">
-                                                <input type="checkbox" class="form-check-input" id="select-for-viewing">
+                                                <input type="checkbox" name="property_to_view" value="{{ prop.id }}" class="form-check-input" id="select-for-viewing">
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -205,17 +205,5 @@
 {% block postloadjs %}
     <!-- To include the parent block -->
     {{ block.super }}
-    <script>
-        $(document).ready(function() {
-
-            $('.accordion-toggle').dropdown('toggle', function() {
-                if($('.chevron').hasClass('fa-chevron-down')) {
-                    $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
-                } else {
-                    $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
-                }
-            });
-        });
-    </script>
 
 {% endblock %}

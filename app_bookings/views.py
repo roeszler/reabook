@@ -1,5 +1,5 @@
 """ Import Models """
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 
@@ -71,8 +71,9 @@ def choose_bookings(request):
             props_with_viewings = props_with_viewings.filter(queries)
             # print('found q', queries)
     
-    # if request.POST.get('checked', True):
-    #     checked = request.get('checked')
+    # To see if checkbox is 'checked'
+    # if request.POST.get('check', False):
+    #     checked = request.POST('check')
     #     props_selected_to_view = props_selected_to_view.filter(checked)
 
     

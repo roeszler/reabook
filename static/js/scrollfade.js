@@ -23,4 +23,18 @@ $(document).ready(function(){
     //     $(this).open(["{% url 'property_detail' prop.id %}"])
     //     // $(this).tab('show')
     // });
+
+    let checkboxes = $("input[type=checkbox][name=property_to_view]")
+    let enabledView = [];
+    // Attach a change event handler to the checkboxes.
+    checkboxes.change(function () {
+        enabledView = checkboxes
+            .filter(":checked") // Filter out unchecked boxes.
+            .map(function () { // Extract values using jQuery map.
+                return this.value;
+            })
+            .get() // Get array.
+
+        console.log(enabledView);
+    });
 });
