@@ -34,8 +34,15 @@ $(document).ready(function(){
             .map(function () { // Extract values using jQuery map.
                 return this.value;
             }).get() // Get array.
+            
+        // html = selectedToView.array.forEach(element => {
+        //     '<th scope="row" class="row-hlink"><a href="{% url "property_detail" prop.id %}" target="_blank">{{ prop.id }}</a></th>'
+        // });
+        // document.getElementsByClassName("properties-to-view").innerHTML = html;
+        // document.getElementsByClassName("properties-to-view").innerHTML = selectedToView;
         
         document.getElementById("properties-to-view").innerHTML = selectedToView;
+        
 
         console.log(selectedToView);
         return selectedToView;

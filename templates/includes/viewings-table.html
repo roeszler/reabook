@@ -1,0 +1,45 @@
+<table class="table table-hover text-lg-left font-weight-light">
+    <caption class="col-11"><small>List of properties currently available to view within your search criteria</small></caption>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Property</th>
+            <th scope="col">Suburb</th>
+            <th scope="col">City</th>
+            <th scope="col">Available From</th>
+            <th scope="col">Select</th>
+        </tr>
+    </thead>
+
+    <!-- List of properties returned from search -->
+    <form action="" method="POST">
+    <tbody class="font-weight-light">
+        {% for prop in props_with_viewings %}
+        <tr>
+            <th scope="row" class="row-hlink"><a
+                    href="{% url 'property_detail' prop.id %}"
+                    target="_blank">{{ prop.id }}</a>
+            </th>
+            <td class="row-hlink">
+                <a href="{% url 'property_detail' prop.id %}"
+                    target="_blank">{{ prop.name }}</a>
+            </td>
+            <td class="row-hlink">
+                <a href="{% url 'property_detail' prop.id %}"
+                    target="_blank">{{ prop.suburb }}</a>
+            </td>
+            <td class="row-hlink">
+                <a href="{% url 'property_detail' prop.id %}"
+                    target="_blank">{{ prop.city }}</a>
+            </td>
+            <td class="row-hlink">
+                <a href="{% url 'property_detail' prop.id %}"
+                    target="_blank">{{ prop.date_available }}</a></td>
+            <td class="row-hlink text-center">
+                <input type="checkbox" name="property_to_view" value="{{ prop.id }}" class="form-check-input" id="select-for-viewing">
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </form>
+</table>
