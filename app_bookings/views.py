@@ -71,6 +71,11 @@ def choose_bookings(request):
             props_with_viewings = props_with_viewings.filter(queries)
             # print('found q', queries)
     
+    # if request.POST.get('checked', True):
+    #     checked = request.get('checked')
+    #     props_selected_to_view = props_selected_to_view.filter(checked)
+
+    
     context = {
         'properties': properties,
         'appointment_types': appointment_types,

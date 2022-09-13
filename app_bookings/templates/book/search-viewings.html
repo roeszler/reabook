@@ -31,18 +31,13 @@
 
                             <!-- <p>search header</p> -->
                             <form action="{% url 'choose_bookings' %}" method="GET">
+
                                 <!-- {% csrf_token %} -->
                                 <div class="input-group mb-4">
-                                    <input type="search" class="form-control" name="q" aria-label="Text input with dropdown button" placeholder="search available viewings">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-reabook" type="submit">
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </button>
-                                    </div>
+
                                     <!-- <div class="input-group-prepend">
                                         <button class="btn btn-outline-reabook dropdown-toggle" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">Category</button>
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Properties For Sale</a>
                                             <a class="dropdown-item" href="#">Properties For Rent</a>
@@ -53,8 +48,7 @@
                                     </div>
                                     <div class="input-group-prepend">
                                         <button class="btn btn-outline-reabook dropdown-toggle" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">City</button>
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City</button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Adelaide</a>
                                             <a class="dropdown-item" href="#">Dublin</a>
@@ -64,9 +58,13 @@
                                             <a class="dropdown-item" href="#">Lucky Dip</a>
                                         </div>
                                     </div> -->
-                        
-                                    
-                                    
+
+                                    <input type="search" class="form-control" name="q" aria-label="Text input with dropdown button" placeholder="search available viewings">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-reabook" type="submit">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </div> 
                                 </div>
                             </form>
 
@@ -84,7 +82,9 @@
                                             <th scope="col">Select</th>
                                         </tr>
                                     </thead>
+
                                     <!-- List of properties returned from search -->
+                                    <form action="" method="POST">
                                     <tbody class="font-weight-light">
                                         {% for prop in props_with_viewings %}
                                         <tr>
@@ -112,6 +112,8 @@
                                             </td>
                                         </tr>
                                         {% endfor %}
+                                    </tbody>
+                                    </form>
                                 </table>
                             </div>
                         </div>
