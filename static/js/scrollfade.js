@@ -40,11 +40,34 @@ $(document).ready(function(){
         // });
         // document.getElementsByClassName("properties-to-view").innerHTML = html;
         // document.getElementsByClassName("properties-to-view").innerHTML = selectedToView;
-        
-        document.getElementById("properties-to-view").innerHTML = selectedToView;
-        
 
-        console.log(selectedToView);
-        return selectedToView;
+        let tbodyHtml = '';
+        for (let i = 0; i < selectedToView.length; i++) {
+            tbodyHtml += `
+            <thead>
+                <tr>
+                    <th scope="col">Prop ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>${selectedToView[i]}</td>
+                </tr>
+
+                {% for prop in props_selected_to_view %}
+                {% if prop.id == ${selectedToView[i]} %}
+                <tr>
+                        <td>{{ prop.name }}</td>
+                <tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+            `
+        }
+        
+        document.getElementById("properties-to-view").innerHTML = tbodyHtml;
+        
+        console.log(tbodyHtml);
+        // return tbodyHtml;
     });
 });

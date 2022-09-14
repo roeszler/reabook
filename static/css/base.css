@@ -126,6 +126,17 @@ font-weight: 100;
     background-color: #20514C;
 }
 
+.btn-outline {
+    color: #7F7F7F;
+    border-color: none;
+}
+
+.btn-outline:hover {
+    color: #20514C;
+    /* border-color: #7F7F7F; */
+    /* background-color: #20514C; */
+}
+
 /* #headerSubmitButton {
     color: #fff;
     border-color: #fff;

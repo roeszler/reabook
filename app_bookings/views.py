@@ -1,5 +1,5 @@
 """ Import Models """
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
@@ -44,6 +44,36 @@ def view_booking_success(request):
     return render(request, 'book/f-booking-success.html')
 
 
+def add_to_diary(request, property_id):
+    """ Add a quantity of the specified prop to the shopping diary """
+    properties = Property.objects.all()
+    prop = get_object_or_404(Property, pk=property_id)
+    diary = request.session.get('diary', {})
+    props_with_viewings = properties.filter(viewings=True)
+    query = None
+
+    if request.GET:
+        # Sub-query for properties available for viewing
+        if 'q' in request.GET:
+            query = request.GET['q']
+            queries = Q(pk__icontains=query) | Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            props_with_viewings = props_with_viewings.filter(queries)
+
+    if property_id in list(diary.keys()):
+        messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}')
+    else:
+        messages.success(request, f'Added {prop.name} to your shopping diary')
+    
+    # update the diary variable into the session [ a python dictionary ].
+    request.session['diary'] = diary
+
+    context = {
+        'properties': prop,
+        'diary': diary,
+    }
+    return render(request, 'book/search-viewings.html', context)
+
+
 def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all()
@@ -68,7 +98,7 @@ def choose_bookings(request):
                     request, "You didn't enter any search criteria!"
                     )
                 return redirect(reverse('choose_bookings'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
             props_with_viewings = props_with_viewings.filter(queries)
             # print('found q', queries)
@@ -78,7 +108,7 @@ def choose_bookings(request):
     #     checked = request.POST('check')
     #     props_selected_to_view = props_selected_to_view.filter(checked)
 
-    
+
     context = {
         'properties': properties,
         'appointment_types': appointment_types,
