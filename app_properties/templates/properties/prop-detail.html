@@ -143,9 +143,16 @@
                                 </span>
                                 <span class="text-uppercase">Keep Searching</span>
                             </a>
-                            <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" name="q" value="Book Viewing">
+                            
+                            {% if prop.viewings %}
+                            <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Contact Agent">
+                            <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Book Viewing">
+                            {% else %}
+                            <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Contact Agent">
+                            {% endif %}
+
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
                     </div>
                 </form>
             </div>

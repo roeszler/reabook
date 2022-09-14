@@ -34,7 +34,19 @@ def view_booking_select_time(request):
     """
     View to render the bookings select available time page
     """
-    return render(request, 'book/e-booking-select-time.html')
+    properties = Property.objects.all()
+    appointment_types = AppointmentTypes.objects.all()
+    props_with_viewings = properties.filter(viewings=True)
+    props_selected_to_view = properties.filter(selected=True)
+
+    context = {
+        'properties': properties,
+        'appointment_types': appointment_types,
+        'props_with_viewings': props_with_viewings,
+        'props_selected_to_view': props_selected_to_view,
+    }
+
+    return render(request, 'book/booking-detail.html', context)
 
 
 def view_booking_success(request):
@@ -82,7 +94,7 @@ def choose_bookings(request):
     props_selected_to_view = properties.filter(selected=True)
 
     # print('props_with_viewings', props_with_viewings)
-    # print('props_selected_to_view', props_selected_to_view)
+    print('props_selected_to_view', props_selected_to_view)
     # print('properties', properties)
 
     query = None

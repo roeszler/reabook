@@ -24,50 +24,52 @@ $(document).ready(function(){
     //     // $(this).tab('show')
     // });
 
-    let checkboxes = $("input[type=checkbox][name=property_to_view]")
-    let selectedToView = [];
+    // let checkboxes = $("input[type=checkbox][name=property_to_view]")
+    // let selectedToView = [];
     
     // Attach a change event handler to the checkboxes.
-    checkboxes.change(function viewingCheckbox() {
-        selectedToView = checkboxes
-            .filter(":checked") // Filter out unchecked boxes.
-            .map(function () { // Extract values using jQuery map.
-                return this.value;
-            }).get() // Get array.
+    // checkboxes.change(function viewingCheckbox() {
+    //     selectedToView = checkboxes
+    //         .filter(":checked") // Filter out unchecked boxes.
+    //         .map(function () { // Extract values using jQuery map.
+    //             return this.value;
+    //         }).get() // Get array.
             
-        // html = selectedToView.array.forEach(element => {
-        //     '<th scope="row" class="row-hlink"><a href="{% url "property_detail" prop.id %}" target="_blank">{{ prop.id }}</a></th>'
-        // });
-        // document.getElementsByClassName("properties-to-view").innerHTML = html;
-        // document.getElementsByClassName("properties-to-view").innerHTML = selectedToView;
+    //     // html = selectedToView.array.forEach(element => {
+    //     //     '<th scope="row" class="row-hlink"><a href="{% url "property_detail" prop.id %}" target="_blank">{{ prop.id }}</a></th>'
+    //     // });
+    //     // document.getElementsByClassName("properties-to-view").innerHTML = html;
+    //     // document.getElementsByClassName("properties-to-view").innerHTML = selectedToView;
 
-        let tbodyHtml = '';
-        for (let i = 0; i < selectedToView.length; i++) {
-            tbodyHtml += `
-            <thead>
-                <tr>
-                    <th scope="col">Prop ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>${selectedToView[i]}</td>
-                </tr>
+    //     let tbodyHtml = '';
+    //     for (let i = 0; i < selectedToView.length; i++) {
+    //         tbodyHtml += `
+    //         <thead>
+    //             <tr>
+    //                 <th scope="col">Prop ID</th>
+    //             </tr>
+    //         </thead>
+    //         <tbody>
+    //             <tr>
+    //                 <td>${selectedToView[i]}</td>
+    //             </tr>
 
-                {% for prop in props_selected_to_view %}
-                {% if prop.id == ${selectedToView[i]} %}
-                <tr>
-                        <td>{{ prop.name }}</td>
-                <tr>
-                {% endif %}
-                {% endfor %}
-            </tbody>
-            `
-        }
+    //             {% for prop in props_selected_to_view %}
+    //             {% if prop.id == ${selectedToView[i]} %}
+    //             <tr>
+    //                     <td>{{ prop.name }}</td>
+    //             <tr>
+    //             {% endif %}
+    //             {% endfor %}
+    //         </tbody>
+    //         `
+    //     };
         
-        document.getElementById("properties-to-view").innerHTML = tbodyHtml;
+    //     document.getElementById("properties-to-view").innerHTML = tbodyHtml;
+
         
-        console.log(tbodyHtml);
+    //     console.log(tbodyHtml);
+    //     console.log(selectedToView);
         // return tbodyHtml;
     });
 });
