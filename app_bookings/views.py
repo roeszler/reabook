@@ -13,7 +13,7 @@ def view_my_bookings(request):
     View to render the bookings page
     Looks within the current directory app_bookings/templates/book/book.html
     """
-    return render(request, 'book/a-bookings.html')
+    return render(request, 'book/my-bookings.html')
 
 
 def view_bookings_login(request):
@@ -84,7 +84,7 @@ def add_to_diary(request, property_id):
     request.session['diary'] = diary
 
     context = {
-        'properties': prop,
+        'prop': prop,
         'diary': diary,
     }
     return render(request, 'book/search-viewings.html', context)
