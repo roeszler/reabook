@@ -23,11 +23,15 @@ def view_bookings_login(request):
     return render(request, 'book/c-booking-login.html')
 
 
-def view_booking_details(request):
-    """
-    View to render the bookings request details page
-    """
-    return render(request, 'book/d-booking-details.html')
+def view_booking_detail(request, property_id):
+    """ A view to show individual property booking details """
+    prop = get_object_or_404(Property, pk=property_id)
+
+    context = {
+        'prop': prop,
+    }
+
+    return render(request, 'book/prop-booking-detail.html', context)
 
 
 def view_booking_select_time(request):
@@ -94,7 +98,7 @@ def choose_bookings(request):
     props_selected_to_view = properties.filter(selected=True)
 
     # print('props_with_viewings', props_with_viewings)
-    print('props_selected_to_view', props_selected_to_view)
+    # print('props_selected_to_view', props_selected_to_view)
     # print('properties', properties)
 
     query = None

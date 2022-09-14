@@ -44,31 +44,33 @@
                                             <th scope="col">Suburb</th>
                                             <th scope="col">City</th>
                                             <th scope="col">Available From</th>
-                                            <th scope="col">Select</th>
+                                            <th scope="col">To View</th>
                                         </tr>
                                     </thead>
 
                                     <!-- List of properties returned from search -->
-                                    <form action="" method="POST">
+                                    <form action="" method="GET">
                                     <tbody class="font-weight-light">
                                         {% for prop in props_with_viewings %}
                                         <tr>
                                             <th scope="row" class="row-hlink"><a
                                                     href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a>
                                             </th>
-                                            <td class="row-hlink">
+                                            <td class="row-hlink pt-3">
                                                 <a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a>
                                             </td>
-                                            <td class="row-hlink">
+                                            <td class="row-hlink pt-3">
                                                 <a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a>
                                             </td>
-                                            <td class="row-hlink">
+                                            <td class="row-hlink pt-3">
                                                 <a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a>
                                             </td>
-                                            <td class="row-hlink">
+                                            <td class="row-hlink pt-3">
                                                 <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
-                                            <td class="row-hlink text-center">
-                                                <input type="checkbox" name="property_to_view" value="{{ prop.id }}" class="form-check-input" id="select-for-viewing">
+                                            <td class="row-hlink">
+                                                <a href="{% url 'booking_detail' prop.id %}">
+                                                    <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">select</button>
+                                                </a>
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -77,135 +79,6 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Select viewings available in selected properties -->
-                <div class="card mt-1">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick="viewingCheckbox()">
-                                <span class="accordion-number float-left">2.</span>
-                                <span class="accordion-text-heading">Choose Time<span class="chevron"><i
-                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionBookings">
-                        <div class="card-body row">
-                            <div class="col-lg-12 properties-to-view" id="properties-to-view">
-                                <p>Oops! No Properties selected.</p>
-                                
-                                {% for prop in props_selected_to_view %}
-                                <!-- {% if prop.id == 3 %}
-                                {{ prop.name }}
-                                {% endif %} -->
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item accordion-text-heading">{{ prop.id }} {{ prop.house_no }} {{ prop.street }} <span class="reabook-logo">&nbsp;|&nbsp;</span> {{ prop.suburb }}</li>
-                                </ul>
-                                <div class="row my-3">
-                                    <div class="col-lg-3">
-                                        {% if prop.main_image %}
-                                        <a href="{{ prop.main_image.url }}" target="_blank">
-                                            <img class="card-img-top img-fluid rounded img-thumbnail w-100" src="{{ prop.main_image.url }}" alt="{{ property.name }}">
-                                        </a>
-                                        {% else %}
-                                        <a href="">
-                                            <img class="card-img-top img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png"alt="{{ property.name }}">
-                                        </a>
-                                        {% endif %}
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <table class="table table-hover text-lg-left font-weight-light">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Time</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">Length</th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-
-
-                                            <tbody>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.house_no }} {{ prop.street }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ appointment_types.duration }} XX mins</a>
-                                                    </td>
-                                                    <td class="row-hlink">
-                                                        <a href="#">
-                                                            <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">select</button>
-                                                        </a>
-                                                    </td>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="col-lg-12 bg-info">
-                            {{ appointment_types }}
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-1">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span class="accordion-number float-left">3.</span>
-                                <span class="accordion-text-heading">Enter Details<span class="chevron"><i
-                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                        data-parent="#accordionBookings">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-1">
-                    <div class="card-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <span class="accordion-number float-left">4.</span>
-                                <span class="accordion-text-heading">Confirm Booking<span class="chevron"><i
-                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                        data-parent="#accordionBookings">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                        <button type="submit" class="btn btn-outline-reabook mx-3 text-center">Add to My ReaBook Diary</button>
                     </div>
                 </div>
             </div>
