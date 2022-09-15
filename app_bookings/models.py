@@ -68,7 +68,7 @@ class User(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     f_name = models.CharField(max_length=254)
     l_name = models.CharField(max_length=254)
-    username = models.CharField(max_length=254, null=True, blank=True, unique=True)
+    user_name = models.CharField(max_length=254, null=True, blank=True, unique=True)
     user_email = models.EmailField(max_length=254, unique=True)
     user_phone = models.IntegerField(null=True, blank=True)
     password = models.CharField(max_length=254)

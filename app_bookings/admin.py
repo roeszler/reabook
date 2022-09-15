@@ -17,7 +17,7 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
     ordering = (
-        'pk', 'title_no',
+        '-pk', 'date', 'time', 'location', 'date_booked', 'user',
     )
 
 
