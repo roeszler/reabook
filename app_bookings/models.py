@@ -42,7 +42,7 @@ class Slot(models.Model):
         )
     name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
     date = models.DateField(default=timezone.now)
-    duration = models.DurationField(default='00:15:00:0')
+    duration = models.DurationField(default='00:15')
     start_time = models.TimeField(default=timezone.now)
     # end_time = models.TimeField(default=timezone.now)
     lunch_start = models.TimeField(default='13:00')
