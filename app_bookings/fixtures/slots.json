@@ -2,7 +2,7 @@
     "model": "app_bookings.slot",
     "pk": 1,
     "fields": [{
-        "name": "slot_data",
+        "slot_name": "morning",
         "date": "2022-10-11",
         "start_time": "10:30",
         "end_time": "10:45",

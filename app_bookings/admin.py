@@ -7,7 +7,6 @@ class BookingAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for bookings """
     list_display = (
         'pk',
-        'name',
         'date',
         'time',
         'duration',
@@ -25,7 +24,6 @@ class SlotAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for appointment slots """
     list_display = (
         'pk',
-        'name',
         'date',
         'start_time',
         'duration',
@@ -43,7 +41,7 @@ class UserAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for users """
     list_display = (
         'pk',
-        'name',
+        # 'name',
         'f_name',
         'l_name',
         'user_name',

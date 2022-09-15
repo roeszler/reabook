@@ -2,7 +2,7 @@
     "model": "app_bookings.user",
     "pk": 1,
     "fields": [{
-        "name": "user_data",
+        "user_data": "user_data",
         "friendly_name": "User Information Record",
         "f_name": "first_name",
         "l_name": "last_name",

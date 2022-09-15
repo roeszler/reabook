@@ -17,7 +17,7 @@ class Booking(models.Model):
     location = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
-    name = models.CharField(max_length=254)
+    booking_name = models.CharField(max_length=254, null=True, blank=True, default='booking_data')
     date = models.DateField(default=date.today)
     time = models.TimeField(default=timezone.now)
     date_booked = models.DateTimeField(default=timezone.now)
@@ -28,7 +28,7 @@ class Booking(models.Model):
 
     def __str__(self):
         """ Takes in the sector model to return db name """
-        return self.name
+        return self.booking_name
 
 
 
@@ -41,16 +41,16 @@ class Slot(models.Model):
         Property, null=True, blank=True, on_delete=models.SET_NULL
         )
 
-    name = models.CharField(max_length=254)
+    slot_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
     date = models.DateField()
-    duration = models.IntegerField(default=15)
+    duration = models.TimeField(default='00:15')
     start_time = models.TimeField()
     end_time = models.TimeField()
-    lunch_start = models.TimeField(default=13)
-    lunch_finish = models.TimeField(default=14)
-    day_start = models.TimeField(default=9)
-    day_finish = models.TimeField(default=17)
-    date_created = models.DateTimeField()
+    lunch_start = models.TimeField(default='13:00:00')
+    lunch_finish = models.TimeField(default='14:00:00')
+    day_start = models.TimeField(default='09:00:00')
+    day_finish = models.TimeField(default='17:00:00')
+    date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
@@ -58,17 +58,17 @@ class Slot(models.Model):
 
     def __str__(self):
         """ Takes in the category model to return db name """
-        return self.name
+        return self.slot_name
 
 
 
 class User(models.Model):
     """ To contain the data from the users.json fixtures file """
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    user_data = models.CharField(max_length=254, null=True, blank=True, default='user_data')
     f_name = models.CharField(max_length=254)
     l_name = models.CharField(max_length=254)
-    user_name = models.CharField(max_length=254, null=True, blank=True, unique=True)
+    # friendly_name = models.CharField(max_length=254, null=True, blank=True default='')
+    user_name = models.CharField(max_length=254, unique=True, default='Create Username')
     user_email = models.EmailField(max_length=254, unique=True)
     user_phone = models.IntegerField(null=True, blank=True)
     password = models.CharField(max_length=254)
@@ -79,9 +79,9 @@ class User(models.Model):
 
 
     def __str__(self):
-        """ Takes in the category model to return db name """
-        return self.name
+        """ Takes in the user model to return db name """
+        return self.user_name
 
     def get_friendly_name(self):
-        """ Takes in the category model to return friendly_name """
-        return self.friendly_name
+        """ Takes in the user model to return friendly_name """
+        return self.user_email
