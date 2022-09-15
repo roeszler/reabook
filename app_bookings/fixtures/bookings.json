@@ -7,7 +7,7 @@
         "time": "17:45",
         "duration": 15,
         "location": 1,
-        "booking_date": "2022-08-11T15:07:40Z",
+        "date_booked": "2022-08-11T15:07:40Z",
         "user": 2
     }]
 },{
@@ -19,7 +19,7 @@
         "time": "17:30",
         "duration": 15,
         "location": 2,
-        "booking_date": "2022-08-11T15:07:40Z",
+        "date_booked": "2022-08-11T15:07:40Z",
         "user": 1
     }]
 }]

@@ -17,11 +17,10 @@ class Booking(models.Model):
     location = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
-
     name = models.CharField(max_length=254)
     date = models.DateField(default=date.today)
     time = models.TimeField(default=timezone.now)
-    booking_date = models.DateTimeField(default=timezone.now)
+    date_booked = models.DateTimeField(default=timezone.now)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
@@ -47,13 +46,11 @@ class Slot(models.Model):
     duration = models.IntegerField(default=15)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    start_lunch = models.TimeField(default=13)
-    finish_lunch = models.TimeField(default=14)
-    start_day = models.TimeField(default=9)
-    finish_day = models.TimeField(default=17)
-    creation_date = models.DateTimeField()
-
-
+    lunch_start = models.TimeField(default=13)
+    lunch_finish = models.TimeField(default=14)
+    day_start = models.TimeField(default=9)
+    day_finish = models.TimeField(default=17)
+    date_created = models.DateTimeField()
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
