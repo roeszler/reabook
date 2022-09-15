@@ -1,6 +1,7 @@
 """ Import Modules """
 from django.db import models
 from django.utils import timezone
+from datetime import date, time
 
 from app_properties.models import Property
 
@@ -18,8 +19,8 @@ class Booking(models.Model):
         )
 
     name = models.CharField(max_length=254)
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.DateField(default=date.today)
+    time = models.TimeField(default=timezone.now)
     booking_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
