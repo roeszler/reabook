@@ -12,12 +12,12 @@ class Booking(models.Model):
         'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
         )
     duration = models.ForeignKey(
-        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
+        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL, default='00:15'
         )
     location = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
-    booking_name = models.CharField(max_length=254, null=True, blank=True, default='booking_data')
+    booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
     date = models.DateField(default=date.today)
     time = models.TimeField(default=timezone.now)
     date_booked = models.DateTimeField(default=timezone.now)
@@ -41,11 +41,11 @@ class Slot(models.Model):
         Property, null=True, blank=True, on_delete=models.SET_NULL
         )
 
-    slot_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
-    date = models.DateField()
+    slot_name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
+    date = models.DateField(default=timezone.now)
     duration = models.TimeField(default='00:15')
-    start_time = models.TimeField()
-    end_time = models.TimeField()
+    start_time = models.TimeField(default=timezone.now)
+    # end_time = models.TimeField(default=timezone.now)
     lunch_start = models.TimeField(default='13:00:00')
     lunch_finish = models.TimeField(default='14:00:00')
     day_start = models.TimeField(default='09:00:00')
@@ -64,13 +64,13 @@ class Slot(models.Model):
 
 class User(models.Model):
     """ To contain the data from the users.json fixtures file """
-    user_data = models.CharField(max_length=254, null=True, blank=True, default='user_data')
+    # user_data = models.CharField(max_length=254, null=True, blank=True, default='Admin')
     f_name = models.CharField(max_length=254)
     l_name = models.CharField(max_length=254)
     # friendly_name = models.CharField(max_length=254, null=True, blank=True default='')
     user_name = models.CharField(max_length=254, unique=True, default='Create Username')
     user_email = models.EmailField(max_length=254, unique=True)
-    user_phone = models.IntegerField(null=True, blank=True)
+    user_phone = models.IntegerField(null=True, blank=True, default='00X1 123 456 789')
     password = models.CharField(max_length=254)
     is_active = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)

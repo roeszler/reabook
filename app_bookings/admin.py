@@ -42,10 +42,9 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         # 'name',
+        'user_name',
         'f_name',
         'l_name',
-        'user_name',
-        'user_email',
         'user_email',
         'user_phone',
         'is_active',
@@ -55,7 +54,7 @@ class UserAdmin(admin.ModelAdmin):
     )
 
     ordering = (
-        '-pk', 'l_name', 'f_name', 'is_active', 'is_agent', 'is_owner',
+        '-pk', 'user_name', 'l_name', 'f_name', 'is_active', 'is_agent', 'is_owner',
         'is_superuser',
         )
 
