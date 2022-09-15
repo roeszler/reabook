@@ -1,7 +1,7 @@
 """ Import Modules """
+from datetime import date
 from django.db import models
 from django.utils import timezone
-from datetime import date, time
 
 from app_properties.models import Property
 
