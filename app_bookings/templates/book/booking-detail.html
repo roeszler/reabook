@@ -58,10 +58,10 @@
                                             </tr>
                                         </thead>
                                         <tbody class="font-weight-light">
+                                            {% for slot in slots %}
                                             <tr>
-                                                {% for prop in appointment_slots %}
                                                 <td class="row-hlink pt-3">
-                                                    <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
+                                                    <a href="{% url 'property_detail' prop.id %}">{{ slot.date }}</a>
                                                 </td>
                                                 <td class="row-hlink pt-3">
                                                     <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
@@ -87,6 +87,7 @@
                                                     Property_Detail_4
                                                 </td>
                                             </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                     <a href="#" class="row-hlink float-right">

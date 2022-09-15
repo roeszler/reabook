@@ -40,14 +40,18 @@ def view_booking_select_time(request):
     """
     properties = Property.objects.all() # noqa
     slots = Slot.objects.all() # noqa
+    bookings = Booking.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
-    props_with_slots = slots.filter(location=True)
+    props_with_slots = slots.filter(pk=True)
+    props_with_bookings = bookings.filter(pk=True)
 
     context = {
         'properties': properties,
         'slots': slots,
+        'books': bookings,
         'props_with_viewings': props_with_viewings,
         'props_with_slots': props_with_slots,
+        'props_with_bookings': props_with_bookings,
     }
 
     return render(request, 'book/booking-detail.html', context)
