@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from app_properties.models import Property
-from .models import AppointmentTypes
+from .models import Slot
 # from .models import Booking
 
 
@@ -39,13 +39,13 @@ def view_booking_select_time(request):
     View to render the bookings select available time page
     """
     properties = Property.objects.all()
-    appointment_types = AppointmentTypes.objects.all()
+    appointment_slot = Slot.objects.all()
     props_with_viewings = properties.filter(viewings=True)
     props_selected_to_view = properties.filter(selected=True)
 
     context = {
         'properties': properties,
-        'appointment_types': appointment_types,
+        'appointment_slot': appointment_slot,
         'props_with_viewings': props_with_viewings,
         'props_selected_to_view': props_selected_to_view,
     }
@@ -93,7 +93,7 @@ def add_to_diary(request, property_id):
 def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all()
-    appointment_types = AppointmentTypes.objects.all()
+    appointment_slot = Slot.objects.all()
     props_with_viewings = properties.filter(viewings=True)
     props_selected_to_view = properties.filter(selected=True)
 
@@ -127,7 +127,7 @@ def choose_bookings(request):
 
     context = {
         'properties': properties,
-        'appointment_types': appointment_types,
+        'appointment_slot': appointment_slot,
         'props_with_viewings': props_with_viewings,
         'props_selected_to_view': props_selected_to_view,
         'search_term': query,

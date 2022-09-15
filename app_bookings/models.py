@@ -1,5 +1,6 @@
 """ Import Modules """
 from django.db import models
+from django.utils import timezone
 
 from app_properties.models import Property
 
@@ -7,19 +8,19 @@ from app_properties.models import Property
 class Booking(models.Model):
     """ To contain the data from the bookings.json fixtures file  """
     user = models.ForeignKey(
-        'User', null=True, blank=True, on_delete=models.SET_NULL
+        'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
         )
     duration = models.ForeignKey(
-        'Slots', null=True, blank=True, on_delete=models.SET_NULL
+        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
         )
     location = models.ForeignKey(
-        Property, null=True, blank=True, on_delete=models.SET_NULL
+        'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
 
     name = models.CharField(max_length=254)
     date = models.DateField()
     time = models.TimeField()
-    booking_date = models.DateTimeField()
+    booking_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
@@ -71,7 +72,7 @@ class User(models.Model):
     l_name = models.CharField(max_length=254)
     username = models.CharField(max_length=254, null=True, blank=True, unique=True)
     user_email = models.EmailField(max_length=254, unique=True)
-    user_phone = models.IntegerField(max_length=19, null=True, blank=True)
+    user_phone = models.IntegerField(null=True, blank=True)
     password = models.CharField(max_length=254)
     is_active = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)
