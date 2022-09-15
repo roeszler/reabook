@@ -20,12 +20,13 @@ class PropertyAdmin(admin.ModelAdmin):
         'sector',
         'sale_price',
         'rent_pw',
+        'realtor',
         # 'main_image',
     )
 
     ordering = (
         'pk', 'title_no', 'list_date', 'sale_price', 'rent_pw', 'owner_lname',
-        'city', 'postcode', 'country', 'category', 'sector',
+        'city', 'postcode', 'country', 'category', 'sector', 'realtor',
     )
 
 
