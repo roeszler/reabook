@@ -11,9 +11,9 @@ class Booking(models.Model):
     user = models.ForeignKey(
         'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
         )
-    duration = models.ForeignKey(
-        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL, default='00:15'
-        )
+    # duration = models.ForeignKey(
+    #     'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
+    #     )
     location = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
@@ -43,7 +43,7 @@ class Slot(models.Model):
 
     slot_name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
     date = models.DateField(default=timezone.now)
-    duration = models.TimeField(default='00:15')
+    duration = models.TimeField(default=timezone.now)
     start_time = models.TimeField(default=timezone.now)
     # end_time = models.TimeField(default=timezone.now)
     lunch_start = models.TimeField(default='13:00:00')

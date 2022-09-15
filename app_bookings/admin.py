@@ -9,7 +9,7 @@ class BookingAdmin(admin.ModelAdmin):
         'pk',
         'date',
         'time',
-        'duration',
+        # 'duration',
         'location',
         'date_booked',
         'user',
