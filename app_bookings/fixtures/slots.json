@@ -1,0 +1,18 @@
+[{
+    "model": "app_bookings.slot",
+    "pk": 1,
+    "fields": [{
+        "name": "slot_data",
+        "date": "2022-10-11",
+        "start_time": "10:30",
+        "end_time": "10:45",
+        "duration": 15,
+        "start_lunch": "13:00",
+        "finish_lunch": "14:00",
+        "start_day": "10:30",
+        "finish_day": "19:00",
+        "location": "prop_id",
+        "creation_date": "2022-08-11T15:07:40Z",
+        "user": 1
+    }]
+}]
