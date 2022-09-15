@@ -10,13 +10,13 @@ class BookingAdmin(admin.ModelAdmin):
         'date',
         'time',
         # 'duration',
-        'location',
+        'title_no',
         'date_booked',
         'user',
     )
 
     ordering = (
-        '-pk', 'date', 'time', 'location', 'date_booked', 'user',
+        '-pk', 'date', 'time', 'title_no', 'date_booked', 'user',
     )
 
 
@@ -29,12 +29,12 @@ class SlotAdmin(admin.ModelAdmin):
         'duration',
         'day_start',
         'day_finish',
-        'location',
+        'title_no',
         'date_created',
         'user',
     )
 
-    ordering = ('-pk', 'date', 'location', 'date_created', 'user',)
+    ordering = ('-pk', 'date', 'title_no', 'date_created', 'user',)
 
 
 class UserAdmin(admin.ModelAdmin):

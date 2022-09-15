@@ -2,8 +2,8 @@
     "model": "app_bookings.slot",
     "pk": 1,
     "fields": {
-        "user": 3,
-        "location": 1,
+        "user_key": 3,
+        "property_id": 2,
         "slot_name": "15 Minutes",
         "date": "2022-09-30",
         "duration": "00:15:00",

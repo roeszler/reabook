@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from app_properties.models import Property
-from .models import Slot
+from .models import Slot, Booking, User
 # from .models import Booking
 
 
@@ -38,16 +38,16 @@ def view_booking_select_time(request):
     """
     View to render the bookings select available time page
     """
-    properties = Property.objects.all()
-    appointment_slot = Slot.objects.all()
+    properties = Property.objects.all() # noqa
+    slots = Slot.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
-    props_selected_to_view = properties.filter(selected=True)
+    props_with_slots = slots.filter(location=True)
 
     context = {
         'properties': properties,
-        'appointment_slot': appointment_slot,
+        'slots': slots,
         'props_with_viewings': props_with_viewings,
-        'props_selected_to_view': props_selected_to_view,
+        'props_with_slots': props_with_slots,
     }
 
     return render(request, 'book/booking-detail.html', context)
@@ -95,8 +95,8 @@ def choose_bookings(request):
     properties = Property.objects.all()
     appointment_slot = Slot.objects.all()
     props_with_viewings = properties.filter(viewings=True)
-    props_selected_to_view = properties.filter(selected=True)
 
+    # props_selected_to_view = properties.filter(selected=True)
     # print('props_with_viewings', props_with_viewings)
     # print('props_selected_to_view', props_selected_to_view)
     # print('properties', properties)
@@ -129,7 +129,6 @@ def choose_bookings(request):
         'properties': properties,
         'appointment_slot': appointment_slot,
         'props_with_viewings': props_with_viewings,
-        'props_selected_to_view': props_selected_to_view,
         'search_term': query,
     }
     return render(request, 'book/search-viewings.html', context)

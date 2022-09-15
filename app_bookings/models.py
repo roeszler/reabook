@@ -11,12 +11,13 @@ class Booking(models.Model):
     user = models.ForeignKey(
         'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
         )
-    duration = models.ForeignKey(
+    appointment_slot = models.ForeignKey(
         'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
         )
-    location = models.ForeignKey(
+    title_no = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
+    # property_id = models.CharField(Property, 'title_no', max_length=254)
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
     date = models.DateField(default=date.today)
     time = models.TimeField(default=timezone.now)
@@ -36,13 +37,12 @@ class Slot(models.Model):
     user = models.ForeignKey(
         'User', null=True, blank=True, on_delete=models.SET_NULL
         )
-    location = models.ForeignKey(
+    title_no = models.ForeignKey(
         Property, null=True, blank=True, on_delete=models.SET_NULL
         )
-
-    slot_name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
+    name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
     date = models.DateField(default=timezone.now)
-    duration = models.DurationField(default='00:15:00')
+    duration = models.DurationField(default='00:15:00:0')
     start_time = models.TimeField(default=timezone.now)
     # end_time = models.TimeField(default=timezone.now)
     lunch_start = models.TimeField(default='13:00')
@@ -53,11 +53,16 @@ class Slot(models.Model):
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Slots'
+        verbose_name_plural = 'Appointment Slots'
 
     def __str__(self):
         """ Takes in the category model to return db name """
-        return self.slot_name
+        # return str(self.property_id)
+        return self.name
+    
+    def __int__(self):
+        """ Takes in the category model to return db name """
+        return self.pk
 
 
 

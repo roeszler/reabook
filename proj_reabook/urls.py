@@ -24,7 +24,7 @@ from .views import handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('blog/', include('app_blog.urls')),
+    # path('diary/', include('app_diary.urls')),
     path('book/', include('app_bookings.urls')),
     path('', include('app_home.urls')),
     path('properties/', include('app_properties.urls'))

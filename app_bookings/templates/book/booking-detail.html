@@ -59,6 +59,7 @@
                                         </thead>
                                         <tbody class="font-weight-light">
                                             <tr>
+                                                {% for prop in appointment_slots %}
                                                 <td class="row-hlink pt-3">
                                                     <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
                                                 </td>
