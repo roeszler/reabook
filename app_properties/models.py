@@ -89,4 +89,4 @@ class Property(models.Model):
 
     def __str__(self):
         """ Takes in product display model and returns name """
-        return self.name
+        return self.suburb

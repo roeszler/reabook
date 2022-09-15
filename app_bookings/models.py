@@ -11,9 +11,9 @@ class Booking(models.Model):
     user = models.ForeignKey(
         'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
         )
-    # duration = models.ForeignKey(
-    #     'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
-    #     )
+    duration = models.ForeignKey(
+        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
+        )
     location = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
@@ -31,7 +31,6 @@ class Booking(models.Model):
         return self.booking_name
 
 
-
 class Slot(models.Model):
     """ To contain the data from the slots.json fixtures file """
     user = models.ForeignKey(
@@ -43,13 +42,13 @@ class Slot(models.Model):
 
     slot_name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
     date = models.DateField(default=timezone.now)
-    duration = models.TimeField(default=timezone.now)
+    duration = models.DurationField(default='00:15:00')
     start_time = models.TimeField(default=timezone.now)
     # end_time = models.TimeField(default=timezone.now)
-    lunch_start = models.TimeField(default='13:00:00')
-    lunch_finish = models.TimeField(default='14:00:00')
-    day_start = models.TimeField(default='09:00:00')
-    day_finish = models.TimeField(default='17:00:00')
+    lunch_start = models.TimeField(default='13:00')
+    lunch_finish = models.TimeField(default='14:00')
+    day_start = models.TimeField(default='09:00')
+    day_finish = models.TimeField(default='17:00')
     date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:

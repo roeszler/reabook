@@ -1,34 +1,16 @@
 [{
     "model": "app_bookings.user",
-    "pk": 1,
-    "fields": [{
-        "user_data": "user_data",
-        "friendly_name": "User Information Record",
-        "f_name": "first_name",
-        "l_name": "last_name",
-        "user_name": "user_name",
-        "user_email": "user_email",
-        "user_phone": "user_phone",
-        "password": "password",
-        "is_active": "True",
-        "is_agent": "False",
-        "is_owner": "False",
-        "is_superuser": "True"
-    }]
-},{
-    "model": "app_bookings.user",
-    "pk": 2,
-    "fields": [{
-        "f_name": "First name",
-        "l_name": "Last name",
-        "username": "username",
-        "user_email": "user_email",
-        "user_phone": "user_phone",
-        "user_id": "user_id",
-        "password": "password",
-        "is_active": "True",
-        "is_agent": "False",
-        "is_owner": "False",
-        "is_superuser": "False"
-    }]
+    "pk": 3,
+    "fields": {
+        "f_name": "Admin",
+        "l_name": "ReaBook",
+        "user_name": "Admin",
+        "user_email": "yoda@yodakode.com",
+        "user_phone": 123456789,
+        "password": "12345678",
+        "is_active": true,
+        "is_agent": false,
+        "is_owner": false,
+        "is_superuser": true
+    }
 }]

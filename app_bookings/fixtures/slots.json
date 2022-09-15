@@ -1,18 +1,17 @@
 [{
     "model": "app_bookings.slot",
     "pk": 1,
-    "fields": [{
-        "slot_name": "morning",
-        "date": "2022-10-11",
-        "start_time": "10:30",
-        "end_time": "10:45",
-        "duration": 15,
+    "fields": {
+        "user": 3,
+        "location": 1,
+        "slot_name": "15 Minutes",
+        "date": "2022-09-30",
+        "duration": "00:15:00",
+        "start_time": "15:30",
         "lunch_start": "13:00",
         "lunch_finish": "14:00",
-        "day_start": "10:30",
-        "day_finish": "19:00",
-        "location": "prop_id",
-        "date_created": "2022-08-11T15:07:40Z",
-        "user": 1
-    }]
+        "day_start": "09:00",
+        "day_finish": "17:00",
+        "date_created": "2022-09-15T15:20:16Z"
+    }
 }]
