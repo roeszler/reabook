@@ -59,12 +59,13 @@
                                         </thead>
                                         <tbody class="font-weight-light">
                                             {% for slot in slots %}
+                                            {% for booking in bookings %}
                                             <tr>
                                                 <td class="row-hlink pt-3">
-                                                    <a href="{% url 'property_detail' prop.id %}">{{ slot.name }}</a>
+                                                    <a href="{% url 'property_detail' prop.id %}">{{ booking.date }}</a>
                                                 </td>
                                                 <td class="row-hlink pt-3">
-                                                    <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
+                                                    <a href="{% url 'property_detail' prop.id %}">{{ slot.start_time }}</a>
                                                 </td>
                                                 <td class="row-hlink pt-3">
                                                     <a href="{% url 'property_detail' prop.id %}">{{ prop.house_no }} {{ prop.street }}</a>
@@ -87,6 +88,7 @@
                                                     Property_Detail_4
                                                 </td>
                                             </tr>
+                                            {% endfor %}
                                             {% endfor %}
                                         </tbody>
                                     </table>

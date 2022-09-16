@@ -26,9 +26,11 @@ def view_bookings_login(request):
 def view_booking_detail(request, property_id):
     """ A view to show individual property booking details """
     prop = get_object_or_404(Property, pk=property_id)
+    booking = Booking.objects.all() # noqa
 
     context = {
         'prop': prop,
+        'booking': booking,
     }
 
     return render(request, 'book/prop-booking-detail.html', context)
@@ -48,7 +50,7 @@ def view_booking_select_time(request):
     context = {
         'properties': properties,
         'slots': slots,
-        'books': bookings,
+        'bookings': bookings,
         'props_with_viewings': props_with_viewings,
         'props_with_slots': props_with_slots,
         'props_with_bookings': props_with_bookings,
