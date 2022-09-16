@@ -2,10 +2,6 @@
 from datetime import date
 from django.db import models
 from django.utils import timezone
-from django import forms
-
-# from app_properties.models import Property
-from .forms import GeeksForm
 
 
 class Booking(models.Model):
@@ -22,7 +18,7 @@ class Booking(models.Model):
     # property_id = models.CharField(Property, 'title_no', max_length=254)
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
     date = models.DateField(default=date.today)
-    time = models.TimeField(default=timezone.now)
+    # time = models.TimeField(default=timezone.now)
     date_booked = models.DateTimeField(default=timezone.now)
 
     class Meta:
@@ -54,28 +50,14 @@ class Session(models.Model):
 
 class Slot(models.Model):
     """ To contain the appointment slots data from slots.json """
-    # user = models.ForeignKey(
-    #     'User', null=True, blank=True, on_delete=models.SET_NULL
-    #     )
-    # title_no = models.ForeignKey(
-    #     Property, null=True, blank=True, on_delete=models.SET_NULL
-    #     )
     session = models.ForeignKey(
         'Session', null=True, blank=True, on_delete=models.SET_NULL
         )
     name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15')
-    friendly_name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15 Appointment Slot')
-    # session_morning = models.BooleanField(null=True, blank=True, default=True)
-    # session_morning = forms.ChoiceField(choices=GeeksForm, widget=forms.RadioSelect())
-    # date = models.DateField(default=timezone.now)
-    # duration = models.DurationField(default='00:15')
+    friendly_name = models.CharField(max_length=254, null=True, blank=True, default='15 Min Appointment Slot')
     start_time = models.TimeField(default=timezone.now)
     end_time = models.TimeField(default=timezone.now)
-    # lunch_start = models.TimeField(default='13:00')
-    # lunch_finish = models.TimeField(default='14:00')
-    # day_start = models.TimeField(default='09:00')
-    # day_finish = models.TimeField(default='17:00')
-    # date_created = models.DateTimeField(default=timezone.now)
+    seats_available = models.IntegerField(default=3)
 
     class Meta:
         """ to adjust the slot name or the plural form from defaults """
@@ -93,7 +75,6 @@ class Slot(models.Model):
     def get_friendly_name(self):
         """ Takes in the booking model to return friendly_name """
         return self.friendly_name
-
 
 
 class User(models.Model):

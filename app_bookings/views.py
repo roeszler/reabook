@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from app_properties.models import Property
-from .models import Slot, Booking, User
+from .models import Slot, Booking
 # from .models import Booking
 
 

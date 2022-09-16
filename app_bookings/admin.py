@@ -3,20 +3,22 @@ from django.contrib import admin
 
 from .models import Booking, Slot, User, Session
 
+
 class BookingAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for bookings """
     list_display = (
         'pk',
-        'date',
-        'time',
-        # 'duration',
         'title_no',
-        'date_booked',
+        'date',
+        'appointment_slot',
+        # 'time',
+        # 'duration',
         'user',
+        'date_booked',
     )
 
     ordering = (
-        '-pk', 'date', 'time', 'title_no', 'date_booked', 'user',
+        '-pk', 'date', 'appointment_slot', 'title_no', 'user',
     )
 
 
@@ -40,6 +42,7 @@ class SlotAdmin(admin.ModelAdmin):
         'session',
         'start_time',
         'end_time',
+        'seats_available',
         # 'duration',
         # 'day_start',
         # 'day_finish',
