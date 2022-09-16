@@ -15,15 +15,13 @@ class Booking(models.Model):
     title_no = models.ForeignKey(
         'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
         )
-    # property_id = models.CharField(Property, 'title_no', max_length=254)
-    booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing Appointment')
+    booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing')
     date = models.DateField(default=date.today)
-    # time = models.TimeField(default=timezone.now)
     date_booked = models.DateTimeField(default=timezone.now)
-
+    viewing_active = models.BooleanField(default=True)
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Bookings'
+        verbose_name_plural = 'Assign Slots to Properties'
 
     def __str__(self):
         """ Takes in the booking model to return db name """

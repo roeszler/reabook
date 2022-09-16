@@ -25,12 +25,18 @@ def view_bookings_login(request):
 
 def view_booking_detail(request, property_id):
     """ A view to show individual property booking details """
+    properties = Property.objects.all() # noqa
+    slots = Slot.objects.all() # noqa
+    bookings = Booking.objects.all() # noqa
     prop = get_object_or_404(Property, pk=property_id)
-    booking = Booking.objects.all() # noqa
+    # props_with_viewings = bookings.filter(viewing_active=True)
 
     context = {
+        'properties': properties,
+        'slots': slots,
+        'bookings': bookings,
         'prop': prop,
-        'booking': booking,
+        # 'props_with_viewings': props_with_viewings,
     }
 
     return render(request, 'book/prop-booking-detail.html', context)
@@ -41,19 +47,17 @@ def view_booking_select_time(request):
     View to render the bookings select available time page
     """
     properties = Property.objects.all() # noqa
-    slots = Slot.objects.all() # noqa
-    bookings = Booking.objects.all() # noqa
-    props_with_viewings = properties.filter(viewings=True)
-    props_with_slots = slots.filter(pk=True)
-    props_with_bookings = bookings.filter(pk=True)
+    # slots = Slot.objects.all() # noqa
+    # bookings = Booking.objects.all() # noqa
+    # props_with_viewings = properties.filter(viewings=True)
+    # prop = bookings.filter(viewing_active=True)
 
     context = {
         'properties': properties,
-        'slots': slots,
-        'bookings': bookings,
-        'props_with_viewings': props_with_viewings,
-        'props_with_slots': props_with_slots,
-        'props_with_bookings': props_with_bookings,
+        # 'slots': slots,
+        # 'bookings': bookings,
+        # 'props_with_viewings': props_with_viewings,
+        # 'prop': prop,
     }
 
     return render(request, 'book/booking-detail.html', context)

@@ -15,6 +15,7 @@ class BookingAdmin(admin.ModelAdmin):
         # 'duration',
         'user',
         'date_booked',
+        'viewing_active',
     )
 
     ordering = (

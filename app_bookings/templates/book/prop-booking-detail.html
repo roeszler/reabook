@@ -53,8 +53,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="font-weight-light">
+
                                                     <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ booking.date }}</a>
+                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.title_no }} {{ bookings.title_no }}</a>
                                                     </td>
                                                     <td class="row-hlink pt-3">
                                                         <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
@@ -67,7 +68,7 @@
                                                     </td>
                                                     <td class="row-hlink">
                                                         <a href="{% url 'select_time' %}">
-                                                            <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">book time</button>
+                                                            <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">select</button>
                                                         </a>
                                                     </td>
                                             </tbody>

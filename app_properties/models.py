@@ -80,7 +80,7 @@ class Property(models.Model):
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
     viewings = models.BooleanField(default=True)
-    realtor = models.CharField(max_length=256, null=True, blank=True, default='Local ReaBook Agent')
+    realtor = models.CharField(max_length=256, null=True, blank=True, default='ReaBook.net')
     # selected = models.BooleanField(default=False)
 
     class Meta:
