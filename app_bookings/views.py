@@ -29,14 +29,14 @@ def view_booking_detail(request, property_id):
     slots = Slot.objects.all() # noqa
     bookings = Booking.objects.all() # noqa
     prop = get_object_or_404(Property, pk=property_id)
-    # props_with_viewings = bookings.filter(viewing_active=True)
+    props_with_booking_slots = bookings.filter(viewing_active=True)
 
     context = {
         'properties': properties,
         'slots': slots,
         'bookings': bookings,
         'prop': prop,
-        # 'props_with_viewings': props_with_viewings,
+        'props_with_booking_slots': props_with_booking_slots,
     }
 
     return render(request, 'book/prop-booking-detail.html', context)
@@ -49,14 +49,16 @@ def view_booking_select_time(request):
     properties = Property.objects.all() # noqa
     # slots = Slot.objects.all() # noqa
     # bookings = Booking.objects.all() # noqa
-    # props_with_viewings = properties.filter(viewings=True)
+    props_with_viewings = properties.filter(viewings=True)
     # prop = bookings.filter(viewing_active=True)
+    # props_with_booking_slots = bookings.filter(viewing_active=True)
 
     context = {
         'properties': properties,
         # 'slots': slots,
         # 'bookings': bookings,
-        # 'props_with_viewings': props_with_viewings,
+        'props_with_viewings': props_with_viewings,
+        # 'props_with_booking_slots': props_with_booking_slots,
         # 'prop': prop,
     }
 

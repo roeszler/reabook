@@ -28,6 +28,8 @@
                             <ul class="nav nav-tabs">
                                 <li class="nav-item accordion-text-heading">Booking Summary</li>
                             </ul>
+
+                            {% for prop in props_with_viewings %}
                             <div class="row my-3">
                                 <div class="col-lg-2">
                                     {% if prop.main_image %}
@@ -74,6 +76,7 @@
                                     </a>
                                 </div>
                             </div>
+                            {% endfor %}
                             <div>
                                 <p>enter_customer_details</p>
                             </div>

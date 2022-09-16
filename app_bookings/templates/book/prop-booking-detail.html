@@ -8,129 +8,249 @@
     <div class="col-md-12 text-center mb-md-5 h-100">
         <!-- <h4 class="heading-section">ReaBook Viewings</h4> -->
         <div class="progress">
-            <div class="progress-bar bg-green" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+            <div class="progress-bar bg-green" role="progressbar" style="width: 66%" aria-valuenow="66"
+                aria-valuemin="0" aria-valuemax="100">Step 2 / 3</div>
         </div>
-            <div class="w-100">
-                <!-- Select viewings available in selected properties -->
-                <div class="card mt-3">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn w-100" type="button">
-                                <span class="accordion-number float-left">2.</span>
-                                <span class="accordion-text-heading">Choose Time to View Property</span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div>
-                        <div class="card-body row">
-                            <div class="col-lg-12">
-                                
-                                
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item accordion-text-heading">{{ prop.house_no }} {{ prop.street }} <span class="reabook-logo">&nbsp;|&nbsp;</span> <span class="text-muted">{{ prop.suburb }}</span></li>
-                                </ul>
-                                <div class="row my-3">
-                                    <div class="col-lg-3">
-                                        {% if prop.main_image %}
-                                        <a href="{{ prop.main_image.url }}" target="_blank">
-                                            <img class="card-img-top img-fluid rounded img-thumbnail w-100" src="{{ prop.main_image.url }}" alt="{{ property.name }}">
-                                        </a>
-                                        {% else %}
-                                        <a href="">
-                                            <img class="card-img-top img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png"alt="{{ property.name }}">
-                                        </a>
-                                        {% endif %}
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <table class="table table-hover text-lg-left font-weight-light">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Time</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">Length</th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="font-weight-light">
-
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.title_no }} {{ bookings.title_no }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ prop.house_no }} {{ prop.street }}</a>
-                                                    </td>
-                                                    <td class="row-hlink pt-3">
-                                                        <a href="{% url 'property_detail' prop.id %}">{{ appointment_types.duration }} 15 mins</a>
-                                                    </td>
-                                                    <td class="row-hlink">
-                                                        <a href="{% url 'select_time' %}">
-                                                            <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">select</button>
-                                                        </a>
-                                                    </td>
-                                            </tbody>
-                                        </table>
-                                    </div>
+        <div class="w-100">
+            <!-- Select viewings available in selected properties -->
+            <div class="card mt-3">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn w-100" type="button">
+                            <span class="accordion-number float-left">Book Viewing of </span>
+                            <span class="accordion-text-heading">{{ prop.house_no }} {{ prop.street }} <span
+                                    class="reabook-logo">&nbsp;|&nbsp;</span> <span
+                                    class="text-muted">{{ prop.suburb }}</span></span>
+                        </button>
+                    </h2>
+                </div>
+                <div>
+                    <div class="card-body row">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs"></ul>
+                            <div class="row my-3">
+                                <div class="col-lg-3">
+                                    {% if prop.main_image %}
+                                    <a href="{{ prop.main_image.url }}" target="_blank">
+                                        <img class="card-img-top img-fluid rounded img-thumbnail w-100"
+                                            src="{{ prop.main_image.url }}" alt="{{ property.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid rounded img-thumbnail w-100"
+                                            src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png"
+                                            alt="{{ property.name }}">
+                                    </a>
+                                    {% endif %}
                                 </div>
-                                
+
+
+                                <div class="col-lg-9">
+                                    <form class="text-align-left">
+
+                                        <h4>Choose Upcoming Viewings for {{ prop.house_no }} {{ prop.street }} <span
+                                            class="reabook-logo">&nbsp;|&nbsp;</span> <span
+                                            class="text-muted">{{ prop.suburb }}</span></h4>
+
+                                        <!-- Calendar -->
+                                        <div class="col-12 pl-4 border border-warning">
+                                            <div class="calendar-container">
+                                                <div class="calendar">
+                                                    <div class="year-header">
+                                                        <span class="left-cal-button fa fa-chevron-left" id="prev"> </span>
+                                                        <span class="year" id="label">2022</span>
+                                                        <span class="right-cal-button fa fa-chevron-right" id="next"> </span>
+                                                    </div>
+                                        
+                                                    <table class="months-table my-1 w-100">
+                                                        <tbody>
+                                                            <tr class="months-row">
+                                                                <td class="month">Jan</td>
+                                                                <td class="month">Feb</td>
+                                                                <td class="month">Mar</td>
+                                                                <td class="month">Apr</td>
+                                                                <td class="month">May</td>
+                                                                <td class="month">Jun</td>
+                                                                <td class="month">Jul</td>
+                                                                <td class="month">Aug</td>
+                                                                <td class="month active-month">Sep</td>
+                                                                <td class="month">Oct</td>
+                                                                <td class="month">Nov</td>
+                                                                <td class="month">Dec</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                        
+                                                    <table class="days-table w-100">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="day">Sun</td>
+                                                                <td class="day">Mon</td>
+                                                                <td class="day">Tue</td>
+                                                                <td class="day">Wed</td>
+                                                                <td class="day">Thu</td>
+                                                                <td class="day">Fri</td>
+                                                                <td class="day">Sat</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="frame">
+                                                        <table class="dates-table w-100">
+                                                            <tbody class="tbody">
+                                                                <tr class="table-row"></tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date">1</td>
+                                                                    <td class="table-date">2</td>
+                                                                    <td class="table-date">3</td>
+                                                                </tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date">4</td>
+                                                                    <td class="table-date">5</td>
+                                                                    <td class="table-date">6</td>
+                                                                    <td class="table-date active-date">7</td>
+                                                                    <td class="table-date">8</td>
+                                                                    <td class="table-date">9</td>
+                                                                    <td class="table-date">10</td>
+                                                                </tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date">11</td>
+                                                                    <td class="table-date">12</td>
+                                                                    <td class="table-date">13</td>
+                                                                    <td class="table-date">14</td>
+                                                                    <td class="table-date">15</td>
+                                                                    <td class="table-date">16</td>
+                                                                    <td class="table-date">17</td>
+                                                                </tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date">18</td>
+                                                                    <td class="table-date">19</td>
+                                                                    <td class="table-date">20</td>
+                                                                    <td class="table-date">21</td>
+                                                                    <td class="table-date">22</td>
+                                                                    <td class="table-date">23</td>
+                                                                    <td class="table-date">24</td>
+                                                                </tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date">25</td>
+                                                                    <td class="table-date">26</td>
+                                                                    <td class="table-date">27</td>
+                                                                    <td class="table-date">28</td>
+                                                                    <td class="table-date">29</td>
+                                                                    <td class="table-date">30</td>
+                                                                    <td class="table-date nil"></td>
+                                                                </tr>
+                                                                <tr class="table-row">
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                    <td class="table-date nil"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- <button class="button float-right my-2 btn-outline-reabook" id="add-button">Book Inspection</button> -->
+                                                </div>
+                                            </div>
+                                            <hr class="mt-5">
+                                            <div class="events-container">
+                                                <div class="cal-event-card">
+                                                    <p class="event-name">There are no inspections planned for January 6.</p>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="dialog" id="dialog">
+                                                    <h2 class="dialog-header"> Add New Event </h2>
+                                                    <form class="form" id="form">
+                                                      <div class="form-container" align="center">
+                                                        <label class="form-label" id="valueFromMyButton" for="name">Event name</label>
+                                                        <input class="input" type="text" id="name" maxlength="36">
+                                                        <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
+                                                        <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
+                                                        <input type="button" value="Cancel" class="button" id="cancel-button">
+                                                        <input type="button" value="OK" class="button button-white" id="ok-button">
+                                                      </div>
+                                                    </form>
+                                                  </div> -->
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-4">
+                                                Morning
+                                                <div>
+                                                    <button class="btn choose-time-btn btn-outline-reabook w-100 my-2">9:30 AM</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                Afternoon
+                                            </div>
+                                            <div class="col-4">
+                                                Evening
+                                            </div>
+                                        </div>
+
+                                        <h2 class="mt-5">Your Details</h2>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Email</label>
+                                                <input type="email" class="form-control" id="inputEmail4"
+                                                    placeholder="Email">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Password</label>
+                                                <input type="password" class="form-control" id="inputPassword4"
+                                                    placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress">Address</label>
+                                            <input type="text" class="form-control" id="inputAddress"
+                                                placeholder="1234 Main St">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress2">Address 2</label>
+                                            <input type="text" class="form-control" id="inputAddress2"
+                                                placeholder="Apartment, studio, or floor">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputCity">City</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputState">State</label>
+                                                <select id="inputState" class="form-control">
+                                                    <option selected>Choose...</option>
+                                                    <option>...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label for="inputZip">Zip</label>
+                                                <input type="text" class="form-control" id="inputZip">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                                <label class="form-check-label" for="gridCheck">
+                                                    Check me out
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        
+                                        <h2 class="mt-5">Confirm Booking</h2>
+                                    </form>
+                                </div>
                             </div>
+
                         </div>
-                    </div>
-                </div>
-                <div class="card mt-1">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span class="accordion-number float-left">3.</span>
-                                <span class="accordion-text-heading">Enter Details<span class="chevron"><i
-                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                        data-parent="#accordionBookings">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-1">
-                    <div class="card-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button class="btn w-100 collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <span class="accordion-number float-left">4.</span>
-                                <span class="accordion-text-heading">Confirm Booking<span class="chevron"><i
-                                            class="fa-solid fa-chevron-down mx-2 text-muted"></i></span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                        data-parent="#accordionBookings">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                        <button type="submit" class="btn btn-outline-reabook mx-3 text-center">Add to My ReaBook Diary</button>
                     </div>
                 </div>
             </div>
-        <!-- </form> -->
+        </div>
     </div>
 </div>
 {% include 'includes/bookings-base-calendar.html' %}
@@ -138,7 +258,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <!-- To include the parent block -->
-    {{ block.super }}
+<!-- To include the parent block -->
+{{ block.super }}
 
 {% endblock %}
