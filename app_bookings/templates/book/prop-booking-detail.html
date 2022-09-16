@@ -24,6 +24,7 @@
                         </button>
                     </h2>
                 </div>
+
                 <div>
                     <div class="card-body row">
                         <div class="col-lg-12">
@@ -44,24 +45,34 @@
                                     {% endif %}
                                 </div>
 
-
                                 <div class="col-lg-9">
+                                    <div class="table table-hover text-lg-left font-weight-light border border-success">
+                                        <img class="card-img-top img-fluid rounded img-thumbnail w-25"
+                                            src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/treasure-map_wvyg7l.png" alt="{{ property.name }}">
+                                        <!-- <iframe src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/treasure-map_wvyg7l.png"></iframe> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12 mt-3">
                                     <form class="text-align-left">
 
                                         <h4>Choose Upcoming Viewings for {{ prop.house_no }} {{ prop.street }} <span
-                                            class="reabook-logo">&nbsp;|&nbsp;</span> <span
-                                            class="text-muted">{{ prop.suburb }}</span></h4>
+                                                class="reabook-logo">&nbsp;|&nbsp;</span> <span
+                                                class="text-muted">{{ prop.suburb }}</span></h4>
 
                                         <!-- Calendar -->
                                         <div class="col-12 pl-4 border border-warning">
                                             <div class="calendar-container">
                                                 <div class="calendar">
                                                     <div class="year-header">
-                                                        <span class="left-cal-button fa fa-chevron-left" id="prev"> </span>
+                                                        <span class="left-cal-button fa fa-chevron-left" id="prev">
+                                                        </span>
                                                         <span class="year" id="label">2022</span>
-                                                        <span class="right-cal-button fa fa-chevron-right" id="next"> </span>
+                                                        <span class="right-cal-button fa fa-chevron-right" id="next">
+                                                        </span>
                                                     </div>
-                                        
+
                                                     <table class="months-table my-1 w-100">
                                                         <tbody>
                                                             <tr class="months-row">
@@ -80,7 +91,7 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                        
+
                                                     <table class="days-table w-100">
                                                         <tbody>
                                                             <tr>
@@ -158,49 +169,138 @@
                                             <hr class="mt-5">
                                             <div class="events-container">
                                                 <div class="cal-event-card">
-                                                    <p class="event-name">There are no inspections planned for January 6.</p>
+                                                    <p class="event-name">There are no inspections planned for January
+                                                        6.</p>
                                                 </div>
                                             </div>
                                             <!-- <div class="dialog" id="dialog">
-                                                    <h2 class="dialog-header"> Add New Event </h2>
-                                                    <form class="form" id="form">
-                                                      <div class="form-container" align="center">
-                                                        <label class="form-label" id="valueFromMyButton" for="name">Event name</label>
-                                                        <input class="input" type="text" id="name" maxlength="36">
-                                                        <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
-                                                        <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
-                                                        <input type="button" value="Cancel" class="button" id="cancel-button">
-                                                        <input type="button" value="OK" class="button button-white" id="ok-button">
-                                                      </div>
-                                                    </form>
-                                                  </div> -->
+                                                        <h2 class="dialog-header"> Add New Event </h2>
+                                                        <form class="form" id="form">
+                                                          <div class="form-container" align="center">
+                                                            <label class="form-label" id="valueFromMyButton" for="name">Event name</label>
+                                                            <input class="input" type="text" id="name" maxlength="36">
+                                                            <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
+                                                            <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
+                                                            <input type="button" value="Cancel" class="button" id="cancel-button">
+                                                            <input type="button" value="OK" class="button button-white" id="ok-button">
+                                                          </div>
+                                                        </form>
+                                                      </div> -->
                                         </div>
 
-                                        <div class="row mt-3">
-                                            <div class="col-4 radio-wrapper">
+                                        <div class="row mt-3 radio-wrapper">
+                                            <div class="col-lg-4 mx-0">
                                                 Morning
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2" data-input="#time-slot-1">
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-1">
                                                     <label for="time-slot-1" class="mb-0">9:30 AM</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-1" value="1" checked="checked"/>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-1"
+                                                        value="930" checked="checked" />
                                                 </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2" data-input="#time-slot-2">
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-2">
                                                     <label for="time-slot-2" class="mb-0">10:00 am</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-2" value="2"/>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-2"
+                                                        value="1000" />
                                                 </div>
-                                                <!-- <div>
-                                                    <label for="time-slot-1" class="mb-0">11:30 am</label>
-                                                    <input type="radio" name="time" id="time-slot-1" value="1" class="sr-only choose-time-radio btn-outline-reabook w-100 my-2">9:30 AM</input>
-                                                    <button class="btn choose-time-btn btn-outline-reabook w-100 my-2">9:30 AM</button>
-                                                </div> -->
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-3">
+                                                    <label for="time-slot-3" class="mb-0">10:30 am</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-3"
+                                                        value="1030" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-4">
+                                                    <label for="time-slot-4" class="mb-0">11:00 am</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-4"
+                                                        value="1100" />
+                                                </div>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-lg-4 mx-0">
                                                 Afternoon
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-5">
+                                                    <label for="time-slot-5" class="mb-0">1:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-5"
+                                                        value="1300" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-6">
+                                                    <label for="time-slot-6" class="mb-0">1:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-6"
+                                                        value="1330" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-7">
+                                                    <label for="time-slot-7" class="mb-0">2:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-7"
+                                                        value="1400" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-8">
+                                                    <label for="time-slot-8" class="mb-0">2:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-8"
+                                                        value="1430" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-9">
+                                                    <label for="time-slot-9" class="mb-0">3:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-9"
+                                                        value="1500" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-10">
+                                                    <label for="time-slot-10" class="mb-0">3:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-10"
+                                                        value="1530" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-11">
+                                                    <label for="time-slot-11" class="mb-0">4:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-11"
+                                                        value="1600" />
+                                                </div>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-lg-4 mx-0">
                                                 Evening
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-12">
+                                                    <label for="time-slot-12" class="mb-0">5:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-12"
+                                                        value="1700" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-13">
+                                                    <label for="time-slot-13" class="mb-0">5:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-13"
+                                                        value="1730" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-12">
+                                                    <label for="time-slot-12" class="mb-0">6:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-12"
+                                                        value="1800" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-13">
+                                                    <label for="time-slot-13" class="mb-0">6:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-13"
+                                                        value="1830" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-12">
+                                                    <label for="time-slot-12" class="mb-0">7:00 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-12"
+                                                        value="1900" />
+                                                </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                    data-input="#time-slot-13">
+                                                    <label for="time-slot-13" class="mb-0">7:30 pm</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-13"
+                                                        value="1930" />
+                                                </div>
                                             </div>
                                         </div>
-
                                         <h2 class="mt-5">Your Details</h2>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -250,12 +350,11 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Sign in</button>
-                                        
+
                                         <h2 class="mt-5">Confirm Booking</h2>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
