@@ -483,6 +483,43 @@ https://colorlib.com/wp/bootstrap-calendars/
     color: #000;
 }
 
+/* ------------ Bookings */
+
+.time-slot {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: 0 0;
+    line-height: 1.375;
+    border: 0.0625rem solid #d3d3d3;
+    padding: 0.5rem;
+    transition: all .2s ease-in-out;
+    border-radius: 0.3125rem;
+}
+
+
+.time-slot:hover {
+    border-color: #20514C;
+    color: #fff;
+    background-color: #20514C;
+    border-radius: 0.3125rem;
+    /* border-radius: 0.5rem; */
+}
+
+.time-slot:checked {
+    border-color: #20514C;
+    color: #fff;
+    background-color: #20514C;
+    border-radius: 0.3125rem;
+}
+
+.time-slot.selected {
+    border-color: #20514C;
+    color: #fff;
+    background-color: #20514C;
+    border-radius: 0.3125rem;
+}
+
 /* ---------- Calendar Day */
 
 /* Days/months tables */

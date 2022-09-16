@@ -17,6 +17,12 @@ $(document).ready(function(){
         $(this).tab('show')
     });
 
+    // Control select viewing time radio inputs
+    $('.radio-wrapper').on('click','.time-slot',function () {
+        $('.time-slot').removeClass('selected');
+        $(this).addClass('selected')
+    });
+
     // // Make table rows hyperlinks
     // $('.row-hlink').on('click', function (e) {
     //     e.preventDefault()

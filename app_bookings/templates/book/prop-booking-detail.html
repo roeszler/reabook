@@ -177,11 +177,21 @@
                                         </div>
 
                                         <div class="row mt-3">
-                                            <div class="col-4">
+                                            <div class="col-4 radio-wrapper">
                                                 Morning
-                                                <div>
-                                                    <button class="btn choose-time-btn btn-outline-reabook w-100 my-2">9:30 AM</button>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2" data-input="#time-slot-1">
+                                                    <label for="time-slot-1" class="mb-0">9:30 AM</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-1" value="1" checked="checked"/>
                                                 </div>
+                                                <div class="form-selectable-label text-center time-slot w-100 my-2" data-input="#time-slot-2">
+                                                    <label for="time-slot-2" class="mb-0">10:00 am</label>
+                                                    <input class="sr-only" type="radio" name="time" id="time-slot-2" value="2"/>
+                                                </div>
+                                                <!-- <div>
+                                                    <label for="time-slot-1" class="mb-0">11:30 am</label>
+                                                    <input type="radio" name="time" id="time-slot-1" value="1" class="sr-only choose-time-radio btn-outline-reabook w-100 my-2">9:30 AM</input>
+                                                    <button class="btn choose-time-btn btn-outline-reabook w-100 my-2">9:30 AM</button>
+                                                </div> -->
                                             </div>
                                             <div class="col-4">
                                                 Afternoon
