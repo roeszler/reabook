@@ -2,8 +2,10 @@
 from datetime import date
 from django.db import models
 from django.utils import timezone
+from django import forms
 
-from app_properties.models import Property
+# from app_properties.models import Property
+from .forms import GeeksForm
 
 
 class Booking(models.Model):
@@ -28,41 +30,69 @@ class Booking(models.Model):
         verbose_name_plural = 'Bookings'
 
     def __str__(self):
-        """ Takes in the sector model to return db name """
+        """ Takes in the booking model to return db name """
         return self.booking_name
 
 
-class Slot(models.Model):
-    """ To contain the data from the slots.json fixtures file """
-    user = models.ForeignKey(
-        'User', null=True, blank=True, on_delete=models.SET_NULL
-        )
-    title_no = models.ForeignKey(
-        Property, null=True, blank=True, on_delete=models.SET_NULL
-        )
-    name = models.CharField(max_length=254, null=True, blank=True, default='15 Minutes')
-    date = models.DateField(default=timezone.now)
-    duration = models.DurationField(default='00:15')
-    start_time = models.TimeField(default=timezone.now)
-    # end_time = models.TimeField(default=timezone.now)
-    lunch_start = models.TimeField(default='13:00')
-    lunch_finish = models.TimeField(default='14:00')
-    day_start = models.TimeField(default='09:00')
-    day_finish = models.TimeField(default='17:00')
-    date_created = models.DateTimeField(default=timezone.now)
+class Session(models.Model):
+    """ To contain the data from the categories.json fixtures file  """
+    name = models.CharField(max_length=254, default='Morning')
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Appointment Slots'
+        verbose_name_plural = 'Sessions'
 
     def __str__(self):
         """ Takes in the category model to return db name """
+        return self.name
+
+    def get_friendly_name(self):
+        """ Takes in the category model to return friendly_name """
+        return self.friendly_name
+
+
+class Slot(models.Model):
+    """ To contain the appointment slots data from slots.json """
+    # user = models.ForeignKey(
+    #     'User', null=True, blank=True, on_delete=models.SET_NULL
+    #     )
+    # title_no = models.ForeignKey(
+    #     Property, null=True, blank=True, on_delete=models.SET_NULL
+    #     )
+    session = models.ForeignKey(
+        'Session', null=True, blank=True, on_delete=models.SET_NULL
+        )
+    name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15')
+    friendly_name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15 Appointment Slot')
+    # session_morning = models.BooleanField(null=True, blank=True, default=True)
+    # session_morning = forms.ChoiceField(choices=GeeksForm, widget=forms.RadioSelect())
+    # date = models.DateField(default=timezone.now)
+    # duration = models.DurationField(default='00:15')
+    start_time = models.TimeField(default=timezone.now)
+    end_time = models.TimeField(default=timezone.now)
+    # lunch_start = models.TimeField(default='13:00')
+    # lunch_finish = models.TimeField(default='14:00')
+    # day_start = models.TimeField(default='09:00')
+    # day_finish = models.TimeField(default='17:00')
+    # date_created = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        """ to adjust the slot name or the plural form from defaults """
+        verbose_name_plural = 'Appointment Slots'
+
+    def __str__(self):
+        """ Takes in the slots model to return db name """
         # return str(self.property_id)
         return self.name
     
     def __int__(self):
         """ Takes in the category model to return db name """
         return self.pk
+    
+    def get_friendly_name(self):
+        """ Takes in the booking model to return friendly_name """
+        return self.friendly_name
 
 
 

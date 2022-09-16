@@ -1,7 +1,7 @@
 """ Import Modules """
 from django.contrib import admin
 
-from .models import Booking, Slot, User
+from .models import Booking, Slot, User, Session
 
 class BookingAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for bookings """
@@ -20,21 +20,35 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
 
+class SessionAdmin(admin.ModelAdmin):
+    """ To edit the fields shown on the django admin section for appointment slots """
+    list_display = (
+        'pk',
+        'name',
+        'friendly_name',
+    )
+
+    ordering = ('pk', 'name',)
+
 class SlotAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for appointment slots """
     list_display = (
         'pk',
-        'date',
+        # 'date',
+        'name',
+        # 'friendly_name',
+        'session',
         'start_time',
-        'duration',
-        'day_start',
-        'day_finish',
-        'title_no',
-        'date_created',
-        'user',
+        'end_time',
+        # 'duration',
+        # 'day_start',
+        # 'day_finish',
+        # 'title_no',
+        # 'date_created',
+        # 'user',
     )
 
-    ordering = ('-pk', 'date', 'title_no', 'date_created', 'user',)
+    ordering = ('pk', 'start_time', 'session')
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -62,3 +76,4 @@ class UserAdmin(admin.ModelAdmin):
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Slot, SlotAdmin)
 admin.site.register(User, UserAdmin)
+admin.site.register(Session, SessionAdmin)

@@ -61,7 +61,7 @@
                                             {% for slot in slots %}
                                             <tr>
                                                 <td class="row-hlink pt-3">
-                                                    <a href="{% url 'property_detail' prop.id %}">{{ slot.date }}</a>
+                                                    <a href="{% url 'property_detail' prop.id %}">{{ slot.name }}</a>
                                                 </td>
                                                 <td class="row-hlink pt-3">
                                                     <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a>
