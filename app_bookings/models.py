@@ -54,7 +54,7 @@ class Slot(models.Model):
         'Session', null=True, blank=True, on_delete=models.SET_NULL
         )
     name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15')
-    friendly_name = models.CharField(max_length=254, null=True, blank=True, default='15 Min Appointment Slot')
+    friendly_name = models.CharField(max_length=254, null=True, blank=True, default='15 min')
     start_time = models.TimeField(default=timezone.now)
     end_time = models.TimeField(default=timezone.now)
     seats_available = models.IntegerField(default=3)
