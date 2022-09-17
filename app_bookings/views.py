@@ -1,4 +1,5 @@
 """ Import Models """
+from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -9,9 +10,41 @@ from .models import Timeslot, Booking
 
 
 def client_bookings(request):
-    """ To render the bookings page with clients upcomming appointments """
+    """ To render the bookings page with clients upcoming appointments """
     if request.method == 'POST':
-        message_name
+        date = request.POST['date']
+        property_id = request.POST['property_id']
+        time = request.POST['time']
+        f_name = request.POST['f_name']
+        l_name = request.POST['l_name']
+        client_email = request.POST['client_email']
+        continent_code = request.POST['continent_code']
+        client_phone = request.POST['client_phone']
+        client_city = request.POST['client_city']
+        client_zip = request.POST['client_zip']
+        client_country = request.POST['client_country']
+        client_message = request.POST['client_message']
+        get_date_booked = datetime.now()
+        # date_booked = request.POST[get_date_booked]
+
+        # return render(request, 'book/prop-booking-detail.html', {'f_name': f_name, })
+        return render(request, 'book/my-bookings.html', {'f_name': f_name, })
+
+        # form_data = {
+        #     'property_id': request.POST['property_id'],
+        #     'date': request.POST['date'],
+        #     'time': request.POST['time'],
+        #     'f_name': request.POST['f_name'],
+        #     'l_name': request.POST['l_name'],
+        #     'client_email': request.POST['client_email'],
+        #     'continent_code': request.POST['continent_code'],
+        #     'client_phone': request.POST['client_phone'],
+        #     'client_city': request.POST['client_city'],
+        #     'client_zip': request.POST['client_zip'],
+        #     'client_country': request.POST['client_country'],
+        #     'client_message': request.POST['client_message'],
+        #     'date_booked': request.POST[get_date_booked],
+        # }
     
     else:
         return render(request, 'book/my-bookings.html', {})

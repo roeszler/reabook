@@ -90,15 +90,22 @@
                 <div>
                     <div class="card-body row">
                         <div class="col-lg-12">
-                            <ul class="nav nav-tabs"></ul>
+                            <!-- <ul class="nav nav-tabs"></ul> -->
                             <div class="row my-3">
                                 <div class="col-lg-12">
 
                                     <!-- Booking Submission form -->
                                     <form action="{% url 'booking_success' %}" method="POST" class="text-align-left">
+                                    <!-- <form action="{% url 'client_bookings' %}" method="POST" class="text-align-left"> -->
                                         {% csrf_token %}
 
+                                        <label for="input_prop_no" class="input_prop_no">Property ID: </label>
+                                        <input type="number" value="{{ prop.id }}" name="property_id" id="input_prop_no" class="input_prop_no" disabled />
+
                                         <h4>Choose Upcoming Viewings</h4>
+                                        
+                                        <input type="datetime-local" name="date"/>
+                                        
                                         <hr>
 
                                         <!-- Calendar -->
@@ -116,7 +123,10 @@
                                                     <table class="months-table my-1 w-100">
                                                         <tbody>
                                                             <tr class="months-row">
-                                                                <td class="month">Jan</td>
+                                                                <td class="month">
+                                                                    <label for="jan" class="mb-0">Jan</label>
+                                                                    <input class="sr-only" type="radio" name="month" id="jan" value="1"/>
+                                                                </td>
                                                                 <td class="month">Feb</td>
                                                                 <td class="month">Mar</td>
                                                                 <td class="month">Apr</td>
@@ -145,6 +155,7 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
+
                                                     <div class="frame">
                                                         <table class="dates-table w-100">
                                                             <tbody class="tbody">
@@ -235,7 +246,7 @@
                                                     data-input="#time-slot-1">
                                                     <label for="time-slot-1" class="mb-0">9:30 AM</label>
                                                     <input class="sr-only" type="radio" name="time" id="time-slot-1"
-                                                        value="930" checked="checked" />
+                                                        value="930"/>
                                                 </div>
                                                 <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                     data-input="#time-slot-2">
@@ -342,24 +353,24 @@
                                             </div>
                                         </div>
 
-                                        <h2 class="mt-5 mb-3">Your Details</h2>
+                                        <h2 class="mt-5 mb-3">Your Details - Test Form Submission: {{ l_name }}</h2>
                                         <hr>
                                         <div class="row">
                                             <div class="col-12 submit-details-form text-left">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="inputFName1">First Name</label>
-                                                        <input type="text" class="form-control" id="inputFName1" placeholder="First Name" autocomplete="on" required>
+                                                        <input type="text" class="form-control" id="inputFName1" name="f_name" placeholder="First Name" autocomplete="on" required>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="inputLName1">Last Name</label>
-                                                        <input type="text" class="form-control" id="inputLName1" placeholder="Last Name" autocomplete="on" required>
+                                                        <input type="text" class="form-control" id="inputLName1" name="l_name" placeholder="Last Name" autocomplete="on" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="inputEmail1">Email</label>
-                                                        <input type="email" class="form-control" id="inputEmail1" placeholder="your@email.com" autocomplete="on" required>
+                                                        <input type="email" class="form-control" id="inputEmail1" name="client_email" placeholder="your@email.com" autocomplete="on" required>
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputPhoneArea">Area</label>
@@ -621,25 +632,25 @@
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="inputContactNumber1">Phone</label>
-                                                        <input type="number" class="form-control" id="inputContactNumber1" placeholder="555 123-456-789">
+                                                        <input type="number" class="form-control" id="inputContactNumber1" name="client_phone" placeholder="555 123-456-789">
                                                     </div>
                                                     <!-- <div class="form-group col-md-6">
                                                         <label for="inputPassword4">Password</label>
-                                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                                        <input type="password" class="form-control" id="inputPassword4" name="client_pw" placeholder="Password">
                                                     </div> -->
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="inputCity">City</label>
-                                                        <input type="text" class="form-control" id="inputCity" placeholder="Paradise City">
+                                                        <input type="text" class="form-control" id="inputCity" name="client_city" placeholder="Paradise City">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputZip">Zip</label>
-                                                        <input type="text" class="form-control" id="inputZip" placeholder="123-45">
+                                                        <input type="text" class="form-control" id="inputZip" name="client_zip" placeholder="123-45">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="inputCountry">Country</label>
-                                                        <select id="inputCountry" name="country" class="form-control">
+                                                        <select id="inputCountry" name="country" name="client_country" class="form-control">
                                                             <option selected>Choose...</option>
                                                             <option value="AF">Afghanistan</option>
                                                             <option value="AX">Aland Islands</option>
@@ -896,14 +907,14 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label for="Textarea1">Your Message</label>
-                                                        <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                                                        <label for="Textarea1">Any Message?</label>
+                                                        <textarea class="form-control" id="Textarea1" name="client_message" rows="3"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" id="gridCheck">
-                                                        <label class="form-check-label text-muted" for="gridCheck">
+                                                        <label class="form-check-label text-muted" for="gridCheck" name="contact_ok">
                                                             I would like to hear more about ReaBook properties available in my area
                                                         </label>
                                                     </div>
