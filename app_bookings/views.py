@@ -58,11 +58,9 @@ def view_booking_select_time(request):
     return render(request, 'book/booking-detail.html', context)
 
 
-def view_booking_success(request):
-    """
-    View to render the bookings successful booking page
-    """
-    return render(request, 'book/f-booking-success.html')
+def booking_success(request):
+    """ View to render a successful booking on prop-booking-detail.html """
+    return render(request, 'book/booking-success.html', {})
 
 
 def add_to_diary(request, property_id):

@@ -14,6 +14,6 @@ urlpatterns = [
     
     path('time/', views.view_booking_select_time, name='select_time'),
     path('time/<int:property_id>/', views.view_booking_detail, name='booking_detail'),
-    path('success/', views.view_booking_success, name='booking_success'),
+    path('success/', views.booking_success, name='booking_success'),
     path('choose/<int:property_id>/', views.add_to_diary, name='add_to_diary')
 ]

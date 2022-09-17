@@ -126,6 +126,21 @@ font-weight: 100;
     background-color: #20514C;
 }
 
+.btn-submit-reabook {
+    color: #20514C;
+    border-color: #20514C;
+    font-size: large;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+}
+
+.btn-submit-reabook:hover {
+    color: #fff;
+    border-color: #7F7F7F;
+    background-color: #20514C;
+}
+
 .btn-outline {
     color: #7F7F7F;
     border-color: none;
