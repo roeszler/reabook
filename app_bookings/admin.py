@@ -1,25 +1,23 @@
 """ Import Modules """
 from django.contrib import admin
 
-from .models import Booking, Slot, User, Session
+from .models import Booking, Timeslot, Client, Session
 
 
 class BookingAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for bookings """
     list_display = (
         'pk',
-        'title_no',
+        'property_id',
         'date',
-        'appointment_slot',
-        # 'time',
-        # 'duration',
-        'user',
+        'timeslot',
+        'client',
         'date_booked',
         'viewing_active',
     )
 
     ordering = (
-        '-pk', 'date', 'appointment_slot', 'title_no', 'user',
+        '-pk', 'date', 'timeslot', 'property_id', 'client',
     )
 
 
@@ -33,51 +31,38 @@ class SessionAdmin(admin.ModelAdmin):
 
     ordering = ('pk', 'name',)
 
-class SlotAdmin(admin.ModelAdmin):
+class TimeslotAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for appointment slots """
     list_display = (
         'pk',
-        # 'date',
         'name',
-        # 'friendly_name',
         'session',
         'start_time',
         'end_time',
         'seats_available',
-        # 'duration',
-        # 'day_start',
-        # 'day_finish',
-        # 'title_no',
-        # 'date_created',
-        # 'user',
     )
 
     ordering = ('pk', 'start_time', 'session')
 
 
-class UserAdmin(admin.ModelAdmin):
+class ClientAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for users """
     list_display = (
         'pk',
-        # 'name',
-        'user_name',
         'f_name',
         'l_name',
-        'user_email',
-        'user_phone',
-        'is_active',
-        'is_agent',
-        'is_owner',
-        'is_superuser',
+        'client_username',
+        'client_email',
+        'client_phone'
     )
 
     ordering = (
-        '-pk', 'user_name', 'l_name', 'f_name', 'is_active', 'is_agent', 'is_owner',
-        'is_superuser',
+        '-pk', 'client_username', 'l_name', 'f_name', 'client_email',
+        'client_phone',
         )
 
 
 admin.site.register(Booking, BookingAdmin)
-admin.site.register(Slot, SlotAdmin)
-admin.site.register(User, UserAdmin)
+admin.site.register(Timeslot, TimeslotAdmin)
+admin.site.register(Client, ClientAdmin)
 admin.site.register(Session, SessionAdmin)

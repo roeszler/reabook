@@ -4,24 +4,25 @@ from django.db import models
 from django.utils import timezone
 
 
+class Appointment(models.Model):
+    """ An individual record of the appointment to be used in the diary  """
+
+
+
 class Booking(models.Model):
-    """ To contain the data from the bookings.json fixtures file  """
-    user = models.ForeignKey(
-        'app_bookings.User', null=True, blank=True, on_delete=models.SET_NULL
-        )
-    appointment_slot = models.ForeignKey(
-        'app_bookings.Slot', null=True, blank=True, on_delete=models.SET_NULL
-        )
-    title_no = models.ForeignKey(
-        'app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL
-        )
+    """ An individual record of the appointment to be used in the diary  """
+    client = models.ForeignKey('app_bookings.Client', null=True, blank=True, on_delete=models.SET_NULL)
+    timeslot = models.ForeignKey('app_bookings.Timeslot', null=True, blank=True, on_delete=models.SET_NULL)
+    property_id = models.ForeignKey('app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL)
+
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='ReaBook 15 Minute Property Viewing')
     date = models.DateField(default=date.today)
     date_booked = models.DateTimeField(default=timezone.now)
     viewing_active = models.BooleanField(default=True)
+
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Assign Slots to Properties'
+        verbose_name_plural = 'Schedule Viewing Timeslots to Properties'
 
     def __str__(self):
         """ Takes in the booking model to return db name """
@@ -29,7 +30,7 @@ class Booking(models.Model):
 
 
 class Session(models.Model):
-    """ To contain the data from the categories.json fixtures file  """
+    """ TTable to contain the information about the scheldule the property is available  """
     name = models.CharField(max_length=254, default='Morning')
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -46,11 +47,9 @@ class Session(models.Model):
         return self.friendly_name
 
 
-class Slot(models.Model):
-    """ To contain the appointment slots data from slots.json """
-    session = models.ForeignKey(
-        'Session', null=True, blank=True, on_delete=models.SET_NULL
-        )
+class Timeslot(models.Model):
+    """ To contain the variety of time slots available for appointments """
+    session = models.ForeignKey('Session', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15')
     friendly_name = models.CharField(max_length=254, null=True, blank=True, default='15 min')
     start_time = models.TimeField(default=timezone.now)
@@ -59,7 +58,7 @@ class Slot(models.Model):
 
     class Meta:
         """ to adjust the slot name or the plural form from defaults """
-        verbose_name_plural = 'Appointment Slots'
+        verbose_name_plural = 'Timeslots'
 
     def __str__(self):
         """ Takes in the slots model to return db name """
@@ -75,26 +74,19 @@ class Slot(models.Model):
         return self.friendly_name
 
 
-class User(models.Model):
+class Client(models.Model):
     """ To contain the data from the users.json fixtures file """
-    # user_data = models.CharField(max_length=254, null=True, blank=True, default='Admin')
     f_name = models.CharField(max_length=254)
     l_name = models.CharField(max_length=254)
-    # friendly_name = models.CharField(max_length=254, null=True, blank=True default='')
-    user_name = models.CharField(max_length=254, unique=True, default='Create Username')
-    user_email = models.EmailField(max_length=254, unique=True)
-    user_phone = models.IntegerField(null=True, blank=True, default='00X1 123 456 789')
-    password = models.CharField(max_length=254)
-    is_active = models.BooleanField(default=False)
-    is_agent = models.BooleanField(default=False)
-    is_owner = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+    client_username = models.CharField(max_length=254, unique=True, default='Create Username')
+    client_email = models.EmailField(max_length=254, unique=True)
+    client_phone = models.IntegerField(null=True, blank=True, default='00X1 123 456 789')
 
 
     def __str__(self):
         """ Takes in the user model to return db name """
-        return self.user_name
+        return self.client_username
 
     def get_friendly_name(self):
         """ Takes in the user model to return friendly_name """
-        return self.user_email
+        return self.client_email

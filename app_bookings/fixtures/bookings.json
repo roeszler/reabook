@@ -4,7 +4,7 @@
     "fields": {
         "user": 3,
         "appointment_slot": 1,
-        "title_no": 2,
+        "property_id": 2,
         "booking_name": "ReaBook 15 Minute Property Viewing Appointment",
         "date": "2022-12-25",
         "date_booked": "2022-09-15T15:23:17Z"

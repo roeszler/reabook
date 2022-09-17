@@ -4,7 +4,7 @@
     "fields": {
         "user_key": 3,
         "property_id": 2,
-        "slot_name": "15 Minutes",
+        "timeslot_name": "15 Minutes",
         "date": "2022-09-30",
         "duration": "00:15:00",
         "start_time": "15:30",

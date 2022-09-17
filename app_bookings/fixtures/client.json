@@ -1,0 +1,11 @@
+[{
+    "model": "app_bookings.user",
+    "pk": 3,
+    "fields": {
+        "f_name": "Admin",
+        "l_name": "ReaBook",
+        "client_username": "Admin",
+        "client_email": "yoda@yodakode.com",
+        "client_phone": 123456789
+    }
+}]

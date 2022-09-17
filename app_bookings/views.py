@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from app_properties.models import Property
-from .models import Slot, Booking
+from .models import Timeslot, Booking
 # from .models import Booking
 
 
@@ -26,7 +26,7 @@ def view_bookings_login(request):
 def view_booking_detail(request, property_id):
     """ A view to show individual property booking details """
     properties = Property.objects.all() # noqa
-    slots = Slot.objects.all() # noqa
+    slots = Timeslot.objects.all() # noqa
     bookings = Booking.objects.all() # noqa
     prop = get_object_or_404(Property, pk=property_id)
     props_with_booking_slots = bookings.filter(viewing_active=True)
@@ -47,19 +47,11 @@ def view_booking_select_time(request):
     View to render the bookings select available time page
     """
     properties = Property.objects.all() # noqa
-    # slots = Slot.objects.all() # noqa
-    # bookings = Booking.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
-    # prop = bookings.filter(viewing_active=True)
-    # props_with_booking_slots = bookings.filter(viewing_active=True)
 
     context = {
         'properties': properties,
-        # 'slots': slots,
-        # 'bookings': bookings,
         'props_with_viewings': props_with_viewings,
-        # 'props_with_booking_slots': props_with_booking_slots,
-        # 'prop': prop,
     }
 
     return render(request, 'book/booking-detail.html', context)
@@ -105,7 +97,7 @@ def add_to_diary(request, property_id):
 def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all()
-    appointment_slot = Slot.objects.all()
+    appointment_slot = Timeslot.objects.all()
     props_with_viewings = properties.filter(viewings=True)
 
     # props_selected_to_view = properties.filter(selected=True)
@@ -130,12 +122,6 @@ def choose_bookings(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
             props_with_viewings = props_with_viewings.filter(queries)
             # print('found q', queries)
-    
-    # # To see if checkbox is 'checked'
-    # if request.POST.get('check', False):
-    #     checked = request.POST('check')
-    #     props_selected_to_view = props_selected_to_view.filter(checked)
-
 
     context = {
         'properties': properties,
