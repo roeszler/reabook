@@ -15,23 +15,9 @@
             <!-- Select viewings available in selected properties -->
             <div class="card mt-3">
                 <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn w-100" type="button">
-                            <span class="accordion-number float-left">Book Viewing of </span>
-                            <span class="accordion-text-heading">{{ prop.house_no }} {{ prop.street }} <span
-                                    class="reabook-logo">&nbsp;|&nbsp;</span> <span
-                                    class="text-muted">{{ prop.suburb }}</span></span>
-                        </button>
-                    </h2>
-                </div>
-
-                <div>
-                    <div class="card-body row">
-                        <div class="col-lg-12">
-                            <ul class="nav nav-tabs"></ul>
-                            <div class="row my-3">
-                                <div class="col-lg-3">
-                                    {% if prop.main_image %}
+                    <div class="row">
+                        <div class="col-3">
+                            {% if prop.main_image %}
                                     <a href="{{ prop.main_image.url }}" target="_blank">
                                         <img class="card-img-top img-fluid rounded img-thumbnail w-100"
                                             src="{{ prop.main_image.url }}" alt="{{ property.name }}">
@@ -43,23 +29,59 @@
                                             alt="{{ property.name }}">
                                     </a>
                                     {% endif %}
+                        </div>
+                        <div class="col-9">
+                            <h2 class="mb-3 text-left">
+                                <span>{{ prop.house_no }} {{ prop.street }}
+                                    <span class="reabook-logo">&nbsp;|&nbsp;</span>
+                                    <span class="text-muted">{{ prop.suburb }}</span>
+                                </span>
+                            </h2>
+                            <div class="row">
+                                <div class="col-4 border px-0 text-left">
+                                    <h5 class="mb-0">{{ prop.name }}</h5>
+                                        {% if prop.category.pk == 1 %}
+                                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
+                                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price }}</strong>
+                                                <br><small>Listed: {{ prop.list_date }}</small>
+                                                {% include 'includes/property-icons.html' %}
+                                            </p>
+                                        {% elif prop.category.pk == 2 %}
+                                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw }}</strong> /wk
+                                                <br><small>Available: {{ prop.date_available }}</small>
+                                                {% include 'includes/property-icons.html' %}
+                                            </p>
+                                        {% else %}
+                                            <p class="fw-lighter fs-6"><i class="fa-solid fa-scroll reabook-logo"></i> Space for Lease:
+                                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw }}</strong> /wk
+                                                <br><small>Available: {{ prop.date_available }}</small>
+                                                {% include 'includes/property-icons.html' %}
+                                            </p>
+                                        {% endif %}
+                                        {% if prop.rating %}
+                                            <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
+                                        {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
                                 </div>
-
-                                <div class="col-lg-9">
-                                    <div class="table table-hover text-lg-left font-weight-light border border-success">
-                                        <img class="card-img-top img-fluid rounded img-thumbnail w-25"
-                                            src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/treasure-map_wvyg7l.png" alt="{{ property.name }}">
-                                        <!-- <iframe src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/treasure-map_wvyg7l.png"></iframe> -->
-                                    </div>
+                                <div class="col-8 border px-0 text-left">
+                                    <p class="mt-0">{{ prop.description }}</p>
                                 </div>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="col-lg-12 mt-3">
+                <div>
+                    <div class="card-body row">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs"></ul>
+                            <div class="row my-3">
+                                <div class="col-lg-12">
                                     <form class="text-align-left">
-
-                                        <h4>Choose Upcoming Viewings for {{ prop.house_no }} {{ prop.street }} <span
-                                                class="reabook-logo">&nbsp;|&nbsp;</span> <span
-                                                class="text-muted">{{ prop.suburb }}</span></h4>
+                                        <h4>Choose Upcoming Viewings</h4>
 
                                         <!-- Calendar -->
                                         <div class="col-12 pl-4 border border-warning">
