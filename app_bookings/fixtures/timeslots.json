@@ -1,5 +1,5 @@
 [{
-    "model": "app_bookings.slot",
+    "model": "app_bookings.timeslot",
     "pk": 1,
     "fields": {
         "user_key": 3,
@@ -8,6 +8,7 @@
         "date": "2022-09-30",
         "duration": "00:15:00",
         "start_time": "15:30",
+        "end_time": "15:30",
         "lunch_start": "13:00",
         "lunch_finish": "14:00",
         "day_start": "09:00",

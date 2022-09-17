@@ -22,7 +22,7 @@ class Booking(models.Model):
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Schedule Viewing Timeslots to Properties'
+        verbose_name_plural = 'Schedule Timeslots'
 
     def __str__(self):
         """ Takes in the booking model to return db name """

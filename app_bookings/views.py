@@ -8,12 +8,13 @@ from .models import Timeslot, Booking
 # from .models import Booking
 
 
-def view_my_bookings(request):
-    """
-    View to render the bookings page
-    Looks within the current directory app_bookings/templates/book/book.html
-    """
-    return render(request, 'book/my-bookings.html')
+def client_bookings(request):
+    """ To render the bookings page with clients upcomming appointments """
+    if request.method == 'POST':
+        message_name
+    
+    else:
+        return render(request, 'book/my-bookings.html', {})
 
 
 def view_bookings_login(request):

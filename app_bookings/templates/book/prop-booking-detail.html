@@ -37,35 +37,48 @@
                                     <span class="text-muted">{{ prop.suburb }}</span>
                                 </span>
                             </h2>
+                            <h5 class="mb-1 text-left">{{ prop.name }}</h5>
                             <div class="row">
-                                <div class="col-4 border px-0 text-left">
-                                    <h5 class="mb-0">{{ prop.name }}</h5>
+                                <div class="col-4 pr-0 pl-3 text-left">
                                         {% if prop.category.pk == 1 %}
                                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
                                                 <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price }}</strong>
                                                 <br><small>Listed: {{ prop.list_date }}</small>
                                                 {% include 'includes/property-icons.html' %}
+                                                <br>
+                                                {% if prop.rating %}
+                                                    <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
+                                                {% else %}
+                                                    <small class="text-muted">No Rating</small>
+                                                {% endif %}
                                             </p>
                                         {% elif prop.category.pk == 2 %}
                                             <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
                                                 <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw }}</strong> /wk
                                                 <br><small>Available: {{ prop.date_available }}</small>
                                                 {% include 'includes/property-icons.html' %}
+                                                <br>
+                                                {% if prop.rating %}
+                                                    <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
+                                                {% else %}
+                                                    <small class="text-muted">No Rating</small>
+                                                {% endif %}
                                             </p>
                                         {% else %}
                                             <p class="fw-lighter fs-6"><i class="fa-solid fa-scroll reabook-logo"></i> Space for Lease:
                                                 <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw }}</strong> /wk
                                                 <br><small>Available: {{ prop.date_available }}</small>
                                                 {% include 'includes/property-icons.html' %}
+                                                <br>
+                                                {% if prop.rating %}
+                                                    <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
+                                                {% else %}
+                                                    <small class="text-muted">No Rating</small>
+                                                {% endif %}
                                             </p>
                                         {% endif %}
-                                        {% if prop.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
-                                        {% else %}
-                                            <small class="text-muted">No Rating</small>
-                                        {% endif %}
                                 </div>
-                                <div class="col-8 border px-0 text-left">
+                                <div class="col-8 px-0 text-left">
                                     <p class="mt-0">{{ prop.description }}</p>
                                 </div>
                             </div>
@@ -80,7 +93,11 @@
                             <ul class="nav nav-tabs"></ul>
                             <div class="row my-3">
                                 <div class="col-lg-12">
-                                    <form class="text-align-left">
+
+                                    <!-- Booking Submission form -->
+                                    <form action="{% url 'client_bookings' %}" method="POST" class="text-align-left">
+                                        {% csrf_token %}
+
                                         <h4>Choose Upcoming Viewings</h4>
 
                                         <!-- Calendar -->
@@ -191,7 +208,7 @@
                                             <hr class="mt-5">
                                             <div class="events-container">
                                                 <div class="cal-event-card">
-                                                    <p class="event-name">There are no inspections planned for January
+                                                    <p class="event-name">There are no viewings planned for January
                                                         6.</p>
                                                 </div>
                                             </div>
@@ -327,24 +344,20 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">Email</label>
-                                                <input type="email" class="form-control" id="inputEmail4"
-                                                    placeholder="Email">
+                                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email" autocomplete="off">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Password</label>
-                                                <input type="password" class="form-control" id="inputPassword4"
-                                                    placeholder="Password">
+                                                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputAddress">Address</label>
-                                            <input type="text" class="form-control" id="inputAddress"
-                                                placeholder="1234 Main St">
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                                         </div>
                                         <div class="form-group">
                                             <label for="inputAddress2">Address 2</label>
-                                            <input type="text" class="form-control" id="inputAddress2"
-                                                placeholder="Apartment, studio, or floor">
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">

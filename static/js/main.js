@@ -183,7 +183,7 @@ function show_events(events, month, day) {
     // If there are no events for this date, notify the user
     if(events.length===0) {
         var event_card = $("<div class='cal-event-card'></div>");
-        var event_name = $("<div class='event-name pl-1'> No inspections planned for "+month+" "+day+".</div>");
+        var event_name = $("<div class='event-name pl-1'> No viewings planned for "+month+" "+day+".</div>");
         $(event_card).css({ "border-left": "5px solid #20514C" });
         $(event_card).append(event_name);
         $(".events-container").append(event_card);
