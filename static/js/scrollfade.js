@@ -20,7 +20,7 @@ $(document).ready(function(){
     // Control select viewing time radio inputs
     $('.radio-wrapper').on('click','.time-slot',function () {
         $('.time-slot').removeClass('selected');
-        $(this).addClass('selected')
+        $(this).addClass('selected');
     });
 
     // // Make table rows hyperlinks

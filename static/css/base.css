@@ -485,7 +485,7 @@ https://colorlib.com/wp/bootstrap-calendars/
 
 /* ------------ Bookings */
 
-.time-slot {
+.time-slot label {
     position: relative;
     display: block;
     width: 100%;
@@ -519,6 +519,7 @@ https://colorlib.com/wp/bootstrap-calendars/
     background-color: #20514C;
     border-radius: 0.3125rem;
 }
+
 
 /* ---------- Calendar Day */
 

@@ -19,19 +19,19 @@ def booking_success(request):
     if request.method == 'POST':
 
         form_data = {
-            # 'property_id': request.POST['property_id'],
+            'property_id': request.POST.get('property_id', 'error!'),
             'date': request.POST['date'],
-            # 'time': request.POST['time'],
+            'time': request.POST.get('time', 'n/p'),
             'f_name': request.POST['f_name'],
             'l_name': request.POST['l_name'],
             'client_email': request.POST['client_email'],
-            'continent_code': request.POST['continent_code'],
+            'client_country': request.POST.get('client_country', 'n/p'),
             'client_phone': request.POST['client_phone'],
             'client_city': request.POST['client_city'],
             'client_zip': request.POST['client_zip'],
-            # 'client_country': request.POST['client_country'],
             'client_message': request.POST['client_message'],
             'date_submitted': datetime.now(),
+            'contact_ok': request.POST.get('contact_ok', 'Off'),
         }
 
         print(form_data)
