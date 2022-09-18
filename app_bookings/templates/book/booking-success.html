@@ -4,7 +4,20 @@
 {% block content %}
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
-    <h1>booking-success.html  - Test Form Submission: {{ f_name }}</h1>
+    <h1>booking-success.html</h1>
+    <h5>This information has been emailed to the Land Agent of the property</h5>
+    <p>You should receive a conformation call soon.</p>
+    <p>This is typically within two business days, depending on location</p>
+    <p>Date: {{ date }}</p>
+    <p>First Name: {{ f_name }}</p>
+    <p>last Name: {{ l_name }}</p>
+    <p>Email: {{ client_email }}</p>
+    <p>Number: {{ continent_code }} {{ client_phone }}</p>
+    <p></p>
+    <p>City: {{ client_city }}</p>
+    <p>Zip: {{ client_zip }}</p>
+    <p>Message: {{ client_message }}</p>
+    <p>Date Requested: {{ date_submitted }}</p>
 <!-- </div> -->
 {% include 'includes/bookings-base-calendar.html' %}
 {% endblock %}
