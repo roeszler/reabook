@@ -11,24 +11,27 @@ from .models import Timeslot, Booking
 
 def client_bookings(request):
     """ To render the bookings page with clients upcoming appointments """
+
     if request.method == 'POST':
-        date = request.POST['date']
-        property_id = request.POST['property_id']
-        time = request.POST['time']
+        # date = request.POST['date']
+        # property_id = request.POST['property_id']
+        # time = request.POST['time']
         f_name = request.POST['f_name']
-        l_name = request.POST['l_name']
-        client_email = request.POST['client_email']
-        continent_code = request.POST['continent_code']
-        client_phone = request.POST['client_phone']
-        client_city = request.POST['client_city']
-        client_zip = request.POST['client_zip']
-        client_country = request.POST['client_country']
-        client_message = request.POST['client_message']
-        get_date_booked = datetime.now()
+        # l_name = request.POST['l_name']
+        # client_email = request.POST['client_email']
+        # continent_code = request.POST['continent_code']
+        # client_phone = request.POST['client_phone']
+        # client_city = request.POST['client_city']
+        # client_zip = request.POST['client_zip']
+        # client_country = request.POST['client_country']
+        # client_message = request.POST['client_message']
+        # get_date_booked = datetime.now()
         # date_booked = request.POST[get_date_booked]
 
         # return render(request, 'book/prop-booking-detail.html', {'f_name': f_name, })
-        return render(request, 'book/my-bookings.html', {'f_name': f_name, })
+        # return render(request, 'book/my-bookings.html', {'f_name': f_name, })
+        # print(property_id)
+        return render(request, 'book/booking-success.html', {'f_name': f_name, })
 
         # form_data = {
         #     'property_id': request.POST['property_id'],
@@ -45,7 +48,7 @@ def client_bookings(request):
         #     'client_message': request.POST['client_message'],
         #     'date_booked': request.POST[get_date_booked],
         # }
-    
+
     else:
         return render(request, 'book/my-bookings.html', {})
 
@@ -93,7 +96,9 @@ def view_booking_select_time(request):
 
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """
-    return render(request, 'book/booking-success.html', {})
+    properties = Property.objects.all()
+
+    return render(request, 'book/booking-success.html', {'properties': properties, })
 
 
 def add_to_diary(request, property_id):
