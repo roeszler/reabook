@@ -54,9 +54,9 @@ def booking_success(request):
         # Send an email
         send_mail(
             'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
-            client_message,
+            'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time+ ', Message:' +client_message,
             client_email,
-            ['cigef88877@edxplus.com', 'someone@realestateagentcustomer.com'] # to email address
+            ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
         )
 
 

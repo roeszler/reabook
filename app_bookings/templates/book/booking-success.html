@@ -4,23 +4,39 @@
 {% block content %}
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
-    <h1>booking-success.html</h1>
-    <h5>This information has been emailed to the Land Agent of the property</h5>
-    <p>You should receive a conformation call soon.</p>
-    <p>This is typically within two business days, depending on location</p>
-    <p>Property: {{ property_id }}</p>
-    <p>Date: {{ date_of_viewing }}</p>
-    <p>Time: {{ time }}</p>
-    <p>First Name: {{ f_name }}</p>
-    <p>last Name: {{ l_name }}</p>
-    <p>Email: {{ client_email }}</p>
-    <p>Number: +{{ client_country }} {{ client_phone }}</p>
-    <p></p>
-    <p>City: {{ client_city }}</p>
-    <p>Zip: {{ client_zip }}</p>
-    <p>Message: {{ client_message }}</p>
-    <p>Submitted On: {{ date_submitted }}</p>
-    <p>Referrals? : {{ contact_ok }}</p>
+    <h1>Thanks {{ f_name }}!</h1>
+    <h5>This information has been emailed to the registered managing agent.</h5>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <small class="text-muted">
+                <p>You should receive a conformation email shortly and a quick call from their offices to confirm your appointment in the coming days.</p>
+            </small>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+
+    <h5>Booking Details</h5><hr>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 text-left">
+            <strong>Property:</strong> {{ property_id }}
+            <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time }}</strong>
+            <br><strong>Your Name:</strong> {{ f_name }} {{ l_name }}
+            <br><strong>Email:</strong> {{ client_email }}, 
+            <br><strong>Phone:</strong> +{{ client_country }} {{ client_phone }}
+            <br><strong>Your City:</strong> {{ client_city }}, {{ client_zip }}
+            <br><strong>Message:</strong>
+            <Br>{{ client_message }}<hr>
+                <div class="text-muted">
+                    <small>Referral permissions: {{ contact_ok }}  |  Form submitted: {{ date_submitted }} </small>
+                </div>
+            
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    
 <!-- </div> -->
 {% include 'includes/bookings-base-calendar.html' %}
 {% endblock %}
