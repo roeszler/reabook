@@ -15,10 +15,13 @@ def client_bookings(request):
 
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """
+    
 
     if request.method == 'POST':
+        # prop_id = get_object_or_404(Property.title_no)
+        # prop_id = request.get('pk')
 
-        form_data = {
+        booking = {
             'property_id': request.POST.get('property_id', 'error!'),
             'date': request.POST['date'],
             'time': request.POST.get('time', 'n/p'),
@@ -33,10 +36,12 @@ def booking_success(request):
             'date_submitted': datetime.now(),
             'contact_ok': request.POST.get('contact_ok', 'Off'),
         }
+        # booking_data = Booking(booking)
 
-        print(form_data)
-        # print(date_booked)
-        return render(request, 'book/booking-success.html', form_data)
+        # print(form_data)
+        # print(request)
+        # print(prop_id.content)
+        return render(request, 'book/booking-success.html', booking)
     else:
         return render(request, 'book/booking-success.html')
 

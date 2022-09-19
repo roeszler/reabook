@@ -571,6 +571,10 @@ https://colorlib.com/wp/bootstrap-calendars/
     color: #20514C;
 }
 
+.table-date label {
+    background-color: yellow;
+}
+
 .table-date {
     cursor: default;
     /* color: #2b2b2b; */
@@ -640,7 +644,7 @@ https://colorlib.com/wp/bootstrap-calendars/
 }
 
 .input_prop_no {
-    display: none;
+    /* display: none; */
 }
 
 /* ------------ Events Section */
