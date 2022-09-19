@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Property, Category, Sector
 
 
+@admin.register(Property)
 class PropertyAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for properties """
     list_display = (
@@ -30,6 +31,7 @@ class PropertyAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for categories """
     list_display = (
@@ -40,6 +42,7 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ('friendly_name', )
 
 
+@admin.register(Sector)
 class SectorAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section 'sectors' """
     list_display = (
@@ -50,6 +53,6 @@ class SectorAdmin(admin.ModelAdmin):
     ordering = ('-friendly_name', )
 
 
-admin.site.register(Property, PropertyAdmin)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Sector, SectorAdmin)
+# admin.site.register(Property, PropertyAdmin)
+# admin.site.register(Category, CategoryAdmin)
+# admin.site.register(Sector, SectorAdmin)

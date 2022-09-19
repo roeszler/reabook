@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Booking, Timeslot, Client, Session
 
 
+@admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for bookings """
     list_display = (
@@ -21,6 +22,7 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Session)
 class SessionAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for appointment slots """
     list_display = (
@@ -31,6 +33,8 @@ class SessionAdmin(admin.ModelAdmin):
 
     ordering = ('pk', 'name',)
 
+
+@admin.register(Timeslot)
 class TimeslotAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for appointment slots """
     list_display = (
@@ -45,6 +49,7 @@ class TimeslotAdmin(admin.ModelAdmin):
     ordering = ('pk', 'start_time', 'session')
 
 
+@admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
     """ To edit the fields shown on the django admin section for users """
     list_display = (
@@ -62,7 +67,7 @@ class ClientAdmin(admin.ModelAdmin):
         )
 
 
-admin.site.register(Booking, BookingAdmin)
-admin.site.register(Timeslot, TimeslotAdmin)
-admin.site.register(Client, ClientAdmin)
-admin.site.register(Session, SessionAdmin)
+# admin.site.register(Booking, BookingAdmin)
+# admin.site.register(Timeslot, TimeslotAdmin)
+# admin.site.register(Client, ClientAdmin)
+# admin.site.register(Session, SessionAdmin)
