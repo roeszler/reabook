@@ -3,6 +3,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.core.mail import send_mail
 
 from app_properties.models import Property
 from .models import Timeslot, Booking
@@ -20,24 +21,45 @@ def booking_success(request):
     if request.method == 'POST':
         # prop_id = get_object_or_404(Property.title_no)
         # prop_id = request.get('pk')
+        property_id = request.POST.get('property_id', 'error!')
+        date_of_viewing = request.POST['date']
+        time = request.POST.get('time', 'n/p')
+        f_name = request.POST['f_name']
+        l_name = request.POST['l_name']
+        client_email = request.POST['client_email']
+        client_country = request.POST.get('client_country', 'n/p')
+        client_phone = request.POST['client_phone']
+        client_city = request.POST['client_city']
+        client_zip = request.POST['client_zip']
+        client_message = request.POST['client_message']
+        date_submitted = datetime.now()
+        contact_ok = request.POST.get('contact_ok', 'Off')
 
         booking = {
-            'property_id': request.POST.get('property_id', 'error!'),
-            # 'day': request.POST.get('day', 'n/p'),
-            'date_of_viewing': request.POST['date'],
-            # 'month': request.POST.get('month', 'n/p'),
-            'time': request.POST.get('time', 'n/p'),
-            'f_name': request.POST['f_name'],
-            'l_name': request.POST['l_name'],
-            'client_email': request.POST['client_email'],
-            'client_country': request.POST.get('client_country', 'n/p'),
-            'client_phone': request.POST['client_phone'],
-            'client_city': request.POST['client_city'],
-            'client_zip': request.POST['client_zip'],
-            'client_message': request.POST['client_message'],
-            'date_submitted': datetime.now(),
-            'contact_ok': request.POST.get('contact_ok', 'Off'),
+            'property_id': property_id,
+            'date_of_viewing': date_of_viewing,
+            'time': time,
+            'f_name': f_name,
+            'l_name': l_name,
+            'client_email': client_email,
+            'client_country': client_country,
+            'client_phone': client_phone,
+            'client_city': client_city,
+            'client_zip': client_zip,
+            'client_message': client_message,
+            'date_submitted': date_submitted,
+            'contact_ok': contact_ok,
         }
+
+        # Send an email
+        send_mail(
+            'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
+            client_message,
+            client_email,
+            ['cigef88877@edxplus.com', 'someone@realestateagentcustomer.com'] # to email address
+        )
+
+
         # booking_data = Booking(booking)
 
         # print(form_data)
