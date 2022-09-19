@@ -51,7 +51,8 @@ function init_calendar(date) {
         }   
         
         else {
-            var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input type='radio' name='date' id='"+day+"' value='"+day+"'/></td>");
+            var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input type='radio' name='date' id='"+day+"' value='"+day+"/"+month+"/"+year+"'/></td>");
+            // var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date' id='"+day+"' value='"+day+"/"+month+"/"+year+"'/></td>");
             var events = check_events(day, month+1, year);
             if(today===day && $(".active-date").length===0) {
                 curr_date.addClass("active-date");
@@ -184,7 +185,7 @@ function show_events(events, month, day) {
     // If there are no events for this date, notify the user
     if(events.length===0) {
         var event_card = $("<div class='cal-event-card'></div>");
-        var event_name = $("<div class='event-name pl-1'> No viewings planned for "+month+" "+day+".</div>");
+        var event_name = $("<div class='event-name pl-1'> Current date selected: "+day+" "+month+".</div>");
         $(event_card).css({ "border-left": "5px solid #20514C" });
         $(event_card).append(event_name);
         $(".events-container").append(event_card);

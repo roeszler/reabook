@@ -23,7 +23,9 @@ def booking_success(request):
 
         booking = {
             'property_id': request.POST.get('property_id', 'error!'),
-            'date': request.POST['date'],
+            # 'day': request.POST.get('day', 'n/p'),
+            'date_of_viewing': request.POST['date'],
+            # 'month': request.POST.get('month', 'n/p'),
             'time': request.POST.get('time', 'n/p'),
             'f_name': request.POST['f_name'],
             'l_name': request.POST['l_name'],
