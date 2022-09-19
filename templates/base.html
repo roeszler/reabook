@@ -66,7 +66,7 @@
                         <a class="nav-link" href="{% url 'properties' %}">View <span class="sr-only"></span></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="{% url 'client_bookings' %}">Book <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'client_diary' %}">Book <span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
@@ -79,7 +79,7 @@
                     <li class="list-inline-item">
                         <form method="GET" action="{% url 'properties' %}" class="form form-inline my-2 my-lg-0" id="header-search">
                             {% csrf_token %}
-                            <input class="form-control mr-sm-2" type="text" name="q" placeholder="site search"
+                            <input class="form-control mr-sm-2" type="text" name="q" placeholder="search here"
                                 aria-label="Search">
                             <button class="btn btn-outline-reabook my-2 my-sm-0" type="submit">Search</button>
                         </form>

@@ -10,9 +10,9 @@ from .models import Timeslot, Booking
 # from .models import Booking
 
 
-def client_bookings(request):
+def client_diary(request):
     """ To render the bookings page with clients upcoming appointments """
-    return render(request, 'book/my-bookings.html', {})
+    return render(request, 'book/client-diary.html', {})
 
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """

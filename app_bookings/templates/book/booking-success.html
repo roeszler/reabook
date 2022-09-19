@@ -5,7 +5,7 @@
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
     <h1>Thanks {{ f_name }}!</h1>
-    <h5>This information has been emailed to the registered managing agent.</h5>
+    <h5>This information has been received and emailed to the registered managing agent.</h5>
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
@@ -15,7 +15,6 @@
         </div>
         <div class="col-lg-3"></div>
     </div>
-
 
     <h5>Booking Details</h5><hr>
     <div class="row">
@@ -36,6 +35,20 @@
         </div>
         <div class="col-lg-2"></div>
     </div>
+    <div class="row my-3">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-8">
+            <a href="{% url 'client_diary' %}">
+                <button class="btn btn-outline-reabook float-right mx-1">My Diary</button>
+            </a>
+            <a href="{% url 'properties' %}">
+                <button class="btn btn-outline-reabook float-right mx-1">Search Again</button>
+            </a>
+            
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+    
     
 <!-- </div> -->
 {% include 'includes/bookings-base-calendar.html' %}
