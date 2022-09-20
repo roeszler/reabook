@@ -99,8 +99,8 @@
                                     <!-- <form action="{% url 'client_diary' %}" method="POST" class="text-align-left"> -->
                                         {% csrf_token %}
 
-                                        <label for="input_prop_no" class="input_prop_no">Property ID: </label>
-                                        <input type="number" value="{{ prop.id }}" name="property_id" id="input_prop_no" class="input_prop_no" disabled />
+                                        <label for="property_id" class="input_prop_no">Property ID: </label>
+                                        <input type="number" value="{{ prop.id }}" name="property_id" id="property_id" class="input_prop_no" disabled />
 
                                         <h4>Choose Viewing Time</h4>
                                         

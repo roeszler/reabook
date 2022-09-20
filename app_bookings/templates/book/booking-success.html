@@ -21,11 +21,11 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
             <strong>Property:</strong> {{ property_id }}
-            <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time }}</strong>
+            <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
             <br><strong>Your Name:</strong> {{ f_name }} {{ l_name }}
             <br><strong>Email:</strong> {{ client_email }}, 
             <br><strong>Phone:</strong> +{{ client_country }} {{ client_phone }}
-            <br><strong>Your City:</strong> {{ client_city }}, {{ client_zip }}
+            <br><strong>Your City:</strong> {{ client_city }}, {{ client_state }} {{ client_zip }}
             <br><strong>Message:</strong>
             <Br>{{ client_message }}<hr>
                 <div class="text-muted">

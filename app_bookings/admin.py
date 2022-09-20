@@ -17,7 +17,6 @@ class BookingAdmin(admin.ModelAdmin):
         'client_message',
         'date_booked',
         'viewing_active',
-        'contact_ok',
     )
 
     ordering = (
@@ -38,6 +37,7 @@ class ClientAdmin(admin.ModelAdmin):
         'client_city',
         'client_zip',
         'client_country',
+        'contact_ok',
     )
 
     ordering = (
