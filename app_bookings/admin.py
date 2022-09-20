@@ -10,43 +10,19 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'property_id',
-        'date',
-        # 'timeslot',
         'client',
+        'booking_name',
+        'date_of_viewing',
+        'time_of_viewing',
+        'client_message',
         'date_booked',
         'viewing_active',
+        'contact_ok',
     )
 
     ordering = (
-        '-pk', 'date', 'property_id', 'client',
+        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'client', 'date_booked',
     )
-
-
-# @admin.register(Session)
-# class SessionAdmin(admin.ModelAdmin):
-#     """ To edit the fields shown on the django admin section for appointment slots """
-#     list_display = (
-#         'pk',
-#         'name',
-#         'friendly_name',
-#     )
-
-#     ordering = ('pk', 'name',)
-
-
-# @admin.register(Timeslot)
-# class TimeslotAdmin(admin.ModelAdmin):
-#     """ To edit the fields shown on the django admin section for appointment slots """
-#     list_display = (
-#         'pk',
-#         'name',
-#         'session',
-#         'start_time',
-#         'end_time',
-#         'seats_available',
-#     )
-
-#     ordering = ('pk', 'start_time', 'session')
 
 
 @admin.register(Client)
@@ -58,7 +34,10 @@ class ClientAdmin(admin.ModelAdmin):
         'l_name',
         'client_username',
         'client_email',
-        'client_phone'
+        'client_phone',
+        'client_city',
+        'client_zip',
+        'client_country',
     )
 
     ordering = (

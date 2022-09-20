@@ -10,14 +10,17 @@ from django.utils import timezone
 
 class Booking(models.Model):
     """ An individual record of the appointment to be used in the diary  """
-    client = models.ForeignKey('app_bookings.Client', null=True, blank=True, on_delete=models.SET_NULL)
-    # timeslot = models.ForeignKey('app_bookings.Timeslot', null=True, blank=True, on_delete=models.SET_NULL)
-    property_id = models.ForeignKey('app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL)
-
+    client = models.ForeignKey('app_bookings.Client', null=True, on_delete=models.SET_NULL)
+    property_id = models.ForeignKey('app_properties.Property', null=True, on_delete=models.SET_NULL)
+    
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='15min Viewing')
-    date = models.DateField(default=date.today)
+
+    date_of_viewing = models.DateField(default=date.today)
+    time_of_viewing = models.TimeField(default=timezone.now)
+    client_message = models.TextField(null=True, blank=True)
     date_booked = models.DateTimeField(default=timezone.now)
     viewing_active = models.BooleanField(default=True)
+    contact_ok = models.BooleanField(default=False)
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
@@ -28,58 +31,17 @@ class Booking(models.Model):
         return self.booking_name
 
 
-# class Session(models.Model):
-#     """ TTable to contain the information about the scheldule the property is available  """
-#     name = models.CharField(max_length=254, default='Morning')
-#     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-
-#     class Meta:
-#         """ to adjust the verbose name or the plural form from defaults """
-#         verbose_name_plural = 'Sessions'
-
-#     def __str__(self):
-#         """ Takes in the category model to return db name """
-#         return self.name
-
-#     def get_friendly_name(self):
-#         """ Takes in the category model to return friendly_name """
-#         return self.friendly_name
-
-
-# class Timeslot(models.Model):
-#     """ To contain the variety of time slots available for appointments """
-#     session = models.ForeignKey('Session', null=True, blank=True, on_delete=models.SET_NULL)
-#     name = models.CharField(max_length=254, null=True, blank=True, default='9 to 9:15')
-#     friendly_name = models.CharField(max_length=254, null=True, blank=True, default='15 min')
-#     start_time = models.TimeField(default=timezone.now)
-#     end_time = models.TimeField(default=timezone.now)
-#     seats_available = models.IntegerField(default=3)
-
-#     class Meta:
-#         """ to adjust the slot name or the plural form from defaults """
-#         verbose_name_plural = 'Timeslots'
-
-#     def __str__(self):
-#         """ Takes in the slots model to return db name """
-#         # return str(self.property_id)
-#         return self.name
-    
-#     def __int__(self):
-#         """ Takes in the category model to return db name """
-#         return self.pk
-    
-#     def get_friendly_name(self):
-#         """ Takes in the booking model to return friendly_name """
-#         return self.friendly_name
-
-
 class Client(models.Model):
     """ To contain the data from the users.json fixtures file """
     f_name = models.CharField(max_length=254)
     l_name = models.CharField(max_length=254)
     client_username = models.CharField(max_length=254, unique=True, default='Create Username')
     client_email = models.EmailField(max_length=254, unique=True)
-    client_phone = models.IntegerField(null=True, blank=True, default='00X1 123 456 789')
+    client_phone = models.IntegerField(null=True, blank=True, default=123456789)
+
+    client_city = models.CharField(max_length=254, null=True, blank=True)
+    client_zip = models.CharField(max_length=140, default='123 45')
+    client_country = models.CharField(max_length=254, null=True, blank=True)
 
 
     def __str__(self):

@@ -169,7 +169,6 @@ def choose_bookings(request):
 
     context = {
         'properties': properties,
-        # 'appointment_slot': appointment_slot,
         'props_with_viewings': props_with_viewings,
         'search_term': query,
     }
