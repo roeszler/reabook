@@ -6,13 +6,13 @@ from django.db.models import Q
 from django.core.mail import send_mail
 
 from app_properties.models import Property
-from .models import Timeslot, Booking
-# from .models import Booking
+from .models import Booking
 
 
 def client_diary(request):
     """ To render the bookings page with clients upcoming appointments """
     return render(request, 'book/client-diary.html', {})
+
 
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """
@@ -70,24 +70,22 @@ def booking_success(request):
         return render(request, 'book/booking-success.html')
 
 
-def view_bookings_login(request):
+def login(request):
     """
     View to render the bookings login page
     """
-    return render(request, 'book/c-booking-login.html')
+    return render(request, 'book/login.html')
 
 
 def booking_detail(request, property_id):
     """ A view to show individual property booking details """
     properties = Property.objects.all() # noqa
-    slots = Timeslot.objects.all() # noqa
     bookings = Booking.objects.all() # noqa
     prop = get_object_or_404(Property, pk=property_id)
     props_with_booking_slots = bookings.filter(viewing_active=True)
 
     context = {
         'properties': properties,
-        'slots': slots,
         'bookings': bookings,
         'prop': prop,
         'props_with_booking_slots': props_with_booking_slots,
@@ -96,7 +94,7 @@ def booking_detail(request, property_id):
     return render(request, 'book/prop-booking-detail.html', context)
 
 
-# def view_booking_select_time(request):
+def view_booking_select_time(request):
     """
     View to render the bookings select available time page
     """
@@ -143,8 +141,7 @@ def add_to_diary(request, property_id):
 
 def choose_bookings(request):
     """ View to render the choose bookings page """
-    properties = Property.objects.all()
-    appointment_slot = Timeslot.objects.all()
+    properties = Property.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
 
     # props_selected_to_view = properties.filter(selected=True)
@@ -172,8 +169,16 @@ def choose_bookings(request):
 
     context = {
         'properties': properties,
-        'appointment_slot': appointment_slot,
+        # 'appointment_slot': appointment_slot,
         'props_with_viewings': props_with_viewings,
         'search_term': query,
     }
     return render(request, 'book/search-viewings.html', context)
+
+
+
+def test(request):
+    """
+    View to render the bookings login page
+    """
+    return render(request, 'book/test.html')

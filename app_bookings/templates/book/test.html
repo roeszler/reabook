@@ -5,6 +5,13 @@
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
     <h1>test.html</h1>
+
+    <form id="taskitem_form" method="post" action="">
+
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" name="submit" value="Add Task" class ="btn btn-primary" />
+    </form>
 <!-- </div> -->
 {% include 'includes/bookings-base-calendar.html' %}
 {% endblock %}
