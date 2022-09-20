@@ -42,7 +42,7 @@ class Property(models.Model):
     sector = models.ForeignKey(
         'Sector', null=True, blank=True, on_delete=models.SET_NULL
         )
-    title_no = models.CharField(max_length=254, default='LT0000')
+    title_no = models.CharField(max_length=254, default='LT0000', unique=True)
     name = models.CharField(max_length=30)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     description = models.TextField()
@@ -90,7 +90,8 @@ class Property(models.Model):
 
     def __str__(self):
         """ Takes in product display model and returns name """
-        return self.title_no
+        # return self.title_no
+        return f"{self.id} = [{self.house_no} {self.street}, {self.suburb}, {self.city}]"
     
     # def __int__(self):
     #     """ Takes in product display model and returns name """

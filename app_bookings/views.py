@@ -50,6 +50,7 @@ def booking_success(request):
             'date_submitted': date_submitted,
             'contact_ok': contact_ok,
         }
+        # booking.save()
 
         # Send an email
         send_mail(

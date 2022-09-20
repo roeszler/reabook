@@ -46,11 +46,12 @@ class Client(models.Model):
 
     def __str__(self):
         """ Takes in the user model to return db name """
-        return self.client_username
+        # return self.client_email
+        return f"{self.id} - {self.f_name} {self.l_name}"
 
     def get_friendly_name(self):
         """ Takes in the user model to return friendly_name """
-        return self.client_email
+        return self.client_username
 
 
 class Question(models.Model):
