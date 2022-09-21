@@ -5,13 +5,18 @@
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
     <h1>test.html</h1>
-    <p>Booking Form </p>
+    <p>Login Form </p>
 
-    <form id="test_form" method="post" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" name="submit" value="Add Task" class ="btn btn-primary" />
-    </form>
+    {% if submitted == True %}
+        <p>Your booking was submitted successfully!!</p>
+    {% else %}
+        <form id="test_form" method="post" action="">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <input type="submit" name="submit" value="Login" class ="btn btn-primary" />
+        </form>
+    {% endif %}
+
 <!-- </div> -->
 {% include 'includes/bookings-base-calendar.html' %}
 {% endblock %}

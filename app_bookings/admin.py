@@ -1,7 +1,7 @@
 """ Import Modules """
 from django.contrib import admin
 
-from .models import Booking, Client, Question, Choice
+from .models import Booking, Client, Question, Choice, LoginForm
 
 
 @admin.register(Booking)
@@ -16,7 +16,7 @@ class BookingAdmin(admin.ModelAdmin):
         'time_of_viewing',
         'client_message',
         'date_submitted',
-        'viewing_active',
+        # 'viewing_active',
     )
 
     ordering = (
@@ -48,6 +48,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 admin.site.register(Question)
 admin.site.register(Choice)
+admin.site.register(LoginForm)
 # admin.site.register(Booking, BookingAdmin)
 # admin.site.register(Timeslot, TimeslotAdmin)
 # admin.site.register(Client, ClientAdmin)

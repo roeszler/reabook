@@ -4,10 +4,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 
 from app_properties.models import Property
 from .models import Booking, Client
-from .forms import BookingForm
+from .forms import LoginForm
 
 
 def client_diary(request):
@@ -18,11 +19,11 @@ def client_diary(request):
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """
     
-
     if request.method == 'POST':
+        # client = request.POST.get('client', 'c_id_error!!')
         # prop_id = get_object_or_404(Property.title_no)
         # prop_id = request.get('pk')
-        property_id = request.POST.get('property_id', 'error!')
+        property_id = request.POST.get('property_id', 'p_id_error!!')
         date_of_viewing = request.POST['date']
         time_of_viewing = request.POST.get('time', 'n/p')
         f_name = request.POST['f_name']
@@ -35,6 +36,12 @@ def booking_success(request):
         client_message = request.POST['client_message']
         date_submitted = datetime.now()
         contact_ok = request.POST.get('contact_ok')
+        
+        # Turn HTML based "on" into a 'TRUE' or 'FALSE' as required by Django
+        if contact_ok == 'on':
+            contact_ok = True
+        else:
+            contact_ok = False
 
         booking_ins = Booking(
             # client=client,
@@ -197,14 +204,29 @@ def choose_bookings(request):
     return render(request, 'book/search-viewings.html', context)
 
 
-
 def test(request):
     """
     View to render the bookings login page
     """
-    form = BookingForm
+    submitted = False
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # submitted = True
+            # return HttpResponseRedirect('book/test', {'submitted': submitted})
+            # return render(request, 'book/test?submitted=True')
+            submitted = True
+            return render(request, 'book/booking-success.html', {'submitted': submitted})
+    else:
+        login_form = LoginForm
+        # checks that the form is not already submitted
+        # if 'submitted' in request.GET:
+        #     submitted = True
+
     context = {
-        'form': form,
+        'login_form': login_form,
+        'submitted': submitted,
     }
 
     return render(request, 'book/test.html', context)

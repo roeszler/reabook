@@ -95,7 +95,10 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Property Management</a>
+                                    <a href="#" class="dropdown-item">Site Admin</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">Manage Properties</a>
+                                    <div class="dropdown-divider"></div>
                                 {% endif %}
                                 <a href="#" class="dropdown-item">My Profile</a>
                                 <a href="#" class="dropdown-item">Logout</a>
