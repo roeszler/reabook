@@ -6,9 +6,8 @@ from django.db.models import Q
 from django.core.mail import send_mail
 
 from app_properties.models import Property
-# from .forms import BookingForm, ClientForm
-# from .models import Booking, Client
-
+from .models import Booking, Client
+from .forms import BookingForm
 
 
 def client_diary(request):
@@ -18,12 +17,12 @@ def client_diary(request):
 
 def booking_success(request):
     """ View to render a successful booking on prop-booking-detail.html """
+    
 
     if request.method == 'POST':
         # prop_id = get_object_or_404(Property.title_no)
         # prop_id = request.get('pk')
-        # booking_number = models.CharField(max_length=32, null=False, editable=False)
-        # property_id = request.POST.get('property_id', 'error!')
+        property_id = request.POST.get('property_id', 'error!')
         date_of_viewing = request.POST['date']
         time_of_viewing = request.POST.get('time', 'n/p')
         f_name = request.POST['f_name']
@@ -35,17 +34,44 @@ def booking_success(request):
         client_zip = request.POST['client_zip']
         client_message = request.POST['client_message']
         date_submitted = datetime.now()
-        contact_ok = request.POST.get('contact_ok', 'Off')
+        contact_ok = request.POST.get('contact_ok')
 
-        booking_data = {
-            # 'property_id': property_id,
+        booking_ins = Booking(
+            # client=client,
+            # property_id=property_id,
+            date_of_viewing=date_of_viewing,
+            time_of_viewing=time_of_viewing,
+            client_message=client_message,
+            date_submitted=date_submitted,
+            )
+        booking_ins.save()
+        print('Booking information has been saved')
+
+        client_ins = Client(
+            f_name=f_name,
+            l_name=l_name,
+            client_email=client_email,
+            client_phone=client_phone,
+            client_city=client_city,
+            client_zip=client_zip,
+            client_country=client_country,
+            contact_ok=contact_ok,
+        )
+        client_ins.save()
+        print('Client information has been saved')
+
+        # Send an email
+        send_mail(
+            'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
+            'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
+            client_email,
+            ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
+        )
+
+        booking = {
+            'property_id': property_id,
             'date_of_viewing': date_of_viewing,
             'time_of_viewing': time_of_viewing,
-            'client_message': client_message,
-            'date_submitted': date_submitted,
-        }
-
-        client_data = {
             'f_name': f_name,
             'l_name': l_name,
             'client_email': client_email,
@@ -53,50 +79,17 @@ def booking_success(request):
             'client_phone': client_phone,
             'client_city': client_city,
             'client_zip': client_zip,
+            'client_message': client_message,
+            'date_submitted': date_submitted,
             'contact_ok': contact_ok,
         }
-        # booking_form = BookingForm(booking_data)
-        # client_form = ClientForm(client_data)
-        print(booking_data)
-        print(client_data)
-        # print(booking_form)
-        # print(client_form)
-
-        # if booking_form.is_valid():
-        #     print(booking_data)
-        #     print(client_data)
-
-            # if client_form.is_valid():
-            #     print(booking_data)
-            #     print(client_data)
-            # Save without causing multiple save events
-            # booking = booking_form.save(commit=False)
-            # booking.save()
-            # print(booking_data)
-
-            # and send an email
-            # send_mail(
-            #     'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
-            #     'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
-            #     client_email,
-            #     ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
-            # )
-        # else:
-        #     messages.error(request,
-        #         'There was an error with your booking information. \
-        #         Please double check your entries and try again.'
-        #         )
-
-
-        # booking_data = Booking(booking)
 
         # print(form_data)
         # print(request)
         # print(prop_id.content)
-        print(f"{Property.id}")
-        return render(request, 'book/booking-success.html', booking_data)
+        return render(request, 'book/booking-success.html', booking)
     else:
-        return render(request, 'book/prop-booking-detail.html')
+        return render(request, 'book/booking-success.html')
 
 
 def login(request):
@@ -209,4 +202,9 @@ def test(request):
     """
     View to render the bookings login page
     """
-    return render(request, 'book/test.html')
+    form = BookingForm
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'book/test.html', context)

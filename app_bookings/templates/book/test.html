@@ -5,11 +5,11 @@
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
     <h1>test.html</h1>
+    <p>Booking Form </p>
 
-    <form id="taskitem_form" method="post" action="">
-
+    <form id="test_form" method="post" action="">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit" name="submit" value="Add Task" class ="btn btn-primary" />
     </form>
 <!-- </div> -->

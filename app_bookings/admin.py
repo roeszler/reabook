@@ -15,12 +15,12 @@ class BookingAdmin(admin.ModelAdmin):
         'date_of_viewing',
         'time_of_viewing',
         'client_message',
-        'date_booked',
+        'date_submitted',
         'viewing_active',
     )
 
     ordering = (
-        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'client', 'date_booked',
+        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'client', 'date_submitted',
     )
 
 
