@@ -1,7 +1,7 @@
 """ Import Models """
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 # from django.db.models import Q
@@ -10,7 +10,7 @@ from django.contrib import messages
 
 # from app_properties.models import Property
 # from .models import Booking, Client
-# from .forms import LoginForm
+from .forms import RegisterUserFrom
 
 
 def login_user(request):
