@@ -11,12 +11,6 @@
                 <div class="text-center text-white">
                     <!-- Page heading-->
                     <h1 class="display-5 logo-font text-white mb-5">Manage the search for your new home in one place.</h1>
-                    <!-- <span>
-                        <a class="col-2 d-inline-block text-white mt-1 mb-5">buy</a>|
-                        <a class="col-2 d-inline-block text-white mt-1 mb-5">sell</a>|
-                        <a class="col-2 d-inline-block text-white mt-1 mb-5">rent</a>|
-                        <a class="col-2 d-inline-block text-white mt-1 mb-5">lease</a>
-                    </span> -->
                     <!-- Main header search bar-->
                     <form method="GET" action="{% url 'properties' %}" class="form" id="headerSearchBar">
                         {% csrf_token %}
@@ -29,7 +23,6 @@
                             </div>
                         </div>
                     </form>
-                    
                 </div>
             </div>
         </div>
@@ -42,8 +35,8 @@
 <div class="container-fluid">
     <!-- Heading -->
     <div class="row">
-        <div class="col text-center mt-5">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Today</h2>
+        <div class="col text-center mt-0">
+            <h2 class="logo-font mt-0"><i class="fas fa-bookmark reabook-logo"></i> ReaBook Today</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
