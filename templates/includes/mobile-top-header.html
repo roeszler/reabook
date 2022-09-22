@@ -35,13 +35,15 @@
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <a href="#" class="dropdown-item">Product Management</a>
+                <a href="#" class="dropdown-item">Site Admin</a>
+                <a href="#" class="dropdown-item">Manage Properties</a>
+                <div class="dropdown-divider"></div>
             {% endif %}
             <a href="#" class="dropdown-item">My Profile</a>
             <a href="#" class="dropdown-item">Logout</a>
         {% else %}
-            <a href="#" class="dropdown-item">Register</a>
-            <a href="#" class="dropdown-item">Login</a>
+            <a href="{% url 'register' %}" class="dropdown-item">Register</a>
+            <a href="{% url 'login' %}" class="dropdown-item">Login</a>
         {% endif %}
     </div>
 </li>
