@@ -11,9 +11,51 @@ from .models import Booking, Client
 from .forms import LoginForm
 
 
-def client_diary(request):
-    """ To render the bookings page with clients upcoming appointments """
-    return render(request, 'book/client-diary.html', {})
+def add_to_diary(request, property_id):
+    """ Add a quantity of the specified prop to the shopping diary """
+    properties = Property.objects.all()
+    prop = get_object_or_404(Property, pk=property_id)
+    diary = request.session.get('diary', {})
+    props_with_viewings = properties.filter(viewings=True)
+    query = None
+
+    if request.GET:
+        # Sub-query for properties available for viewing
+        if 'q' in request.GET:
+            query = request.GET['q']
+            queries = Q(pk__icontains=query) | Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            props_with_viewings = props_with_viewings.filter(queries)
+
+    if property_id in list(diary.keys()):
+        messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}')
+    else:
+        messages.success(request, f'Added {prop.name} to your shopping diary')
+    
+    # update the diary variable into the session [ a python dictionary ].
+    request.session['diary'] = diary
+
+    context = {
+        'prop': prop,
+        'diary': diary,
+    }
+    return render(request, 'book/search-viewings.html', context)
+
+
+def booking_detail(request, property_id):
+    """ A view to show individual property booking details """
+    properties = Property.objects.all() # noqa
+    bookings = Booking.objects.all() # noqa
+    prop = get_object_or_404(Property, pk=property_id)
+    props_with_booking_slots = bookings.filter(viewing_active=True)
+
+    context = {
+        'properties': properties,
+        'bookings': bookings,
+        'prop': prop,
+        'props_with_booking_slots': props_with_booking_slots,
+    }
+
+    return render(request, 'book/prop-booking-detail.html', context)
 
 
 def booking_success(request):
@@ -99,75 +141,6 @@ def booking_success(request):
         return render(request, 'book/booking-success.html')
 
 
-def login(request):
-    """
-    View to render the bookings login page
-    """
-    return render(request, 'book/login.html')
-
-
-def booking_detail(request, property_id):
-    """ A view to show individual property booking details """
-    properties = Property.objects.all() # noqa
-    bookings = Booking.objects.all() # noqa
-    prop = get_object_or_404(Property, pk=property_id)
-    props_with_booking_slots = bookings.filter(viewing_active=True)
-
-    context = {
-        'properties': properties,
-        'bookings': bookings,
-        'prop': prop,
-        'props_with_booking_slots': props_with_booking_slots,
-    }
-
-    return render(request, 'book/prop-booking-detail.html', context)
-
-
-def view_booking_select_time(request):
-    """
-    View to render the bookings select available time page
-    """
-    properties = Property.objects.all() # noqa
-    props_with_viewings = properties.filter(viewings=True)
-
-    context = {
-        'properties': properties,
-        'props_with_viewings': props_with_viewings,
-    }
-
-    return render(request, 'book/booking-detail.html', context)
-
-
-def add_to_diary(request, property_id):
-    """ Add a quantity of the specified prop to the shopping diary """
-    properties = Property.objects.all()
-    prop = get_object_or_404(Property, pk=property_id)
-    diary = request.session.get('diary', {})
-    props_with_viewings = properties.filter(viewings=True)
-    query = None
-
-    if request.GET:
-        # Sub-query for properties available for viewing
-        if 'q' in request.GET:
-            query = request.GET['q']
-            queries = Q(pk__icontains=query) | Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
-            props_with_viewings = props_with_viewings.filter(queries)
-
-    if property_id in list(diary.keys()):
-        messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}')
-    else:
-        messages.success(request, f'Added {prop.name} to your shopping diary')
-    
-    # update the diary variable into the session [ a python dictionary ].
-    request.session['diary'] = diary
-
-    context = {
-        'prop': prop,
-        'diary': diary,
-    }
-    return render(request, 'book/search-viewings.html', context)
-
-
 def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all() # noqa
@@ -202,6 +175,55 @@ def choose_bookings(request):
         'search_term': query,
     }
     return render(request, 'book/search-viewings.html', context)
+
+
+def client_diary(request):
+    """ To render the bookings page with clients upcoming appointments """
+    prop = Property.objects.all()
+
+    context = {'prop': prop}
+    return render(request, 'book/client-diary.html', context)
+
+
+def list_bookings(request):
+    """ To list all the bookings in the DB """
+    bookings_list = Booking.objects.all()
+    client = Client.objects.all()
+
+    context = {
+        'bookings_list': bookings_list,
+        'client': client,
+        }
+    return render(request, 'book/bookings.html', context)
+
+
+def parked(request):
+    """ View to render the bookings the parked page """
+    return render(request, 'book/parked.html')
+
+
+def update_booking(request, booking_id):
+    """ To update the bookings made by each user """
+    booking = Booking.objects.get(pk=booking_id)
+    
+
+    context = {'booking': booking}
+    return render(request, 'book/update-bookings.html', context)
+
+
+def view_booking_select_time(request):
+    """
+    View to render the bookings select available time page
+    """
+    properties = Property.objects.all() # noqa
+    props_with_viewings = properties.filter(viewings=True)
+
+    context = {
+        'properties': properties,
+        'props_with_viewings': props_with_viewings,
+    }
+
+    return render(request, 'book/booking-detail.html', context)
 
 
 def test(request):

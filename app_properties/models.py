@@ -90,9 +90,9 @@ class Property(models.Model):
 
     def __str__(self):
         """ Takes in product display model and returns name """
-        # return self.title_no
-        # return f"{self.id}"
-        return f"{self.id} = {self.house_no} {self.street}, {self.suburb}, {self.city}"
+        # return f"{self.id} = {self.house_no} {self.street}, {self.suburb}, {self.city}"
+        # return f"ID.{self.id} ({self.house_no} {self.street}, {self.suburb}, {self.city})"
+        return f"id.{self.id}"
     
     # def __int__(self):
     #     """ Takes in product display model and returns name """

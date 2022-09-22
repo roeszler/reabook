@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 {% include 'includes/bookings-base.html' %}
 <div class="row justify-content-center">
     <div class="col-md-12 text-center mb-md-5 h-100">
@@ -660,6 +661,9 @@
     </div>
 </div>
 {% include 'includes/bookings-base-calendar.html' %}
+{% else %}
+    {% include 'includes/account-required.html' %}
+{% endif %}
 
 {% endblock %}
 

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% include 'includes/bookings-base.html' %}
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h1>bookings.html...</h1>
+            <br>
+            {% for booking in bookings_list %}
+                Property : {{ booking.property_id }}
+                <br>
+                Booking id: {{ booking.id }} 
+                <br>
+                Property: {{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} 
+                <br>
+                Client Name : {{ booking.client.f_name }} {{ booking.client.l_name }}
+                <br>
+                <!-- User Details : {{ booking.user.first_name }} -->
+                <br>
+                Booking time :
+                <br>
+                Booking Date :
+                <br>
+                Booking Location : {{ booking.property_id.suburb }} {{ booking.property_id.postcode }} 
+                <br>
+                Real Estate Agent : {{ booking.property_id.realtor }}
+            {% endfor %}
+        </div>
+        
+    </div>
+
+{% include 'includes/bookings-base-calendar.html' %}
+{% else %}
+    {% include 'includes/account-required.html' %}
+{% endif %}
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
+
+{% endblock %}
