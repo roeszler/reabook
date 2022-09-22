@@ -17,16 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
 from .views import handler404
-# from app_bookings.views import view_bookings_home
 
 urlpatterns = [
+    path('', include('app_home.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    # path('diary/', include('app_diary.urls')),
+    path('diary/', include('django.contrib.auth.urls')),
+    path('diary/', include('app_diary.urls')),
     path('book/', include('app_bookings.urls')),
-    path('', include('app_home.urls')),
     path('properties/', include('app_properties.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

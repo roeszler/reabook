@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container header-container-subpages">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 text-center">
+    <h1>register.html</h1>
+    <p>User Registration Form </p>
+    <div class="row">
+        <div class="col">
+            <form action="">
+                {% csrf_token %}
+                
+                <input type="submit" value="submit" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
+
+{% endblock %}

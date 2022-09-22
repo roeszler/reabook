@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'app_bookings',
-    # 'app_diary',
+    'app_diary',
     'app_home',
     'app_properties',
 ]
