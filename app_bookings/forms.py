@@ -1,6 +1,10 @@
 """ Import Modules """
 from django import forms
-from .models import Client
+from .models import Client, Booking
+
+
+class BookingForm(forms.ModelForm):
+    """ To customize the django form to a Bookings form """
 
 
 class LoginForm(forms.ModelForm):

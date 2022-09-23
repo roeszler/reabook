@@ -100,8 +100,9 @@
                                     <!-- <form action="{% url 'test' prop.id %}" method="POST" class="text-align-left"> -->
                                         {% csrf_token %}
 
-                                        <label for="property_id" class="input_prop_no">Property ID: {{ prop.id }}</label>
-                                        <input type="number" value="{{ prop.id }}" name="property_id" id="property_id" class="input_prop_no" disabled />
+                                        <!-- <label for="property_id" class="input_prop_no">Property ID: {{ prop.id }}</label> -->
+                                        <p>Property ID: {{ prop.id }}</p>
+                                        <!-- <input type="number" value="{{ prop.id }}" name="property_id" id="property_id" class="input_prop_no" disabled /> -->
 
                                         <h4>Choose Viewing Time</h4>
                                         
@@ -111,227 +112,230 @@
 
                                         <!-- Calendar -->
                                         <div class="col-12 pl-4 border">
-                                            <div class="calendar-container">
-                                                <div class="calendar">
-                                                    <div class="year-header">
-                                                        <span class="left-cal-button fa fa-chevron-left" id="prev">
-                                                        </span>
-                                                        <span class="year" id="label">2022</span>
-                                                        <span class="right-cal-button fa fa-chevron-right" id="next">
-                                                        </span>
-                                                    </div>
-
-                                                    <table class="months-table my-1 w-100">
-                                                        <tbody>
-                                                            <tr class="months-row">
-                                                                <td class="month">Jan</td>
-                                                                <td class="month">Feb</td>
-                                                                <td class="month">Mar</td>
-                                                                <td class="month">Apr</td>
-                                                                <td class="month">May</td>
-                                                                <td class="month">Jun</td>
-                                                                <td class="month">Jul</td>
-                                                                <td class="month">Aug</td>
-                                                                <td class="month active-month">Sep</td>
-                                                                <td class="month">Oct</td>
-                                                                <td class="month">Nov</td>
-                                                                <td class="month">Dec</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <table class="days-table w-100">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="day">Sun</td>
-                                                                <td class="day">Mon</td>
-                                                                <td class="day">Tue</td>
-                                                                <td class="day">Wed</td>
-                                                                <td class="day">Thur</td>
-                                                                <td class="day">Fri</td>
-                                                                <td class="day">Sat</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <div class="frame">
-                                                        <table class="dates-table w-100">
-                                                            <tbody class="tbody">
-                                                                <tr class="table-row"></tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date">1</td>
-                                                                    <td class="table-date">2</td>
-                                                                    <td class="table-date">3</td>
-                                                                </tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date">4</td>
-                                                                    <td class="table-date">5</td>
-                                                                    <td class="table-date">6</td>
-                                                                    <td class="table-date active-date">7</td>
-                                                                    <td class="table-date">8</td>
-                                                                    <td class="table-date">9</td>
-                                                                    <td class="table-date">10</td>
-                                                                </tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date">11</td>
-                                                                    <td class="table-date">12</td>
-                                                                    <td class="table-date">13</td>
-                                                                    <td class="table-date">14</td>
-                                                                    <td class="table-date">15</td>
-                                                                    <td class="table-date">16</td>
-                                                                    <td class="table-date">17</td>
-                                                                </tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date">18</td>
-                                                                    <td class="table-date">19</td>
-                                                                    <td class="table-date">20</td>
-                                                                    <td class="table-date">21</td>
-                                                                    <td class="table-date">22</td>
-                                                                    <td class="table-date">23</td>
-                                                                    <td class="table-date">24</td>
-                                                                </tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date">25</td>
-                                                                    <td class="table-date">26</td>
-                                                                    <td class="table-date">27</td>
-                                                                    <td class="table-date">28</td>
-                                                                    <td class="table-date">29</td>
-                                                                    <td class="table-date">30</td>
-                                                                    <td class="table-date nil"></td>
-                                                                </tr>
-                                                                <tr class="table-row">
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
-                                                                    <td class="table-date nil"></td>
+                                            <div class="row">
+                                                <div class="calendar-container col-lg-5">
+                                                    <div class="calendar">
+                                                        <div class="year-header">
+                                                            <span class="left-cal-button fa fa-chevron-left" id="prev">
+                                                            </span>
+                                                            <span class="year" id="label">2022</span>
+                                                            <span class="right-cal-button fa fa-chevron-right" id="next">
+                                                            </span>
+                                                        </div>
+    
+                                                        <table class="months-table my-1 w-100">
+                                                            <tbody>
+                                                                <tr class="months-row">
+                                                                    <td class="month">Jan</td>
+                                                                    <td class="month">Feb</td>
+                                                                    <td class="month">Mar</td>
+                                                                    <td class="month">Apr</td>
+                                                                    <td class="month">May</td>
+                                                                    <td class="month">Jun</td>
+                                                                    <td class="month">Jul</td>
+                                                                    <td class="month">Aug</td>
+                                                                    <td class="month active-month">Sep</td>
+                                                                    <td class="month">Oct</td>
+                                                                    <td class="month">Nov</td>
+                                                                    <td class="month">Dec</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+    
+                                                        <table class="days-table w-100">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="day">Sun</td>
+                                                                    <td class="day">Mon</td>
+                                                                    <td class="day">Tue</td>
+                                                                    <td class="day">Wed</td>
+                                                                    <td class="day">Thur</td>
+                                                                    <td class="day">Fri</td>
+                                                                    <td class="day">Sat</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+    
+                                                        <div class="frame">
+                                                            <table class="dates-table w-100">
+                                                                <tbody class="tbody">
+                                                                    <tr class="table-row"></tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date">1</td>
+                                                                        <td class="table-date">2</td>
+                                                                        <td class="table-date">3</td>
+                                                                    </tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date">4</td>
+                                                                        <td class="table-date">5</td>
+                                                                        <td class="table-date">6</td>
+                                                                        <td class="table-date active-date">7</td>
+                                                                        <td class="table-date">8</td>
+                                                                        <td class="table-date">9</td>
+                                                                        <td class="table-date">10</td>
+                                                                    </tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date">11</td>
+                                                                        <td class="table-date">12</td>
+                                                                        <td class="table-date">13</td>
+                                                                        <td class="table-date">14</td>
+                                                                        <td class="table-date">15</td>
+                                                                        <td class="table-date">16</td>
+                                                                        <td class="table-date">17</td>
+                                                                    </tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date">18</td>
+                                                                        <td class="table-date">19</td>
+                                                                        <td class="table-date">20</td>
+                                                                        <td class="table-date">21</td>
+                                                                        <td class="table-date">22</td>
+                                                                        <td class="table-date">23</td>
+                                                                        <td class="table-date">24</td>
+                                                                    </tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date">25</td>
+                                                                        <td class="table-date">26</td>
+                                                                        <td class="table-date">27</td>
+                                                                        <td class="table-date">28</td>
+                                                                        <td class="table-date">29</td>
+                                                                        <td class="table-date">30</td>
+                                                                        <td class="table-date nil"></td>
+                                                                    </tr>
+                                                                    <tr class="table-row">
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                        <td class="table-date nil"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- <button class="button float-right my-2 btn-outline-reabook" id="add-button">Book Inspection</button> -->
                                                     </div>
-                                                    <!-- <button class="button float-right my-2 btn-outline-reabook" id="add-button">Book Inspection</button> -->
+                                                </div>
+                                                <div class="col-lg-7 pt-3">
+                                                    <div class="row mt-3 radio-wrapper">
+                                                        <div class="col-lg-4 mx-0">
+                                                            Morning
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-1">
+                                                                <label for="time-slot-1" class="mb-0">9:30 am</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-1"
+                                                                    value="09:30 AM"/>
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-2">
+                                                                <label for="time-slot-2" class="mb-0">10:00 am</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-2"
+                                                                    value="10:00 AM" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-3">
+                                                                <label for="time-slot-3" class="mb-0">10:30 am</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-3"
+                                                                    value="10:30 AM" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-4">
+                                                                <label for="time-slot-4" class="mb-0">11:00 am</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-4"
+                                                                    value="11:00 AM" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 mx-0">
+                                                            Afternoon
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-5">
+                                                                <label for="time-slot-5" class="mb-0">1:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-5"
+                                                                    value="13:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-6">
+                                                                <label for="time-slot-6" class="mb-0">1:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-6"
+                                                                    value="13:30" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-7">
+                                                                <label for="time-slot-7" class="mb-0">2:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-7"
+                                                                    value="14:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-8">
+                                                                <label for="time-slot-8" class="mb-0">2:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-8"
+                                                                    value="14:30" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-9">
+                                                                <label for="time-slot-9" class="mb-0">3:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-9"
+                                                                    value="15:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-10">
+                                                                <label for="time-slot-10" class="mb-0">3:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-10"
+                                                                    value="15:30" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-11">
+                                                                <label for="time-slot-11" class="mb-0">4:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-11"
+                                                                    value="16:00" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 mx-0">
+                                                            Evening
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-12">
+                                                                <label for="time-slot-12" class="mb-0">5:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-12"
+                                                                    value="17:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-13">
+                                                                <label for="time-slot-13" class="mb-0">5:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-13"
+                                                                    value="17:30" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-14">
+                                                                <label for="time-slot-14" class="mb-0">6:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-14"
+                                                                    value="18:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-15">
+                                                                <label for="time-slot-15" class="mb-0">6:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-15"
+                                                                    value="18:30" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-16">
+                                                                <label for="time-slot-16" class="mb-0">7:00 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-16"
+                                                                    value="19:00" />
+                                                            </div>
+                                                            <div class="form-selectable-label text-center time-slot w-100 my-2"
+                                                                data-input="#time-slot-17">
+                                                                <label for="time-slot-17" class="mb-0">7:30 pm</label>
+                                                                <input class="sr-only" type="radio" name="time" id="time-slot-17"
+                                                                    value="19:30" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="events-container my-3">
+                                            <div class="events-container my-3 ">
                                                 <div class="cal-event-card">
                                                     <p class="event-name"></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-3 radio-wrapper">
-                                            <div class="col-lg-4 mx-0">
-                                                Morning
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-1">
-                                                    <label for="time-slot-1" class="mb-0">9:30 am</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-1"
-                                                        value="09:30 AM"/>
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-2">
-                                                    <label for="time-slot-2" class="mb-0">10:00 am</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-2"
-                                                        value="10:00 AM" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-3">
-                                                    <label for="time-slot-3" class="mb-0">10:30 am</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-3"
-                                                        value="10:30 AM" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-4">
-                                                    <label for="time-slot-4" class="mb-0">11:00 am</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-4"
-                                                        value="11:00 AM" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 mx-0">
-                                                Afternoon
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-5">
-                                                    <label for="time-slot-5" class="mb-0">1:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-5"
-                                                        value="13:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-6">
-                                                    <label for="time-slot-6" class="mb-0">1:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-6"
-                                                        value="13:30" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-7">
-                                                    <label for="time-slot-7" class="mb-0">2:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-7"
-                                                        value="14:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-8">
-                                                    <label for="time-slot-8" class="mb-0">2:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-8"
-                                                        value="14:30" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-9">
-                                                    <label for="time-slot-9" class="mb-0">3:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-9"
-                                                        value="15:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-10">
-                                                    <label for="time-slot-10" class="mb-0">3:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-10"
-                                                        value="15:30" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-11">
-                                                    <label for="time-slot-11" class="mb-0">4:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-11"
-                                                        value="16:00" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 mx-0">
-                                                Evening
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-12">
-                                                    <label for="time-slot-12" class="mb-0">5:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-12"
-                                                        value="17:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-13">
-                                                    <label for="time-slot-13" class="mb-0">5:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-13"
-                                                        value="17:30" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-14">
-                                                    <label for="time-slot-14" class="mb-0">6:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-14"
-                                                        value="18:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-15">
-                                                    <label for="time-slot-15" class="mb-0">6:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-15"
-                                                        value="18:30" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-16">
-                                                    <label for="time-slot-16" class="mb-0">7:00 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-16"
-                                                        value="19:00" />
-                                                </div>
-                                                <div class="form-selectable-label text-center time-slot w-100 my-2"
-                                                    data-input="#time-slot-17">
-                                                    <label for="time-slot-17" class="mb-0">7:30 pm</label>
-                                                    <input class="sr-only" type="radio" name="time" id="time-slot-17"
-                                                        value="19:30" />
                                                 </div>
                                             </div>
                                         </div>

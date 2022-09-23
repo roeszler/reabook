@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
-            <strong>Booking Ref:</strong> {{ booking_id }}
+            <strong>Booking Ref:</strong> {{ booking.id }} {{ booking.id }}/{{ booking }}
             <br><strong>Property Id :</strong> {{ prop.id }}
             <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}
             <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
@@ -28,8 +28,9 @@
             <br><strong>Email:</strong> {{ client_email }}, 
             <br><strong>Phone:</strong> +{{ client_country }} {{ client_phone }}
             <br><strong>Your City:</strong> {{ client_city }}, {{ client_state }} {{ client_zip }}
-            <br><strong>Message:</strong>
-            <Br>{{ client_message }}<hr>
+            <br><strong>Message:</strong><hr class="my-0">
+            <p>{{ client_message }}</p>
+            <hr class="my-0">
                 <div class="text-muted">
                     <small>Referral permissions: {{ contact_ok }}  |  Form submitted: {{ date_submitted }} </small>
                 </div>

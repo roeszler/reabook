@@ -5,10 +5,11 @@ from django.contrib import messages
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
+# from django.contrib.auth.models import User
 
 from app_properties.models import Property
 from .models import Booking, Client
-from .forms import LoginForm
+# from .forms import BookingForm
 
 
 def add_to_diary(request, property_id):
@@ -61,12 +62,13 @@ def booking_detail(request, property_id):
 def booking_success(request, property_id):
     """ View to render a successful booking on prop-booking-detail.html """
     prop = Property.objects.get(pk=property_id)
+    # booking = Booking.objects.get(pk=booking_id)
+    # user = User.objects.all()
     
     if request.method == 'POST':
         # client = request.POST.get('client', 'c_id_error!!')
-        # prop_id = get_object_or_404(Property.title_no)
-        # prop_id = request.get('pk')
-        # property_id = Property.objects.get(pk=property_id)
+        # user = f'{user.id}'
+        # booking_id = f'{booking.id}'
         property_id = f'{prop.id}'
         date_of_viewing = request.POST['date']
         time_of_viewing = request.POST.get('time', 'n/p')
@@ -88,7 +90,8 @@ def booking_success(request, property_id):
             contact_ok = False
 
         booking_ins = Booking(
-            # client=client,
+            # client=user,
+            # user=user,
             property_id=prop,
             date_of_viewing=date_of_viewing,
             time_of_viewing=time_of_viewing,
@@ -99,6 +102,7 @@ def booking_success(request, property_id):
         print('Booking information has been saved')
         # booking_ref = Booking.get('id')
         # booking_ref = get_object_or_404(Booking, pk=booking_id)
+        # booking_ref = Booking.objects.all()
 
         client_ins = Client(
             f_name=f_name,
@@ -136,6 +140,7 @@ def booking_success(request, property_id):
             'date_submitted': date_submitted,
             'contact_ok': contact_ok,
             'prop': prop,
+            # 'booking_ref': booking_ref,
         }
 
         # print(form_data)
@@ -183,7 +188,6 @@ def choose_bookings(request):
     return render(request, 'book/search-viewings.html', context)
 
 
-
 def user_diary(request):
     """ To list all the bookings in the DB """
     prop = Property.objects.all()
@@ -206,24 +210,25 @@ def parked(request):
 def update_booking(request, booking_id):
     """ To update the bookings made by each user """
     booking = Booking.objects.get(pk=booking_id)
+    # form = BookingForm()
 
     context = {'booking': booking, }
     return render(request, 'book/update-booking.html', context)
 
 
-def view_booking_select_time(request):
-    """
-    View to render the bookings select available time page
-    """
-    properties = Property.objects.all() # noqa
-    props_with_viewings = properties.filter(viewings=True)
+# def view_booking_select_time(request):
+#     """
+#     View to render the bookings select available time page
+#     """
+#     properties = Property.objects.all() # noqa
+#     props_with_viewings = properties.filter(viewings=True)
 
-    context = {
-        'properties': properties,
-        'props_with_viewings': props_with_viewings,
-    }
+#     context = {
+#         'properties': properties,
+#         'props_with_viewings': props_with_viewings,
+#     }
 
-    return render(request, 'book/booking-detail.html', context)
+#     return render(request, 'book/booking-detail.html', context)
 
 
 def test(request, property_id):

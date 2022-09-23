@@ -15,7 +15,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('client_diary')
+            return redirect('user_diary')
         else:
             messages.success(request, 'Aww Nuts! There was an error Logging In. Please try again...')
             # Return an 'invalid login' error message.
@@ -42,7 +42,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, ('Registration Successful!'))
-            return redirect('client_diary')
+            return redirect('user_diary')
         else:
             messages.success(request, 'There was an error with the details on your Registration Form. Please try again...')
             return redirect('register')

@@ -6,8 +6,8 @@
 {% include 'includes/bookings-base.html' %}
 
     <div class="row-lg-12 justify-content-center">
-        <h1>update-booking.html...</h1>
-        <p>Place to edit the selected viewing appointment</p>
+        <h2>{{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}</h2>
+        <p>details for upcoming appointments</p>
         <div class="row">
             <div class="col-lg-12">
                 <br>
@@ -17,12 +17,21 @@
                 <br>
                 Email : {{ booking.client.client_email }}
                 <br>
+                Phone : +{{ booking.client.client_country }} {{ booking.client.client_phone }}
+                <br>
                 Address of Viewing : {{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}
                 <br>
                 Date of Viewing : {{ booking.date_of_viewing }}
                 <br>
                 Time of Viewing : {{ booking.time_of_viewing }}
                 <br>
+                Messages : {{ booking.client_message }}
+                <br>
+                Referrals Permitted : {{ booking.client.contact_ok }}
+                <br>
+                <a href="#">
+                    Edit / Update
+                </a>
                 Edit / Update
                 <br>
                 Delete
@@ -30,8 +39,9 @@
                 Create New Booking
             </div>
         </div>
-        
+
     </div>
+    <p>update-booking.html...</p>
 
 {% include 'includes/bookings-base-calendar.html' %}
 {% else %}
