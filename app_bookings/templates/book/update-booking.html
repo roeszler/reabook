@@ -29,6 +29,22 @@
                 <br>
                 Referrals Permitted : {{ booking.client.contact_ok }}
                 <br>
+                <div class="row">
+                    <div class="col-lg-3 col-md-0"></div>
+                    <div class="col-lg-6 text-left">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ client_form.as_p }}
+                            {{ booking_form.as_p }}
+                            <br>
+                            <input type="submit" value="Update" class="btn btn-outline-reabook float-right">
+                        </form>
+                    </div>
+                    <div class="col-lg-3 col-md-0"></div>
+                </div>
+                
+                
+                <br>
                 <a href="#">
                     Edit / Update
                 </a>
@@ -37,6 +53,8 @@
                 Delete
                 <br>
                 Create New Booking
+                <br>
+                Prop Id: {{ booking.property_id }}
             </div>
         </div>
 

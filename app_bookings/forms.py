@@ -5,6 +5,28 @@ from .models import Client, Booking
 
 class BookingForm(forms.ModelForm):
     """ To customize the django form to a Bookings form """
+    class Meta:
+        model = Booking
+        # fields = '__all__'
+        fields = (
+            'date_of_viewing',
+            'time_of_viewing',
+            'client_message',
+        )
+
+
+class ClientForm(forms.ModelForm):
+    """ To customize the django form to a Bookings form """
+    class Meta:
+        model = Client
+        # fields = '__all__'
+        fields = (
+            'f_name',
+            'l_name',
+            'client_email',
+            'client_phone',
+            'contact_ok',
+        )
 
 
 class LoginForm(forms.ModelForm):

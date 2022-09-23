@@ -20,6 +20,17 @@ class Booking(models.Model):
     date_submitted = models.DateTimeField(default=timezone.now)
     viewing_active = models.BooleanField(default=True)
 
+    # f_name = models.CharField(max_length=40)
+    # l_name = models.CharField(max_length=40)
+    # client_username = models.CharField(max_length=40, default='Create Username')
+    # client_email = models.EmailField(max_length=254)
+    # client_phone = models.IntegerField(null=True, blank=True, default=123456789)
+    # client_city = models.CharField(max_length=140, null=True, blank=True)
+    # client_state = models.CharField(max_length=10, null=True, blank=True)
+    # client_zip = models.CharField(max_length=10, default='123 45')
+    # client_country = models.CharField(max_length=140, null=True, blank=True)
+    # contact_ok = models.BooleanField(default=False)
+
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
         verbose_name_plural = 'Bookings'

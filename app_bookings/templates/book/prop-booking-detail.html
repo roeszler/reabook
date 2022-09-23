@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-
+                <p><small class="text-muted">Property Id.{{ prop.id }}</small></p>
                 <div>
                     <div class="card-body row">
                         <div class="col-lg-12">
@@ -99,15 +99,7 @@
                                     <form action="{% url 'booking_success' prop.id %}" method="POST" class="text-align-left">
                                     <!-- <form action="{% url 'test' prop.id %}" method="POST" class="text-align-left"> -->
                                         {% csrf_token %}
-
-                                        <!-- <label for="property_id" class="input_prop_no">Property ID: {{ prop.id }}</label> -->
-                                        <p>Property ID: {{ prop.id }}</p>
-                                        <!-- <input type="number" value="{{ prop.id }}" name="property_id" id="property_id" class="input_prop_no" disabled /> -->
-
                                         <h4>Choose Viewing Time</h4>
-                                        
-                                        <!-- <input type="datetime-local" name="date"/> -->
-                                        
                                         <hr>
 
                                         <!-- Calendar -->

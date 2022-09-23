@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 
 from app_properties.models import Property
 from .models import Booking, Client
-# from .forms import BookingForm
+from .forms import BookingForm, ClientForm
 
 
 def add_to_diary(request, property_id):
@@ -210,9 +210,12 @@ def parked(request):
 def update_booking(request, booking_id):
     """ To update the bookings made by each user """
     booking = Booking.objects.get(pk=booking_id)
-    # form = BookingForm()
+    booking_form = BookingForm(request.POST or None, instance=booking)
 
-    context = {'booking': booking, }
+    context = {
+        'booking_form': booking_form,
+        'booking': booking,
+        }
     return render(request, 'book/update-booking.html', context)
 
 
