@@ -622,7 +622,7 @@ https://colorlib.com/wp/bootstrap-calendars/
 .cal-btn {
     border: none;
     font-size: 0.65rem;
-    color: #cccccc;
+    /* color: #cccccc; */
 }
 
 /* ------------ Submit form Section */

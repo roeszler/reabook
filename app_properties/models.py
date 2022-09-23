@@ -92,7 +92,7 @@ class Property(models.Model):
         """ Takes in product display model and returns name """
         # return f"{self.id} = {self.house_no} {self.street}, {self.suburb}, {self.city}"
         # return f"ID.{self.id} ({self.house_no} {self.street}, {self.suburb}, {self.city})"
-        return f"id.{self.id}"
+        return f"{self.id}"
     
     # def __int__(self):
     #     """ Takes in product display model and returns name """

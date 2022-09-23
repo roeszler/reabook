@@ -96,10 +96,10 @@
                                 <div class="col-lg-12">
 
                                     <!-- Booking Submission form -->
-                                    <form action="{% url 'booking_success' %}" method="POST" class="text-align-left">
+                                    <form action="{% url 'booking_success' prop.id %}" method="POST" class="text-align-left">
                                         {% csrf_token %}
 
-                                        <label for="property_id" class="input_prop_no">Property ID: </label>
+                                        <label for="property_id" class="input_prop_no">Property ID: {{ prop.id }}</label>
                                         <input type="number" value="{{ prop.id }}" name="property_id" id="property_id" class="input_prop_no" disabled />
 
                                         <h4>Choose Viewing Time</h4>

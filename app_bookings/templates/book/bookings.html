@@ -5,7 +5,70 @@
 {% if user.is_authenticated %}
 {% include 'includes/bookings-base.html' %}
 
+<div class="row">
+    <div class="col-md-12 text-center mb-md-5 h-100">
+        <h2 class="heading-section">{{ user.first_name }}'s Diary</h2>
+        <hr>
+        Logged in User : {{ user }}
+        <br>
+        Diary Owner : 'User'
+        <br>
+        Property Manager : DUH... No Property Selected!! {{ prop.realtor }}
+        <br>
+
+        <div class="progress my-3">
+            <div class="progress-bar bg-green" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col text-lg-left">
+                <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Property</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Agent</th>
+                                <th scope="col">Admin</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-weight-light">
+                            {% for booking in bookings %}
+                                <tr>
+                                    <th scope="row">{{ booking.property_id }}</th>
+                                    <td>{{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }}</td>
+                                    <td>{{ booking.date_of_viewing }}</td>
+                                    <td>{{ booking.time_of_viewing }}</td>
+                                    <td>{{ booking.property_id.realtor }}</td>
+                                    <td>
+                                        <a href="{% url 'update_booking' booking.id %}" aria-label="" class="reabook-logo"><strong>View Booking</strong>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="mt-0 mb-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="{% url 'choose_bookings' %}" aria-label="">
+                            <button class="btn btn-outline-reabook float-right mr-3" >Book Viewings</button>
+                        </a>
+                        <a href="{% url 'properties' %}" aria-label="">
+                            <button class="btn btn-outline-reabook float-right mr-3" >Search Listings</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="row justify-content-center">
+
         <div class="col-12">
             <h1>bookings.html...</h1>
             <br>
@@ -29,8 +92,9 @@
                 Real Estate Agent : {{ booking.property_id.realtor }}
             {% endfor %}
         </div>
-        
     </div>
+
+    
 
 {% include 'includes/bookings-base-calendar.html' %}
 {% else %}

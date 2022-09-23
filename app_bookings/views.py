@@ -177,22 +177,17 @@ def choose_bookings(request):
     return render(request, 'book/search-viewings.html', context)
 
 
-def client_diary(request):
-    """ To render the bookings page with clients upcoming appointments """
-    prop = Property.objects.all()
 
-    context = {'prop': prop}
-    return render(request, 'book/client-diary.html', context)
-
-
-def list_bookings(request):
+def user_diary(request):
     """ To list all the bookings in the DB """
-    bookings_list = Booking.objects.all()
+    prop = Property.objects.all()
+    bookings = Booking.objects.all()
     client = Client.objects.all()
 
     context = {
-        'bookings_list': bookings_list,
+        'bookings': bookings,
         'client': client,
+        'prop': client,
         }
     return render(request, 'book/bookings.html', context)
 
@@ -205,10 +200,9 @@ def parked(request):
 def update_booking(request, booking_id):
     """ To update the bookings made by each user """
     booking = Booking.objects.get(pk=booking_id)
-    
 
-    context = {'booking': booking}
-    return render(request, 'book/update-bookings.html', context)
+    context = {'booking': booking, }
+    return render(request, 'book/update-booking.html', context)
 
 
 def view_booking_select_time(request):
