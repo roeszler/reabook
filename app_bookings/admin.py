@@ -10,17 +10,26 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'property_id',
-        'client',
-        'booking_name',
+        'client_email',
+        'f_name',
+        'l_name',
+        'client_phone',
+        'client_username',
         'date_of_viewing',
         'time_of_viewing',
-        'client_message',
         'date_submitted',
+        'contact_ok',
+        'client_message',
+        # 'booking_name',
         # 'viewing_active',
+        # 'client_username',
+        # 'client_city',
+        # 'client_zip',
+        # 'client_country',
     )
 
     ordering = (
-        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'client', 'date_submitted',
+        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'date_submitted',
     )
 
 

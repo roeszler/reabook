@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 
 from app_properties.models import Property
 from .models import Booking, Client
-from .forms import BookingForm, ClientForm
+from .forms import BookingForm
 
 
 def add_to_diary(request, property_id):
@@ -90,21 +90,11 @@ def booking_success(request, property_id):
             contact_ok = False
 
         booking_ins = Booking(
-            # client=user,
-            # user=user,
             property_id=prop,
             date_of_viewing=date_of_viewing,
             time_of_viewing=time_of_viewing,
             client_message=client_message,
             date_submitted=date_submitted,
-            )
-        booking_ins.save()
-        print('Booking information has been saved')
-        # booking_ref = Booking.get('id')
-        # booking_ref = get_object_or_404(Booking, pk=booking_id)
-        # booking_ref = Booking.objects.all()
-
-        client_ins = Client(
             f_name=f_name,
             l_name=l_name,
             client_email=client_email,
@@ -113,9 +103,13 @@ def booking_success(request, property_id):
             client_zip=client_zip,
             client_country=client_country,
             contact_ok=contact_ok,
-        )
-        client_ins.save()
-        print('Client information has been saved')
+            )
+            
+        booking_ins.save()
+        print('Booking information has been saved')
+        # booking_ref = Booking.get('id')
+        # booking_ref = get_object_or_404(Booking, pk=booking_id)
+        # booking_ref = Booking.objects.all()
 
         # Send an email
         send_mail(
@@ -192,12 +186,10 @@ def user_diary(request):
     """ To list all the bookings in the DB """
     prop = Property.objects.all()
     bookings = Booking.objects.all()
-    client = Client.objects.all()
 
     context = {
         'bookings': bookings,
-        'client': client,
-        'prop': client,
+        'prop': prop,
         }
     return render(request, 'book/bookings.html', context)
 

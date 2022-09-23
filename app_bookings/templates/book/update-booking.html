@@ -7,42 +7,96 @@
 
     <div class="row-lg-12 justify-content-center">
         <h2>{{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}</h2>
-        <p>details for upcoming appointments</p>
+        <p>details for your upcoming appointment</p>
+        <hr class="w-50 my-4">
+        <p><strong>Booking Ref</strong> : {{ booking.id }}/{{ booking }}</p>
         <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 text-left">
+                <strong>Name</strong> : {{ booking.f_name }} {{ booking.l_name }}
+                <br><strong>Email</strong> : {{ booking.client_email }}
+                <br><strong>Phone</strong> : +{{ booking.client_country }} {{ booking.client_phone }}
+                <br><strong>Messages</strong> : {{ booking.client_message }}
+                <br><strong>Referrals Permitted</strong> : {{ booking.contact_ok }}
+            </div>
+            <div class="col-md-6 text-left">
+                <strong>Address of Viewing</strong> :<br> {{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}
+                <br><strong>Date of Viewing</strong> : {{ booking.date_of_viewing }}
+                <br><strong>Time of Viewing</strong> : {{ booking.time_of_viewing }}
+                <br><strong>Estate Agent</strong> : {{ booking.property_id.realtor }}
+            </div>
+            <!-- <div class="col-md-2">b</div> -->
             <div class="col-lg-12">
-                <br>
-                Booking Ref : {{ booking.id }}/{{ booking }}
-                <br>
-                Name : {{ booking.client.f_name }} {{ booking.client.l_name }}
-                <br>
-                Email : {{ booking.client.client_email }}
-                <br>
-                Phone : +{{ booking.client.client_country }} {{ booking.client.client_phone }}
-                <br>
-                Address of Viewing : {{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}
-                <br>
-                Date of Viewing : {{ booking.date_of_viewing }}
-                <br>
-                Time of Viewing : {{ booking.time_of_viewing }}
-                <br>
-                Messages : {{ booking.client_message }}
-                <br>
-                Referrals Permitted : {{ booking.client.contact_ok }}
-                <br>
-                <div class="row">
-                    <div class="col-lg-3 col-md-0"></div>
-                    <div class="col-lg-6 text-left">
-                        <form action="" method="POST">
-                            {% csrf_token %}
-                            {{ client_form.as_p }}
-                            {{ booking_form.as_p }}
-                            <br>
-                            <input type="submit" value="Update" class="btn btn-outline-reabook float-right">
-                        </form>
+                <hr class="w-50 my-4">
+                <h3 class="mb-4">Update these Details</h3>
+                <form class="text-left border p-3">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3 mx-0">
+                            <label>First name</label>
+                            {{ booking_form.f_name }}
+                        </div>
+                        <div class="col-md-4 mb-3 mx-0">
+                            <label>Last name</label>
+                            {{ booking_form.l_name }}
+                        </div>
+                        <div class="col-md-4 mb-3 mx-0">
+                            <label>Username</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-user-tag"></i></span>
+                                </div>
+                                {{ booking_form.client_username }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-3 col-md-0"></div>
-                </div>
-                
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip03">Email Address</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                </div>
+                                {{ booking_form.client_email }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip04">Phone Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                </div>
+                                {{ booking_form.client_phone }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3 mx-0">
+                            <label>Date of Viewing</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                </div>
+                                {{ booking_form.date_of_viewing }}
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3 mx-0">
+                            <label>Time of Viewing</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
+                                </div>
+                                {{ booking_form.time_of_viewing }}
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6 mb-3 mx-0">
+                            <label>Quick Message</label>
+                            {{ booking_form.client_message }}
+                        </div>
+                    </div>
+                    <p><label>Permission given to refer for other Properties</label> {{ booking_form.contact_ok }} </p>
+                    <button class="btn btn-outline-reabook" type="submit">Update</button>
+                </form>
                 
                 <br>
                 <a href="#">
