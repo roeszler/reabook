@@ -20,7 +20,9 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
-            <strong>Property:</strong> {{ property_id }}
+            <strong>Booking Ref:</strong> {{ booking_id }}
+            <br><strong>Property Id :</strong> {{ prop.id }}
+            <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}
             <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
             <br><strong>Your Name:</strong> {{ f_name }} {{ l_name }}
             <br><strong>Email:</strong> {{ client_email }}, 

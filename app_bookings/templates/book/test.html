@@ -10,11 +10,13 @@
     <div>
         <div class="card-body row">
             <div class="col-lg-12">
-                <h1>Thanks {{ prop.street }}!</h1>
+                <h1>Thanks {{ booking.client.f_name }}!</h1>
                 <!-- <ul class="nav nav-tabs"></ul> -->
                 <div class="row my-3">
                     <div class="col-lg-12">
                         Property ID: {{ prop }}
+                        <br>
+                        Street : {{ prop.street }}
                     </div>
                 </div>
             </div>
