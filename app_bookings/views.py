@@ -65,6 +65,7 @@ def booking_success(request):
         # client = request.POST.get('client', 'c_id_error!!')
         # prop_id = get_object_or_404(Property.title_no)
         # prop_id = request.get('pk')
+        # property_id = Property.objects.get(pk=property_id)
         property_id = request.POST.get('property_id', 'p_id_error!!')
         date_of_viewing = request.POST['date']
         time_of_viewing = request.POST.get('time', 'n/p')
@@ -136,7 +137,8 @@ def booking_success(request):
         # print(form_data)
         # print(request)
         # print(prop_id.content)
-        return render(request, 'book/booking-success.html', booking)
+        # return render(request, 'book/booking-success.html', booking)
+        return render(request, 'book/test.html', booking)
     else:
         return render(request, 'book/booking-success.html')
 
@@ -220,29 +222,16 @@ def view_booking_select_time(request):
     return render(request, 'book/booking-detail.html', context)
 
 
-def test(request):
-    """
-    View to render the bookings login page
-    """
-    submitted = False
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # submitted = True
-            # return HttpResponseRedirect('book/test', {'submitted': submitted})
-            # return render(request, 'book/test?submitted=True')
-            submitted = True
-            return render(request, 'book/booking-success.html', {'submitted': submitted})
-    else:
-        login_form = LoginForm
-        # checks that the form is not already submitted
-        # if 'submitted' in request.GET:
-        #     submitted = True
+def test(request, property_id):
+    """ View to test stuff """
+    prop = Property.objects.get(pk=property_id)
+    booking = Booking.objects.all()
+    client = Client.objects.all()
 
     context = {
-        'login_form': login_form,
-        'submitted': submitted,
+        'prop': prop,
+        'client': client,
+        'booking': booking,
     }
 
     return render(request, 'book/test.html', context)
