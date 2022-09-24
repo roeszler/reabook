@@ -4,29 +4,131 @@
 {% block content %}
 
 <div class="col-md-12 col-sm-12 text-center">
-    <h1>register.html</h1>
-    <p>User Registration Form </p>
-
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6 text-lg-left">
-            <form action="{% url 'register' %}" method="POST">
-                {% csrf_token %}
-
-                {{ registration_form.as_p }}
-
-                <br><input type="submit" value="register" class="btn btn-secondary">
-            </form>
+        <div class="col-12 text-center mt-4 mx-0">
+            <h2 class="logo-font"><i class="fa-solid fa-book-bookmark reabook-logo"></i> <span
+                    class="text-black">Register</span> Account</h2>
+            <hr class="w-50 mb-4">
         </div>
-        <div class="col-3"></div>
     </div>
+    <section class="mt-4" style="text-bone">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                    <!-- <p class="text-center fw-bold mb-5 mx-1 mx-md-4">Sign up</p> -->
+
+                                    <form action="{% url 'register' %}" method="POST" class="mx-1 mx-md-4 mt-4">
+                                        {% csrf_token %}
+                                        <div class="d-flex form-row align-items-center mb-3">
+                                            <!-- <label for="first_name" class="form-label">First Name</label> -->
+                                            <div class="input-group" name="first_name">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-flag"></i></i></span>
+                                                </div>
+                                                <input type="text" id="first_name" class="form-control"
+                                                    name="first_name" placeholder="First Name" />
+                                            </div>
+                                        </div>
+                                        <div class="d-flex form-row align-items-center mb-3">
+                                            <!-- <label for="last_name" class="form-label">Last Name</label> -->
+                                            <div class="input-group" name="last_name">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-flag-checkered"></i></span>
+                                                </div>
+                                                <input type="text" id="last_name" class="form-control" name="last_name"
+                                                    placeholder="Last Name" />
+                                            </div>
+                                        </div>
+                                        <div class="d-flex form-row align-items-center mb-3">
+                                            <!-- <label for="email">Email Address</label> -->
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-envelope"></i></span>
+                                                </div>
+                                                <input type="email" name="email" id="email" class="form-control"
+                                                    placeholder="Email Address">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex form-row align-items-center mb-3">
+                                            <!-- <label for="username" class="form-label">Username</label> -->
+                                            <div class="input-group" name="username">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-user-tag"></i></span>
+                                                </div>
+                                                <input type="text" id="username" class="form-control" name="username"
+                                                    placeholder="Username" />
+                                                <!-- {{ registration_form.username }} -->
+                                            </div>
+                                        </div>
+                                        <div class="d-flex form-row text-lg-left mb-0 text-muted">
+                                            <!-- <label for="password1"><small>Passwords Required. <br>150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></label> -->
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-key"></i></span>
+                                                </div>
+                                                <input type="password" name="password1" id="password1"
+                                                    class="form-control" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex form-row text-lg-left mb-3 text-muted">
+                                            <label for="password1"><small>Passwords Required. 
+                                                <br>- 150 characters or fewer. 
+                                                <br>- Letters, digits and @/./+/-/_ only.
+                                                <br>- Can't be too similar to your other personal information.
+                                                <br>- Must contain at least 8 characters.
+                                                <br>- Can't be a commonly used password.
+                                                <br>- Your password can't be entirely numeric.
+                                            </small></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-check-double"></i> </span>
+                                                </div>
+                                                <input type="password" name="password2" id="password2"
+                                                    class="form-control" placeholder="Repeat Password">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex input-group mb-4">
+                                            <label class="form-check-label" for="registrationAgree">I agree all
+                                                statements in <a href="#!">Terms of service</a> &nbsp;</label>
+                                            <input class="float-right" type="checkbox" value="" id="registrationAgree"
+                                                name="registrationAgree" />
+                                        </div>
+                                        <div class="d-flex mb-3 mb-lg-4">
+                                            <input type="submit" value="register" class="btn btn-submit-reabook">
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="col-md-8 col-lg-4 col-xl-5 d-flex align-items-center order-1 order-lg-2">
+                                    <img src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ReaBook_Icon_00402B_gray_nxe3tn.png"
+                                        class="img-fluid" alt="Sample image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- {{ registration_form }} -->
+
 </div>
 
 {% endblock %}
 
 {% block postloadjs %}
-    <!-- To include the parent block -->
-    {{ block.super }}
-    
+<!-- To include the parent block -->
+{{ block.super }}
+
 
 {% endblock %}
