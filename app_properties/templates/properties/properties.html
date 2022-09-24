@@ -24,11 +24,11 @@
                     <div class="card property-card h-100 border-0">
                         <p class="ribbon font-weight-light">{{ prop.ribbon_feature }}</p>
                         {% if prop.main_image %}
-                        <a href="{% url 'property_detail' prop.id %}">
+                        <a href="{% url 'property-detail' prop.id %}">
                             <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                         </a>
                         {% else %}
-                        <a href="{% url 'property_detail' prop.id %}">
+                        <a href="{% url 'property-detail' prop.id %}">
                             <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
                         </a>
                         {% endif %}

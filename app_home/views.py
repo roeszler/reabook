@@ -1,7 +1,7 @@
 """ Import Modules """
 from django.shortcuts import render
 
-from app_properties.models import Property, Category
+from app_properties.models import Property
 
 
 def index(request):
@@ -23,15 +23,3 @@ def index(request):
         'props_for_lease': props_for_lease,
     }
     return render(request, 'home/index.html', context)
-
-
-# def all_properties(request):
-#     """
-#     View to access all properties in the index.html page
-#     """
-#     properties = Property.objects.all()
-
-#     context = {
-#         'properties': properties,
-#     }
-#     return render(request, '/index.html', context)

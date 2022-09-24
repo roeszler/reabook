@@ -54,19 +54,19 @@
                                         {% for prop in props_with_viewings %}
                                         <tr>
                                             <th scope="row" class="row-hlink"><a
-                                                    href="{% url 'property_detail' prop.id %}">{{ prop.id }}</a>
+                                                    href="{% url 'property-detail' prop.id %}">{{ prop.id }}</a>
                                             </th>
                                             <td class="row-hlink pt-3">
-                                                <a href="{% url 'property_detail' prop.id %}">{{ prop.name }}</a>
+                                                <a href="{% url 'property-detail' prop.id %}">{{ prop.name }}</a>
                                             </td>
                                             <td class="row-hlink pt-3">
-                                                <a href="{% url 'property_detail' prop.id %}">{{ prop.suburb }}</a>
+                                                <a href="{% url 'property-detail' prop.id %}">{{ prop.suburb }}</a>
                                             </td>
                                             <td class="row-hlink pt-3">
-                                                <a href="{% url 'property_detail' prop.id %}">{{ prop.city }}</a>
+                                                <a href="{% url 'property-detail' prop.id %}">{{ prop.city }}</a>
                                             </td>
                                             <td class="row-hlink pt-3">
-                                                <a href="{% url 'property_detail' prop.id %}">{{ prop.date_available }}</a></td>
+                                                <a href="{% url 'property-detail' prop.id %}">{{ prop.date_available }}</a></td>
                                             <td class="row-hlink">
                                                 <a href="{% url 'booking_detail' prop.id %}">
                                                     <button class="btn btn-outline-reabook my-lg-0 my-sm-0" type="submit">select</button>

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from .models import Property, Category, Sector
+from .forms import PropertyForm
 
 
 def all_properties(request):
@@ -81,3 +82,21 @@ def property_detail(request, property_id):
         'prop': prop,
     }
     return render(request, 'properties/prop-detail.html', context)
+
+
+def edit_property(request, property_id):
+    """ A view to allow staff to edit individual property details """
+    prop = Property.objects.get(pk=property_id)
+    property_form = PropertyForm(request.POST or None, instance=prop)
+
+    context = {
+        'prop': prop,
+        'property_form': property_form,
+    }
+    return render(request, 'properties/edit-properties.html', context)
+
+
+# def add_property(request):
+    # """ A view to allow staff to edit individual property details """
+
+    # return render(request, 'properties/add-properties.html', context)

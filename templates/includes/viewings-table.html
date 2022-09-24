@@ -17,23 +17,23 @@
         {% for prop in props_with_viewings %}
         <tr>
             <th scope="row" class="row-hlink"><a
-                    href="{% url 'property_detail' prop.id %}"
+                    href="{% url 'property-detail' prop.id %}"
                     target="_blank">{{ prop.id }}</a>
             </th>
             <td class="row-hlink">
-                <a href="{% url 'property_detail' prop.id %}"
+                <a href="{% url 'property-detail' prop.id %}"
                     target="_blank">{{ prop.name }}</a>
             </td>
             <td class="row-hlink">
-                <a href="{% url 'property_detail' prop.id %}"
+                <a href="{% url 'property-detail' prop.id %}"
                     target="_blank">{{ prop.suburb }}</a>
             </td>
             <td class="row-hlink">
-                <a href="{% url 'property_detail' prop.id %}"
+                <a href="{% url 'property-detail' prop.id %}"
                     target="_blank">{{ prop.city }}</a>
             </td>
             <td class="row-hlink">
-                <a href="{% url 'property_detail' prop.id %}"
+                <a href="{% url 'property-detail' prop.id %}"
                     target="_blank">{{ prop.date_available }}</a></td>
             <td class="row-hlink text-center">
                 <input type="checkbox" name="property_to_view" value="{{ prop.id }}" class="form-check-input" id="select-for-viewing">

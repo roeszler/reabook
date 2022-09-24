@@ -55,12 +55,12 @@
                         {% for prop in props_for_sale %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_sale">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_sale">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
                                     </a>
@@ -80,7 +80,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
+                                <a href="{% url 'property-detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
                             </div>
                             {% endif %}
                         {% endfor %}
@@ -124,12 +124,12 @@
                         {% for prop in props_for_rent %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_rent">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_rent">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
                                     </a>
@@ -149,7 +149,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
+                                <a href="{% url 'property-detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
                             </div>
                             {% endif %}
                         {% endfor %}
@@ -164,12 +164,12 @@
                         {% for prop in props_for_lease %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_lease">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property_detail' prop.id %}"> -->
+                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_lease">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
                                     </a>
@@ -189,7 +189,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <a href="{% url 'property_detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
+                                <a href="{% url 'property-detail' prop.id %}" class="btn btn-primary text-center btn-block">View Details</a>
                             </div>
                             {% endif %}
                         {% endfor %}

@@ -22,19 +22,3 @@ class RegisterUserFrom(UserCreationForm):
             'password1',
             'password2'
         )
-        # labels = {
-        #     'username': 'Username',
-        #     'first_name': 'First Name',
-        #     'last_name': 'Last Name',
-        #     'email': 'Email Address',
-        #     'password1': 'Password',
-        #     'password2': 'Repeat Password'
-        # }
-        # widgets = {
-        #     'username': forms.TextInput(attrs={'class':'form-control', }),
-        #     'first_name': forms.TextInput(attrs={'class':'form-control', }),
-        #     'last_name': forms.TextInput(attrs={'class':'form-control', }),
-        #     'email': forms.EmailInput(attrs={'class':'form-control col-lg-12', }),
-        #     'password1': forms.PasswordInput(attrs={'class':'form-control', }),
-        #     'password2': forms.PasswordInput(attrs={'class':'form-control', }),
-        # }
