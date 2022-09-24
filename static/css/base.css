@@ -157,6 +157,10 @@ font-weight: 100;
     color: #20514C;
 }
 
+.bookings-nav {
+    font-size: .875rem;
+}
+
 .subnav-light {
     background-color: none;
 }

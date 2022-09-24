@@ -92,7 +92,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Site Admin</a>
+                                    <a href="{% url 'admin:index' %}" target="_blank" class="dropdown-item">Site Admin</a>
                                     <a href="#" class="dropdown-item">Manage Properties</a>
                                     <div class="dropdown-divider"></div>
                                 {% endif %}
@@ -107,10 +107,19 @@
 
                     <!-- appearance of the diary and display of totals within -->
                     <li class="list-inline-item">
-                        <a href="{% url 'choose_bookings' %}"
+                        <!-- <a href="{% url 'user_diary' %}"
                             class="dropdown-header {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %} nav-link"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
                                 class="fa-solid fa-book-bookmark"></span> Bookings: <span class="my-0">
+                                {% if grand_total %}
+                                    ${{ grand_total | floatformat:2 }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </span>
+                        </a> -->
+                        <a href="{% url 'user_diary' %}" class="bookings-nav pl-0 nav-link"><span
+                            class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
                                 {% if grand_total %}
                                     ${{ grand_total | floatformat:2 }}
                                 {% else %}
