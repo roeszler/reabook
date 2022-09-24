@@ -2,10 +2,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 
-# from .forms import RegisterUserFrom
-
+from .forms import RegisterUserFrom
 
 
 def login_user(request):
@@ -36,7 +35,7 @@ def logout_user(request):
 def register_user(request):
     """ To allow new users to register via the web interface """
     if request.method == 'POST':
-        registration_form = UserCreationForm(request.POST)
+        registration_form = RegisterUserFrom(request.POST)
         if registration_form.is_valid():
             registration_form.save()
             username = registration_form.cleaned_data['username']
@@ -49,7 +48,7 @@ def register_user(request):
             messages.success(request, 'There was an error with the details on your Registration Form. Please try again...')
             return redirect('register')
     else:
-        registration_form = UserCreationForm()
+        registration_form = RegisterUserFrom()
 
     context = {
         'registration_form': registration_form,
