@@ -13,30 +13,30 @@
         <div class="col text-center mt-4">
             <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Edit Property Listing</h2>
             <hr class="w-50 mb-2">
-            <h4 class="font-weight-light my-3"> {% if prop %}{{ prop.house_no }} {{ prop.street }} <span class="reabook-logo">|</span> <span class="text-muted">{{ prop.city }}{% else %} Property Details{% endif %}</span></h4>
+            <h4 class="font-weight-light mt-4"> {% if prop %}{{ prop.house_no }} {{ prop.street }} <span class="reabook-logo">|</span> <span class="text-muted">{{ prop.city }}{% else %} Property Details{% endif %}</span></h4>
         </div>
     </div>
 
     <!-- Property Container -->
     
     <!-- property heading  -->
-    <section class="border m-3 p-4 edit-section" style="border-radius: 25px;">
-
-    
+    <section class="border m-3 p-4" style="border-radius: 25px;">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2 bg-success">
-                <h5>Edit Property Details Here</h5><hr class="my-2">
+            <!-- Form Section -->
+            <div class="col-12 col-md-12 col-lg-6 offset-lg-1 border-right">
+                <h5>Edit Property Details</h5><hr class="my-2">
                 <div class="form-group">
                     <form action="" method="POST">
-                        <div>
+                        {% csrf_token %}
+                        <!-- <div>
                             <label for="category">Listing Category</label>
                             <select id="category" name="category" class="form-control">
                                 <option value="for_sale">For Sale</option>
                                 <option value="for_rent">For Rent</option>
                                 <option value="for_lease">For Lease</option>
                             </select>
-                        </div>
-                        <div class="mt-2">
+                        </div> -->
+                        <!-- <div class="mt-2">
                             <label for="sector">Market Sector</label>
                             <select id="sector" name="sector" class="form-control">
                                 <option value="residential">Residential</option>
@@ -44,35 +44,37 @@
                                 <option value="rural_residential">Rural Residential</option>
                                 <option value="rural_commercial">Rural Commercial</option>
                             </select>
-                        </div>
-                        <table>
+                        </div> -->
+                        <table class="w-100">
                             {{ property_form.as_table }}
                         </table>
+                        <input type="submit" class="btn btn-outline-reabook text-uppercase mt-2 float-right" value="Update Details">
                     </form>
                 </div>
-                <!-- {{ property_form.as_p }} -->
-                <!-- {{ property_form.as_ul }} -->
             </div>
-            
-            <!-- property details section  -->
-            <div class="col-12 col-md-6 col-lg-4 bg-warning">
-                <div class="property-details-container mb-5 mt-md-5">
+
+            <!-- Property Details Section -->
+            <div class="col-lg-4 pl-5">
+                <h5>Current View</h5><hr class="my-2">
+                <div class="property-details-container mb-3 mt-md-5">
                     <!-- Card top with image -->
-                    <div class="image-container my-5 text-center">
+                    <div class="image-container my-2 text-center">
                         {% if prop.main_image %}
+                            <p class="font-weight-light bg-reabook text-left pl-2 w-50" style="border-radius: 0 0 5px 0;" > {{ prop.ribbon_feature }}</p>
                             <a href="{{ prop.main_image.url }}" target="_blank">
                                 <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="{{ prop.main_image.url }}" alt="{{ property.name }}">
-                            </a>
+                            </a></a><br><small class="text-muted">main_image</small><br>
                         {% else %}
+                            <p class="font-weight-light bg-reabook text-left pl-2 w-50" style="border-radius: 0 0 5px 0;" > {{ prop.ribbon_feature }}</p>
                             <a href="">
                                 <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                            </a>
+                            </a></a><br><small class="text-muted">main_image</small><br>
                         {% endif %}
                     </div>
 
                     <!-- <div class="col-12 col-md-6 col-lg-4"> -->
-                    <div class="prop-details-container mb-5 mt-md-5">
-                        <h2 class="mb-0">{{ prop.name }}</h2>
+                    <div class="prop-details-container mb-3 mt-md-4">
+                        <h2 class="mt-0 mb-0">{{ prop.name }}</h2>
                         {% if prop.category.pk == 1 %}
                             <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
                                 <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
@@ -101,55 +103,159 @@
                     </div>
                     <!-- </div> -->
 
-                    {% if prop.main_image %}
-                    <a href="{{ prop.main_image.url }}" target="_blank">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.main_image.url }}" alt="main_image">
-                    </a>
-                    {% else %}
-                        <a href="">
-                            <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                        </a>
-                    {% endif %}
+                    <div class="centre">
+                        <!-- {% if prop.main_image %}
+                        <a href="{{ prop.main_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-50" src="{{ prop.main_image.url }}" alt="main_image">
+                        </a><br><small class="text-muted">main_image</small><br>
+                        {% else %}
+                            <a href="">
+                                <img class="img-fluid rounded img-thumbnail w-50" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                            </a><br><small class="text-muted">main_image</small><br>
+                        {% endif %} -->
+                        {% if prop.living_image %}
+                            <a href="{{ prop.living_image.url }}" target="_blank">
+                                <img class="img-fluid rounded img-thumbnail w-50" src="{{ prop.living_image.url }}" alt="living_image">
+                            </a><br><small class="text-muted">living_image</small><br>
+                        {% else %}
+                            <a href="#">
+                                <img class="img-fluid rounded img-thumbnail w-50" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                            </a><br><small class="text-muted">living_image</small><br>
+                        {% endif %}
+                    </div>
 
-                    {% if prop.bath_image %}
-                    <a href="{{ prop.bath_image.url }}" target="_blank">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.bath_image.url }}" alt="main_image">
-                    </a>
-                    {% else %}
-                        <a href="">
-                            <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                        </a>
-                    {% endif %}
+                    <table class="w-100">
+                        <tr>
+                            <td class="w-25">
+                                {% if prop.kitchen_image %}
+                                    <a href="{{ prop.kitchen_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.kitchen_image.url }}" alt="kitchen_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.bedroom_image %}
+                                    <a href="{{ prop.bedroom_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bedroom_image.url }}" alt="bedroom_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.bath_image %}
+                                    <a href="{{ prop.bath_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bath_image.url }}" alt="bath_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.main_image %}
+                                    <a href="{{ prop.main_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.main_image.url }}" alt="main_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">
+                                <small class="text-muted"> kitchen_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> bedroom_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> bath_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> main_image</small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
-                    {% if prop.kitchen_image %}
-                    <a href="{{ prop.kitchen_image.url }}" target="_blank">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.kitchen_image.url }}" alt="main_image">
-                    </a>
-                    {% else %}
-                        <a href="">
-                            <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                        </a>
-                    {% endif %}
-
-                    {% if prop.bedroom_image %}
-                    <a href="{{ prop.bedroom_image.url }}" target="_blank">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.bedroom_image.url }}" alt="main_image">
-                    </a>
-                    {% else %}
-                        <a href="">
-                            <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                        </a>
-                    {% endif %}
-
-                    {% if prop.living_image %}
-                    <a href="{{ prop.living_image.url }}" target="_blank">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.living_image.url }}" alt="main_image">
-                    </a>
-                    {% else %}
-                        <a href="">
-                            <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                        </a>
-                    {% endif %}
+                <!-- Hidden DB Fields -->
+                <div class="mt-4">
+                    <h5>Further Database Fields (not shown):</h5><hr class="my-2">
+                    <table>
+                        <tr>
+                            <td><strong>Address: &nbsp;</strong></td>
+                            <td>Unit No: {{ prop.unit_no }} / Floor: {{ prop.level }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.house_no }} {{ prop.street }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.suburb }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.city }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.state }} {{ prop.postcode }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.country }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Land Area: &nbsp;</strong></td>
+                            <td>{{ prop.land_area }} sqm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Building Area: &nbsp;</strong></td>
+                            <td>{{ prop.building_area }} sqm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Built Date: &nbsp;</strong></td>
+                            <td>{{ prop.build_date }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date Listed: &nbsp;</strong></td>
+                            <td>{{ prop.list_date }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Duration: &nbsp;</strong></td>
+                            <td>{{ prop.list_duration }} days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Owner Name: &nbsp;</strong></td>
+                            <td>{{ prop.owner_fname }} {{ prop.owner_lname }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estate Agent: &nbsp;</strong></td>
+                            <td>{{ prop.realtor }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Viewings Active: &nbsp;</strong></td>
+                            <td>{{ prop.viewings }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Property Available: &nbsp;</strong></td>
+                            <td>{{ prop.available }} </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

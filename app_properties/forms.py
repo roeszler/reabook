@@ -52,12 +52,12 @@ class PropertyForm(forms.ModelForm):
         # )
 
         widgets = {
-            'category': forms.Select(attrs={'class':'form-control col-lg-12', }),
+            'category': forms.Select(attrs={'class':'form-control col-12', }),
             'sector': forms.Select(attrs={'class':'form-control col-lg-12', }),
             # 'title_no': forms.CharField(attrs={'class':'form-control col-lg-12', }),
             'title_no': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
-            'name': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
             'ribbon_feature': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
+            'name': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
             'description': forms.Textarea(attrs={'class':'form-control col-lg-12', }),
             'sale_price': forms.NumberInput(attrs={'class':'form-control col-lg-12', }),
             'rent_pw': forms.NumberInput(attrs={'class':'form-control col-lg-12', }),
@@ -89,8 +89,8 @@ class PropertyForm(forms.ModelForm):
             'list_duration': forms.NumberInput(attrs={'class':'form-control col-lg-12', }),
             'owner_fname': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
             'owner_lname': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
-            # 'viewings': forms.CheckboxInput(attrs={'class':'form-control col-lg-12', }),
             'realtor': forms.TextInput(attrs={'class':'form-control col-lg-12', }),
+            # 'viewings': forms.CheckboxInput(attrs={'class':'form-control col-lg-12', }),
         #     'client_password': forms.TextInput(attrs={'class':'form-control col-lg-5', 'placeholder':'can't be blank', }),
         }
 
