@@ -26,29 +26,32 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2 bg-success">
                 <h5>Edit Property Details Here</h5><hr class="my-2">
-                <form action="" method="POST">
-                    <div>
-                        <label for="category">Listing Category</label>
-                        <select id="category" name="category" class="form-control">
-                            <option value="for_sale">For Sale</option>
-                            <option value="for_rent">For Rent</option>
-                            <option value="for_lease">For Lease</option>
-                        </select>
-                    </div>
-                    <div class="mt-2">
-                        <label for="sector">Market Sector</label>
-                        <select id="sector" name="sector" class="form-control">
-                            <option value="residential">Residential</option>
-                            <option value="commercial">Commercial</option>
-                            <option value="rural_residential">Rural Residential</option>
-                            <option value="rural_commercial">Rural Commercial</option>
-                        </select>
-                    </div>
-                    
-                    
-                    
-                </form>
-                {{ property_form.as_p }}
+                <div class="form-group">
+                    <form action="" method="POST">
+                        <div>
+                            <label for="category">Listing Category</label>
+                            <select id="category" name="category" class="form-control">
+                                <option value="for_sale">For Sale</option>
+                                <option value="for_rent">For Rent</option>
+                                <option value="for_lease">For Lease</option>
+                            </select>
+                        </div>
+                        <div class="mt-2">
+                            <label for="sector">Market Sector</label>
+                            <select id="sector" name="sector" class="form-control">
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="rural_residential">Rural Residential</option>
+                                <option value="rural_commercial">Rural Commercial</option>
+                            </select>
+                        </div>
+                        <table>
+                            {{ property_form.as_table }}
+                        </table>
+                    </form>
+                </div>
+                <!-- {{ property_form.as_p }} -->
+                <!-- {{ property_form.as_ul }} -->
             </div>
             
             <!-- property details section  -->

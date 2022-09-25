@@ -57,7 +57,6 @@ class Property(models.Model):
     kitchen_image = models.ImageField(null=True, blank=True)
     bedroom_image = models.ImageField(null=True, blank=True)
     living_image = models.ImageField(null=True, blank=True)
-    main_image = models.ImageField(null=True, blank=True)
     bedrooms = models.IntegerField(null=False, blank=False)
     bathrooms = models.IntegerField(null=False, blank=False)
     carports = models.IntegerField(null=False, blank=False)
@@ -79,8 +78,8 @@ class Property(models.Model):
     date_available = models.DateField(null=True, blank=True)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
-    viewings = models.BooleanField(default=True)
     realtor = models.CharField(max_length=256, null=True, blank=True, default='ReaBook.net')
+    viewings = models.BooleanField(default=True)
     # selected = models.BooleanField(default=False)
 
     class Meta:
