@@ -95,12 +95,12 @@ def edit_property(request, property_id):
     return render(request, 'properties/edit-properties.html', context)
 
 
-def add_property(request):
+def add_property(request, realtor_id):
     """ A view to allow staff to add individual property details """
-    properties = Property.objects.all()
+    prop = Property.objects.get(pk=realtor_id)
 
     context = {
-        'properties': properties,
+        'prop': prop,
     }
 
     return render(request, 'properties/add-properties.html', context)
