@@ -1,5 +1,6 @@
 """ Import Modules """
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -36,6 +37,7 @@ class Sector(models.Model):
 
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
+    realtor = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     title_no = models.CharField(max_length=254, default='LT0000', unique=True)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     name = models.CharField(max_length=30)
@@ -79,7 +81,7 @@ class Property(models.Model):
     list_duration = models.IntegerField(null=False, blank=False, default=30)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
-    realtor = models.CharField(max_length=256, null=True, blank=True, default='ReaBook.net')
+    # realtor = models.CharField(max_length=256, null=True, blank=True, default='ReaBook.net')
     viewings = models.BooleanField(default=False)
     available = models.BooleanField(default=False)
 

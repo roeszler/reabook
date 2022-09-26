@@ -14,11 +14,27 @@
             <hr class="w-50 mb-2">
         </div>
     </div>
+    <!-- <section class="border"> -->
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2 py-2 w-100 border bg-light" style="border-radius: 25px;">
+            {% if user.is_authenticated %}
+                {% if user == prop.realtor or user.is_superuser %}
+                <div class="text-center">
+                    <p>
+                        Logged in User : {{ user }}
+                        <br>
+                        Managing Agent : {{ prop.realtor }}
+                    </p>
+                    
+                    <input type="submit" class="btn btn-info text-uppercase float Left" value="Edit Viewing">
+                    <input type="submit" class="btn btn-info text-uppercase float Left" value="Add Viewing">
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    <!-- </section> -->
     <!-- Property Container -->
-    
-    <!-- property heading  -->
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2 bg-success">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             
             <!-- Card top with image -->
             <div class="image-container my-5 text-center">
@@ -35,10 +51,9 @@
         </div>
         
         <!-- property details section  -->
-        <div class="col-12 col-md-6 col-lg-4 bg-warning">
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="property-details-container mb-5 mt-md-5">
 
-                <!-- <div class="col-12 col-md-6 col-lg-4"> -->
                     <div class="prop-details-container mb-5 mt-md-5">
                         <h2 class="mb-0">{{ prop.name }}</h2>
                         {% if prop.category.pk == 1 %}
@@ -67,62 +82,10 @@
                         {% endif %}
                         <p class="mt-3">{{ prop.description }}</p>
                     </div>
-                <!-- </div> -->
 
-                {% if prop.main_image %}
-                <a href="{{ prop.main_image.url }}" target="_blank">
-                    <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.main_image.url }}" alt="main_image">
-                </a>
-                {% else %}
-                    <a href="">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                    </a>
-                {% endif %}
-
-                {% if prop.bath_image %}
-                <a href="{{ prop.bath_image.url }}" target="_blank">
-                    <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.bath_image.url }}" alt="main_image">
-                </a>
-                {% else %}
-                    <a href="">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                    </a>
-                {% endif %}
-
-                {% if prop.kitchen_image %}
-                <a href="{{ prop.kitchen_image.url }}" target="_blank">
-                    <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.kitchen_image.url }}" alt="main_image">
-                </a>
-                {% else %}
-                    <a href="">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                    </a>
-                {% endif %}
-
-                {% if prop.bedroom_image %}
-                <a href="{{ prop.bedroom_image.url }}" target="_blank">
-                    <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.bedroom_image.url }}" alt="main_image">
-                </a>
-                {% else %}
-                    <a href="">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                    </a>
-                {% endif %}
-
-                {% if prop.living_image %}
-                <a href="{{ prop.living_image.url }}" target="_blank">
-                    <img class="img-fluid rounded img-thumbnail w-25" src="{{ prop.living_image.url }}" alt="main_image">
-                </a>
-                {% else %}
-                    <a href="">
-                        <img class="img-fluid rounded img-thumbnail w-25" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
-                    </a>
-                {% endif %}
-
+                <!-- Buttons -->
                 <form class="form" action="{% url 'booking_detail' prop.id %}" method="GET">
-                    <!-- {% csrf_token %} -->
                     <div class="form-row">
-
                         <div class="col-12">
                             <a href="{% url 'properties' %}" class="btn btn-outline mt-5">
                                 <span class="icon">
@@ -130,19 +93,80 @@
                                 </span>
                                 <span class="text-uppercase">Keep Searching</span>
                             </a>
-                            
                             {% if prop.viewings %}
                             <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Contact Agent">
                             <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Book Viewing">
                             {% else %}
                             <input type="submit" class="btn btn-outline-reabook text-uppercase mt-5" value="Contact Agent">
                             {% endif %}
-
+                            </div>
                         </div>
-                        <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
                     </div>
                 </form>
             </div>
+        </div>
+        <!-- Images Section -->
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2 w-100"><table class="w-100">
+            <hr class="my-2">
+        <table>
+            <tr>
+                <td class="w-20">
+                    {% if prop.living_image %}
+                        <a href="{{ prop.living_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.living_image.url }}" alt="living_image">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        </a>
+                    {% endif %}
+                </td>
+                <td class="w-20">
+                    {% if prop.kitchen_image %}
+                        <a href="{{ prop.kitchen_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.kitchen_image.url }}" alt="kitchen_image">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        </a>
+                    {% endif %}
+                </td>
+                <td class="w-20">
+                    {% if prop.bedroom_image %}
+                        <a href="{{ prop.bedroom_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bedroom_image.url }}" alt="bedroom_image">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        </a>
+                    {% endif %}
+                </td>
+                <td class="w-20">
+                    {% if prop.bath_image %}
+                        <a href="{{ prop.bath_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bath_image.url }}" alt="bath_image">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        </a>
+                    {% endif %}
+                </td>
+                <td class="w-20">
+                    {% if prop.main_image %}
+                        <a href="{{ prop.main_image.url }}" target="_blank">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.main_image.url }}" alt="main_image">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
         </div>
     </div>
 
