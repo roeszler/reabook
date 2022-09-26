@@ -57,8 +57,7 @@ def all_properties(request):
                     )
                 return redirect(reverse('properties'))
 
-            # Using Q to generate a non-sensitive search query
-            # by name OR description
+            # Using Q to generate a non-sensitive search query by name OR description
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
             properties = properties.filter(queries)
 
@@ -96,7 +95,12 @@ def edit_property(request, property_id):
     return render(request, 'properties/edit-properties.html', context)
 
 
-# def add_property(request):
-    # """ A view to allow staff to edit individual property details """
+def add_property(request):
+    """ A view to allow staff to add individual property details """
+    properties = Property.objects.all()
 
-    # return render(request, 'properties/add-properties.html', context)
+    context = {
+        'properties': properties,
+    }
+
+    return render(request, 'properties/add-properties.html', context)

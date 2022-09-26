@@ -15,18 +15,24 @@
         </div>
     </div>
     <!-- <section class="border"> -->
+        {% if user.is_authenticated %}
+            {% if user == prop.realtor or user.is_superuser %}
         <div class="col-12 col-md-6 col-lg-8 offset-lg-2 py-2 w-100 border bg-light" style="border-radius: 25px;">
-            {% if user.is_authenticated %}
-                {% if user == prop.realtor or user.is_superuser %}
                 <div class="text-center">
                     <p>
                         Logged in User : {{ user }}
                         <br>
                         Managing Agent : {{ prop.realtor }}
                     </p>
-                    
-                    <input type="submit" class="btn btn-info text-uppercase float Left" value="Edit Viewing">
-                    <input type="submit" class="btn btn-info text-uppercase float Left" value="Add Viewing">
+                    <a href="{% url 'edit-property' prop.id %}">
+                        <input type="submit" class="btn btn-info text-uppercase float Left" value="Edit Viewing">
+                    </a>
+                    <a href="{% url 'add-property' %}">
+                        <input type="submit" class="btn btn-info text-uppercase float Left" value="Add Viewing">
+                    </a>
+                    <a href="#">
+                        <input type="submit" class="btn btn-info text-uppercase float Left" value="Manage Properties">
+                    </a>
                 </div>
                 {% endif %}
             {% endif %}

@@ -30,7 +30,7 @@ def add_to_diary(request, property_id):
     if property_id in list(diary.keys()):
         messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}')
     else:
-        messages.success(request, f'Added {prop.name} to your shopping diary')
+        messages.success(request, f'Added {prop.name} to your appointments diary')
     
     # update the diary variable into the session [ a python dictionary ].
     request.session['diary'] = diary
@@ -209,21 +209,6 @@ def update_booking(request, booking_id):
         'booking': booking,
         }
     return render(request, 'book/update-booking.html', context)
-
-
-# def view_booking_select_time(request):
-#     """
-#     View to render the bookings select available time page
-#     """
-#     properties = Property.objects.all() # noqa
-#     props_with_viewings = properties.filter(viewings=True)
-
-#     context = {
-#         'properties': properties,
-#         'props_with_viewings': props_with_viewings,
-#     }
-
-#     return render(request, 'book/booking-detail.html', context)
 
 
 def test(request, property_id):
