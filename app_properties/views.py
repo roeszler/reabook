@@ -2,6 +2,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.models import User
 
 from .models import Property, Category, Sector
 from .forms import PropertyForm
@@ -86,7 +87,16 @@ def property_detail(request, property_id):
 def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
     prop = Property.objects.get(pk=property_id)
-    property_form = PropertyForm(request.POST or None, instance=prop)
+    property_form = PropertyForm(instance=prop)
+    # property_form = PropertyForm()
+
+    if request.method == 'POST':
+        property_form = PropertyForm(request.POST, request.FILES, instance=prop)
+        if property_form.is_valid():
+            prop_f = property_form.save(False)
+            prop_f.user = request.user
+            prop_f.save()
+            print('Edit to property information has been saved')
 
     context = {
         'prop': prop,
@@ -96,11 +106,22 @@ def edit_property(request, property_id):
 
 
 def add_property(request, realtor_id):
-    """ A view to allow staff to add individual property details """
-    prop = Property.objects.get(pk=realtor_id)
+    """ A view to allow staff to add a new property """
+    prop = User.objects.get(id=realtor_id)
+    property_form = PropertyForm(instance=prop)
+
+    if request.method == 'POST':
+        # property_form = PropertyForm(request.POST)
+        property_form = PropertyForm(request.POST, request.FILES)
+        if property_form.is_valid():
+            prop_f = property_form.save(False)
+            prop_f.user = request.user
+            prop_f.save()
+            print('New Property information has been saved')
 
     context = {
         'prop': prop,
+        'property_form': property_form,
     }
 
     return render(request, 'properties/add-properties.html', context)

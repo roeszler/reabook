@@ -23,6 +23,14 @@ $(document).ready(function(){
         $(this).addClass('selected');
     });
 
+    // Go back one page function
+    $(document).ready(function(){
+        $('.btn-back').click(function(){
+            parent.history.back();
+            return false;
+        });
+    });
+
     // // Make table rows hyperlinks
     // $('.row-hlink').on('click', function (e) {
     //     e.preventDefault()

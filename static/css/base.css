@@ -64,6 +64,15 @@ ul {
     color: #016ADA;
 }
 
+/* Images */
+
+.table-thumbnail {
+    display: block;
+    width: auto;
+    max-height: 180px;
+    margin: 0 1rem;
+}
+
 /* Format index.html page heading */
 
 .masthead {

@@ -1,12 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Add Prop
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<!-- Heading -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-4">
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Adding a Property Listing</h2>
+            <hr class="w-50 mb-2">
+            <h4 class="font-weight-light mt-4">As user {{ user.id }}<span class="reabook-logo"> | </span> <span class="text-muted">{{ user.first_name }} {{ user.last_name }}</span></h4>
+        </div>
+    </div>
+
+    <!-- Property Container -->
+    
+    <!-- property heading  -->
+    <section class="border m-3 px-4 py-5" style="border-radius: 25px;">
+        <div class="row">
+            <!-- Form Section -->
+            <div class="col-12 col-md-12 col-lg-6 offset-lg-1 border-right">
+                <h5>Add Property</h5><hr class="my-2">
+                <div class="form-group">
+
+                    <form action="{% url 'add-property' user.id %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table class="w-100">
+                            {{ property_form.as_table }}
+                        </table>
+                        <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Add Property">
+                    </form>
+
+                    <a href="{% url 'property-detail' prop.id %}" class="btn btn-outline-reabook float-right mt-2 mr-1">
+                        <span class="text-uppercase btn-back">View Listing</span>
+                    </a>
+                    <a href="{% url 'properties' %}" class="btn btn-outline float-right mt-2">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase btn-back">Previous Page</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Details Section -->
+            <div class="col-lg-4 pl-5">
+                <h5>Current View</h5><hr class="my-2">
+                <div class="property-details-container mb-3 mt-md-5">
+                    <!-- Card top with image -->
+                    <div class="image-container my-2 text-center">
+                        {% if prop.main_image %}
+                            <p class="font-weight-light bg-reabook text-left pl-2 w-50" style="border-radius: 0 0 5px 0;" > {{ prop.ribbon_feature }}</p>
+                            <a href="{{ prop.main_image.url }}" target="_blank">
+                                <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="{{ prop.main_image.url }}" alt="{{ property.name }}">
+                            </a></a><br><small class="text-muted">main_image</small><br>
+                        {% else %}
+                            <p class="font-weight-light bg-reabook text-left pl-2 w-50" style="border-radius: 0 0 5px 0;" > {{ prop.ribbon_feature }}</p>
+                            <a href="">
+                                <img class="card-img-top img-fluid rounded img-thumbnail w-75" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                            </a></a><br><small class="text-muted">main_image</small><br>
+                        {% endif %}
+                    </div>
+
+                    <div class="prop-details-container mb-3 mt-md-4">
+                        <h2 class="mt-0 mb-0">{{ prop.name }}</h2>
+                        {% if prop.category.pk == 1 %}
+                            <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Property for Sale.
+                                <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>{{ prop.sale_price|intcomma }}</strong>
+                                <br><small>Listed: {{ prop.list_date }}</small>
+                                {% include 'includes/property-icons.html' %}
+                            </p>
+                        {% elif prop.category.pk == 2 %}
+                            <p class="fw-lighter fs-6"><i class="fas fa-tasks reabook-logo"></i> Property for Rent:
+                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
+                                <br><small>Available: {{ prop.date_available }}</small>
+                                {% include 'includes/property-icons.html' %}
+                            </p>
+                        {% else %}
+                            <p class="fw-lighter fs-6"><i class="fa-solid fa-scroll reabook-logo"></i> Space for Lease:
+                                <br><i class="fas fa-hand-holding-usd reabook-logo"></i> $<strong>{{ prop.rent_pw|intcomma }}</strong> /wk
+                                <br><small>Available: {{ prop.date_available }}</small>
+                                {% include 'includes/property-icons.html' %}
+                            </p>
+                        {% endif %}
+                        {% if prop.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1 reabook-logo"></i>{{ prop.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        <p class="mt-3">{{ prop.description }}</p>
+                    </div>
+
+                    <!-- Image Section -->
+                    <div class="centre">
+                        {% if prop.living_image %}
+                            <a href="{{ prop.living_image.url }}" target="_blank">
+                                <img class="img-fluid rounded img-thumbnail w-50" src="{{ prop.living_image.url }}" alt="living_image">
+                            </a><br><small class="text-muted">living_image</small><br>
+                        {% else %}
+                            <a href="#">
+                                <img class="img-fluid rounded img-thumbnail w-50" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                            </a><br><small class="text-muted">living_image</small><br>
+                        {% endif %}
+                    </div>
+
+                    <table class="w-100">
+                        <tr>
+                            <td class="w-25">
+                                {% if prop.kitchen_image %}
+                                    <a href="{{ prop.kitchen_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.kitchen_image.url }}" alt="kitchen_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.bedroom_image %}
+                                    <a href="{{ prop.bedroom_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bedroom_image.url }}" alt="bedroom_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.bath_image %}
+                                    <a href="{{ prop.bath_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.bath_image.url }}" alt="bath_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="w-25">
+                                {% if prop.main_image %}
+                                    <a href="{{ prop.main_image.url }}" target="_blank">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="{{ prop.main_image.url }}" alt="main_image">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="img-fluid rounded img-thumbnail w-100" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/noimage_448px_axbj9j.png" alt="{{ property.name }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">
+                                <small class="text-muted"> kitchen_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> bedroom_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> bath_image</small>
+                            </td>
+                            <td class="w-25">
+                                <small class="text-muted"> main_image</small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Hidden DB Fields -->
+                <div class="mt-4">
+                    <h5>Further Database Fields (not shown):</h5><hr class="my-2">
+                    <table>
+                        <tr>
+                            <td><strong>Address: &nbsp;</strong></td>
+                            <td>Unit No: {{ prop.unit_no }} / Floor: {{ prop.level }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.house_no }} {{ prop.street }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.suburb }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.city }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.state }} {{ prop.postcode }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                            <td>{{ prop.country }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>&nbsp;</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Land Area: &nbsp;</strong></td>
+                            <td>{{ prop.land_area }} sqm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Building Area: &nbsp;</strong></td>
+                            <td>{{ prop.building_area }} sqm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Built Date: &nbsp;</strong></td>
+                            <td>{{ prop.build_date }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date Listed: &nbsp;</strong></td>
+                            <td>{{ prop.list_date }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Duration: &nbsp;</strong></td>
+                            <td>{{ prop.list_duration }} days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Owner Name: &nbsp;</strong></td>
+                            <td>{{ prop.owner_fname }} {{ prop.owner_lname }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estate Agent: &nbsp;</strong></td>
+                            <td>{{ prop.realtor }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Viewings Active: &nbsp;</strong></td>
+                            <td>{{ prop.viewings }} </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Property Available: &nbsp;</strong></td>
+                            <td>{{ prop.available }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% else %}
+    {% include 'includes/account-owner-required.html' %}
+{% endif %}
+{% endblock %}

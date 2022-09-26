@@ -4,14 +4,14 @@ import uuid
 from datetime import date, datetime
 from django.db import models
 from django.utils import timezone
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 
 class Booking(models.Model):
     """ An individual record of the appointment to be used in the diary  """
     booking_number = models.CharField(max_length=8, null=False, editable=False)
     # client = models.ForeignKey('app_bookings.Client', null=True, on_delete=models.SET_NULL)
-    # user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=True)
     property_id = models.ForeignKey('app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL)
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='15 min Viewing')
     date_of_viewing = models.DateField(default=date.today)

@@ -26,30 +26,24 @@
             <div class="col-12 col-md-12 col-lg-6 offset-lg-1 border-right">
                 <h5>Edit Property Details</h5><hr class="my-2">
                 <div class="form-group">
-                    <form action="" method="POST">
+                    
+                    <form action="{% url 'edit-property' prop.id %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <!-- <div>
-                            <label for="category">Listing Category</label>
-                            <select id="category" name="category" class="form-control">
-                                <option value="for_sale">For Sale</option>
-                                <option value="for_rent">For Rent</option>
-                                <option value="for_lease">For Lease</option>
-                            </select>
-                        </div> -->
-                        <!-- <div class="mt-2">
-                            <label for="sector">Market Sector</label>
-                            <select id="sector" name="sector" class="form-control">
-                                <option value="residential">Residential</option>
-                                <option value="commercial">Commercial</option>
-                                <option value="rural_residential">Rural Residential</option>
-                                <option value="rural_commercial">Rural Commercial</option>
-                            </select>
-                        </div> -->
                         <table class="w-100">
                             {{ property_form.as_table }}
                         </table>
-                        <input type="submit" class="btn btn-outline-reabook text-uppercase mt-2 float-right" value="Update Details">
+                        <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Update Details">
                     </form>
+
+                    <a href="{% url 'property-detail' prop.id %}" class="btn btn-outline-reabook float-right mt-2 mr-1">
+                        <span class="text-uppercase btn-back">View Listing</span>
+                    </a>
+                    <a href="{% url 'properties' %}" class="btn btn-outline float-right mt-2">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase btn-back">Previous Page</span>
+                    </a>
                 </div>
             </div>
 

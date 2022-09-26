@@ -15,6 +15,7 @@ class Category(models.Model):
     def __str__(self):
         """ Takes in the category model to return db name """
         return self.name
+        # return f"{self.id}"
 
     def get_friendly_name(self):
         """ Takes in the category model to return friendly_name """
@@ -29,6 +30,7 @@ class Sector(models.Model):
     def __str__(self):
         """ Takes in the sector model to return db name """
         return self.name
+        # return f"{self.id}"
 
     def get_friendly_name(self):
         """ Takes in the sector model to return friendly_name """
@@ -37,8 +39,8 @@ class Sector(models.Model):
 
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
-    realtor = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    title_no = models.CharField(max_length=254, default='LT0000', unique=True)
+    realtor = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=False, default=User)
+    title_no = models.CharField(max_length=254)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     name = models.CharField(max_length=30)
     category = models.ForeignKey(
@@ -47,9 +49,9 @@ class Property(models.Model):
     sector = models.ForeignKey(
         'Sector', null=True, blank=True, on_delete=models.SET_NULL
         )
-    sale_price = models.IntegerField(null=False, blank=False, default=1000000)
-    rent_pw = models.IntegerField(null=False, blank=False, default=100000)
-    date_available = models.DateField(null=True, blank=True)
+    sale_price = models.IntegerField(null=False, blank=True, default=0)
+    rent_pw = models.IntegerField(null=False, blank=True, default=0)
+    date_available = models.DateField(null=True, blank=True, auto_now_add=True)
     bedrooms = models.IntegerField(null=False, blank=False)
     bathrooms = models.IntegerField(null=False, blank=False)
     carports = models.IntegerField(null=False, blank=False)
@@ -68,8 +70,8 @@ class Property(models.Model):
     unit_no = models.IntegerField(null=True, blank=True)
     level = models.IntegerField(null=True, blank=True)
     house_no = models.IntegerField(null=True, blank=False, default="No.")
-    street = models.CharField(max_length=40, null=True, blank=False, default='Street')
-    suburb = models.CharField(max_length=40)
+    street = models.CharField(max_length=70, default='')
+    suburb = models.CharField(max_length=70, default='')
     city = models.CharField(max_length=40)
     state = models.CharField(max_length=40, null=True, blank=True)
     postcode = models.CharField(max_length=10)
@@ -81,7 +83,6 @@ class Property(models.Model):
     list_duration = models.IntegerField(null=False, blank=False, default=30)
     owner_fname = models.CharField(max_length=254, null=True, blank=False)
     owner_lname = models.CharField(max_length=254, null=True, blank=False)
-    # realtor = models.CharField(max_length=256, null=True, blank=True, default='ReaBook.net')
     viewings = models.BooleanField(default=False)
     available = models.BooleanField(default=False)
 
