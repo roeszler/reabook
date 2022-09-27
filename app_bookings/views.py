@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
+# from django.http import HttpResponseRedirect
 # from django.contrib.auth.models import User
 
 from app_properties.models import Property
@@ -44,14 +44,13 @@ def add_to_diary(request, property_id):
 
 def booking_detail(request, property_id):
     """ A view to show individual property booking details """
-    properties = Property.objects.all() # noqa
     bookings = Booking.objects.all() # noqa
-    prop = get_object_or_404(Property, pk=property_id)
     props_with_booking_slots = bookings.filter(viewing_active=True)
+    prop = get_object_or_404(Property, pk=property_id)
+    booking_form = BookingForm(instance=prop)
 
     context = {
-        'properties': properties,
-        'bookings': bookings,
+        'booking_form': booking_form,
         'prop': prop,
         'props_with_booking_slots': props_with_booking_slots,
     }
@@ -62,13 +61,12 @@ def booking_detail(request, property_id):
 def booking_success(request, property_id):
     """ View to render a successful booking on prop-booking-detail.html """
     prop = Property.objects.get(pk=property_id)
+    booking_form = BookingForm(instance=prop)
     # booking = Booking.objects.get(pk=booking_id)
     # user = User.objects.all()
     
     if request.method == 'POST':
-        # client = request.POST.get('client', 'c_id_error!!')
-        # user = f'{user.id}'
-        # booking_id = f'{booking.id}'
+        booking_form = BookingForm(request.POST)
         property_id = f'{prop.id}'
         date_of_viewing = request.POST['date']
         time_of_viewing = request.POST.get('time', 'n/p')
@@ -107,9 +105,6 @@ def booking_success(request, property_id):
             
         booking_ins.save()
         print('Booking information has been saved')
-        # booking_ref = Booking.get('id')
-        # booking_ref = get_object_or_404(Booking, pk=booking_id)
-        # booking_ref = Booking.objects.all()
 
         # Send an email
         send_mail(
@@ -119,7 +114,8 @@ def booking_success(request, property_id):
             ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
         )
 
-        booking = {
+        context = {
+            'booking_form': booking_form,
             'property_id': property_id,
             'date_of_viewing': date_of_viewing,
             'time_of_viewing': time_of_viewing,
@@ -136,12 +132,7 @@ def booking_success(request, property_id):
             'prop': prop,
             # 'booking_ref': booking_ref,
         }
-
-        # print(form_data)
-        # print(request)
-        # print(prop_id.content)
-        return render(request, 'book/booking-success.html', booking)
-        # return render(request, 'book/test.html', booking)
+        return render(request, 'book/booking-success.html', context)
     else:
         return render(request, 'book/booking-success.html')
 
@@ -151,16 +142,10 @@ def choose_bookings(request):
     properties = Property.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
 
-    # props_selected_to_view = properties.filter(selected=True)
-    # print('props_with_viewings', props_with_viewings)
-    # print('props_selected_to_view', props_selected_to_view)
-    # print('properties', properties)
-
     query = None
 
     # Available viewings search function
     if request.GET:
-
         # Sub-query for properties available for viewing
         if 'q' in request.GET:
             query = request.GET['q']

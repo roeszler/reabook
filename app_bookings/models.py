@@ -1,5 +1,5 @@
 """ Import Modules """
-import uuid
+import uuid, pytz
 
 from datetime import date, datetime
 from django.db import models
@@ -24,11 +24,11 @@ class Booking(models.Model):
     l_name = models.CharField(max_length=40)
     client_username = models.CharField(max_length=40, default='Create Username')
     client_email = models.EmailField(max_length=254)
-    client_phone = models.IntegerField(null=True, blank=True, default=123456789)
+    client_phone = models.IntegerField(null=True, blank=True, default='')
     client_city = models.CharField(max_length=140, null=True, blank=True)
     client_state = models.CharField(max_length=10, null=True, blank=True)
-    client_zip = models.CharField(max_length=10, default='123 45')
-    client_country = models.CharField(max_length=140, null=True, blank=True)
+    client_zip = models.CharField(max_length=10, default='')
+    client_country = models.CharField(max_length=2, choices=pytz.country_names.items(), null=True, blank=True)
     contact_ok = models.BooleanField(default=False)
 
     class Meta:

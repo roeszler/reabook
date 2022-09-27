@@ -1,4 +1,5 @@
 """ Import Modules """
+import pytz
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -75,7 +76,7 @@ class Property(models.Model):
     city = models.CharField(max_length=40)
     state = models.CharField(max_length=40, null=True, blank=True)
     postcode = models.CharField(max_length=10)
-    country = models.CharField(max_length=40, null=True, blank=True)
+    country = models.CharField(max_length=2, choices=pytz.country_names.items(), null=True, blank=True)
     land_area = models.IntegerField(null=True, blank=True)
     building_area = models.IntegerField(null=True, blank=True)
     build_date = models.DateField(null=True, blank=True)

@@ -88,7 +88,6 @@ def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
     prop = Property.objects.get(pk=property_id)
     property_form = PropertyForm(instance=prop)
-    # property_form = PropertyForm()
 
     if request.method == 'POST':
         property_form = PropertyForm(request.POST, request.FILES, instance=prop)
@@ -111,7 +110,6 @@ def add_property(request, realtor_id):
     property_form = PropertyForm(instance=prop)
 
     if request.method == 'POST':
-        # property_form = PropertyForm(request.POST)
         property_form = PropertyForm(request.POST, request.FILES)
         if property_form.is_valid():
             prop_f = property_form.save(False)
