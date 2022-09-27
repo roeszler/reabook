@@ -55,13 +55,15 @@ def booking_detail(request, property_id):
         'props_with_booking_slots': props_with_booking_slots,
     }
 
-    return render(request, 'book/prop-booking-detail.html', context)
+    return render(request, 'book/prop-booking.html', context)
 
 
 def add_booking(request, property_id):
-    """ View to render a successful booking on prop-booking-detail.html """
+    """ View to render a successful booking on prop-booking.html """
     prop = Property.objects.get(pk=property_id)
     booking_form = BookingForm(instance=prop)
+    # booking = Booking.objects.get(property_id=prop)
+    # latest_booking = booking.get_latest_by('date_submitted')
 
     if request.method == 'POST':
         booking_form = BookingForm(request.POST)
@@ -69,23 +71,30 @@ def add_booking(request, property_id):
             booking_f = booking_form.save(commit=False)
             booking_f.user = request.user
             booking_f.property_id = prop
-
-            booking_f.save()
+            # booking_f.save()
+            # obj = booking_f.save()
+            # print(obj.id)
+            # print(f'{obj.id}')
             print('Booking information has been saved')
             print(property_id)
             print(booking_form.errors)
+
+        context = {
+            'prop': prop,
+            # 'booking': booking,
+            # 'latest_booking': latest_booking,
+            'booking_form': booking_form,
+        }
+        return render(request, 'book/booking-success.html', context)
     
-    print(booking_form.errors)
-    context = {
-        'prop': prop,
-        'booking_form': booking_form,
-    }
-    
-    return render(request, 'book/booking-success.html', context)
+    # else:
+    #     return render(request, 'book/prop-booking.html', context)
+        # messages
+
 
 
 # def old_booking_success(request, property_id):
-#     """ View to render a successful booking on prop-booking-detail.html """
+#     """ View to render a successful booking on prop-booking.html """
 #     prop = Property.objects.get(pk=property_id)
 #     booking_form = BookingForm(instance=prop)
 #     # booking = Booking.objects.get(pk=booking_id)

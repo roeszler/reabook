@@ -21,19 +21,19 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
             {{ booking_form.errors }}
-            <strong>Booking Ref:</strong> {{ booking.id }} {{ booking.id }}/{{ booking }}
+            <strong>Booking Ref:</strong> {{ booking.id }}/{{ booking }}
             <br><strong>Property Id :</strong> {{ prop.id }}
             <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}
-            <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
-            <br><strong>Your Name:</strong> {{ f_name }} {{ l_name }}
-            <br><strong>Email:</strong> {{ client_email }}, 
-            <br><strong>Phone:</strong> +{{ client_country }} {{ client_phone }}
-            <br><strong>Your City:</strong> {{ client_city }}, {{ client_state }} {{ client_zip }}
+            <br><strong>Date Requested:</strong> {{ booking.date_of_viewing }} <strong>at</strong> {{ booking.time_of_viewing }}</strong>
+            <br><strong>Your Name:</strong> {{ booking.f_name }} {{ booking.l_name }}
+            <br><strong>Email:</strong> {{ booking.client_email }}, 
+            <br><strong>Phone:</strong> +{{ booking.client_country }} {{ booking.client_phone }}
+            <br><strong>Your City:</strong> {{ booking.client_city }}, {{ booking.client_state }} {{ booking.client_zip }}
             <br><strong>Message:</strong><hr class="my-0">
-            <p>{{ client_message }}</p>
+            <p>{{ booking.client_message }}</p>
             <hr class="my-0">
                 <div class="text-muted">
-                    <small>Referral permissions: {{ contact_ok }}  |  Form submitted: {{ date_submitted }} </small>
+                    <small>Referral permissions: {{ booking.contact_ok }}  |  Form submitted: {{ booking.date_submitted }} </small>
                 </div>
             
         </div>
