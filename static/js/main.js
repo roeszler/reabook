@@ -52,10 +52,11 @@ function init_calendar(date) {
         
         else {
             // var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input type='radio' name='date' id='"+day+"' value='"+day+"/"+month+"/"+year+"'/></td>");
-            var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date' id='"+day+"' value='"+year+"-"+month+"-"+day+"'/></td>");
+            // var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date' id='"+day+"' value='"+year+"-"+month+"-"+day+"'/></td>");
+            var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date_of_viewing' id='"+day+"' value='"+year+"-"+month+"-"+day+"'/></td>");
             var events = check_events(day, month+1, year);
             if(today===day && $(".active-date").length===0) {
-                curr_date.addClass("active-date");
+                // curr_date.addClass("active-date");
                 show_events(events, months[month], day);
             }
             // If this date has any events, style it with .event-date

@@ -4,7 +4,7 @@
 {% block content %}
 {% include 'includes/bookings-base.html' %}
 <!-- <div class="col-md-6 col-sm-12 text-center"> -->
-    <h1>Thanks {{ f_name }}!</h1>
+    <h1>Thanks {{ user.first_name }}!</h1>
     <h5>This information has been received and emailed to the registered managing agent.</h5>
     <div class="row">
         <div class="col-lg-3"></div>
@@ -20,6 +20,7 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
+            {{ booking_form.errors }}
             <strong>Booking Ref:</strong> {{ booking.id }} {{ booking.id }}/{{ booking }}
             <br><strong>Property Id :</strong> {{ prop.id }}
             <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}

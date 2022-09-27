@@ -58,83 +58,108 @@ def booking_detail(request, property_id):
     return render(request, 'book/prop-booking-detail.html', context)
 
 
-def booking_success(request, property_id):
+def add_booking(request, property_id):
     """ View to render a successful booking on prop-booking-detail.html """
     prop = Property.objects.get(pk=property_id)
     booking_form = BookingForm(instance=prop)
-    # booking = Booking.objects.get(pk=booking_id)
-    # user = User.objects.all()
-    
+
     if request.method == 'POST':
         booking_form = BookingForm(request.POST)
-        property_id = f'{prop.id}'
-        date_of_viewing = request.POST['date']
-        time_of_viewing = request.POST.get('time', 'n/p')
-        f_name = request.POST['f_name']
-        l_name = request.POST['l_name']
-        client_email = request.POST['client_email']
-        client_country = request.POST.get('client_country', 'n/p')
-        client_phone = request.POST['client_phone']
-        client_city = request.POST['client_city']
-        client_zip = request.POST['client_zip']
-        client_message = request.POST['client_message']
-        date_submitted = datetime.now()
-        contact_ok = request.POST.get('contact_ok')
+        if booking_form.is_valid():
+            booking_f = booking_form.save(commit=False)
+            booking_f.user = request.user
+            booking_f.property_id = prop
+
+            booking_f.save()
+            print('Booking information has been saved')
+            print(property_id)
+            print(booking_form.errors)
+    
+    print(booking_form.errors)
+    context = {
+        'prop': prop,
+        'booking_form': booking_form,
+    }
+    
+    return render(request, 'book/booking-success.html', context)
+
+
+# def old_booking_success(request, property_id):
+#     """ View to render a successful booking on prop-booking-detail.html """
+#     prop = Property.objects.get(pk=property_id)
+#     booking_form = BookingForm(instance=prop)
+#     # booking = Booking.objects.get(pk=booking_id)
+#     # user = User.objects.all()
+    
+#     if request.method == 'POST':
+#         booking_form = BookingForm(request.POST)
+#         property_id = f'{prop.id}'
+#         date_of_viewing = request.POST['date']
+#         time_of_viewing = request.POST.get('time', 'n/p')
+#         f_name = request.POST['f_name']
+#         l_name = request.POST['l_name']
+#         client_email = request.POST['client_email']
+#         client_country = request.POST.get('client_country', 'n/p')
+#         client_phone = request.POST['client_phone']
+#         client_city = request.POST['client_city']
+#         client_zip = request.POST['client_zip']
+#         client_message = request.POST['client_message']
+#         date_submitted = datetime.now()
+#         contact_ok = request.POST.get('contact_ok')
         
-        # Turn HTML based "on" into a 'TRUE' or 'FALSE' as required by Django
-        if contact_ok == 'on':
-            contact_ok = True
-        else:
-            contact_ok = False
+#         # Turn HTML based "on" into a 'TRUE' or 'FALSE' as required by Django
+#         if contact_ok == 'on':
+#             contact_ok = True
+#         else:
+#             contact_ok = False
 
-        booking_ins = Booking(
-            property_id=prop,
-            date_of_viewing=date_of_viewing,
-            time_of_viewing=time_of_viewing,
-            client_message=client_message,
-            date_submitted=date_submitted,
-            f_name=f_name,
-            l_name=l_name,
-            client_email=client_email,
-            client_phone=client_phone,
-            client_city=client_city,
-            client_zip=client_zip,
-            client_country=client_country,
-            contact_ok=contact_ok,
-            )
+#         booking_ins = Booking(
+#             property_id=prop,
+#             date_of_viewing=date_of_viewing,
+#             time_of_viewing=time_of_viewing,
+#             client_message=client_message,
+#             date_submitted=date_submitted,
+#             f_name=f_name,
+#             l_name=l_name,
+#             client_email=client_email,
+#             client_phone=client_phone,
+#             client_city=client_city,
+#             client_zip=client_zip,
+#             client_country=client_country,
+#             contact_ok=contact_ok,
+#             )
             
-        booking_ins.save()
-        print('Booking information has been saved')
+#         booking_ins.save()
+#         print('Booking information has been saved')
 
-        # Send an email
-        send_mail(
-            'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
-            'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
-            client_email,
-            ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
-        )
+#         # Send an email
+#         send_mail(
+#             'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
+#             'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
+#             client_email,
+#             ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
+#         )
 
-        context = {
-            'booking_form': booking_form,
-            'property_id': property_id,
-            'date_of_viewing': date_of_viewing,
-            'time_of_viewing': time_of_viewing,
-            'f_name': f_name,
-            'l_name': l_name,
-            'client_email': client_email,
-            'client_country': client_country,
-            'client_phone': client_phone,
-            'client_city': client_city,
-            'client_zip': client_zip,
-            'client_message': client_message,
-            'date_submitted': date_submitted,
-            'contact_ok': contact_ok,
-            'prop': prop,
-            # 'booking_ref': booking_ref,
-        }
-        return render(request, 'book/booking-success.html', context)
-    else:
-        return render(request, 'book/booking-success.html')
+#         context = {
+#             'booking_form': booking_form,
+#             'property_id': property_id,
+#             'date_of_viewing': date_of_viewing,
+#             'time_of_viewing': time_of_viewing,
+#             'f_name': f_name,
+#             'l_name': l_name,
+#             'client_email': client_email,
+#             'client_country': client_country,
+#             'client_phone': client_phone,
+#             'client_city': client_city,
+#             'client_zip': client_zip,
+#             'client_message': client_message,
+#             'date_submitted': date_submitted,
+#             'contact_ok': contact_ok,
+#             'prop': prop,
+#         }
+#         return render(request, 'book/booking-success.html', context)
+#     else:
+#         return render(request, 'book/booking-success.html')
 
 
 def choose_bookings(request):

@@ -112,7 +112,7 @@ def add_property(request, realtor_id):
     if request.method == 'POST':
         property_form = PropertyForm(request.POST, request.FILES)
         if property_form.is_valid():
-            prop_f = property_form.save(False)
+            prop_f = property_form.save(commit=False)
             prop_f.user = request.user
             prop_f.save()
             print('New Property information has been saved')

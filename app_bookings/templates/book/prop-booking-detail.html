@@ -96,7 +96,7 @@
                                 <div class="col-lg-12">
 
                                     <!-- Booking Submission form -->
-                                    <form action="{% url 'booking_success' prop.id %}" method="POST" class="text-align-left">
+                                    <form action="{% url 'add-booking' prop.id %}" method="POST" class="text-align-left">
                                         {% csrf_token %}
                                         <h4>Choose Viewing Time</h4>
                                         <hr>
@@ -217,25 +217,25 @@
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-1">
                                                                 <label for="time-slot-1" class="mb-0">9:30 am</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-1"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-1"
                                                                     value="09:30 AM"/>
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-2">
                                                                 <label for="time-slot-2" class="mb-0">10:00 am</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-2"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-2"
                                                                     value="10:00 AM" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-3">
                                                                 <label for="time-slot-3" class="mb-0">10:30 am</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-3"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-3"
                                                                     value="10:30 AM" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-4">
                                                                 <label for="time-slot-4" class="mb-0">11:00 am</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-4"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-4"
                                                                     value="11:00 AM" />
                                                             </div>
                                                         </div>
@@ -244,43 +244,43 @@
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-5">
                                                                 <label for="time-slot-5" class="mb-0">1:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-5"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-5"
                                                                     value="13:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-6">
                                                                 <label for="time-slot-6" class="mb-0">1:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-6"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-6"
                                                                     value="13:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-7">
                                                                 <label for="time-slot-7" class="mb-0">2:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-7"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-7"
                                                                     value="14:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-8">
                                                                 <label for="time-slot-8" class="mb-0">2:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-8"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-8"
                                                                     value="14:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-9">
                                                                 <label for="time-slot-9" class="mb-0">3:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-9"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-9"
                                                                     value="15:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-10">
                                                                 <label for="time-slot-10" class="mb-0">3:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-10"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-10"
                                                                     value="15:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-11">
                                                                 <label for="time-slot-11" class="mb-0">4:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-11"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-11"
                                                                     value="16:00" />
                                                             </div>
                                                         </div>
@@ -289,37 +289,37 @@
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-12">
                                                                 <label for="time-slot-12" class="mb-0">5:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-12"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-12"
                                                                     value="17:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-13">
                                                                 <label for="time-slot-13" class="mb-0">5:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-13"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-13"
                                                                     value="17:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-14">
                                                                 <label for="time-slot-14" class="mb-0">6:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-14"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-14"
                                                                     value="18:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-15">
                                                                 <label for="time-slot-15" class="mb-0">6:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-15"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-15"
                                                                     value="18:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-16">
                                                                 <label for="time-slot-16" class="mb-0">7:00 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-16"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-16"
                                                                     value="19:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-17">
                                                                 <label for="time-slot-17" class="mb-0">7:30 pm</label>
-                                                                <input class="sr-only" type="radio" name="time" id="time-slot-17"
+                                                                <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-17"
                                                                     value="19:30" />
                                                             </div>
                                                         </div>
@@ -382,8 +382,12 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <!-- <div class="form-check ml-0"> -->
-                                                        {{ booking_form.contact_ok }}
+                                                        {{ booking_form.viewing_active }}
+                                                        <label class="form-check-label text-muted">&nbsp;Activate viewing availability immediately</label>
+
+                                                        <br>{{ booking_form.contact_ok }}
                                                         <label class="form-check-label text-muted">&nbsp;I would like to hear more about ReaBook properties available in my area</label>
+
                                                     <!-- </div> -->
                                                 </div>
                                                 <button type="submit" class="btn btn-submit-reabook my-3 my-sm-0 font-large">Submit Request</button>
