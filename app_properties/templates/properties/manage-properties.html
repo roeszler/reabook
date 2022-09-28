@@ -7,11 +7,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center mt-4">
-                    <h2 class="heading-section"><i class="fa-solid fa-book-bookmark reabook-logo"></i> Manage Properties</h2>
+                    <h2 class="heading-section"><i class="fa-solid fa-people-roof reabook-logo"></i>&nbsp; Property Manager</h2>
                     <hr class="w-50 mb-2">
                     Logged in User : {{ user }}
                     <br>
-                    Diary Owner : 'User'
+                    {{ user.first_name }} {{ user.last_name }}
                     <br>
                 </div>
             </div>
@@ -28,23 +28,31 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Property</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Agent</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Postcode</th>
+                                        <th scope="col">Sector</th>
+                                        <th scope="col">List Date</th>
+                                        <th scope="col">List Duration</th>
+                                        <th scope="col">Viewings</th>
+                                        <th scope="col">Available</th>
                                         <th scope="col">Admin</th>
                                     </tr>
                                 </thead>
                                 <tbody class="font-weight-light">
-                                    {% for booking in bookings %}
+                                    {% for prop in users_properties %}
                                         <tr>
-                                            <th scope="row">{{ booking.property_id }}</th>
-                                            <td>{{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }}</td>
-                                            <td>{{ booking.date_of_viewing }}</td>
-                                            <td>{{ booking.time_of_viewing }}</td>
-                                            <td>{{ booking.property_id.realtor }}</td>
+                                            <th scope="row">{{ prop.id }}</th>
+                                            <td>{{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }}</td>
+                                            <td>{{ prop.city }}</td>
+                                            <td>{{ prop.postcode }}</td>
+                                            <td>{{ prop.sector }}</td>
+                                            <td>{{ prop.list_date }}</td>
+                                            <td>{{ prop.list_duration }}</td>
+                                            <td>{{ prop.viewings }}</td>
+                                            <td>{{ prop.available }}</td>
                                             <td>
-                                                <a href="{% url 'update_booking' booking.id %}" aria-label="" class="reabook-logo"><strong>View / Edit</strong>
+                                                <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>View / Edit</strong>
                                                 </a>
                                             </td>
                                         </tr>

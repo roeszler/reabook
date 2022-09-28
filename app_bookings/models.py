@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 class Booking(models.Model):
     """ An individual record of the appointment to be used in the diary  """
-    booking_number = models.CharField(max_length=8, null=False, editable=False)
+    booking_number = models.CharField(max_length=8, null=False, editable=False, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     property_id = models.ForeignKey('app_properties.Property', null=True, blank=True, on_delete=models.SET_NULL)
     booking_name = models.CharField(max_length=254, null=True, blank=True, default='15 min Viewing')
@@ -32,6 +32,7 @@ class Booking(models.Model):
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
         verbose_name_plural = 'Bookings'
+        # unique_together = ['f_name', 'l_name', 'client_email', 'booking_number']
 
     def _generate_booking_number(self):
         """ Generate a random, unique booking number using UUID """

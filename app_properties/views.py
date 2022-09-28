@@ -85,9 +85,12 @@ def property_detail(request, property_id):
 
 
 def manage_properties(request, user_id):
+    properties = Property.objects.all()
+    users_properties = properties.filter(realtor=user_id)
     user = get_object_or_404(User, pk=user_id)
     context = {
         'user': user,
+        'users_properties': users_properties,
     }
     return render(request, 'properties/manage-properties.html', context)
 
