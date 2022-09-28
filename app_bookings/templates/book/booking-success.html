@@ -16,24 +16,26 @@
         <div class="col-lg-3"></div>
     </div>
 
-    <h5>Booking Details</h5><hr>
+    <h5>Booking Details</h5><hr class="mb-0">
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 text-left">
-            {{ booking_form.errors }}
-            <strong>Booking Ref:</strong> {{ booking.id }}/{{ booking }}
+            {% for error in booking_form.errors %}
+                <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+            <!-- <strong>Booking Ref:</strong> {{ booking.id }}/{{ booking }} -->
             <br><strong>Property Id :</strong> {{ prop.id }}
             <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}
-            <br><strong>Date Requested:</strong> {{ booking.date_of_viewing }} <strong>at</strong> {{ booking.time_of_viewing }}</strong>
-            <br><strong>Your Name:</strong> {{ booking.f_name }} {{ booking.l_name }}
-            <br><strong>Email:</strong> {{ booking.client_email }}, 
-            <br><strong>Phone:</strong> +{{ booking.client_country }} {{ booking.client_phone }}
-            <br><strong>Your City:</strong> {{ booking.client_city }}, {{ booking.client_state }} {{ booking.client_zip }}
+            <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
+            <br><strong>Your Name:</strong> {{ f_name }} {{ l_name }}
+            <br><strong>Your Email:</strong> {{ client_email }}, 
+            <br><strong>Phone:</strong> +{{ client_country }} {{ client_phone }}
+            <br><strong>Your City:</strong> {{ client_city }}, {{ client_state }} {{ client_zip }}
             <br><strong>Message:</strong><hr class="my-0">
-            <p>{{ booking.client_message }}</p>
+            <p>{{ client_message }}</p>
             <hr class="my-0">
                 <div class="text-muted">
-                    <small>Referral permissions: {{ booking.contact_ok }}  |  Form submitted: {{ booking.date_submitted }} </small>
+                    <small>Referral permissions: {{ contact_ok }}  |  Form submitted: {{ date_submitted }} </small>
                 </div>
             
         </div>
@@ -43,7 +45,7 @@
         <div class="col-lg-3"></div>
         <div class="col-lg-8">
             <a href="{% url 'user_diary' %}">
-                <button class="btn btn-outline-reabook float-right mx-1">My Diary</button>
+                <button class="btn btn-outline-reabook float-right mx-1">To My Diary</button>
             </a>
             <a href="{% url 'properties' %}">
                 <button class="btn btn-outline-reabook float-right mx-1">Search Again</button>

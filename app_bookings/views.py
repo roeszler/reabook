@@ -62,8 +62,38 @@ def add_booking(request, property_id):
     """ View to render a successful booking on prop-booking.html """
     prop = Property.objects.get(pk=property_id)
     booking_form = BookingForm(instance=prop)
-    # booking = Booking.objects.get(property_id=prop)
-    # latest_booking = booking.get_latest_by('date_submitted')
+
+    property_id = f'{prop.id}'
+    date_of_viewing = request.POST.get('date_of_viewing', 'n/p')
+    time_of_viewing = request.POST.get('time_of_viewing', 'n/p')
+    f_name = request.POST['f_name']
+    l_name = request.POST['l_name']
+    client_email = request.POST['client_email']
+    client_country = request.POST.get('client_country', 'n/p')
+    client_phone = request.POST['client_phone']
+    client_city = request.POST['client_city']
+    client_zip = request.POST['client_zip']
+    client_message = request.POST['client_message']
+    date_submitted = datetime.now()
+    contact_ok = request.POST.get('contact_ok')
+
+    context = {
+        'prop': prop,
+        'booking_form': booking_form,
+        'property_id': property_id,
+        'date_of_viewing': date_of_viewing,
+        'time_of_viewing': time_of_viewing,
+        'f_name': f_name,
+        'l_name': l_name,
+        'client_email': client_email,
+        'client_country': client_country,
+        'client_phone': client_phone,
+        'client_city': client_city,
+        'client_zip': client_zip,
+        'client_message': client_message,
+        'date_submitted': date_submitted,
+        'contact_ok': contact_ok,
+    }
 
     if request.method == 'POST':
         booking_form = BookingForm(request.POST)
@@ -71,20 +101,20 @@ def add_booking(request, property_id):
             booking_f = booking_form.save(commit=False)
             booking_f.user = request.user
             booking_f.property_id = prop
-            # booking_f.save()
+            booking_f.save()
             # obj = booking_f.save()
             # print(obj.id)
             # print(f'{obj.id}')
             print('Booking information has been saved')
             print(property_id)
             print(booking_form.errors)
+        else:
+            messages.error(
+                    request, 'We have a problem. Please check you \
+                        have entered all time, date and booking fields.'
+                    )
+            return render(request, 'book/prop-booking.html', context)
 
-        context = {
-            'prop': prop,
-            # 'booking': booking,
-            # 'latest_booking': latest_booking,
-            'booking_form': booking_form,
-        }
         return render(request, 'book/booking-success.html', context)
     
     # else:

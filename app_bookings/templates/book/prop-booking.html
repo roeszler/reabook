@@ -88,7 +88,9 @@
                     </div>
                 </div>
                 <p><small class="text-muted">Property Id.{{ prop.id }}</small></p>
-                <p>{{ booking_form.errors }}</p>
+                {% for error in booking_form.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
                 <div>
                     <div class="card-body row">
                         <div class="col-lg-12">
@@ -219,25 +221,25 @@
                                                                 data-input="#time-slot-1">
                                                                 <label for="time-slot-1" class="mb-0">9:30 am</label>
                                                                 <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-1"
-                                                                    value="09:30 AM"/>
+                                                                    value="09:30"/>
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-2">
                                                                 <label for="time-slot-2" class="mb-0">10:00 am</label>
                                                                 <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-2"
-                                                                    value="10:00 AM" />
+                                                                    value="10:00" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-3">
                                                                 <label for="time-slot-3" class="mb-0">10:30 am</label>
                                                                 <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-3"
-                                                                    value="10:30 AM" />
+                                                                    value="10:30" />
                                                             </div>
                                                             <div class="form-selectable-label text-center time-slot w-100 my-2"
                                                                 data-input="#time-slot-4">
                                                                 <label for="time-slot-4" class="mb-0">11:00 am</label>
                                                                 <input class="sr-only" type="radio" name="time_of_viewing" id="time-slot-4"
-                                                                    value="11:00 AM" />
+                                                                    value="11:00" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 mx-0">
