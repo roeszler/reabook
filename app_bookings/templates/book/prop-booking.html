@@ -384,22 +384,28 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <!-- <div class="form-check ml-0"> -->
-                                                        {{ booking_form.viewing_active }}
-                                                        <label class="form-check-label text-muted">&nbsp;Activate viewing availability immediately</label>
+                                                    {{ booking_form.viewing_active }}
+                                                    <label class="form-check-label text-muted">&nbsp;Activate viewing availability immediately</label>
 
-                                                        <br>{{ booking_form.contact_ok }}
-                                                        <label class="form-check-label text-muted">&nbsp;I would like to hear more about ReaBook properties available in my area</label>
-
-                                                    <!-- </div> -->
+                                                    <br>{{ booking_form.contact_ok }}
+                                                    <label class="form-check-label text-muted">&nbsp;I would like to hear more about ReaBook properties available in my area</label>
                                                 </div>
-                                                <button type="submit" class="btn btn-submit-reabook my-3 my-sm-0 font-large">Submit Request</button>
+                                                <button type="submit" class="btn btn-submit-reabook my-5 my-sm-0 font-large">Submit Request</button>
                                             </div>
                                         </div>
-                                        
-
-                                        <h2 class="mt-5">Confirm Booking</h2>
                                     </form>
+                                    <a href="{% url 'choose_bookings' %}" aria-label="Search for properties to book a viewing with" class="float-left btn btn-outline mt-3">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Search Viewings</span>
+                                    </a>
+                                    <a href="{% url 'user_diary' %}" aria-label="To your diary" class="float-right btn btn-outline mt-3">
+                                        <span class="text-uppercase">To My Diary</span>
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

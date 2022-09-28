@@ -116,10 +116,6 @@ def add_booking(request, property_id):
             return render(request, 'book/prop-booking.html', context)
 
         return render(request, 'book/booking-success.html', context)
-    
-    # else:
-    #     return render(request, 'book/prop-booking.html', context)
-        # messages
 
 
 

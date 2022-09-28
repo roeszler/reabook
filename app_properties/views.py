@@ -84,6 +84,14 @@ def property_detail(request, property_id):
     return render(request, 'properties/prop-detail.html', context)
 
 
+def manage_properties(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    context = {
+        'user': user,
+    }
+    return render(request, 'properties/manage-properties.html', context)
+
+
 def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
     prop = Property.objects.get(pk=property_id)
