@@ -133,4 +133,15 @@ def add_property(request, realtor_id):
         'property_form': property_form,
     }
 
-    return render(request, 'properties/add-properties.html', context)
+    # return render(request, 'properties/add-properties.html', context)
+    return render(request, 'properties/manage-properties.html', context)
+
+
+def delete_property(request, property_id):
+    """ A view manage the delete property event """
+    prop = Property.objects.get(pk=property_id)
+    prop.delete()
+    print(prop)
+    print('Property Listing Deleted')
+    # return render(request, 'properties/manage-properties.html')
+    return redirect('manage-properties')

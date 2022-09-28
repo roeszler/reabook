@@ -39,7 +39,7 @@ class PropertyForm(forms.ModelForm):
             'suburb': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Tomato Hills',}),
             'city': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Pickleton',}),
             'state': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Tastyville',}),
-            'country': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Burgeon',}),
+            'country': forms.Select(attrs={'class':'form-control col-lg-12', 'placeholder': 'Burgeon',}),
             'postcode': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': '123 45',}),
             'build_date': forms.DateInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'yyyy-mm-dd', }),
             'list_date': forms.DateInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'yyyy-mm-dd', }),

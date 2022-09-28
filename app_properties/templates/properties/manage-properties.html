@@ -52,7 +52,7 @@
                                             <td>{{ prop.viewings }}</td>
                                             <td>{{ prop.available }}</td>
                                             <td>
-                                                <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>View / Edit</strong>
+                                                <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>Edit / Delete</strong>
                                                 </a>
                                             </td>
                                         </tr>
@@ -63,6 +63,9 @@
                         <hr class="mt-0 mb-4">
                         <div class="row">
                             <div class="col-lg-12">
+                                <a href="{% url 'add-property' user.id %}" aria-label="">
+                                    <button class="btn btn-outline-reabook float-right mr-3" >Add Property</button>
+                                </a>
                                 <a href="{% url 'choose_bookings' %}" aria-label="">
                                     <button class="btn btn-outline-reabook float-right mr-3" >Book Viewings</button>
                                 </a>

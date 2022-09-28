@@ -37,12 +37,17 @@
                     <a href="{% url 'property-detail' prop.id %}" class="btn btn-outline-reabook float-right mt-2 mr-1">
                         <span class="text-uppercase btn-back">View Listing</span>
                     </a>
-                    <a href="{% url 'properties' %}" class="btn btn-outline float-right mt-2">
+                    <a href="{% url 'properties' %}" class="btn btn-outline float-left mt-2">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase btn-back">Previous Page</span>
                     </a>
+                    <div>
+                        <a href="{% url 'delete-property' prop.id %}" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1">
+                            <span class="text-uppercase btn-back">Delete Property</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
