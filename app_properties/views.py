@@ -133,15 +133,20 @@ def add_property(request, realtor_id):
         'property_form': property_form,
     }
 
-    # return render(request, 'properties/add-properties.html', context)
-    return render(request, 'properties/manage-properties.html', context)
+    return render(request, 'properties/add-properties.html', context)
+    # return render(request, 'properties/manage-properties.html', context)
 
 
 def delete_property(request, property_id):
     """ A view manage the delete property event """
-    prop = Property.objects.get(pk=property_id)
-    prop.delete()
+    # if not request.user.is_superuser:
+    #     messages.error(request, 'Sorry, only authorized agents can do that.')
+    #     return redirect(reverse('properties'))
+
+    prop = get_object_or_404(Property, pk=property_id)
+    user = request.user
+    # prop.delete()
     print(prop)
     print('Property Listing Deleted')
-    # return render(request, 'properties/manage-properties.html')
-    return redirect('manage-properties')
+    messages.success(request, f'Property {prop} deleted!')
+    return redirect(f'/properties/manage/{user.id}/')

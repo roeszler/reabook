@@ -35,14 +35,11 @@
                         <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Add Property">
                     </form>
 
-                    <a href="{% url 'property-detail' prop.id %}" class="btn btn-outline-reabook float-right mt-2 mr-1">
-                        <span class="text-uppercase btn-back">View Listing</span>
+                    <a href="{% url 'property-detail' prop.id %}">
+                        <button type="button" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</button>
                     </a>
-                    <a href="{% url 'properties' %}" class="btn btn-outline float-right mt-2">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase btn-back">Previous Page</span>
+                    <a href="{% url 'properties' %}">
+                        <button type="button" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
                     </a>
                 </div>
             </div>
