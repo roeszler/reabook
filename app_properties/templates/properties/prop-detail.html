@@ -30,7 +30,7 @@
                     <a href="{% url 'add-property' user.id %}">
                         <input type="submit" class="btn btn-warning text-uppercase float Left" value="Create Listing">
                     </a>
-                    <a href="#">
+                    <a href="{% url 'manage-properties' user.id %}">
                         <input type="submit" class="btn btn-warning text-uppercase float Left" value="Manage Properties">
                     </a>
                 </div>
