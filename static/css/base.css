@@ -378,8 +378,13 @@ font-weight: 100;
 
 /* ------ Control Bar */
 
+.list-table {
+    position:relative;
+    overflow-y: auto;
+}
+
 .list-group-item, 
-#list-tab {
+.list-table {
     border-width: 0 0 1px;
     font-size: smaller;
 }

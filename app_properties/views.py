@@ -9,9 +9,7 @@ from .forms import PropertyForm
 
 
 def all_properties(request):
-    """
-    View to render all properties page that includes search queries and sorting
-    """
+    """ Renders all properties, including search queries and sorting """
     properties = Property.objects.all()
     query = None
     categories = None
@@ -85,6 +83,7 @@ def property_detail(request, property_id):
 
 
 def manage_properties(request, user_id):
+    """ View allowing Staff / Agents to admin the properties they manage """
     properties = Property.objects.all()
     users_properties = properties.filter(realtor=user_id)
     user = get_object_or_404(User, pk=user_id)
@@ -134,19 +133,19 @@ def add_property(request, realtor_id):
     }
 
     return render(request, 'properties/add-properties.html', context)
-    # return render(request, 'properties/manage-properties.html', context)
+    # messages.success(request, 'New Property Successfully Added!')
+    # return redirect(f'/properties/manage/{user.id}/', context)
 
 
 def delete_property(request, property_id):
-    """ A view manage the delete property event """
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only authorized agents can do that.')
-    #     return redirect(reverse('properties'))
+    """ A view to authorize and manage the delete property events """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only authorized agents can do that.')
+        return redirect(reverse('properties'))
 
     prop = get_object_or_404(Property, pk=property_id)
     user = request.user
-    # prop.delete()
-    print(prop)
-    print('Property Listing Deleted')
-    messages.success(request, f'Property {prop} deleted!')
+    prop.delete()
+    print(f'Property id.{property_id} Deleted')
+    messages.success(request, f'Property id.{property_id} deleted!')
     return redirect(f'/properties/manage/{user.id}/')
