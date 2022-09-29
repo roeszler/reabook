@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 # from django.http import HttpResponseRedirect
 # from django.contrib.auth.models import User
 
@@ -118,85 +118,6 @@ def add_booking(request, property_id):
         return render(request, 'book/booking-success.html', context)
 
 
-
-# def old_booking_success(request, property_id):
-#     """ View to render a successful booking on prop-booking.html """
-#     prop = Property.objects.get(pk=property_id)
-#     booking_form = BookingForm(instance=prop)
-#     # booking = Booking.objects.get(pk=booking_id)
-#     # user = User.objects.all()
-    
-#     if request.method == 'POST':
-#         booking_form = BookingForm(request.POST)
-#         property_id = f'{prop.id}'
-#         date_of_viewing = request.POST['date']
-#         time_of_viewing = request.POST.get('time', 'n/p')
-#         f_name = request.POST['f_name']
-#         l_name = request.POST['l_name']
-#         client_email = request.POST['client_email']
-#         client_country = request.POST.get('client_country', 'n/p')
-#         client_phone = request.POST['client_phone']
-#         client_city = request.POST['client_city']
-#         client_zip = request.POST['client_zip']
-#         client_message = request.POST['client_message']
-#         date_submitted = datetime.now()
-#         contact_ok = request.POST.get('contact_ok')
-        
-#         # Turn HTML based "on" into a 'TRUE' or 'FALSE' as required by Django
-#         if contact_ok == 'on':
-#             contact_ok = True
-#         else:
-#             contact_ok = False
-
-#         booking_ins = Booking(
-#             property_id=prop,
-#             date_of_viewing=date_of_viewing,
-#             time_of_viewing=time_of_viewing,
-#             client_message=client_message,
-#             date_submitted=date_submitted,
-#             f_name=f_name,
-#             l_name=l_name,
-#             client_email=client_email,
-#             client_phone=client_phone,
-#             client_city=client_city,
-#             client_zip=client_zip,
-#             client_country=client_country,
-#             contact_ok=contact_ok,
-#             )
-            
-#         booking_ins.save()
-#         print('Booking information has been saved')
-
-#         # Send an email
-#         send_mail(
-#             'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
-#             'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
-#             client_email,
-#             ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
-#         )
-
-#         context = {
-#             'booking_form': booking_form,
-#             'property_id': property_id,
-#             'date_of_viewing': date_of_viewing,
-#             'time_of_viewing': time_of_viewing,
-#             'f_name': f_name,
-#             'l_name': l_name,
-#             'client_email': client_email,
-#             'client_country': client_country,
-#             'client_phone': client_phone,
-#             'client_city': client_city,
-#             'client_zip': client_zip,
-#             'client_message': client_message,
-#             'date_submitted': date_submitted,
-#             'contact_ok': contact_ok,
-#             'prop': prop,
-#         }
-#         return render(request, 'book/booking-success.html', context)
-#     else:
-#         return render(request, 'book/booking-success.html')
-
-
 def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all() # noqa
@@ -236,7 +157,7 @@ def user_diary(request):
         'bookings': bookings,
         'prop': prop,
         }
-    return render(request, 'book/bookings.html', context)
+    return render(request, 'book/booking-diary.html', context)
 
 
 def parked(request):
@@ -254,105 +175,3 @@ def update_booking(request, booking_id):
         'booking': booking,
         }
     return render(request, 'book/update-booking.html', context)
-
-
-def test(request, property_id):
-    """ View to test stuff """
-    prop = Property.objects.get(pk=property_id)
-    # booking = Booking.objects.get(pk=booking_id)
-    client = Client.objects.all()
-
-    # context = {
-    #     'prop': prop,
-    #     'client': client,
-    # }
-
-    if request.method == 'POST':
-        # client = request.POST.get('client', 'c_id_error!!')
-        # prop_id = get_object_or_404(Property.title_no)
-        # prop_id = request.get('pk')
-        # property_id = Property.objects.get(pk=property_id)
-        property_id = request.POST.get('property_id', 'p_id_error!!')
-        date_of_viewing = request.POST['date']
-        time_of_viewing = request.POST.get('time', 'n/p')
-        f_name = request.POST['f_name']
-        l_name = request.POST['l_name']
-        client_email = request.POST['client_email']
-        client_country = request.POST.get('client_country', 'n/p')
-        client_phone = request.POST['client_phone']
-        client_city = request.POST['client_city']
-        client_zip = request.POST['client_zip']
-        client_message = request.POST['client_message']
-        date_submitted = datetime.now()
-        contact_ok = request.POST.get('contact_ok')
-        
-        # Turn HTML based "on" into a 'TRUE' or 'FALSE' as required by Django
-        if contact_ok == 'on':
-            contact_ok = True
-        else:
-            contact_ok = False
-
-        booking_ins = Booking(
-            # client=client,
-            # property_id=property_id,
-            date_of_viewing=date_of_viewing,
-            time_of_viewing=time_of_viewing,
-            client_message=client_message,
-            date_submitted=date_submitted,
-            )
-        booking_ins.save()
-        print('Booking information has been saved')
-
-        booking_id = Booking.objects.get('id')
-        print(booking_id)
-
-        client_ins = Client(
-            f_name=f_name,
-            l_name=l_name,
-            client_email=client_email,
-            client_phone=client_phone,
-            client_city=client_city,
-            client_zip=client_zip,
-            client_country=client_country,
-            contact_ok=contact_ok,
-        )
-        client_ins.save()
-        print('Client information has been saved')
-
-        # Send an email
-        send_mail(
-            'Message from ' + f_name + l_name + ' at ' + client_email + ', regarding: ' + property_id,
-            'Property: '+property_id+', Date and time of proposed viewing: ' +date_of_viewing+' at ' +time_of_viewing+ ', Message:' +client_message,
-            client_email,
-            ['bookings@reabook.net', 'someone@realestateagentcustomer.com', client_email, ] # to email address
-        )
-
-        booking = {
-            'property_id': property_id,
-            'date_of_viewing': date_of_viewing,
-            'time_of_viewing': time_of_viewing,
-            'f_name': f_name,
-            'l_name': l_name,
-            'client_email': client_email,
-            'client_country': client_country,
-            'client_phone': client_phone,
-            'client_city': client_city,
-            'client_zip': client_zip,
-            'client_message': client_message,
-            'date_submitted': date_submitted,
-            'contact_ok': contact_ok,
-
-            'prop': prop,
-            'client': client,
-            'booking_id': booking_id,
-        }
-
-        # print(form_data)
-        # print(request)
-        # print(prop_id.content)
-        # return render(request, 'book/booking-success.html', booking)
-        return render(request, 'book/test.html', booking)
-    else:
-        return render(request, 'book/test.html')
-
-    # return render(request, 'book/test.html', context)

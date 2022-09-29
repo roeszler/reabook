@@ -12,7 +12,7 @@ class BookingForm(forms.ModelForm):
         # fields = '__all__'
         fields = (
             'contact_ok', 'viewing_active', 'property_id',
-            'date_of_viewing', 'time_of_viewing',
+            'date_of_viewing', 'client_username', 'time_of_viewing',
             'client_email', 'f_name', 'l_name', 'client_phone',
             'client_city', 'client_zip', 'client_country', 'client_message',
         )
@@ -20,6 +20,7 @@ class BookingForm(forms.ModelForm):
             'client_email': forms.EmailInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'your@email.com', }),
             'f_name': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'First Name', }),
             'l_name': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Last Name', }),
+            'client_username': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'ReaBookBob1', }),
             'client_phone': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': '555 123-456-789', }),
             'client_city': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': 'Paradise City', }),
             'client_zip': forms.TextInput(attrs={'class':'form-control col-lg-12', 'placeholder': '123 45', }),

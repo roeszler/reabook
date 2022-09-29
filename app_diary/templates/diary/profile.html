@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% include 'includes/bookings-base.html' %}
+
+<h1>profile.html</h1>
+<form action="" method="POST">
+    <div class="row mx-lg-5 mx-md-0">
+        <div class="col-lg-6 col-md-12">
+            <div class="text-left text-muted mb-3">
+                <label>Username</label>
+                {{ user_form.username }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>First Name</label>
+                {{ user_form.first_name }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>Last Name</label>
+                {{ user_form.last_name }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>Email Address</label>
+                {{ user_form.email }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <!-- <label>Password</label> -->
+                {{ user_form.password1 }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <!-- <label>Repeat Password</label> -->
+                {{ user_form.password2 }}
+            </div>
+        </div>
+        <div class="text-left col-lg-6 col-md-12">
+        </div>
+</form>
+</div>
+<!-- {{ user_form.as_table }} -->
+
+{% include 'includes/bookings-base-calendar.html' %}
+{% else %}
+    {% include 'includes/account-required.html' %}
+{% endif %}
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- To include the parent block -->
+    {{ block.super }}
+    
+
+{% endblock %}

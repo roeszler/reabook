@@ -1,8 +1,8 @@
 """ Import Models """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from .forms import RegisterUserFrom
 
@@ -54,3 +54,15 @@ def register_user(request):
         'registration_form': registration_form,
     }
     return render(request, 'diary/register.html', context)
+
+
+def my_profile(request, user_id):
+    """ View to render the profile edit page """
+    user = get_object_or_404(User, pk=user_id)
+    user_form = RegisterUserFrom(request.POST or None, instance=user)
+
+    context = {
+        'user': user,
+        'user_form': user_form,
+    }
+    return render(request, 'diary/profile.html', context)

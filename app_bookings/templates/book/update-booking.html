@@ -3,8 +3,8 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-{% include 'includes/bookings-base.html' %}
 
+{% include 'includes/bookings-base.html' %}
     <div class="row-lg-12 justify-content-center">
         <h2>{{ booking.property_id.house_no }} {{ booking.property_id.street }}, {{ booking.property_id.suburb }} {{ booking.property_id.postcode }}</h2>
         <p>details for your upcoming appointment</p>
