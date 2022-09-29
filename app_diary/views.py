@@ -20,13 +20,6 @@ def login_user(request):
                 return redirect(f'/properties/manage/{user.id}/')
             else:
                 return redirect('user_diary')
-
-            # if user is is_superuser or is_staff:
-            #     login(request, user)
-            #     return redirect('manage-properties')
-            # else:
-            #     login(request, user)
-            #     return redirect('user_diary')   
         else:
             messages.success(request, 'Aww Nuts! There was an error Logging In. Please try again...')
             # Return an 'invalid login' error message.
