@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
 # from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
@@ -14,7 +14,7 @@ from .forms import BookingForm
 
 def add_to_diary(request, property_id):
     """ Add a quantity of the specified prop to the shopping diary """
-    properties = Property.objects.all()
+    properties = Property.objects.all()  # noqa
     prop = get_object_or_404(Property, pk=property_id)
     diary = request.session.get('diary', {})
     props_with_viewings = properties.filter(viewings=True)
@@ -24,14 +24,15 @@ def add_to_diary(request, property_id):
         # Sub-query for properties available for viewing
         if 'q' in request.GET:
             query = request.GET['q']
-            queries = Q(pk__icontains=query) | Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            queries = Q(pk__icontains=query) | Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)  # noqa
             props_with_viewings = props_with_viewings.filter(queries)
 
     if property_id in list(diary.keys()):
-        messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}')
+        messages.success(request, f'You already have a booking to view {prop.name} {diary[property_id]}') # noqa
     else:
-        messages.success(request, f'Added {prop.name} to your appointments diary')
-    
+        messages.success(request, f'Added {prop.name} to your appointments \
+            diary')
+
     # update the diary variable into the session [ a python dictionary ].
     request.session['diary'] = diary
 
@@ -44,7 +45,7 @@ def add_to_diary(request, property_id):
 
 def booking_detail(request, property_id):
     """ A view to show individual property booking details """
-    bookings = Booking.objects.all() # noqa
+    bookings = Booking.objects.all()  # noqa
     props_with_booking_slots = bookings.filter(viewing_active=True)
     prop = get_object_or_404(Property, pk=property_id)
     booking_form = BookingForm(instance=prop)
@@ -60,7 +61,7 @@ def booking_detail(request, property_id):
 
 def add_booking(request, property_id):
     """ View to render a successful booking on prop-booking.html """
-    prop = Property.objects.get(pk=property_id)
+    prop = Property.objects.get(pk=property_id)  # noqa
     booking_form = BookingForm(instance=prop)
     user = request.user
 
@@ -104,12 +105,18 @@ def add_booking(request, property_id):
             booking_f.user = request.user
             booking_f.property_id = prop
             booking_f.save()
-            # obj = booking_f.save()
-            # print(obj.id)
-            # print(f'{obj.id}')
             print('Booking information has been saved')
-            print(property_id)
-            print(booking_form.errors)
+
+            # Send an email
+            send_mail(
+                'Message from ' + f_name + l_name + ' at ' + client_email + '\
+                    , regarding: ' + property_id,
+                'Property: ' + property_id + ', Date and time of proposed \
+                viewing: ' + date_of_viewing + ' at ' + time_of_viewing + '\
+                , Message: ' + client_message, client_email, ['\
+                bookings@reabook.net', 'someone@realestateagent\
+                customer.com', client_email, ]
+            )
         else:
             messages.error(
                     request, 'We have a problem. Please check you \
@@ -150,26 +157,10 @@ def choose_bookings(request):
     return render(request, 'book/search-viewings.html', context)
 
 
-# def user_diary(request):
-#     """ To list all the bookings in the DB """
-#     prop = Property.objects.all()
-#     bookings = Booking.objects.all()
-#     # bookings = get_object_or_404(Booking, pk=user_id)
-#     user = request.user
-
-#     context = {
-#         'bookings': bookings,
-#         'prop': prop,
-#         'user': user,
-#         }
-#     return render(request, 'book/booking-diary.html', context)
-
-
 def my_diary(request, user_id):
     """ To list all the users bookings in the DB """
-    prop = Property.objects.all()
-    bookings = Booking.objects.all()
-    # bookings = get_object_or_404(Booking, pk=user_id)
+    prop = Property.objects.all() # noqa
+    bookings = Booking.objects.all() # noqa
     user = get_object_or_404(User, pk=user_id)
 
     context = {
@@ -187,7 +178,7 @@ def parked(request):
 
 def update_booking(request, booking_id):
     """ To update the bookings made by each user """
-    booking = Booking.objects.get(pk=booking_id)
+    booking = Booking.objects.get(pk=booking_id) # noqa
     booking_form = BookingForm(request.POST or None, instance=booking)
 
     context = {
