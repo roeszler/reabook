@@ -16,8 +16,17 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            # Redirect to a success page.
-            return redirect('user_diary')
+            if user.is_superuser or user.is_staff:
+                return redirect(f'/properties/manage/{user.id}/')
+            else:
+                return redirect('user_diary')
+
+            # if user is is_superuser or is_staff:
+            #     login(request, user)
+            #     return redirect('manage-properties')
+            # else:
+            #     login(request, user)
+            #     return redirect('user_diary')   
         else:
             messages.success(request, 'Aww Nuts! There was an error Logging In. Please try again...')
             # Return an 'invalid login' error message.

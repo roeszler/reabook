@@ -3,7 +3,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        {% if request.user.is_superuser %}
+        {% if request.user.is_superuser or request.user.is_staff %}
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center mt-4">
@@ -28,6 +28,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
+                                        <th scope="col">Agent</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">City</th>
                                         <th scope="col">Postcode</th>
@@ -43,6 +44,7 @@
                                     {% for prop in users_properties %}
                                         <tr>
                                             <th scope="row">{{ prop.id }}</th>
+                                            <td>{{ prop.realtor }}</td>
                                             <td>{{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }}</td>
                                             <td>{{ prop.city }}</td>
                                             <td>{{ prop.postcode }}</td>
