@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 from .forms import RegisterUserFrom
+from app_bookings.forms import BookingForm
 
 
 def login_user(request):
@@ -59,10 +60,20 @@ def register_user(request):
 def my_profile(request, user_id):
     """ View to render the profile edit page """
     user = get_object_or_404(User, pk=user_id)
-    user_form = RegisterUserFrom(request.POST or None, instance=user)
+    user_form = RegisterUserFrom(instance=user)
+    booking_form = BookingForm(instance=user)
+
+    if request.method == 'POST':
+        if user_form.is_valid():
+            user_form.save()
+            booking_form.save()
+
+        print('Your Profile has been Successfully Updated')
+        messages.success(request, 'Your Profile has been Successfully Updated!')
 
     context = {
         'user': user,
         'user_form': user_form,
+        'booking_form': booking_form,
     }
     return render(request, 'diary/profile.html', context)

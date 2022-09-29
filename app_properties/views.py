@@ -133,8 +133,6 @@ def add_property(request, realtor_id):
     }
 
     return render(request, 'properties/add-properties.html', context)
-    # messages.success(request, 'New Property Successfully Added!')
-    # return redirect(f'/properties/manage/{user.id}/', context)
 
 
 def delete_property(request, property_id):

@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-from app_bookings.models import Booking
-
 
 class RegisterUserFrom(UserCreationForm):
     # client_phone = forms.IntegerField()
@@ -39,10 +37,6 @@ class RegisterUserFrom(UserCreationForm):
             'password2',
             # 'client_phone',
         )
-
-        labels = {
-            'username': '',
-        }
 
         widgets = {
             'username': forms.TextInput(attrs={'class':'form-control my-0 col-12', 'placeholder': 'ReaBookBob1', 'placeholder': 'ReaBookBob1', }),

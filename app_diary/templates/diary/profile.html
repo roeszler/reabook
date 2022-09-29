@@ -5,10 +5,11 @@
 {% if user.is_authenticated %}
 {% include 'includes/bookings-base.html' %}
 
-<h1>profile.html</h1>
-<form action="" method="POST">
+<h1>My Profile</h1>
+<form action="{% url 'my-profile' user.id %}" method="POST">
+    {% csrf_token %}
     <div class="row mx-lg-5 mx-md-0">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6">
             <div class="text-left text-muted mb-3">
                 <label>Username</label>
                 {{ user_form.username }}
@@ -25,18 +26,37 @@
                 <label>Email Address</label>
                 {{ user_form.email }}
             </div>
-            <div class="text-left text-muted mb-3">
-                <!-- <label>Password</label> -->
+            <!-- <div class="text-left text-muted mb-3">
                 {{ user_form.password1 }}
             </div>
             <div class="text-left text-muted mb-3">
-                <!-- <label>Repeat Password</label> -->
                 {{ user_form.password2 }}
-            </div>
+            </div> -->
         </div>
         <div class="text-left col-lg-6 col-md-12">
+            <div class="text-left text-muted mb-3">
+                <label>Phone</label>
+                {{ booking_form.client_phone }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>City</label>
+                {{ booking_form.client_city }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>Postcode</label>
+                {{ booking_form.client_zip }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <label>Country</label>
+                {{ booking_form.client_country }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                {{ booking_form.contact_ok }}
+                <label>Permissions to refer for similar Properties</label>
+            </div>
+            <button type="submit" class="btn btn-warning">Update Details</button>
         </div>
-</form>
+    </form>
 </div>
 <!-- {{ user_form.as_table }} -->
 
