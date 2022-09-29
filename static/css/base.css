@@ -66,12 +66,12 @@ ul {
 
 /* Images */
 
-.table-thumbnail {
+/* .table-thumbnail {
     display: block;
     width: auto;
     max-height: 180px;
     margin: 0 1rem;
-}
+} */
 
 /* Format index.html page heading */
 
@@ -871,6 +871,10 @@ https://colorlib.com/wp/bootstrap-calendars/
     .cal-btn {
         font-size: 1rem;
     }
+
+    .detail-chevron {
+        display: none;
+    }
 }
 
 
@@ -886,5 +890,13 @@ https://colorlib.com/wp/bootstrap-calendars/
 
     .cal-btn {
         font-size: 1rem;
+    }
+
+    .detail-chevron {
+        display: none;
+    }
+
+    .image-table-5 {
+        width: 100%;
     }
 }

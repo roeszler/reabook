@@ -150,25 +150,7 @@
                 {% include 'includes/sub-nav.html' %}
             </nav>
         </div>
-
-        <!-- delivery banner -->
-        <!-- <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
-            </div>
-        </div> -->
     </header>
-
-    <!-- Message container section -->
-    <!-- {% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %} -->
-
-    <!-- Information alert header underneath the main header -->
     {% block page_header %}
     {% endblock %}
 
@@ -200,9 +182,9 @@
     <footer>
         <!-- <div class="row h-5 sticky-bottom"> -->
         <div class="row h-5 fixed-bottom px-2">
-            <div class="col-4 bg-info text-lg-left">Left Column</div>
-            <div class="col-4 bg-success text-lg-center">Middle Column</div>
-            <div class="col-4 bg-warning text-lg-right">Right Column</div>
+            <div class="col-3 bg-info text-lg-left">Left Column</div>
+            <div class="col-6 bg-success text-lg-center">Middle Column</div>
+            <div class="col-3 bg-warning text-lg-right">Right Column</div>
         </div>
     </footer>
 

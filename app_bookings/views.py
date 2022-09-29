@@ -161,10 +161,11 @@ def my_diary(request, user_id):
     """ To list all the users bookings in the DB """
     prop = Property.objects.all() # noqa
     bookings = Booking.objects.all() # noqa
+    users_bookings = bookings.filter(user=user_id)
     user = get_object_or_404(User, pk=user_id)
 
     context = {
-        'bookings': bookings,
+        'users_bookings': users_bookings,
         'prop': prop,
         'user': user,
         }
