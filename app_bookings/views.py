@@ -5,10 +5,10 @@ from django.contrib import messages
 from django.db.models import Q
 # from django.core.mail import send_mail
 # from django.http import HttpResponseRedirect
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 from app_properties.models import Property
-from .models import Booking, Client
+from .models import Booking
 from .forms import BookingForm
 
 
@@ -62,6 +62,7 @@ def add_booking(request, property_id):
     """ View to render a successful booking on prop-booking.html """
     prop = Property.objects.get(pk=property_id)
     booking_form = BookingForm(instance=prop)
+    user = request.user
 
     property_id = f'{prop.id}'
     date_of_viewing = request.POST.get('date_of_viewing', 'n/p')
@@ -79,6 +80,7 @@ def add_booking(request, property_id):
 
     context = {
         'prop': prop,
+        'user': user,
         'booking_form': booking_form,
         'property_id': property_id,
         'date_of_viewing': date_of_viewing,
@@ -148,16 +150,34 @@ def choose_bookings(request):
     return render(request, 'book/search-viewings.html', context)
 
 
-def user_diary(request):
-    """ To list all the bookings in the DB """
+# def user_diary(request):
+#     """ To list all the bookings in the DB """
+#     prop = Property.objects.all()
+#     bookings = Booking.objects.all()
+#     # bookings = get_object_or_404(Booking, pk=user_id)
+#     user = request.user
+
+#     context = {
+#         'bookings': bookings,
+#         'prop': prop,
+#         'user': user,
+#         }
+#     return render(request, 'book/booking-diary.html', context)
+
+
+def my_diary(request, user_id):
+    """ To list all the users bookings in the DB """
     prop = Property.objects.all()
     bookings = Booking.objects.all()
+    # bookings = get_object_or_404(Booking, pk=user_id)
+    user = get_object_or_404(User, pk=user_id)
 
     context = {
         'bookings': bookings,
         'prop': prop,
+        'user': user,
         }
-    return render(request, 'book/booking-diary.html', context)
+    return render(request, 'book/my-diary.html', context)
 
 
 def parked(request):

@@ -63,7 +63,6 @@
                         <a class="nav-link" href="{% url 'properties' %}">View <span class="sr-only"></span></a>
                     </li>
                     <li class="list-inline-item">
-                        <!-- <a class="nav-link" href="{% url 'user_diary' %}">Book <span class="sr-only"></span></a> -->
                         <a class="nav-link" href="{% url 'choose_bookings' %}">Book <span class="sr-only"></span></a>
                     </li>
                 </ul>
@@ -111,15 +110,27 @@
 
                     <!-- appearance of the diary and display of totals within -->
                     <li class="list-inline-item">
-                        <a href="{% url 'user_diary' %}" class="bookings-nav pl-0 nav-link"><span
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'user-diary' user.id %}" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
                                 {% if grand_total %}
-                                    ${{ grand_total | floatformat:2 }}
+                                ${{ grand_total | floatformat:2 }}
                                 {% else %}
-                                    0
+                                0
                                 {% endif %}
                             </span>
                         </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="bookings-nav pl-0 nav-link"><span
+                            class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
+                                {% if grand_total %}
+                                ${{ grand_total | floatformat:2 }}
+                                {% else %}
+                                0
+                                {% endif %}
+                            </span>
+                        </a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
