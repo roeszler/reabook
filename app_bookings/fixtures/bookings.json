@@ -2,15 +2,74 @@
     "model": "app_bookings.booking",
     "pk": 1,
     "fields": {
-        "user": 3,
-        "appointment_slot": 1,
-        "property_id": 2,
-        "booking_name": "ReaBook 15 Minute Property Viewing Appointment",
-        "date": "2022-12-25",
-        "date_booked": "2022-09-15T15:23:17Z"
-    },
-    "booking_data": {
-        
+        "booking_number": "BDCB55",
+        "user": 1,
+        "property_id": 6,
+        "booking_name": "15 min Viewing",
+        "date_of_viewing": "2022-08-10",
+        "time_of_viewing": "10:30:00",
+        "client_message": "Why Not",
+        "date_submitted": "2022-09-23T16:35:36Z",
+        "f_name": "Disco",
+        "l_name": "Stu",
+        "client_username": "Create Username",
+        "client_email": "disco@inferno.com",
+        "client_phone": 1234567890,
+        "client_city": "Stockholm",
+        "client_state": "Stockholm",
+        "client_zip": "12345",
+        "client_country": "61",
+        "viewing_active": true,
+        "contact_ok": true
     }
-
+},
+{
+    "model": "app_bookings.booking",
+    "pk": 2,
+    "fields": {
+        "booking_number": "2ECFA",
+        "user": 1,
+        "property_id": 5,
+        "booking_name": "15 min Viewing",
+        "date_of_viewing": "2022-08-17",
+        "time_of_viewing": "10:30:00",
+        "client_message": "Check Me out!",
+        "date_submitted": "2022-09-23T17:02:42.631Z",
+        "f_name": "Disco",
+        "l_name": "Inferno",
+        "client_username": "Create Username",
+        "client_email": "sassy@inferno.com",
+        "client_phone": 12345678,
+        "client_city": "Paradise City",
+        "client_state": null,
+        "client_zip": "12122",
+        "client_country": "44",
+        "viewing_active": true,
+        "contact_ok": true
+    }
+},
+{
+    "model": "app_bookings.booking",
+    "pk": 3,
+    "fields": {
+        "booking_number": "8F4A4F",
+        "user": 1,
+        "property_id": 13,
+        "booking_name": "15 min Viewing",
+        "date_of_viewing": "2022-08-30",
+        "time_of_viewing": "15:30:00",
+        "client_message": "Test",
+        "date_submitted": "2022-09-27T14:17:11.070Z",
+        "f_name": "Disco",
+        "l_name": "Inferno",
+        "client_username": "Create Username",
+        "client_email": "disco@inferno.com",
+        "client_phone": 1232456789,
+        "client_city": "PC",
+        "client_state": null,
+        "client_zip": "12345",
+        "client_country": "AQ",
+        "viewing_active": true,
+        "contact_ok": true
+    }
 }]
