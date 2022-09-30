@@ -1,7 +1,7 @@
 """ Import Modules """
 from django.contrib import admin
 
-from .models import Booking, LoginForm
+from .models import Booking
 
 
 @admin.register(Booking)
@@ -57,7 +57,7 @@ class BookingAdmin(admin.ModelAdmin):
 
 # admin.site.register(Question)
 # admin.site.register(Choice)
-admin.site.register(LoginForm)
+# admin.site.register(LoginForm)
 # admin.site.register(Booking, BookingAdmin)
 # admin.site.register(Timeslot, TimeslotAdmin)
 # admin.site.register(Client, ClientAdmin)
