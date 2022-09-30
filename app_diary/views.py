@@ -2,10 +2,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
 
-from .forms import RegisterUserFrom
 from app_bookings.forms import BookingForm
+from .forms import RegisterUserFrom
 
 
 def login_user(request):
@@ -19,9 +20,10 @@ def login_user(request):
             if user.is_superuser or user.is_staff:
                 return redirect(f'/properties/manage/{user.id}/')
             else:
-                return redirect('user_diary')
+                return redirect(f'book/diary/{user.id}/')
         else:
-            messages.success(request, 'Aww Nuts! There was an error Logging In. Please try again...')
+            messages.success(request, 'Aww Nuts! There was an error.\n\
+                Please try again...')
             # Return an 'invalid login' error message.
             return redirect('login')
     else:
@@ -45,10 +47,29 @@ def register_user(request):
             password = registration_form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request, ('Registration Successful!'))
-            return redirect('user_diary')
+            messages.success(request, (f'Registration Successful! A new user\
+                 has been created \n User id.{user.id} with conformation sent to\
+                     {user.email}.\n Please log in again with the details\
+                         emailed to you'))
+            send_mail(
+                'New Registration at ReaBook.net',
+                f'Welcome to ReaBook.net {user.first_name}\n\
+                    A site to help coordinate property searching.\n\
+                    Your registration details are as follows:\n\
+                    Username: {user.username}\n\
+                    Email: {user.email}\n\
+                    Password: {password}\n\
+                    New user id. {user.id}\n',
+                'reabook@example.com',
+                ['registrations@reabook.net', user.email, ],
+                fail_silently=False,
+            )
+            return redirect('choose_bookings')
         else:
-            messages.success(request, 'There was an error with the details on your Registration Form. Please try again...')
+            messages.success(request, f'There was an error with the details on\
+                 your Registration Form.\n {registration_form.errors}\n\
+                    Please try again...')
+            print(registration_form.errors)
             return redirect('register')
     else:
         registration_form = RegisterUserFrom()

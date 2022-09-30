@@ -2,23 +2,9 @@ html {
     height: 100%;
 }
 
-/* body {
-    position: relative;
-    background-color: #343a40;
-    background: url('https://res.cloudinary.com/yodakode/image/upload/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #000;
-    font-family: 'Roboto';
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-} */
-
-
 footer {
     padding-top: 5rem;
 }
-
 
 input:focus::placeholder {
     color: transparent;
@@ -64,14 +50,10 @@ ul {
     color: #016ADA;
 }
 
-/* Images */
-
-/* .table-thumbnail {
-    display: block;
-    width: auto;
-    max-height: 180px;
-    margin: 0 1rem;
-} */
+.card-body {
+    font-size: 0.875rem;
+    font-weight: 300;
+}
 
 /* Format index.html page heading */
 
@@ -79,7 +61,6 @@ ul {
     position: relative;
     background-color: #343a40;
     background: url("https://res.cloudinary.com/yodakode/image/upload/ReaBook/breno-assis-r3WAWU5Fi5Q-unsplash_t4wvd4.jpg") no-repeat bottom center fixed;
-    /* background: url("https://res.cloudinary.com/yodakode/image/upload/ReaBook/nathan-fertig-U8zsjmKA840-unsplash_mzlljq.jpg") no-repeat center center fixed; */
     background-size: cover;
     padding-top: 14rem;
     padding-bottom: 12rem;
@@ -119,7 +100,6 @@ font-weight: 100;
 
 #topnav a:hover {
     color: #20514C;
-    /* color: #016ADA; */
     border: none;
 }
 
@@ -142,15 +122,7 @@ font-weight: 100;
 
 .btn-outline:hover {
     color: #20514C;
-    /* border-color: #7F7F7F; */
-    /* background-color: #20514C; */
 }
-
-/* #headerSubmitButton {
-    color: #fff;
-    border-color: #fff;
-    background-color: #20514C;
-} */
 
 #headerSubmitButton:hover {
     color: #20514C;
@@ -185,20 +157,8 @@ font-weight: 100;
     font-weight: 200;
 }
 
-
-/* .navbar-toggler-icon {
-    color: #7F7F7F !important;
-    opacity: 1;
-    font-weight: 200;
-} */
-
 .subnav-light span:hover {
     color: #fff;
-    /* color: #000; */
-    /* color: #007BFF; */
-    /* color: #20514C; */
-    /* text-shadow: 0.5px 0.5px 10px #20514C; */
-    /* background-color: #20514C; */
     background-color: #000;
     border-radius: 0.3125rem;
     opacity: 1;
@@ -206,32 +166,14 @@ font-weight: 100;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    /* font-weight: 200; */
 }
-
-
-/* .subnav-light a {
-    color: #000;
-    opacity: 1;
-    font-weight: 200;
-} */
-
-
-/* ------------ Landing page search bar */
-
-/* .btn-outline-reabook-yellow {
-    color: #000;
-    border-color: #F8C176;
-    background-color: #F8C176;
-} */
 
 /* --------------- Cards */
 .property-card {
     padding-top: 2.5rem;
-    /* text-align: center; */
 }
 
-/* Property card ribbon */
+/* ------------ Property card ribbon */
 .property-card > p {
     position: absolute;
 	width: 65%;
@@ -263,26 +205,6 @@ font-weight: 100;
 
 /* ------ Ribbon feather flag cutaway */
 
-/* 
-.property-card > p:before {
-	border-width: 15px 10px;
-	border-style: solid;
-	border-color: #999 #999 #999 transparent;
-}
-
-.property-card > p.simple:before {
-	display: none;
-}
-
-.property-card > p.ribbon:before {
-	width: 0px;
-	left: auto;
-	right: -2px;
-	top: 0px;
-	border-color: transparent #fff transparent transparent;
-} 
-*/
-
 .property-card a {
     opacity: 1;
 }
@@ -300,11 +222,9 @@ font-weight: 100;
 @keyframes property-card-zoom {
     from{
         transform: scale(1);
-        /* margin-left: 0%; */
     }
     to {
         transform: scale(1.02) rotate(1deg);
-        /* margin-left: 1.5%; */
     }
 }
 
@@ -312,10 +232,9 @@ font-weight: 100;
 
 .index-property-card {
     padding-top: 2.5rem;
-    /* text-align: center; */
 }
 
-/* Property card ribbon */
+/* ------------ Property card ribbon */
 .index-property-card > p {
     position: absolute;
 	width: 65%;
@@ -348,8 +267,6 @@ font-weight: 100;
 .index-property-card img:hover {
     opacity: 1;
     transition: .5s ease;
-    /* background-color: #20514C; */
-
     animation-name: property-card-zoom;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -358,8 +275,6 @@ font-weight: 100;
 .index-property-card a:hover {
     opacity: 1;
     transition: .5s ease;
-    /* background-color: #20514C; */
-
     animation-name: index-property-card-zoom;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -375,7 +290,6 @@ font-weight: 100;
     }
 }
 
-
 /* ------ Control Bar */
 
 .list-table {
@@ -389,7 +303,6 @@ font-weight: 100;
     font-size: smaller;
 }
 
-
 /* Viewings available search results table */
 
 tr a {
@@ -399,7 +312,6 @@ tr a {
 tr a:hover {
     color: #20514C;
 }
-
 
 /* ------------ Bookings Section */
 a, a:hover {
@@ -412,7 +324,6 @@ a, a:hover {
 }
 
 .choose-hlink {
-    /* color: red; */
     color: #cccccc;
 }
 
@@ -449,7 +360,6 @@ a, a:hover {
 Calendar modified from source: colorlib.com calendar-04
 https://colorlib.com/wp/bootstrap-calendars/
 */
-
 .calendar-container {
     font-size: smaller;
 }
@@ -525,7 +435,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     color: #fff;
     background-color: #20514C;
     border-radius: 0.3125rem;
-    /* border-radius: 0.5rem; */
 }
 
 .time-slot:checked {
@@ -549,16 +458,12 @@ https://colorlib.com/wp/bootstrap-calendars/
 .days-table,
 .dates-table,
 .months-table {
-    /* border-collapse: separate; */
-    /* border-collapse: inherit; */
-    /* border-collapse: collapse; */
     text-align: center;
 }
 
 .day {
     height: 1.25rem; /* same as 20px */
     width: 1.25rem;
-    /* padding: 0 0.625rem; */
     line-height: 1.625rem; /* same as 26px */
     border: 2px solid transparent;
     text-transform: uppercase;
@@ -570,7 +475,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     cursor: default;
     height: 1.25rem;
     width: 1.25rem;
-    /* padding: 0 0.125rem; */
     padding-top: 0.625rem;
     line-height: 1.625rem;
     text-transform: uppercase;
@@ -600,9 +504,7 @@ https://colorlib.com/wp/bootstrap-calendars/
     width: 100%;
     background: 0 0;
     line-height: 1.375;
-    /* border: 0.0625rem solid #d3d3d3; */
     padding: 0.5rem;
-    /* transition: all .2s ease-in-out; */
     border-radius: 0.3125rem;
 }
 
@@ -617,7 +519,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     -o-transition: all 250ms;
     transition: all 250ms;
     position: relative;
-    /* display: none; */
 }
 
 .table-date:not(.nil):hover {
@@ -630,12 +531,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     color: #fff;
 }
 
-
-/* .active-date:not(.nil):hover {
-    background: #20514C;
-    color: #fff;
-} */
-
 .cal-event-card {
     border-left: 0.3125rem solid;
     border-color: #20514C;
@@ -644,11 +539,9 @@ https://colorlib.com/wp/bootstrap-calendars/
 .cal-btn {
     border: none;
     font-size: 0.65rem;
-    /* color: #cccccc; */
 }
 
 /* ------------ Submit form Section */
-
 
 .btn-submit-reabook {
     color: #20514C;
@@ -665,86 +558,12 @@ https://colorlib.com/wp/bootstrap-calendars/
     background-color: #20514C;
 }
 
-.input_prop_no {
-    /* display: none; */
-}
-
 /* ------------ Events Section */
 
 /*  Events display */
 .events-container {
     font-size: smaller;
-    /* color: #000; */
-    /* overflow-y: scroll; */
-    /* height: 100%; */
-    /* width: 100%; */
-    /* float: right; */
-    /* margin: 0px auto; */
-    /* display: inline-block; */
-    /* padding: 0px; */
-    /* border-bottom-right-radius: 3px; */
-    /* border-top-right-radius: 3px; */
-    /* padding: 0; */
 }
-
-/* @media (max-width: 767.98px) {
-    .events-container {
-        width: 100%;
-        height: auto;
-    }
-} */
-
-/* .events-container:after {
-    clear: both;
-} */
-
-/* .event-card {
-    padding: 20px 0;
-    max-width: 100%;
-    display: block;
-    background: #fff;
-    border: none !important;
-    margin: 20px;
-    margin-left: 12px;
-} */
-
-/* @media (max-width: 991.98px) {
-    .event-card {
-        margin: 10px;
-    }
-} */
-
-/* 
-@media (max-width: 767.98px) {
-    .event-card {
-        margin: 0;
-        background: #e6e6e6;
-    }
-} */
-
-/* .event-count,
-.event-name,
-.event-cancelled {
-    display: inline;
-    padding: 0 10px;
-    font-size: 1rem;
-} */
-
-/* .event-count {
-    color: #7e0cf5;
-    text-align: right;
-} */
-
-/* .event-name {
-    padding-right: 0;
-    text-align: left;
-} */
-
-/* .event-cancelled {
-    color: #cd4dcc;
-    text-align: right;
-} */
-
 
 /* ------------------------ Media Queries */
 
@@ -790,12 +609,6 @@ https://colorlib.com/wp/bootstrap-calendars/
 
     .header-container-subpages {
         padding-top: 7.75rem;
-        /* border-bottom-left-radius: 50%; */
-        /* border-bottom-right-radius: 50%; */
-        /* background-color: #f8f9fa; */
-        /* background-color: #20514C; */
-        /* background-color: #4B2B20; */
-        /* opacity: 0.1; */
         border-radius: .75rem;
     }
 }
@@ -839,7 +652,6 @@ https://colorlib.com/wp/bootstrap-calendars/
     }
 
     .month {
-        /* font-size: 0.5rem; */
         font-size: 8px;
     }
 
@@ -880,7 +692,6 @@ https://colorlib.com/wp/bootstrap-calendars/
 
 @media (max-width: 768px) {
     .month {
-        /* font-size: 0.75rem; */
         font-size: 10.5px;
     }
 

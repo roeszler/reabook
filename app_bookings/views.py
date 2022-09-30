@@ -48,10 +48,14 @@ def booking_detail(request, property_id):
     props_with_booking_slots = bookings.filter(viewing_active=True)
     prop = get_object_or_404(Property, pk=property_id)
     booking_form = BookingForm(instance=prop)
+    user = request.user
+    # booking_form = BookingForm(instance=user)
+    # booking_form.instance.user = request.user
 
     context = {
         'booking_form': booking_form,
         'prop': prop,
+        'user': user,
         'props_with_booking_slots': props_with_booking_slots,
     }
 
@@ -108,19 +112,35 @@ def add_booking(request, property_id):
 
             # Send an email
             send_mail(
-                'Message from ' + f_name + l_name + ' at ' + client_email + '\
-                    , regarding: ' + property_id,
-                'Property: ' + property_id + ', Date and time of proposed \
-                viewing: ' + date_of_viewing + ' at ' + time_of_viewing + '\
-                , Message: ' + client_message, client_email, ['\
-                bookings@reabook.net', 'someone@realestateagent\
-                customer.com', client_email, ]
+                f'Reabook viewing request: {client_email} - for prop\
+                    .{property_id}',
+                f'Property: {property_id}\n\
+                    User  {f_name}  {l_name}.\n\
+                    Email: {client_email}\n\
+                    Proposed time: {time_of_viewing}\n\
+                    Proposed date: {date_of_viewing}\n\
+                    Additional: {client_message}\n\
+                    User id. {user.id}\n',
+                'bookings@reabook.net',
+                ['viewings@reabook.net', 'agent@example.com\
+                    ', prop.realtor.email, client_email, ],
+                fail_silently=False,
             )
+            # send_mail(
+            #     'Message from ' + f_name + l_name + ' at ' + client_email + '\
+            #         , regarding: ' + property_id,
+            #     'Property: ' + property_id + ', Date and time of proposed \
+            #     viewing: ' + date_of_viewing + ' at ' + time_of_viewing + '\
+            #     , Message: ' + client_message, client_email, ['\
+            #     bookings@reabook.net', 'someone@realestateagent\
+            #     customer.com', client_email, ]
+            # )
         else:
             messages.error(
                     request, 'We have a problem. Please check you \
                         have entered all time, date and booking fields.'
                     )
+            print(booking_form.errors)
             return render(request, 'book/prop-booking.html', context)
 
         return render(request, 'book/booking-success.html', context)
