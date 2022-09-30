@@ -20,7 +20,7 @@ class Booking(models.Model):
 
     f_name = models.CharField(max_length=40)
     l_name = models.CharField(max_length=40)
-    client_username = models.CharField(max_length=40, default='Create Username')
+    client_username = models.CharField(max_length=40, null=True, blank=True, default='Create Username')
     client_email = models.EmailField(max_length=254)
     client_phone = models.IntegerField(null=True, blank=True, default='')
     client_city = models.CharField(max_length=140, null=True, blank=True)
