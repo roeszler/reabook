@@ -204,99 +204,25 @@
 <!-- Feature Card -->
 <div class="card text-center mt-5">
     <div class="card-header">
-        Feature Information
+        Project Information
     </div>
     <div class="card-body">
         <h5 class="card-title">Dreamed, Designed, Developed and Deployed by S.Roeszler</h5>
-        <p class="card-text">Full Stack Framework demonstrating an appointment booking diary service to view properties available for<br>rent, sale or lease with a theoretical real-estate cooperative: <i class="fa fa-bookmark reabook-logo"></i> ReaBook</p>
-        <a href="https://github.com/roeszler" class="btn btn-primary">GitHub Repo</a>
+        <h6>in consideration for completion of Project 4: Full Stack with <a href="https://codeinstitute.net/global/">the Code Institute</a></h6>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="text-center justified col-lg-6 col-12">
+                <p class="card-text">Full Stack Framework based on business logic to control a centrally-owned dataset.</p>
+                <p>Constructed using HTML, CSS, JavaScript, Python+Django and a Postgres relational database. Authentication mechanisms and role-based access activities to demonstrate a simple appointment / diary service that allows users to register and book appointment to view properties with a variety of land agents through a lead handling service: 
+                    <i class="fa fa-bookmark reabook-logo"></i> ReaBook</p>
+                <a href="https://github.com/roeszler" class="btn btn-secondary">View GitHub Repo</a>
+            </div>
+        </div>
     </div>
-    <div class="card-footer text-muted">
-        2 days ago
-    </div>
-</div>
-
-<!-- Old Container -->
-<div class="property-card container h-100">
-    <div class="row h-100">
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-auto">
-            <h4 class="logo-font text-black">property card 1...</h4>
-            <!-- Book now Button -->
-            <div class="my-5">
-                <p><a href="{% url 'choose_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
-            </div>
-        </div>
-        <div class="col-3 col-md-3 my-auto">
-            <h4 class="logo-font text-black">property card 2...</h4>
-            <!-- Book now Button -->
-            <div class="my-5">
-                <p><a href="{% url 'choose_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
-            </div>
-        </div>
-        <div class="col-3 col-md-3 my-auto">
-            <h4 class="logo-font text-black">property card 3...</h4>
-            <!-- Book now Button -->
-            <div class="my-5">
-                <p><a href="{% url 'choose_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
-            </div>
-        </div>
-        <div class="col-3 col-md-3 my-auto">
-            <h4 class="logo-font text-black">property card 4...</h4>
-            <!-- Book now Button -->
-            <div class="my-5">
-                <p><a href="{% url 'choose_bookings' %}" class="book-now-button btn btn-lg rounded-0 text-uppercase py-3">Detail Link</a></p>
-            </div>
-        </div>
+    <div class="card-footer font-weight-light text-muted">
+        18 October 2022
     </div>
 </div>
-
-<!-- Card Decks -->
-<div class="property-card container h-100">
-    <div class="row h-100">
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <script src="static/js/scrollfade.js"></script> -->
-
 {% endblock %}
 
 {% block postloadjs %}
