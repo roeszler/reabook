@@ -193,7 +193,10 @@ def my_diary(request, user_id):
 
 def parked(request):
     """ View to render the bookings the parked page """
-    return render(request, 'book/parked.html')
+    user = request.user
+    users_bookings = bookings.filter(user=user)
+
+    return render(request, 'book/parked.html', {'users_bookings': users_bookings, })
 
 
 def update_booking(request, booking_id):
