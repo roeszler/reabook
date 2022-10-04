@@ -95,26 +95,11 @@
                         </div>
                     </div>
                     <p><label>Permission given to refer for other Properties</label> {{ booking_form.contact_ok }} </p>
-                    <button class="btn btn-outline-reabook" type="submit">Update</button>
+                    <button class="btn btn-warning" type="submit">Update Details</button>
                 </form>
-                
-                <br>
-                <a href="#">
-                    Edit / Update
-                </a>
-                Edit / Update
-                <br>
-                Delete
-                <br>
-                Create New Booking
-                <br>
-                Prop Id: {{ booking.property_id }}
             </div>
         </div>
-
     </div>
-    <p>update-booking.html...</p>
-
 {% include 'includes/bookings-base-calendar.html' %}
 {% else %}
     {% include 'includes/account-required.html' %}

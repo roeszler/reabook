@@ -49,11 +49,11 @@ def booking_detail(request, property_id):
     prop = get_object_or_404(Property, pk=property_id)
     booking_form = BookingForm(instance=prop)
     user = request.user
-    # booking_form = BookingForm(instance=user)
-    # booking_form.instance.user = request.user
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     context = {
         'booking_form': booking_form,
+        'users_bookings': users_bookings,
         'prop': prop,
         'user': user,
         'props_with_booking_slots': props_with_booking_slots,
@@ -67,6 +67,7 @@ def add_booking(request, property_id):
     prop = Property.objects.get(pk=property_id)  # noqa
     booking_form = BookingForm(instance=prop)
     user = request.user
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     property_id = f'{prop.id}'
     date_of_viewing = request.POST.get('date_of_viewing', 'n/p')
@@ -86,6 +87,7 @@ def add_booking(request, property_id):
         'prop': prop,
         'user': user,
         'booking_form': booking_form,
+        'users_bookings': users_bookings,
         'property_id': property_id,
         'date_of_viewing': date_of_viewing,
         'time_of_viewing': time_of_viewing,
@@ -126,15 +128,6 @@ def add_booking(request, property_id):
                     ', prop.realtor.email, client_email, ],
                 fail_silently=False,
             )
-            # send_mail(
-            #     'Message from ' + f_name + l_name + ' at ' + client_email + '\
-            #         , regarding: ' + property_id,
-            #     'Property: ' + property_id + ', Date and time of proposed \
-            #     viewing: ' + date_of_viewing + ' at ' + time_of_viewing + '\
-            #     , Message: ' + client_message, client_email, ['\
-            #     bookings@reabook.net', 'someone@realestateagent\
-            #     customer.com', client_email, ]
-            # )
         else:
             messages.error(
                     request, 'We have a problem. Please check you \
@@ -150,6 +143,8 @@ def choose_bookings(request):
     """ View to render the choose bookings page """
     properties = Property.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
+    user = request.user
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     query = None
 
@@ -166,11 +161,11 @@ def choose_bookings(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
             props_with_viewings = props_with_viewings.filter(queries)
-            # print('found q', queries)
 
     context = {
         'properties': properties,
         'props_with_viewings': props_with_viewings,
+        'users_bookings': users_bookings,
         'search_term': query,
     }
     return render(request, 'book/search-viewings.html', context)
@@ -194,7 +189,7 @@ def my_diary(request, user_id):
 def parked(request):
     """ View to render the bookings the parked page """
     user = request.user
-    users_bookings = bookings.filter(user=user)
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     return render(request, 'book/parked.html', {'users_bookings': users_bookings, })
 
@@ -203,9 +198,13 @@ def update_booking(request, booking_id):
     """ To update the bookings made by each user """
     booking = Booking.objects.get(pk=booking_id) # noqa
     booking_form = BookingForm(request.POST or None, instance=booking)
+    user = request.user
+    users_bookings = Booking.objects.filter(user=user) # noqa
+    
 
     context = {
         'booking_form': booking_form,
+        'users_bookings': users_bookings,
         'booking': booking,
         }
     return render(request, 'book/update-booking.html', context)
