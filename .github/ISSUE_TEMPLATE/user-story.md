@@ -2,7 +2,7 @@
 name: User Story
 about: Default user story template
 title: 'User Story: _Title_'
-labels: enhancement
+labels: feature
 assignees: roeszler
 
 ---
