@@ -1,26 +1,27 @@
-![Reabook.net](https://res.cloudinary.com/yodakode/image/upload/v1661790281/ReaBook/ReaBook_Icon_00402B_gray_szgzia.ico)
-![YodaKode.com](https://res.cloudinary.com/rgcommercial/image/upload/v1660283182/static/images/yodaKode-256_wsgzti.png)
+<!-- ![Reabook.net](https://res.cloudinary.com/yodakode/image/upload/v1661790281/ReaBook/ReaBook_Icon_00402B_gray_szgzia.ico) -->
+# ReaBook Booking System
 
-# The ReaBook Diary 
- A handy appointment system to help you make and manage appointments in the hunt for your new home.
+> **ReaBook** - attracts and drives initial bookings to view real estate for sale, rent or lease.
 
-## Full Stack Software Devlopment - Portfolio Project 4
-### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL)
+## Full Stack Toolkit with Django - [Code Institute](https://codeinstitute.net/)
+
+### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL), c
 
 * Repository link : https://github.com/roeszler/reabook
 * Terminal : https://reabook.herokuapp.com/
 * User Stories : https://github.com/users/roeszler/projects/4
-* GitPod Admin Panel : [GP Admin Log In](https://8000-roeszler-reabook-nqaw4dtiyn0.ws-eu62.gitpod.io/admin/login/)
-* Heroku Admin Panel : [HK Admin Log In](https://reabook.herokuapp.com/admin/)
+<!-- * GitPod Admin Panel : [GP Admin Log In](https://8000-roeszler-reabook-nqaw4dtiyn0.ws-eu62.gitpod.io/admin/login/) -->
+<!-- * Heroku Admin Panel : [HK Admin Log In](https://reabook.herokuapp.com/admin/) -->
 
-
+---
 
 ## 1. Project Purpose
 
-ReaBook (the Site) is a theoretical real estate management site that is used to present the deployment of a Appointment booking system (the App) using a Full Stack Framework.
+ReaBook (the Site) is the skeleton of a real estate advertising site used to present the deployment of a Appointment booking system (the App) using a Full Stack Framework.
 
-Both runs within the [Code Institutes](https://codeinstitute.net/) python terminal deployed [Heroku](https://www.heroku.com/platform).
-* Users can select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
+At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at https://reabook.herokuapp.com/. Here users can:
+* Select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
+> book > df
 * Users can create, retrieve and navigate through orders to update information, check production status and/or re-book properties.
 * Business owner users can list, edit and advertise times for potential customers to view properties currently for sale or rent in their business portfolio.
 

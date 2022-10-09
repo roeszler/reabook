@@ -53,14 +53,28 @@
 
 <!-- button to access the diary -->
 <li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-gray{% endif %} nav-link d-block d-lg-none" href="{% url 'choose_bookings' %}">
+    {% if user.is_authenticated %}
+    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-gray{% endif %} nav-link d-block d-lg-none" href="{% url 'user-diary' user.id %}" aria-label="user-diary">
         <div class="text-center">
             <div><i class="fas fa-book-bookmark fa-lg"></i></div>
             <p class="my-0">
                 {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
+                ${{ grand_total|floatformat:2 }}
                 {% else %}
-                    0
+                0
+                {% endif %}
+            </p>
+        </div>
+    </a>
+    {% endif %}
+    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-gray{% endif %} nav-link d-block d-lg-none" href="{% url 'login' %}" aria-label="user-diary">
+        <div class="text-center">
+            <div><i class="fas fa-book-bookmark fa-lg"></i></div>
+            <p class="my-0">
+                {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+                {% else %}
+                0
                 {% endif %}
             </p>
         </div>

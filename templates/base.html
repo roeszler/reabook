@@ -62,9 +62,15 @@
                     <li class="list-inline-item">
                         <a class="nav-link" href="{% url 'properties' %}">View <span class="sr-only"></span></a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="list-inline-item">
-                        <a class="nav-link" href="{% url 'choose_bookings' %}">Book <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'user-diary' user.id %}">Book <span class="sr-only"></span></a>
                     </li>
+                    {% else %}
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="{% url 'login' %}">Book <span class="sr-only"></span></a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
 
@@ -111,7 +117,7 @@
                     <!-- appearance of the diary and display of totals within -->
                     <li class="list-inline-item">
                         {% if user.is_authenticated %}
-                        <a href="{% url 'user-diary' user.id %}" class="bookings-nav pl-0 nav-link"><span
+                        <a href="{% url 'user-diary' user.id %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
                                 {% if grand_total %}
                                 ${{ grand_total | floatformat:2 }}
@@ -121,7 +127,7 @@
                             </span>
                         </a>
                         {% else %}
-                        <a href="{% url 'login' %}" class="bookings-nav pl-0 nav-link"><span
+                        <a href="{% url 'login' %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
                                 {% if grand_total %}
                                 ${{ grand_total | floatformat:2 }}
