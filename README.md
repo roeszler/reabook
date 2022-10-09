@@ -132,6 +132,14 @@ Consideration and documentation at this point as to:
 * How will each requirement be Tested?
 * What is the process to evaluate each requirement? (to meet initial requirements)
 
+<details>
+<summary style="font-size: 1rem;">
+Sample format of a user story with acceptance criteria for the ReaBook project
+</summary>
+
+
+</details>
+
 ### 2.2 Implementation
 #### Theme
 #### Epics
