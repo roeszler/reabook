@@ -1,7 +1,7 @@
 # Project X - UCD Scope Plane
 Stuart Roeszler - Portfolio Project X
 
-_This section is for display purposes only and has not been completed as parth of CI Project X - Project X. It is included as an initial template only and is intended as a quick refrence for use within projects in the future._
+_This section is for display purposes only and has not been completed as parth of CI Project X - Project X. It is included as an initial template only and is intended as a quick reference for use within projects in the future._
 
 ## Plane 2 of 5 - Scope
 

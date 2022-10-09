@@ -6,7 +6,7 @@
             <div class="col-12">
                 <h5 class="logo-font"><i class="fa-solid fa-arrow-right-arrow-left reabook-logo"></i><strong> Quick Links</strong></h5>
                 {% for booking in users_bookings %}
-                <a href="" aria-label="">
+                <a href="{% url 'update-booking' booking.id %}" aria-label="view edit booking">
                     <div class="card my-1">
                         <div class="card-body col-12 p-2">
                             <div class="row">
@@ -14,8 +14,10 @@
                                     <i class="fa-solid fa-bookmark my-2 reabook-logo"></i>
                                 </div>
                                 <div class="col-10 text-black">
-                                    {{ booking.property_id.house_no }} {{ booking.property_id.street }}
-                                    <br><small class="text-gray">{{ booking.date_of_viewing }} @ {{ booking.time_of_viewing }}</small>
+                                    <small>
+                                        {{ booking.property_id.house_no }} {{ booking.property_id.street }}
+                                    </small>
+                                    <br><small class="text-gray mt-0">{{ booking.date_of_viewing }} @ {{ booking.time_of_viewing }}</small>
                                 </div>
                             </div>
                         </div>

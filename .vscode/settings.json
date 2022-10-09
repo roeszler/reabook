@@ -36,7 +36,8 @@
     "subnav",
     "subpages",
     "Timeslot",
-    "topnav"
+    "topnav",
+    "Wireframe"
 ],
    "[yaml]": {
       "editor.tabSize": 4
