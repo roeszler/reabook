@@ -138,6 +138,29 @@ Sample format of a user story with acceptance criteria for the ReaBook project
 </summary>
 
 
+User Story: 
+As a **user**, I can **select the time I would like to visit a property** so that **I can arrange my day efficiently with little diffculty**.
+
+**Acceptance Criteria**:
+
+[x] Booking details must include the time and date of intended appointment, the subject property address, the name, email and phone number of the person requesting the booking. 
+
+[x] The agent / employee is able to select the time of the booking details from 3 sessions during the the day (Morning, Afternoon and Evening).
+
+[x] The font size used in the conformation email is 12 point.
+
+**Tasks**:
+
+[x] Design a “submit” button and add it to the booking details page.
+
+[x] Create the HTML and CSS for the dropdown menu including the booking times. 
+
+[x] Create the HTML, CSS and copy for the successful submission email.
+
+[x] Create the code for the model, viewer and controller.
+
+[x] Test the completed functionality that incldes email submission.
+
 </details>
 
 ### 2.2 Implementation
