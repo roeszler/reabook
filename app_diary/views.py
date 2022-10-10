@@ -20,7 +20,7 @@ def login_user(request):
             if user.is_superuser or user.is_staff:
                 return redirect(f'/properties/manage/{user.id}/')
             else:
-                return redirect(f'book/diary/{user.id}/')
+                return redirect(f'/book/diary/{user.id}/')
         else:
             messages.success(request, 'Aww Nuts! There was an error.\n\
                 Please try again...')

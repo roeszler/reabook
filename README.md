@@ -10,8 +10,7 @@
 * Repository link : https://github.com/roeszler/reabook
 * Terminal : https://reabook.herokuapp.com/
 * User Stories : https://github.com/users/roeszler/projects/4
-<!-- * GitPod Admin Panel : [GP Admin Log In](https://8000-roeszler-reabook-nqaw4dtiyn0.ws-eu62.gitpod.io/admin/login/) -->
-<!-- * Heroku Admin Panel : [HK Admin Log In](https://reabook.herokuapp.com/admin/) -->
+
 ---
 
 <details>
@@ -62,11 +61,11 @@
 ---
 
 ## 1. Project Purpose
+ReaBook (the Site) is the scaffold of a real estate advertising site used to present the deployment of an appointment booking system (the App) using a Full Stack Frameworks.
 
-ReaBook (the Site) is the skeleton of a real estate advertising site used to present the deployment of an appointment booking system (the App) using a Full Stack Framework.
+A primary personal focus of this project has been to learn to integrate database functionality. As a student I decided to extend myself into a scope larger than was required for portfolio project 4. This was done to practice, test and increase the depth of my experience in planning, design and coding of full stack solutions.
 
 ### Database Functionality
-
 At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at https://reabook.herokuapp.com/. Here users can:
 * Select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
     > Main nav > Book > (login) > Reabook Viewings
@@ -84,25 +83,24 @@ At the time of release, the site is deployed via the [Heroku](https://www.heroku
     > Property Edit = Manage Properties > Edit / Delete
 
 ### Note:
-
 The ReaBook business premise is to collate and drive leads into existing appointment management systems, **not** provide appointment management service.
 
-It is acknowledged that most all real estate services will already have well developed appointment management processes. The ReaBook app is focused to enhance the lead generation into these systems and provide advertising of properties to future clients across all agents. More akin to a cross-agency site to dive leads for properties available for sale, rent, or spaces to lease.
+Reabook.site is a cross-agency site to dive leads for properties available for sale, rent, or spaces to lease. It is acknowledged that most all real estate services will already have well developed appointment management systems, so the ReaBook app is focused on enhancing the lead generation into these systems and provide advertising across all agents. 
 
 <div align="right">
 
 [Back to Top :arrow_up:](#table-of-contents)
-
 </div>
 
 ## 2. Agile Development Process
 
-This project (ReaBook) has been developed following an Agile methodology. As part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
+Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stuartroeszler/), the Reabook project has been developed following an Agile methodology as part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
 
-Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stuartroeszler/). In light of this, some of the project management processes such as [team velocity](#team-velocity) and [information radiators](#information-radiators) are outlined only, however would form a crucial part of a live, team based project.
+Agile [Project management](#23-project-management) processes, like [team velocity](#team-velocity) do not easily translate to a single person team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
+
 ### 2.1 Requirements Engineering
 #### User Centered Design (UCD) Process:
-* Planning followed a User Centered Design (UCD) Process to identify and structure the development process.
+* User Centered Design (UCD) Process was used to identify key goals and structure the development process.
     <details>
     <summary style="font-size: 1rem;">
     For a more detailed look at the ReaBook UCD Process (dropdown list)
@@ -116,16 +114,61 @@ Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stua
 
     </details>
 
----
+#### Defining the Requirements
+Seen from activities undertaken in the UCD [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
 
-### Defining the Requirements
-Project requirements for a project such as ReaBook would be sourced from activities undertaken in the UCD [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes.
+The primary directive was to make an online community looking for one-stop access to real estate available in an area.
+
+> ReaBook: A single cross-agency site where users can interact to find and visit their next property solution. Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store. Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
+
+
+From this process, three primary user personas were defined:
+<details>
+    <summary>Customer User</summary>
+
+- **Who are they?**
+    - 18 to 45 years old, fully employed, professional couple &/or early stage family, further educated, non-local.
+- **What is their main goal?**
+    - Find rental accommodation, property purchase and/or lease of new business spaces in a variety of city and rural locations.
+- **What is the main barrier to achieving their goal?**
+    - Spread of multiple properties across multiple real-estate businesses makes search and access difficult.
+
+- **Persona Card**:
+    ![user_persona](static/documentation/wireframes/Home-seeker-Persona-ReaBook.png)
+</details>
+
+<details>
+    <summary>Agent / Member User</summary>
+
+- **Who are they?**
+    - Early to established real-estate business with expertise in local region.
+- **What is their main goal?**
+    - Constantly feed new sales to maintain business growth and position. 
+- **What is their main barrier to achieving their goal?**
+    - Access to new customers wishing to engage their real-estate services.
+- **Persona Card**:
+    ![user_persona](static/documentation/wireframes/Owner-Agent-Persona-ReaBook.png)
+</details>
+
+<details>
+    <summary>Admin User</summary>
+
+- **Who are they?**
+    - New to intermediate, IT literate professionals looking for platform to manage B2C connections 
+- **What is their main goal?**
+    - Add value to businesses in the real-estate fields internationally.
+- **What is their main barrier to achieving their goal?**
+    - Access to cross platform sales funnel into existing management systems
+- **Persona Card**:
+    ![user_persona](static/documentation/wireframes/IT-Admin-Persona-ReaBook.png)
+    </details>
+
 
 ### Requirements Analysis
-Important that the requirements defined are actually understood. Important to check and record each requirement is:    
+Used to confirm understanding and documented check that each requirement is:    
 * Clear
 * Non-conflicting
-* Has passed a trade-off process between owner and developer: Importance vs Feasible 
+* Has successfully completed a trade-off process between owner and development team as to what is important and what is feasible.
 
 Consideration and documentation at this point as to:
 * How will each requirement be implemented?
@@ -134,54 +177,79 @@ Consideration and documentation at this point as to:
 
 <details>
 <summary style="font-size: 1rem;">
-Sample format of a user story with acceptance criteria for the ReaBook project
+Sample user story with acceptance criteria for the ReaBook project
 </summary>
 
 
 User Story: 
-As a **user**, I can **select the time I would like to visit a property** so that **I can arrange my day efficiently with little diffculty**.
+* As a **user**, I can **select the time I would like to visit a property** so that **I can arrange my day efficiently with little difficulty**.
 
 **Acceptance Criteria**:
 
-[x] Booking details must include the time and date of intended appointment, the subject property address, the name, email and phone number of the person requesting the booking. 
+* [x] Booking details must include the time and date of intended appointment, the subject property address, the name, email and phone number of the person requesting the booking. 
 
-[x] The agent / employee is able to select the time of the booking details from 3 sessions during the the day (Morning, Afternoon and Evening).
+* [x] The agent / employee is able to select the time of the booking details from 3 sessions during the the day (Morning, Afternoon and Evening).
 
-[x] The font size used in the conformation email is 12 point.
+* [x] The font size used in the conformation email is 12 point.
 
 **Tasks**:
 
-[x] Design a “submit” button and add it to the booking details page.
+* [x] Design a “submit” button and add it to the booking details page.
 
-[x] Create the HTML and CSS for the dropdown menu including the booking times. 
+* [x] Create the HTML and CSS for the dropdown menu including the booking times. 
 
-[x] Create the HTML, CSS and copy for the successful submission email.
+* [x] Create the HTML, CSS and copy for the successful submission email.
 
-[x] Create the code for the model, viewer and controller.
+* [x] Create the code for the model, viewer and controller.
 
-[x] Test the completed functionality that incldes email submission.
+* [x] Test the completed functionality that incldes email submission.
 
 </details>
 
-### 2.2 Implementation
-#### Theme
-#### Epics
+## 3. Implementation
+### 3.1 Themes
+Collect related epics that have something in common. In the project, this can be seen as:
 
+User Experience (Theme)
+* Account Registration journey (Epic)
+* Add Property journey (Epic)
+* Bookings journey (Epic)
+* Sign in/out journey (Epic)
+
+Account Management (Theme)
+* Sign-in feature (Epic)
+* User profile feature (Epic)
+* Sign-up feature (Epic)
+
+Property Management (Theme)
+* Display multiple properties feature (Epic)
+* Display single property feature (Epic)
+* Add single property feature (Epic)
+* Edit single property feature (Epic)
+
+Booking Management (Theme)
+* Display booking feature (Epic)
+* Create booking feature (Epic)
+* Update booking feature (Epic)
+* Display multiple bookings feature (Epic)
+
+### 3.2 Epics
+Epics are larger multiple iteration that can be broken into user stories.
 <details>
 <summary style="font-size: 1rem;">
-Epics
+Epics are larger multiple iteration that can be broken into user stories.
 </summary>
         
-- Epics
+- Reabook Epics
     - [User Experience]()
     - [Site Framework]()
     - [Dataset Design]()
     - [Read Dataset]()
     - [Display Properties / Products]()
     - User Profile
-        - [Admin User]()
-        - [Agent Member]() User (staff)
-        - [Customer User]()
+        - [Admin User](static/documentation/wireframes/IT-Admin-Persona-ReaBook.png)
+        - [Agent Member](static/documentation/wireframes/Owner-Agent-Persona-ReaBook.png) User (staff)
+        - [Customer User](static/documentation/wireframes/Home-seeker-Persona-ReaBook.png)
     - [Sign In]()
     - [Register]()
     - [Create Property Listing]() (staff)
@@ -193,17 +261,8 @@ Epics
 </details>
 
 <details>
-    <summary style="font-size: 1rem;">
-    User Persona (sample)
-    </summary>
-        
-![user_persona](static/documentation/wireframes/Bookings_Page.png)
 
-</details>
-
-<details>
-
-#### User Stories
+### 3.3 User Stories
 - Cards: https://github.com/users/roeszler/projects/4/views/1
 - Acceptance Criteria
 - Tasks
@@ -220,31 +279,34 @@ User Stories
 
 </details>
 
-### 2.3 Project Management
+## 4. Project Management
 Continuing to promote the Agile framework of software development, where possible I implemented the following during completion of each [user story](https://github.com/roeszler/reabook/issues):  
-### Story Point Estimation
+### 4.1 Story Point Estimation
 Difficult to estimate with current level of experience, focused on the amount of work done posthumously in most cases. This was primarily due to the errors that came with each development iteration and the relative simple or solutions to solve the problem. 
 
-One such instance was the inclusion of a django dropdown as part of the booking process. This was aimed to sequentially lead the user booking a viewing appointment to the next step. The combined front end JavaScrip and backend Python solution to achieve the sequential update and display of the data entered became too large for the story points I had assigned to the task. 
+One such instance was the inclusion of a bootstrap dropdown as part of the booking process. This was aimed to sequentially lead the user booking a viewing appointment to the next step. 
 
-In this way I refactored the code to provide a more basic, consistent user experience that was achievable in the timeframe. 
+The combined front end JavaScrip and backend Python solution to achieve the sequential update and display of the data entered became out of scope for the project and story points I had allocated to the task. 
 
-### Team Velocity
-Considers an average amount of story points the development 'team' can manage to finish in one iteration of a particular length.
+As part of the [agile manifesto](https://agilemanifesto.org/) approach (responding to change over following a plan) the code was refactored to provide a more basic, consistent user experience that was achievable in the time-frame. 
 
-In the development of the ReaBook project, focus was placed on gathering experience and testing hypotheses in my journey as a student. In light of the additional time this takes and value to the overall project or future projects at this point in time, Team Velocity has not been calculated for a single student developer.
+### 4.2 Team Velocity
+Considers an average amount of story points the development 'team' can manage to finish in one iteration of a particular length. 
 
+As this is an average measure, and focus the ReaBook project was placed on gathering experience and testing hypotheses in my journey as a student, Team Velocity has not been calculated for a single student developer.
 
-### MoSCow Prioritization
-This technique was invaluable to each stage of the development process. The looping approach of Agile development and continuous revision throughout each sprint, I employed MoSCow with great effect. Each task was reviewed and re-reviewed considering where it's importance lies:
+### 4.3 MoSCow Prioritization
+This technique was invaluable to each stage of the development process with the looping approach of Agile development and continuous revision throughout each sprint. 
+
+Each task was reviewed and re-reviewed considering where it's importance lies:
 * Must Have - non negotiable (core, legal, security)
 * Should Have - if work around available, not vital. Add significant value. (Performance improvements, minor defects fixes, new functionality).
 * Could Have - delivered in their entirety in a best-case scenario. When a problem occurs and the deadline is at risk, one or more “could-have” items are dropped.
 * Won’t Have - Agile team has agreed that the PBI wouldn’t be delivered. Possible reschedule to later iterations? Recorded to manage expectations always.
 
-The culmination of the MoSCow prioritization process can be seen in those with an [on hold](https://github.com/roeszler/reabook/labels/on%20hold), [wontfix](https://github.com/roeszler/reabook/labels/wontfix) or [future release](https://github.com/roeszler/reabook/labels/future%20release) tag respectively.
+The culmination of the MoSCow prioritization process can be seen in those with an [on hold](https://github.com/roeszler/reabook/labels/on%20hold), [wontfix](https://github.com/roeszler/reabook/labels/wontfix) or [future release](https://github.com/roeszler/reabook/labels/future%20release) tags respectively.
 
-### Information Radiator(s)
+### 4.4 Information Radiator(s)
 As real-time, informative and straightforward work status display, a magnetic whiteboard with post-it notes was used to clarify current tasks and manage development time. 
 
 Common contents included:
@@ -254,7 +316,7 @@ Common contents included:
 * Total numbers of open defects
 * Further research / assistance required
 
-### Sprints
+### 4.5 Sprints
 Once the basic management processes of the project was devised, the software development proceeded in incremental cycles. Each activity was done in small loops (Sprints).
 
 These reflect the iterative Agile approach, where development focus is on autonomy, collaboration and early, continuous delivery. This proved to make the project both adaptive and evolve as it progressed.  
@@ -274,41 +336,241 @@ These reflect the iterative Agile approach, where development focus is on autono
 
 </details>
 
-## 3. Wireframes
+## 5. Design
+### 5.1 Structure
+The application is intended to allow users to easily navigate through an appointment request process. Navigation promotes users through property selection, booking, booking conformation and summary tables to confirm their booking request have been sent.
+### 5.2 Application Mockup & Wireframes
+Graphics of the application have been designed to show member users and users early concepts of user journeys before any coding started. They provided an indication of:
+
+* The variety of functions required.
+* The critical pathways of functions needed to reach each user outcome.
+* The relationships between each function.
+* The logical approach to code creation, promoting readability and aiding future fault-finding processes.
+* The experience as users navigate through the booking application processes.
+
+### Flowchart Mockups:
 
 <details>
-    <summary style="font-size: 1rem;">
-    Initial Concept - Booking App Wireframe
+    <summary>
+    Create Property Listing Flowchart
     </summary>
         
-![Booking App Page Wireframe](static/documentation/wireframes/Bookings_Page.png)
+![Create Property Listing Flowchart](https://lucid.app/documents#/dashboard)
 </details>
 
 <details>
-    <summary style="font-size: 1rem;">
+    <summary>
+    Create Booking Flowchart
+    </summary>
+        
+![Create Booking Flowchart]()
+</details>
+
+<details>
+    <summary>
+    Update Property Flowchart
+    </summary>
+        
+![Update Property Flowchart]()
+</details>
+
+<details>
+    <summary>
+    Edit / Delete Property Flowchart
+    </summary>
+        
+![Edit / Delete Property Flowchart]()
+</details>
+
+<details>
+    <summary>
+    Critical Pathway - Booking
+    </summary>
+        
+![Critical Pathway - Booking]()
+</details>
+
+
+### UX Wireframes
+Early representation of the look, feel and HTML structure of the project. Aids concept development and communication of ideas to stakeholders:
+
+<details>
+    <summary>
     Initial Concept - Landing Page Wireframe
 </summary>
 
 ![Booking App Page Wireframe](static/documentation/wireframes/ReaBook_Index_v1.0.png)
 </details>
 
-## 4. 
+<details>
+    <summary>
+    Initial Concept - Booking App Wireframe
+    </summary>
+        
+![Booking App Page Wireframe](static/documentation/wireframes/Bookings_Page.png)
+</details>
 
-<!-- ## X. Assets
-- **Cloudinary**:
-  The video files itself are not stored in the Focus database, they are linked with a url from a video hosting server. Focus fitness uses [Cloudinary](https://cloudinary.com/).
+## 6. Features
+### 6.1 Existing Features
+### Landing Screen & Welcome
+* The landing page is intended to ground the user into the primary purpose of the application, options to explore and key branding and iconography throughout the site.
+* Site-wide navbar and search functionality
+* My account dropdown list altered depending on user:
+    <details><summary>Admin Menu</summary>
+
+    ![Admin-menu](static/documentation/img/admin-menu.png)
+    </details>
+    <details><summary>Agent / Member Menu</summary>
+    
+    ![member-menu](static/documentation/img/member-user.png)
+    </details>
+    <details><summary>User Menu</summary>
+    
+    ![user-menu](static/documentation/img/user-menu.png)
+    </details>
+    <details><summary>Site Visitor Menu</summary>
+    
+    ![visitor-menu](static/documentation/img/visitor-menu.png)
+    </details>
+* Bookings number indicator for logged in users
 
 <details>
-<summary>How To add an image to Cloudinary and add to ReaBook.</summary>
+    <summary>
+    ReaBook Landing Page Image
+    </summary>
+        
+![ReaBook Landing Page](static/documentation/img/ReaBook_index.png)
+</details>
 
-1. Make a Cloudinary account.
-2. Login and make a file to keep you videos in.
-3. Upload the image, when if has finished it will show you the Url.
-4. Copy the Url.
-5. In the ReaBook admin section click on properties tab in the app_properties section.
-6. Click ‘Add Property'.
-7. Fill out all the fields in the form.
-8. Where it says 'Image url' paste in the videos url.
-9. Press 'Save'.
+Key Features:
+* Landing page panels will automatically be updated with the newest properties first.
 
-</details> -->
+    ![order-by](static/documentation/img/order_by-function.png)
+
+    ![order-by](static/documentation/img/order_by-function-2.png)
+
+### Search Results / View Properties
+* The main view properties / search results page is intended to provide the user with a familiar format and function to searching properties as they would do with selecting a product on many popular e-commerce sites.
+
+<details>
+    <summary>
+    ReaBook Properties View Page
+    </summary>
+        
+![ReaBook Properties View Page](static/documentation/img/ReaBook_view.png)
+</details>
+
+Key Features:
+* Responsive layout from mobile first design principles to increased options for desktop users.
+* If statements to automate the summary information displayed for each card
+* Fallback image for properties without specific images supplied by user. 
+
+### Place a Booking Request
+* 
+
+<details>
+    <summary>
+    Booking Request Page
+    </summary>
+        
+![Booking Request Page]()
+</details>
+
+Key Features: 
+* 
+### Edit a Booking Request
+* 
+
+<details>
+    <summary>
+    Edit a Booking Page
+    </summary>
+        
+![Edit a Booking Page]()
+</details>
+
+Key Features: 
+* 
+
+### View a Booking Request
+* 
+
+<details>
+    <summary>
+    View a Booking Page
+    </summary>
+        
+![View a Booking Page]()
+</details>
+
+Key Features: 
+* 
+
+### As a Member / Agent: 
+### List a Property
+* 
+
+<details>
+    <summary>
+    List Property Page
+    </summary>
+        
+![List a Property Page]()
+</details>
+
+Key Features: 
+* 
+### Edit / Update a Property Listing
+* 
+
+<details>
+    <summary>
+    Edit / Update a Property Page
+    </summary>
+        
+![Edit / Update a Property Page]()
+</details>
+
+Key Features: 
+* 
+### Delete a Property Listing
+* 
+
+<details>
+    <summary>
+    Delete a Property Page
+    </summary>
+        
+![Delete a Property Page]()
+</details>
+
+Key Features: 
+* 
+
+### Successful Submission
+* 
+
+<details>
+    <summary>
+    Successful Submission Pages
+    </summary>
+        
+![Successful Submission Page]()
+</details>
+
+Key Features: 
+* 
+
+### 6.2 Possible Future Features
+* 
+
+## 7. Technologies
+## 8. Testing
+## 9. Deployment
+## 10. Credits
+
+
+---
+__COPYRIGHT NOTICE__ :
+
+ *The ReaBook site is a functional program intended for educational purposes at the time of coding. Notwithstanding, it has been written as a proof of concept and invitation to treat for a business [reabook.net](https://reabook.net/) and possible stakeholders into the future. Copyrights for code, ideas, concepts and materials strictly lies with Stuart Roeszler © 2022. All rights reserved.*

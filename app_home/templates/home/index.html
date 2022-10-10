@@ -91,11 +91,15 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                     <div class="card index-property-card h-100 border-0 text-center">
                         <p class="ribbon">Sell Properties</p>
-                        <a href="{% url 'choose_bookings' %}">
-                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ property.name }}"> -->
-                            <!-- <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}"> -->
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link">
                             <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}">
                         </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" aria-label="login link">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/ReaBook/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}">
+                        </a>
+                        {% endif %}
                         <div class="card-body pb-2">
                             <p class="mb-0 font-weight-bold">Beachside Beauty</p>
                         </div>
@@ -108,10 +112,13 @@
                                         <br><small>Listed: Monday 29 August 2022</small>
                                         <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
                                     </p>
-                                    <!-- <small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small> -->
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-primary text-center btn-block">List</a>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link" class="btn btn-primary text-center btn-block">List</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" aria-label="login link" class="btn btn-primary text-center btn-block">List</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
