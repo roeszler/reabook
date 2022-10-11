@@ -465,88 +465,97 @@ Key Features:
 * If statements to automate the summary information displayed for each card
 * Fallback image for properties without specific images supplied by user. 
 
-### Place a Booking Request
-* 
+### Place a Booking
+* Takes the user through the process of submitting a request to the property agent for an appointment to view the property: 
+<details>
+    <summary>
+    1. Choose Property
+    </summary>
+        
+![Choose Property](static/documentation/img/reabook-choose-prop.png)
+</details>
 
 <details>
     <summary>
-    Booking Request Page
+    2. Choose date and time
     </summary>
         
-![Booking Request Page]()
+![Choose date and time](static/documentation/img/reabook-choose-time.png)
 </details>
-
-Key Features: 
-* 
-### Edit a Booking Request
-* 
 
 <details>
     <summary>
-    Edit a Booking Page
+    3. Enter Details & Submit
     </summary>
         
-![Edit a Booking Page]()
+![Enter Details](static/documentation/img/reabook-enter-details.png)
 </details>
-
-Key Features: 
-* 
-
-### View a Booking Request
-* 
 
 <details>
     <summary>
-    View a Booking Page
+    4. Receive Conformation Email & Next Steps.
     </summary>
         
-![View a Booking Page]()
+![Conformation Email](static/documentation/img/reabook-conformation-booking.png)
 </details>
 
 Key Features: 
-* 
+* Create database entry function
+* Local search function included should user land directly to bookings page
+* Only displays properties checked as 'for viewing' by member agent user
+* JavaScript function to manage time and date UI
+* User delete as part of agents external booking system(s)
+* Request appears in user specific right sidebar 'Quick Links'
+
+### View / Update / Edit a Booking Request
+* Provides option to update booking request details
+
+
+<details>
+    <summary>
+    View / Update / Edit Booking Page
+    </summary>
+        
+![View Booking Page](static/documentation/img/reabook-update-booking.png)
+</details>
+
+Key Features: 
+* READ and UPDATE existing database entry function
+* Nested property specific information
+* Email sent to agent to confirm changes
 
 ### As a Member / Agent: 
 ### List a Property
-* 
+* Enables Member / Agent as staff user to CREATE a new property listing as an entry in the database
 
 <details>
     <summary>
     List Property Page
     </summary>
         
-![List a Property Page]()
+![List a Property Page](static/documentation/img/reabook-add-property.png)
 </details>
 
 Key Features: 
-* 
+* POST to database function
+* request.FILES command included in CREATE function
+* Required fields key for display view and data analytics longer term
+
 ### Edit / Update a Property Listing
-* 
+* Enables Member / Agent as staff user to UPDATE the details of an existing property listing in the database
 
 <details>
     <summary>
     Edit / Update a Property Page
     </summary>
         
-![Edit / Update a Property Page]()
+![Edit / Update / Delete a Property Page]()
 </details>
 
 Key Features: 
-* 
-### Delete a Property Listing
-* 
-
-<details>
-    <summary>
-    Delete a Property Page
-    </summary>
-        
-![Delete a Property Page]()
-</details>
-
-Key Features: 
-* 
-
+* POST to database function
+* request.FILES command included in UPDATE function
+* Pythonic ```.delete()``` delivers DELETE function on same page 
 ### Successful Submission
 * 
 

@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Adding a Property Listing</h2>
+            <h2 class="logo-font"><i class="fas fa-bookmark reabook-logo"></i> Add a New Property Listing</h2>
             <hr class="w-50 mb-2">
             <h4 class="font-weight-light mt-4">User ID.{{ user.id }}&nbsp;<span class="reabook-logo"> | </span><span class="text-muted">&nbsp;{{ user.first_name }} {{ user.last_name }}</span></h4>
         </div>
@@ -24,10 +24,11 @@
         <div class="row">
             <!-- Form Section -->
             <div class="col-12 col-md-12 col-lg-6 offset-lg-1 border-right">
-                <h5>Add Property</h5><hr class="my-2">
+                <h5>List New Property</h5><hr class="my-2">
                 <div class="form-group">
 
-                    <form action="{% url 'add-property' user.id %}" method="POST" enctype="multipart/form-data">
+                    <!-- <form action="{% url 'add-property' user.id %}" method="POST" enctype="multipart/form-data"> -->
+                    <form action="{% url 'property-detail' prop.id %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <table class="w-100">
                             {{ property_form.as_table }}
