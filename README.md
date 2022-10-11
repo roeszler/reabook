@@ -206,7 +206,7 @@ User Story:
 
 </details>
 
-## 3. Implementation
+## 3. Concept Development
 ### 3.1 Themes
 Collect related epics that have something in common. In the project, this can be seen as:
 
@@ -339,6 +339,7 @@ These reflect the iterative Agile approach, where development focus is on autono
 ## 5. Design
 ### 5.1 Structure
 The application is intended to allow users to easily navigate through an appointment request process. Navigation promotes users through property selection, booking, booking conformation and summary tables to confirm their booking request have been sent.
+
 ### 5.2 Application Mockup & Wireframes
 Graphics of the application have been designed to show member users and users early concepts of user journeys before any coding started. They provided an indication of:
 
@@ -390,7 +391,6 @@ Graphics of the application have been designed to show member users and users ea
 ![Critical Pathway - Booking]()
 </details>
 
-
 ### UX Wireframes
 Early representation of the look, feel and HTML structure of the project. Aids concept development and communication of ideas to stakeholders:
 
@@ -412,11 +412,23 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 
 ## 6. Features
 ### 6.1 Existing Features
-### Landing Screen & Welcome
-* The landing page is intended to ground the user into the primary purpose of the application, options to explore and key branding and iconography throughout the site.
+### Sign Up (Registration) and Login
+The [allauth](https://django-allauth.readthedocs.io/en/latest/) third party package has been installed into the framework to handle the logic of user login, logout and registrations.
+
+![Login Mobile](static/documentation/img/reabook-login-mobile.png) ![Register Mobile](static/documentation/img/reabook-register-mobile.png)
+
+### Main Navigation Bar
+![Navbar](static/documentation/img/reabook-navbar.png)
+Mobile:
+![Navbar Mobile](static/documentation/img/reabook-navbar-mobile.png)
 * Site-wide navbar and search functionality
-* My account dropdown list altered depending on user:
-    <details><summary>Admin Menu</summary>
+* My account dropdown menu that alters depending on user:
+    * Non-Authenticated Site Visitor
+    
+        ![visitor-menu](static/documentation/img/visitor-menu.png)
+    
+    <details>
+    <summary>Admin</summary>
 
     ![Admin-menu](static/documentation/img/admin-menu.png)
     </details>
@@ -428,11 +440,22 @@ Early representation of the look, feel and HTML structure of the project. Aids c
     
     ![user-menu](static/documentation/img/user-menu.png)
     </details>
-    <details><summary>Site Visitor Menu</summary>
-    
-    ![visitor-menu](static/documentation/img/visitor-menu.png)
-    </details>
-* Bookings number indicator for logged in users
+
+* Bookings tally that displays the number of bookings is indicated for authenticated users. This links to the [users diary](#existing-bookings-page) and indicated the total number of current bookings.
+![bookings tally](static/documentation/img/reabook-bookings-tally.png)
+
+### Sub Navigation Bar
+This feature has been added to include quick access to common classes and sectors that the ReaBook database models allows.
+
+![subnavbar](static/documentation/img/reabook-subnav.png)
+
+Key Features:
+* JavaScript / JQuery event handler monitors the mouseover, dropdown and fade on scroll functions for this and the main navigation bar to a lesser extent
+![scrollfade](static/documentation/img/reabook-scrollfade.png)
+* SubNav not present on mobile browsers
+
+### Main Landing Page (index.html)
+* The landing page is intended to ground the user into the primary purpose of the application, options to explore and key branding and iconography throughout the site.
 
 <details>
     <summary>
@@ -465,7 +488,7 @@ Key Features:
 * If statements to automate the summary information displayed for each card
 * Fallback image for properties without specific images supplied by user. 
 
-### Place a Booking
+### Request Booking Page
 * Takes the user through the process of submitting a request to the property agent for an appointment to view the property: 
 <details>
     <summary>
@@ -507,9 +530,18 @@ Key Features:
 * User delete as part of agents external booking system(s)
 * Request appears in user specific right sidebar 'Quick Links'
 
+### User Diary Page
+This is intended to be the main pivot point for users that have made a booking. Properties will appear in table format in the main section of this page, with navigation options through the site on the left and shortcuts to existing bookings on the right.
+<details>
+    <summary>
+    User Diary Page
+    </summary>
+        
+![User Diary Page](static/documentation/img/reabook-diary.png)
+</details>
+
 ### View / Update / Edit a Booking Request
 * Provides option to update booking request details
-
 
 <details>
     <summary>
@@ -524,7 +556,12 @@ Key Features:
 * Nested property specific information
 * Email sent to agent to confirm changes
 
+### Forms
+Django [forms](https://docs.djangoproject.com/en/4.1/topics/forms/) have been used to integrate the submitted data into the app. They are represented to the user in the add, edit and update both properties and bookings
 ### As a Member / Agent: 
+
+### Property Management Landing Page
+...
 ### List a Property
 * Enables Member / Agent as staff user to CREATE a new property listing as an entry in the database
 
@@ -549,35 +586,126 @@ Key Features:
     Edit / Update a Property Page
     </summary>
         
-![Edit / Update / Delete a Property Page]()
+![Edit / Update / Delete a Property Page](static/documentation/img/reabook-edit.png)
 </details>
 
 Key Features: 
 * POST to database function
 * request.FILES command included in UPDATE function
-* Pythonic ```.delete()``` delivers DELETE function on same page 
+* Python code ```.delete()``` delivers DELETE function 
 ### Successful Submission
-* 
+* System message indicating the the submission to CREATE, UPDATE or DELETE was successful providing the user with confidence that the process has completed.
 
-<details>
-    <summary>
-    Successful Submission Pages
-    </summary>
-        
-![Successful Submission Page]()
-</details>
-
-Key Features: 
-* 
+![Success Message](static/documentation/img/reabook-success.png)
 
 ### 6.2 Possible Future Features
-* 
+* Edit User Profile / Passwords
+* Extend account management functions 
+* Member subscription model
+* Refinement of style and feel. Current focus to have working C.R.U.D. functions
+* Age depreciation of bookings / property listings according to days active
+* ...
 
 ## 7. Technologies
+
 ## 8. Testing
 ## 9. Deployment
-## 10. Credits
 
+## 6. Deployment
+
+This project was deployed using the Django Framework into Heroku. The steps to deploy are as follows:
+
+* Fork or clone the [Code-Institute-Org: python-essentials-template](https://github.com/Code-Institute-Org/python-essentials-template)
+* Click the Use this template to create a clone in GitHub
+* Follow Display environment settings below:
+### Display Environment (GitHub / GitLab / BitBucket)
+
+The application has been deployed to GitHub pages. 
+
+
+<details>
+<summary>
+The steps to deploy a clone of the GitHub repository...
+</summary>
+
+* Create / open an existing repository for the project with the name of your choice on your GitHub, GitLab or Bitbucket account page.
+* Navigate within the GitHub repository you chose, and then navigate to the "settings" tab, which displays the general title.
+* On the left hand navigation menu, I selected the "pages" option midway down the menu.
+* At the top of the pages tab, the source section drop-down menu changed to select the branch: "main" with the folder selected as `"/(root)"`
+* Committed to the save and waited a few moments for the settings to coordinate with the server. 
+* On refresh of the browser, the dedicated ribbon changed to the selected web address, indicating a successful deployment.
+
+> The live application link can be found here - https://reabook.herokuapp.com/
+
+> The accessible GitHub repository for this application is https://github.com/roeszler/reabook
+</details>
+
+### Development Environment (GitPod)
+The application has been deployed to GitPod pages during development. 
+
+<details>
+<summary >
+The steps to deploy the project from GitHub to GitPod... 
+</summary>
+
+* In the GitHub, GitLab or Bitbucket account page where you created a repository for the project, navigate to the tab titled `'<> Code'`
+* From here, navigate to the button on the top right of the repository navigation pane titled 'Gitpod'.
+* If you press this it will create a new GitPod development environment each time.
+</details>
+
+<details>
+<summary >
+Alternatively, if you have already created the GitPod environment for your project...
+</summary>
+
+
+* In the browser’s address bar, prefix the entire URL with [gitpod.io/#](https://gitpod.io/#) or [gitpod.io/workspaces](https://gitpod.io/workspaces) and press Enter. This will take you to a list of workspaces that have been active within the past 14 days.
+* Search for the workspace you wish to work on and access the link to it that lies within the pathway `https://gitpod.io/`.
+* Sign in to the workspace each time with [gitpod.io/#](https://gitpod.io/#) using one of the listed providers (GitHub / GitLab / BitBucket) and let the workspace start up.
+* On navigating to the workspace for the first time, it may take a little while longer than normal to initially install all it needs. Be patient.
+* It is recommend that you install the GitPod browser extension to make this a one-click operation into the future.
+</details>
+
+### Full Stack Development Framework Environment (Django+Python)
+...
+
+<details>
+<summary >
+The steps to install the Django to the development environment...
+</summary>
+... steps
+</details>
+
+### SQlite / PostgreSQL databases
+...
+
+<details>
+<summary >
+The steps to install attach the PostgreSQL database to your development environment...
+</summary>
+... steps
+</details>
+
+### Deployment Environment (Heroku)
+<details>
+<summary >
+The steps to deploy to Heroku...
+</summary>
+
+* Login Heroku and create new Heroku app
+* In 'settings' tab: set the buildpacks to `heroku/python` and `heroku/nodejs` in that order
+* Reveal config vars, add and save KEY : VALUE variables in this order :
+  * CREDS : Copy and paste entire contents of 'your' creds.json file
+  * PORT : 8000
+  * DATABASE
+  * SECRET_KEY
+* Within 'deploy' tab: choose GitHub as deployment method and link app to the repository
+* Choose 'Deploy Branch' option you prefer.
+
+</details>
+
+## 10. Credits
+* ..
 
 ---
 __COPYRIGHT NOTICE__ :

@@ -64,6 +64,7 @@ ul {
     background-size: cover;
     padding-top: 12rem;
     padding-bottom: 10rem;
+    margin-bottom: -4rem;
     font-family: 'Roboto';
   }
 
@@ -635,6 +636,8 @@ https://colorlib.com/wp/bootstrap-calendars/
     .masthead {
         padding-top: 6rem;
         padding-bottom: 0rem;
+        margin-bottom: 0rem;
+        
     }
 
     .masthead h1, .masthead .h1 {
