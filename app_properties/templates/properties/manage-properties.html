@@ -13,8 +13,8 @@
                         Current User : {{ user }} : {{ user.first_name }} {{ user.last_name }} 
                     </div>
                 </div>
-                
-                <div class="row mb-3">
+                <!-- Desktop Display -->
+                <div class="row mb-3" id="manage-large">
                     <div class="col text-lg-left">
                         <div class="list-group list-group-flush list-table" role="tablist">
                             <table class="table table-hover">
@@ -46,6 +46,49 @@
                                             <td>{{ prop.available }}</td>
                                             <td>
                                                 <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>Edit / Delete</strong>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="mt-0 mb-4">
+                        
+                        <!-- Other option buttons -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="{% url 'add-property' user.id %}" aria-label="">
+                                    <button class="btn btn-outline-reabook float-right mr-3" >Add Property</button>
+                                </a>
+                                <a href="{% url 'choose_bookings' %}" aria-label="">
+                                    <button class="btn btn-outline-reabook float-right mr-3" >Book Viewings</button>
+                                </a>
+                                <a href="{% url 'properties' %}" aria-label="">
+                                    <button class="btn btn-outline-reabook float-right mr-3" >Search Listings</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Display -->
+                <div class="row mb-3" id="manage-mobile">
+                    <div class="col text-lg-left">
+                        <div class="list-group list-group-flush list-table" role="tablist">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Property</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="font-weight-light">
+                                    {% for prop in users_properties %}
+                                        <tr>
+                                            <th scope="row">{{ prop.id }}</th>
+                                            <td>
+                                                <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>{{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }}</strong>
                                                 </a>
                                             </td>
                                         </tr>

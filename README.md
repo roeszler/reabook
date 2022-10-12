@@ -63,7 +63,7 @@
 ## 1. Project Purpose
 ReaBook (the Site) is the scaffold of a real estate advertising site used to present the deployment of an appointment booking system (the App) using a Full Stack Frameworks.
 
-A primary personal focus of this project has been to learn to integrate database functionality. As a student I decided to extend myself into a scope larger than was required for portfolio project 4. This was done to practice, test and increase the depth of my experience in planning, design and coding of full stack solutions.
+A primary personal focus of this project has been to learn to integrate agile processes, database functionality and form part of a larger professional portfolio. As a student I decided to extend myself into a scope larger than was required for portfolio project 4. This was done to practice, test and increase the depth of my experience in planning, design and implementation of full stack solutions.
 
 ### Database Functionality
 At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at https://reabook.herokuapp.com/. Here users can:
@@ -209,28 +209,40 @@ User Story:
 ### 3.1 Themes
 Collect related epics that have something in common. In the project, this can be seen as:
 
-User Experience (Theme)
+<details>
+<summary>User Experience (Theme)</summary>
+
 * Account Registration journey (Epic)
 * Add Property journey (Epic)
 * Bookings journey (Epic)
 * Sign in/out journey (Epic)
+</details>
 
-Account Management (Theme)
+<details>
+<summary>Account Management (Theme)</summary>
+
 * Sign-in feature (Epic)
 * User profile feature (Epic)
 * Sign-up feature (Epic)
+</details>
 
-Property Management (Theme)
+<details>
+<summary>Property Management (Theme)</summary>
+
 * Display multiple properties feature (Epic)
 * Display single property feature (Epic)
 * Add single property feature (Epic)
 * Edit single property feature (Epic)
+</details>
 
-Booking Management (Theme)
+<details>
+<summary>Booking Management (Theme)</summary>
+
 * Display booking feature (Epic)
 * Create booking feature (Epic)
 * Update booking feature (Epic)
 * Display multiple bookings feature (Epic)
+</details>
 
 ### 3.2 Epics
 Epics are larger multiple iteration that can be broken into user stories.
@@ -272,22 +284,16 @@ Reabook user stories have been produced in a brief format for simplicity. In a p
 - Story Point Value
     - Are relative estimations focused on the amount of work needed to be done to complete the story
     - Are relative estimations compared to the other stories in the project
-- A sample of a Reabook User Story Card can be seen at: https://github.com/roeszler/reabook/issues/48
 
-<details>
-<summary style="font-size: 1rem;">
-Reabook Brief User Stories
-</summary>
+- Sample Story Card: https://github.com/roeszler/reabook/issues/48
 
+### Reabook User Stories
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
-<!-- - Entire Reabook User Stories: https://github.com/users/roeszler/projects/4/views/1 -->
-
-</details>
 
 ## 4. Project Management
-Adhering to the Agile framework of software development, where possible the following were completed during each [user story](https://github.com/roeszler/reabook/issues):  
+Adhering to the Agile framework, where possible the following processes were completed during each [user story](https://github.com/roeszler/reabook/issues):  
 ### 4.1 Story Point Estimation
 Difficult to estimate with current level of experience, focused on the amount of work done posthumously in most cases. This was primarily due to the errors that came with each development iteration and the relative simple or solutions to solve the problem. 
 
@@ -345,16 +351,16 @@ These reflect the iterative Agile approach, where development focus is on autono
 
 ## 5. Design
 ### 5.1 Structure
-The application is intended to allow users to easily navigate through an appointment request process. Navigation promotes users through property selection, booking, booking conformation and summary tables to confirm their booking request have been sent.
+The application is intended to allow users to easily navigate through an appointment request process. Users journey through finding and selecting property, choosing booking, booking conformation and summaries and tables to confirm their booking request have been sent.
 
 ### 5.2 Application Mockup & Wireframes
 Graphics of the application have been designed to show member users and users early concepts of user journeys before any coding started. They provided an indication of:
 
-* The variety of functions required.
-* The critical pathways of functions needed to reach each user outcome.
-* The relationships between each function.
-* The logical approach to code creation, promoting readability and aiding future fault-finding processes.
-* The experience as users navigate through the booking application processes.
+* The variety of functions required
+* The critical pathways of functions needed to reach each user outcome
+* The relationships between each function
+* The logical approach to code creation, promoting readability and aiding future fault-finding processes
+* The experience as users navigate through the booking application processes
 
 ### Flowchart Mockups:
 
@@ -362,7 +368,7 @@ Graphics of the application have been designed to show member users and users ea
     <summary>
     Create Property Listing Flowchart
     </summary>
-        
+    
 ![Create Property Listing Flowchart](https://lucid.app/documents#/dashboard)
 </details>
 
@@ -448,7 +454,7 @@ Mobile:
     ![user-menu](static/documentation/img/user-menu.png)
     </details>
 
-* Bookings tally that displays the number of bookings is indicated for authenticated users. This links to the [users diary](#existing-bookings-page) and indicated the total number of current bookings.
+* Bookings tally displays the number of bookings is indicated for authenticated users. This links to the [users diary](#existing-bookings-page) and indicated the total number of current bookings.
 ![bookings tally](static/documentation/img/reabook-bookings-tally.png)
 
 ### Sub Navigation Bar
@@ -457,7 +463,7 @@ This feature has been added to include quick access to common classes and sector
 ![subnavbar](static/documentation/img/reabook-subnav.png)
 
 Key Features:
-* JavaScript / JQuery event handler monitors the mouseover, dropdown and fade on scroll functions for this and the main navigation bar to a lesser extent
+* JavaScript / JQuery event handler monitors the mouseover, dropdown and fade on scroll functions for this and the main navigation bar to a lesser extent.
 ![scrollfade](static/documentation/img/reabook-scrollfade.png)
 * SubNav not present on mobile browsers
 
@@ -568,7 +574,22 @@ Django [forms](https://docs.djangoproject.com/en/4.1/topics/forms/) have been us
 ### As a Member / Agent: 
 
 ### Property Management Landing Page
-...
+* Provides admin / member users a brief summary table of their current properties.
+* This is intended to be the main pivot point for agent / member users that have created a property. Properties will appear in table format in the main section of this page, with navigation options through the site on the left.
+
+<details>
+    <summary>
+    Property Management Landing Page
+    </summary>
+        
+![Property Management Landing Page](static/documentation/img/reabook-manager.png)
+</details>
+
+Key Features: 
+* CREATE, READ and UPDATE existing database entry function
+* Nested property specific information
+* Summary address information only on mobiles
+
 ### List a Property
 * Enables Member / Agent as staff user to CREATE a new property listing as an entry in the database
 
@@ -606,7 +627,7 @@ Key Features:
 ![Success Message](static/documentation/img/reabook-success.png)
 
 ### 6.2 Possible Future Features
-* Edit User Profile / Passwords
+* Edit User Profile & Passwords
 * Extend account management functions 
 * Member subscription model
 * Refinement of style and feel. Current focus to have working C.R.U.D. functions
@@ -614,12 +635,56 @@ Key Features:
 * ...
 
 ## 7. Technologies
+### Tools
+The skill-sets used in the creation and review of this project are based around a working knowledge of a full stack development approach using Agile methodologies with HTML, CSS, JavaScript (JQuery), Python, the Django framework, Bootstrap and Relational Database Design (SQLite and PostgreSQL). The tools and the benefit of using each in the application development are : 
+
+* [GitHub](https://github.com/)
+  * Allows a variety of benefits to create, document, store, showcase and share a project in development.
+* [GitPod](https://www.gitpod.io/)
+  * Provides a relatively secure workspace to code and develop software projects in a remotely accessible cloud based platform.
+* [Heroku Platform](https://www.heroku.com/platform)
+  * Provides a platform for deploying and running python based apps.
+* The [Django Framework](https://www.djangoproject.com/) with embedded technologies as at version 3.2.15 and additional installations of:
+  * [Allauth](https://django-allauth.readthedocs.io/en/latest/) to manage user authentication and management.
+  * [Cloudinary](https://cloudinary.com/) Image and Video Upload, Storage, Optimization and Content Display Network.
+  * [dj-database-url](https://pypi.org/project/dj-database-url/) to return a Django database connection dictionary, populated with data specified from the reabook URL.
+  * [Gunicorn](https://gunicorn.org/) a Python Web Server Gateway Interface (WSGI) HTTP server.
+  * [Pillow](https://pypi.org/project/Pillow/) part of the Python Imaging Library (PIL) adding image processing capabilities to the Python interpreter.
+  * [django-countries](https://pypi.org/project/django-countries/) provides country choices for use with forms.
+  * [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) reusable layouts out of form components to avoid repetitive tasks (DRY).
+* [Convertio Image Optimiser](https://convertio.co/)
+  * Able to reduce the file size and format of images ready for rapid access, improving device performance, accessibility and user experience.
+* [Lucidchart Flowchart Diagrams](https://www.lucidchart.com/pages/)
+  * A diagramming application that allows the mapping and creation of flowcharts to visualise design workflows.
+* [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
+  * A computer based low-fidelity UI wireframing tool to sketch up simple visuals assisting the concept development and planning stages.
+
+
+### Supported Screens and Browsers
+The live application ([ReaBook](https://reabook.herokuapp.com/)) has been tested on each of the following popular browsers to check for maintained function and interactivity :
+- [Google Chrome](https://www.google.com/chrome/)
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge) 
+- [Apple Safari](https://www.apple.com/safari/)
+- [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
 ## 8. Testing
+A automated approach to testing Python, Javascript and was followed using an Model, View and Controller (MVC) framework...
+
+### MVC Testing
+
+
+### Validator Testing
+* [W3 Markup Validator](validator.w3.org)
+    * No errors were found when passing through the W3 Markup validator
+    * Results : [All right]()
+* [W3 CSS Validator](https://jigsaw.w3.org/css-validator/)
+    * No errors were found when passing through the W3 CSS validator
+    * Results : [All right]()
+* [PEP8 Python Validator](http://pep8online.com/)
+    * No errors were found when passing through the PEP8 validator
+    * Results : [All right]()
+
 ## 9. Deployment
-
-## 6. Deployment
-
 This project was deployed using the Django Framework into Heroku. The steps to deploy are as follows:
 
 * Fork or clone the [Code-Institute-Org: python-essentials-template](https://github.com/Code-Institute-Org/python-essentials-template)
@@ -628,7 +693,6 @@ This project was deployed using the Django Framework into Heroku. The steps to d
 ### Display Environment (GitHub / GitLab / BitBucket)
 
 The application has been deployed to GitHub pages. 
-
 
 <details>
 <summary>
@@ -665,7 +729,6 @@ The steps to deploy the project from GitHub to GitPod...
 Alternatively, if you have already created the GitPod environment for your project...
 </summary>
 
-
 * In the browser’s address bar, prefix the entire URL with [gitpod.io/#](https://gitpod.io/#) or [gitpod.io/workspaces](https://gitpod.io/workspaces) and press Enter. This will take you to a list of workspaces that have been active within the past 14 days.
 * Search for the workspace you wish to work on and access the link to it that lies within the pathway `https://gitpod.io/`.
 * Sign in to the workspace each time with [gitpod.io/#](https://gitpod.io/#) using one of the listed providers (GitHub / GitLab / BitBucket) and let the workspace start up.
@@ -674,45 +737,68 @@ Alternatively, if you have already created the GitPod environment for your proje
 </details>
 
 ### Full Stack Development Framework Environment (Django+Python)
-...
+A variety of frameworks are available for software development to provide generic functionality quickly. For the purposes of this project, the Django framework was used. A comprehensive tutorial of this process can be found at: [Django app Tutorial](https://docs.djangoproject.com/en/4.1/intro/tutorial01/).
 
 <details>
 <summary >
-The steps to install the Django to the development environment...
+The basic CLI installation steps to install Django and dependencies...
 </summary>
-... steps
-</details>
 
-### SQlite / PostgreSQL databases
-...
+* pip3 install 'django<4'
+* pip3 install gunicorn
+* pip3 install dj_database_url
+* pip3 install psycopg2
+* pip3 install dj3-cloudinary-storage
+* pip3 install django-allauth
+* pip3 install pillow
+* pip3 install django-countries
+* pip install django-crispy-forms
+* pip3 freeze --local > requirements.txt
+* django-admin startproject proj_reabook .
+* python3 manage.py startapp app_properties
+* python3 manage.py startapp app_home
+* python3 manage.py startapp app_bookings
+* python3 manage.py startapp app_diary
+</details>
 
 <details>
 <summary >
-The steps to install attach the PostgreSQL database to your development environment...
+Once database models are configured...
 </summary>
-... steps
+
+* python3 manage.py makemigrations --dry-run
+* python3 manage.py makemigrations
+* python3 manage.py migrate --plan
+* python3 manage.py migrate
+* python3 manage.py loaddata 'model_name'
 </details>
+
 
 ### Deployment Environment (Heroku)
 <details>
 <summary >
-The steps to deploy to Heroku...
+The steps to create a server side Database and deploy to Heroku...
 </summary>
 
 * Login Heroku and create new Heroku app
-* In 'settings' tab: set the buildpacks to `heroku/python` and `heroku/nodejs` in that order
-* Reveal config vars, add and save KEY : VALUE variables in this order :
+* In 'settings' tab: set the buildpacks to `heroku/python`.
+* In 'resources' tab: search and set the add-on to `heroku-postgresql` under a `hobby-dev` plan.
+* In 'settings' tab: Reveal config vars, add and save KEY : VALUE variables in this order :
   * CREDS : Copy and paste entire contents of 'your' creds.json file
   * PORT : 8000
-  * DATABASE
-  * SECRET_KEY
+  * DATABASE_URL : Ensure a copy of the DATABASE_URL indicates something starting with `postgres://`.
+  * SECRET_KEY : generate a unique key your self or somewhere like [netlify](https://django-secret-key-generator.netlify.app/)
 * Within 'deploy' tab: choose GitHub as deployment method and link app to the repository
 * Choose 'Deploy Branch' option you prefer.
+* Optionally create and maintain a `env.py` file in you development environment using `.gitignore` functionality.
 
 </details>
 
 ## 10. Credits
-* ..
+* Hosted at [Heroku](https://www.heroku.com/platform).
+* Primary and additional Python coding was studied and reworked from modules provided through the Code Institute's [Diploma in Full Stack Software Development](https://codeinstitute.net/se/full-stack-software-development-diploma/), [W3 Schools](https://www.w3schools.com/), [Stack overflow](https://stackoverflow.com/), [mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Django Project](https://www.djangoproject.com/).
+* Testing tree process sourced from [Optimal Workshop](https://www.optimalworkshop.com/learn/101s/tree-testing/).
+* 
 
 ---
 __COPYRIGHT NOTICE__ :
