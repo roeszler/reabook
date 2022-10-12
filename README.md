@@ -252,23 +252,27 @@ Epics are larger multiple iteration that can be broken into user stories.
 </summary>
         
 - Reabook Epics
-    - [User Experience]()
-    - [Site Framework]()
     - [Dataset Design]()
-    - [Read Dataset]()
-    - [Display Properties / Products]()
-    - User Profile
-        - [Admin User](static/documentation/wireframes/IT-Admin-Persona-ReaBook.png)
-        - [Agent Member](static/documentation/wireframes/Owner-Agent-Persona-ReaBook.png) User (staff)
-        - [Customer User](static/documentation/wireframes/Home-seeker-Persona-ReaBook.png)
-    - [Sign In]()
-    - [Register]()
-    - [Create Property Listing]() (staff)
-    - [Edit Property Listing]() (staff)
-    - [Delete Property Listing]() (staff)
-    - [Book Viewing]()
-    - [Edit Viewing]()
-    - [Delete Viewing]()
+    - [Site Framework]()
+        - User Profile
+            - [Admin User](static/documentation/wireframes/IT-Admin-Persona-ReaBook.png)
+            - [Agent Member](static/documentation/wireframes/Owner-Agent-Persona-ReaBook.png) User (staff)
+            - [Customer User](static/documentation/wireframes/Home-seeker-Persona-ReaBook.png)
+        - [Sign In]()
+        - [Register]()
+        - [Site Pages]()
+            - Login
+            - Register
+            - 
+    - [User Experience]()
+        - [Read Dataset]()
+        - [Display Properties / Products]()
+        - [Create Property Listing]() (staff)
+        - [Edit Property Listing]() (staff)
+        - [Delete Property Listing]() (staff)
+        - [Book Viewing]()
+        - [Edit Viewing]()
+        - [Delete Viewing]()
 </details>
 
 ### 3.3 User Stories
@@ -287,11 +291,13 @@ Reabook user stories have been produced in a brief format for simplicity. In a p
 
 - Sample Story Card: https://github.com/roeszler/reabook/issues/48
 
-### Reabook User Stories
+### Reabook User Stories (summary)
+
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
 
+For a full description, jump ahead to: [Section 6. Features](#61-existing-features).
 ## 4. Project Management
 Adhering to the Agile framework, where possible the following processes were completed during each [user story](https://github.com/roeszler/reabook/issues):  
 ### 4.1 Story Point Estimation
@@ -404,6 +410,24 @@ Graphics of the application have been designed to show member users and users ea
 ![Critical Pathway - Booking]()
 </details>
 
+### Database Model:
+The model is fairly simple, however of note is:
+
+* The central part of the model is the Property table. This stores all the details about Member / Agent listed properties. 
+* Two tables Category and Sector act as dictionaries to the Property table. 
+* The employee and schedule tables are our administrative tables. 
+* The other four tables deal with clients, client contacts, and the services provided.
+* Note: that the name 'Property' is a [python attribute](https://docs.python.org/3.8/library/functions.html#property), so coding entailed the use of 'prop' or ''properties' or 'property_id' to avoid conflicts.
+
+<details>
+    <summary>
+    Database Model
+    </summary>
+        
+![Database Model](static/documentation/img/reaboo-db-models.png)
+</details>
+
+
 ### UX Wireframes
 Early representation of the look, feel and HTML structure of the project. Aids concept development and communication of ideas to stakeholders:
 
@@ -425,6 +449,8 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 
 ## 6. Features
 ### 6.1 Existing Features
+
+<!-- ### [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1) -->
 ### Sign Up (Registration) and Login
 The [allauth](https://django-allauth.readthedocs.io/en/latest/) third party package has been installed into the framework to handle the logic of user login, logout and registrations.
 
@@ -668,10 +694,13 @@ The live application ([ReaBook](https://reabook.herokuapp.com/)) has been tested
 - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
 ## 8. Testing
-A automated approach to testing Python, Javascript and was followed using an Model, View and Controller (MVC) framework...
+A hybrid between a manual and automated approach to testing Python, Javascript and was followed using an Model, View and Controller (MVC) framework...
 
 ### MVC Testing
+Model, View and Controller (MVC) testing....
 
+### Manual Testing
+... Manual Testing... 
 
 ### Validator Testing
 * [W3 Markup Validator](validator.w3.org)
