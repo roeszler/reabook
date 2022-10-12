@@ -259,3 +259,19 @@ def update_booking(request, booking_id):
         'booking': booking,
         }
     return render(request, 'book/update-booking.html', context)
+
+
+@login_required
+def delete_booking(request, booking_id):
+    """ A view to authorize and manage the delete property events """
+    booking = get_object_or_404(Booking, pk=booking_id)
+    user = request.user
+
+    if booking.user != request.user:
+        messages.error(request, 'Sorry, only booking owners can do that.')
+        return redirect(reverse('user-diary'))
+    else:
+        # booking.delete()
+        print(f'Booking id.{booking_id} Deleted')
+        messages.success(request, f'Booking id.{booking_id} deleted!')
+        return redirect(f'/book/diary/{user.id}/')

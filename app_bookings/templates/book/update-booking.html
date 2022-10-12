@@ -96,8 +96,37 @@
                         </div>
                     </div>
                     <p><label>Permission given to refer for other Properties</label> {{ booking_form.contact_ok }} </p>
-                    <button class="btn btn-warning" type="submit">Update Details</button>
+                    <button class="btn btn-warning text-uppercase" type="submit">Update Details</button>
+                    <button type="button" class="btn btn-outline-danger text-uppercase ml-1" data-toggle="modal" data-target="#deleteBookingModalCenter">Delete Booking</button>
                 </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Booking Modal -->
+    <div class="modal fade" id="deleteBookingModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteBookingModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center" id="deleteBookingModalTitle">Are you sure you want to do this?
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h1>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </h1>
+                    <p>All data will be permanently deleted and lost forever!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No Thanks</button>
+                    <a href="{% url 'delete-booking' booking.id %}">
+                        <button type="button" class="btn btn-danger text-uppercase">Confirm Deletion</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -106,7 +135,6 @@
     {% include 'includes/account-required.html' %}
 {% endif %}
 {% endblock %}
-
 {% block postloadjs %}
     <!-- To include the parent block -->
     {{ block.super }}

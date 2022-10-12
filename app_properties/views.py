@@ -160,14 +160,7 @@ def delete_property(request, property_id):
         messages.error(request, 'Sorry, only authorized agents can do that.')
         return redirect(reverse('properties'))
     else:
-        # Add Modal
         # prop.delete()
         print(f'Property id.{property_id} Deleted')
         messages.success(request, f'Property id.{property_id} deleted!')
         return redirect(f'/properties/manage/{user.id}/')
-    
-    # context = {
-    #     'prop': prop,
-    #     'user': user,
-    # }
-    # return render(request, 'properties/manage-properties.html', context)

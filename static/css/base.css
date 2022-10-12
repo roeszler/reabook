@@ -565,8 +565,9 @@ https://colorlib.com/wp/bootstrap-calendars/
     font-size: smaller;
 }
 
-/* ------------ Events Section */
-#deleteModalCenter i {
+/* ------------ Delete Modals */
+#deleteModalCenter i,
+#deleteBookingModalCenter i {
     color: red;
 }
 
