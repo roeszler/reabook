@@ -565,6 +565,12 @@ https://colorlib.com/wp/bootstrap-calendars/
     font-size: smaller;
 }
 
+/* ------------ Events Section */
+#deleteModalCenter i {
+    color: red;
+}
+
+
 /* ------------------------ Media Queries */
 
 /* ----------- Calendar */

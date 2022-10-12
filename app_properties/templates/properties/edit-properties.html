@@ -41,9 +41,10 @@
                         <button type="button" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
                     </a>
                     <div>
-                        <a href="{% url 'delete-property' prop.id %}">
+                        <!-- <a href="{% url 'delete-property' prop.id %}">
                             <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1">Delete Property</button>
-                        </a>                        
+                        </a> -->
+                        <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1" data-toggle="modal" data-target="#deleteModalCenter">Delete Property Modal</button>
                     </div>
                 </div>
             </div>
@@ -245,6 +246,33 @@
             </div>
         </div>
     </section>
+</div>
+
+<!-- Delete Property Modal -->
+<div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center" id="deleteModalCenterTitle">Are you sure you want to do this?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <h1>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </h1>
+                <p>All data will be permanently deleted and lost forever!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <a href="{% url 'delete-property' prop.id %}">
+                    <button type="button" class="btn btn-danger text-uppercase">Confirm Deletion</button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 {% else %}
     {% include 'includes/account-owner-required.html' %}

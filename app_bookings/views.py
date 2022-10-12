@@ -216,37 +216,42 @@ def update_booking(request, booking_id):
     user = request.user
     users_bookings = Booking.objects.filter(user=user) # noqa
 
-    if request.method == 'POST':
-        booking_form = BookingForm(request.POST, instance=booking)
-        if booking_form.is_valid():
-            book_f = booking_form.save(False)
-            book_f.user = request.user
-            book_f.client_zip = booking.client_zip
-            book_f.save()
+    if booking.user == request.user:
+        if request.method == 'POST':
+            booking_form = BookingForm(request.POST, instance=booking)
+            if booking_form.is_valid():
+                book_f = booking_form.save(False)
+                book_f.user = request.user
+                book_f.client_zip = booking.client_zip
+                book_f.save()
 
-            # Send an email
-            send_mail(
-                f'UPDATE Reabook appointment request: {user.email} - for\
-                    booking no.{booking_id}',
-                f'Property: {booking.property_id}\n\
-                    User  {f_name}  {l_name}.\n\
-                    Email: {client_email}\n\
-                    Proposed time: {time_of_viewing}\n\
-                    Proposed date: {date_of_viewing}\n\
-                    Additional: {client_message}\n\
-                    User id. {user.id}\n',
-                'bookings@reabook.net',
-                ['viewings@reabook.net', 'agent@example.com\
-                    ', booking.property_id.realtor.email, booking.client_email, ],
-                fail_silently=False,
-            )
+                # Send an email
+                send_mail(
+                    f'UPDATE Reabook appointment request: {user.email} - for\
+                        booking no.{booking_id}',
+                    f'Property: {booking.property_id}\n\
+                        User  {f_name}  {l_name}.\n\
+                        Email: {client_email}\n\
+                        Proposed time: {time_of_viewing}\n\
+                        Proposed date: {date_of_viewing}\n\
+                        Additional: {client_message}\n\
+                        User id. {user.id}\n',
+                    'bookings@reabook.net',
+                    ['viewings@reabook.net', 'agent@example.com\
+                        ', booking.property_id.realtor.email, booking.client_email, ],
+                    fail_silently=False,
+                )
 
-            print('Edit to your booking request has been saved')
-            messages.success(request, f'Booking request id.{booking_id} has\
-                been updated and an email sent to the Managing Agent')
-        else:
-            messages.error(request, 'Sorry, there has been an error in updating your booking details')
-            print(booking_form.errors)
+                print('Edit to your booking request has been saved')
+                messages.success(request, f'Booking request id.{booking_id} has\
+                    been updated and an email sent to the Managing Agent')
+            else:
+                messages.error(request, 'Sorry, there has been an error in\
+                     updating your booking details')
+                print(booking_form.errors)
+    else:
+        messages.error(request, 'You do not have permission to update this\
+             booking')
 
     context = {
         'booking_form': booking_form,

@@ -161,7 +161,7 @@ def delete_property(request, property_id):
         return redirect(reverse('properties'))
     else:
         # Add Modal
-        prop.delete()
+        # prop.delete()
         print(f'Property id.{property_id} Deleted')
         messages.success(request, f'Property id.{property_id} deleted!')
         return redirect(f'/properties/manage/{user.id}/')
