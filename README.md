@@ -700,7 +700,13 @@ A hybrid between a manual and automated approach to testing Python, Javascript a
 Model, View and Controller (MVC) testing....
 
 ### Manual Testing
-... Manual Testing... 
+
+A [testing tree](#critical-pathway-and-testing-tree) process has been performed to a documented process. Users/testers complete tasks by clicking through the app in a sequential way. In a live version the results of the task would indicate:
+* How many users got it right?
+* How many users got it wrong?
+* The paths users took before they selected an answer.
+* How long it took users to complete the task?
+* Sample: see [critical pathway and testing tree](#critical-pathway-and-testing-tree) mentioned previously.
 
 ### Validator Testing
 * [W3 Markup Validator](validator.w3.org)

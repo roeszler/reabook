@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from app_bookings.forms import BookingForm
 from .forms import RegisterUserFrom
@@ -80,6 +81,7 @@ def register_user(request):
     return render(request, 'diary/register.html', context)
 
 
+@login_required
 def my_profile(request, user_id):
     """ View to render the profile edit page """
     user = get_object_or_404(User, pk=user_id)

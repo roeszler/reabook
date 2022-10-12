@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .models import Property, Category, Sector
 from .forms import PropertyForm
@@ -82,10 +83,13 @@ def property_detail(request, property_id):
     return render(request, 'properties/prop-detail.html', context)
 
 
+@login_required
 def manage_properties(request, user_id):
     """ View allowing Staff / Agents to admin the properties they manage """
-    properties = Property.objects.all()
+    properties = Property.objects.all()  # noqa
+    # properties = get_object_or_404(Property, all)
     users_properties = properties.filter(realtor=user_id)
+    # users_properties = get_object_or_404(Property, realtor=user_id)
     user = get_object_or_404(User, pk=user_id)
     context = {
         'user': user,
@@ -94,18 +98,27 @@ def manage_properties(request, user_id):
     return render(request, 'properties/manage-properties.html', context)
 
 
+@login_required
 def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
-    prop = Property.objects.get(pk=property_id)
+    # prop = Property.objects.get(pk=property_id)
+    prop = get_object_or_404(Property, pk=property_id)
     property_form = PropertyForm(instance=prop)
 
-    if request.method == 'POST':
-        property_form = PropertyForm(request.POST, request.FILES, instance=prop)
-        if property_form.is_valid():
-            prop_f = property_form.save(False)
-            prop_f.user = request.user
-            prop_f.save()
-            print('Edit to property information has been saved')
+    if prop.realtor == request.user:
+        if request.method == 'POST':
+            property_form = PropertyForm(request.POST, request.FILES, instance=prop)
+            if property_form.is_valid():
+                prop_f = property_form.save(False)
+                prop_f.user = request.user
+                prop_f.save()
+                print('Edit to property information has been saved')
+                messages.success(request, f'Property id.{property_id}\
+                    has been successfully updated!')
+    else:
+        print('You do not have permission to edit this property')
+        messages.success(request, f'You do not have permission to\
+            edit this property, id.{property_id}.')
 
     context = {
         'prop': prop,
@@ -114,6 +127,7 @@ def edit_property(request, property_id):
     return render(request, 'properties/edit-properties.html', context)
 
 
+@login_required
 def add_property(request, realtor_id):
     """ A view to allow staff to add a new property """
     prop = User.objects.get(id=realtor_id)
@@ -125,7 +139,7 @@ def add_property(request, realtor_id):
             prop_f = property_form.save(commit=False)
             prop_f.user = request.user
             prop_f.save()
-            print('New Property information has been saved')
+            print('New Property information has been listed')
 
     context = {
         'prop': prop,
@@ -135,15 +149,25 @@ def add_property(request, realtor_id):
     return render(request, 'properties/add-properties.html', context)
 
 
+@login_required
 def delete_property(request, property_id):
     """ A view to authorize and manage the delete property events """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only authorized agents can do that.')
-        return redirect(reverse('properties'))
-
     prop = get_object_or_404(Property, pk=property_id)
     user = request.user
-    prop.delete()
-    print(f'Property id.{property_id} Deleted')
-    messages.success(request, f'Property id.{property_id} deleted!')
-    return redirect(f'/properties/manage/{user.id}/')
+
+    if prop.realtor != request.user:
+    # if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only authorized agents can do that.')
+        return redirect(reverse('properties'))
+    else:
+        # Add Modal
+        prop.delete()
+        print(f'Property id.{property_id} Deleted')
+        messages.success(request, f'Property id.{property_id} deleted!')
+        return redirect(f'/properties/manage/{user.id}/')
+    
+    # context = {
+    #     'prop': prop,
+    #     'user': user,
+    # }
+    # return render(request, 'properties/manage-properties.html', context)
