@@ -1,14 +1,14 @@
 ---
-name: User Story (with Acceptance)
+name: User Story Card (with Acceptance)
 about: Default user story template with Acceptance criteria
 title: User Story (w/ acceptance)
-labels: ''
-assignees: ''
+labels: feature
+assignees: roeszler
 
 ---
 
 User Story: 
-As a **user**, I can **select the paper size on which to print so that the printed label size matches the parcel size**. 
+As a **user**, I can **select the paper size on which to print** so that **the printed label size matches the parcel size**. 
 
 **Acceptance Criteria**: 
 [] Order details must include the order id, the shipping address and the list of items in the parcel
@@ -21,3 +21,5 @@ As a **user**, I can **select the paper size on which to print so that the prin
 [] Create the HTML and CSS for the dropdown menu including the paper sizes. 
 [] Create the code for the model, viewer and controller.
 [] Test the completed functionality.
+
+**Story Point Value** = [_] story points
