@@ -97,7 +97,6 @@ Reabook.site is a cross-agency site to dive leads for properties available for s
 Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stuartroeszler/), the Reabook project has been developed following an Agile methodology as part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
 
 Agile [Project management](#23-project-management) processes, like [team velocity](#team-velocity) do not easily translate to a single person team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
-
 ### 2.1 Requirements Engineering
 #### User Centered Design (UCD) Process:
 * User Centered Design (UCD) Process was used to identify key goals and structure the development process.
@@ -260,27 +259,35 @@ Epics are larger multiple iteration that can be broken into user stories.
     - [Delete Viewing]()
 </details>
 
-<details>
-
 ### 3.3 User Stories
-- Cards: https://github.com/users/roeszler/projects/4/views/1
-- Acceptance Criteria
-- Tasks
-- Story Point Value
-- 
+Reabook user stories have been produced in a brief format for simplicity. In a project with a team, a User Story Card would be used. Each card would contain:
 
+- Acceptance Criteria
+    - Subjectively confirms that the work on a particular user story is completed
+- Tasks
+    - Are the various individual activities carried out by the development team to implement each User Story as a “Task”
+    - Each development team is responsible for
+        - Identifying, assigning, and tracking tasks’ progress
+        - Taking technical decisions required to deliver the user story
+- Story Point Value
+    - Are relative estimations focused on the amount of work needed to be done to complete the story
+    - Are relative estimations compared to the other stories in the project
+- A sample of a Reabook User Story Card can be seen at: https://github.com/roeszler/reabook/issues/48
+
+<details>
 <summary style="font-size: 1rem;">
-User Stories
+Reabook Brief User Stories
 </summary>
 
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
+- Entire Reabook User Stories: https://github.com/users/roeszler/projects/4/views/1
 
 </details>
 
 ## 4. Project Management
-Continuing to promote the Agile framework of software development, where possible I implemented the following during completion of each [user story](https://github.com/roeszler/reabook/issues):  
+Adhering to the Agile framework of software development, where possible the following were completed during each [user story](https://github.com/roeszler/reabook/issues):  
 ### 4.1 Story Point Estimation
 Difficult to estimate with current level of experience, focused on the amount of work done posthumously in most cases. This was primarily due to the errors that came with each development iteration and the relative simple or solutions to solve the problem. 
 
