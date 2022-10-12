@@ -282,7 +282,7 @@ Reabook Brief User Stories
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
-- Entire Reabook User Stories: https://github.com/users/roeszler/projects/4/views/1
+<!-- - Entire Reabook User Stories: https://github.com/users/roeszler/projects/4/views/1 -->
 
 </details>
 
