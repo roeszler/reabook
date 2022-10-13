@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Property, Category, Sector
 from .forms import PropertyForm
 
+from app_bookings.models import Booking
+
 
 def all_properties(request):
     """ Renders all properties, including search queries and sorting """
@@ -87,13 +89,20 @@ def property_detail(request, property_id):
 def manage_properties(request, user_id):
     """ View allowing Staff / Agents to admin the properties they manage """
     properties = Property.objects.all()  # noqa
-    # properties = get_object_or_404(Property, all)
     users_properties = properties.filter(realtor=user_id)
-    # users_properties = get_object_or_404(Property, realtor=user_id)
     user = get_object_or_404(User, pk=user_id)
+
+    if user.is_authenticated:
+        users_bookings = Booking.objects.filter(user=user) # noqa
+        bookings_count = users_bookings.count()
+        request.session['bookings_count'] = users_bookings.count()
+    else:
+        bookings_count = 0
+
     context = {
         'user': user,
         'users_properties': users_properties,
+        'bookings_count': bookings_count,
     }
     return render(request, 'properties/manage-properties.html', context)
 

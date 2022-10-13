@@ -125,14 +125,13 @@
                         {% if user.is_authenticated %}
                         <a href="{% url 'user-diary' user.id %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
-                                <!-- {{ no_of_bookings }} -->
                                 {{ request.session.bookings_count }}
                             </span>
                         </a>
                         {% else %}
                         <a href="{% url 'login' %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
-                                0
+                                --
                             </span>
                         </a>
                         {% endif %}

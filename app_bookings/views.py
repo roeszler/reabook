@@ -184,10 +184,18 @@ def my_diary(request, user_id):
     users_bookings = bookings.filter(user=user_id)
     user = get_object_or_404(User, pk=user_id)
 
+    if user.is_authenticated:
+        users_bookings = Booking.objects.filter(user=user) # noqa
+        bookings_count = users_bookings.count()
+        request.session['bookings_count'] = users_bookings.count()
+    else:
+        bookings_count = 0
+
     context = {
         'users_bookings': users_bookings,
         'prop': prop,
         'user': user,
+        'bookings_count': bookings_count,
         }
     return render(request, 'book/my-diary.html', context)
 
