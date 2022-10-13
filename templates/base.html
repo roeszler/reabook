@@ -73,6 +73,11 @@
                         <a class="nav-link" href="{% url 'login' %}">Book <span class="sr-only"></span></a>
                     </li>
                     {% endif %}
+                    {% if user.is_superuser or user.is_staff %}
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="{% url 'manage-properties' user.id %}">Manage <span class="sr-only"></span></a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
 

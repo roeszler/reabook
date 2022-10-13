@@ -370,22 +370,14 @@ Graphics of the application have been designed to show member users and users ea
 
 ### Flowcharts Mockups:
 
-<details>
+<!-- <details>
     <summary>
     Site Map
     </summary>
         
 ![Site Map]()
-</details>
+</details> -->
 
-<details>
-    <summary>
-    Member User C.R.U.D. Flowcharts
-    </summary>
-
-Flowchart 1:
-![Member User C.R.U.D. Flowchart 1](https://lucid.app/documents#/dashboard)
-</details>
 
 <details>
     <summary>
@@ -399,6 +391,17 @@ Flowchart 2 - UPDATE & DELETE
 ![Customer User C.R.U.D. Flowchart 2](static/documentation/img/Flowchart-2-Customer-User-ReaBook.png)
 </details>
 
+<details>
+    <summary>
+    Admin / Member User C.R.U.D. Flowcharts
+    </summary>
+
+Flowchart 3 - CREATE & READ
+![Admin / Member User C.R.U.D. Flowchart 3](static/documentation/img/Flowchart-3-Member-User-ReaBook.png)
+
+Flowchart 4 - UPDATE & DELETE
+![Admin / Member User C.R.U.D. Flowchart 4](static/documentation/img/Flowchart-4-Member-User-ReaBook.png)
+</details>
 
 ### Database Model:
 The model is fairly simple, however of note is:

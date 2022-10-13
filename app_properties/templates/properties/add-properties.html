@@ -28,7 +28,7 @@
                 <div class="form-group">
 
                     <!-- <form action="{% url 'add-property' user.id %}" method="POST" enctype="multipart/form-data"> -->
-                    <form action="{% url 'property-detail' prop.id %}" method="POST" enctype="multipart/form-data">
+                    <form action="{% url 'add-property' prop.id %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <table class="w-100">
                             {{ property_form.as_table }}
@@ -36,11 +36,11 @@
                         <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Add Property">
                     </form>
 
-                    <a href="{% url 'property-detail' prop.id %}">
+                    <!-- <a href="{% url 'property-detail' prop.id %}">
                         <button type="button" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</button>
-                    </a>
+                    </a> -->
                     <a href="{% url 'properties' %}">
-                        <button type="button" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
+                        <button type="button" class="btn btn-outline text-uppercase float-right mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
                     </a>
                 </div>
             </div>

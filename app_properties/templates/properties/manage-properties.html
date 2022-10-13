@@ -45,8 +45,8 @@
                                             <td>{{ prop.viewings }}</td>
                                             <td>{{ prop.available }}</td>
                                             <td>
-                                                <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>Edit / Delete</strong>
-                                                </a>
+                                                <!-- <a href="{% url 'edit-property' prop.id %}" aria-label="" class="reabook-logo"><strong>Edit / Delete</strong></a> -->
+                                                <a href="{% url 'property-detail' prop.id %}" aria-label="" class="reabook-logo"><strong>Edit / Delete</strong></a>
                                             </td>
                                         </tr>
                                     {% endfor %}

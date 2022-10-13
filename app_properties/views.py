@@ -115,6 +115,9 @@ def edit_property(request, property_id):
                 print('Edit to property information has been saved')
                 messages.success(request, f'Property id.{property_id}\
                     has been successfully updated!')
+                # return redirect(f'/properties/{property_id}/')
+                return redirect(f'/properties/{prop.id}/')
+                
     else:
         print('You do not have permission to edit this property')
         messages.success(request, f'You do not have permission to\
@@ -132,14 +135,17 @@ def add_property(request, realtor_id):
     """ A view to allow staff to add a new property """
     prop = User.objects.get(id=realtor_id)
     property_form = PropertyForm(instance=prop)
+    user = request.user
 
     if request.method == 'POST':
-        property_form = PropertyForm(request.POST, request.FILES)
+        property_form = PropertyForm(request.POST, request.FILES, instance=prop)
         if property_form.is_valid():
             prop_f = property_form.save(commit=False)
-            prop_f.user = request.user
+            prop_f.user = user
             prop_f.save()
             print('New Property information has been listed')
+            # return redirect(f'/properties/manage/{user.id}/')
+            return redirect(f'/properties/{prop_f.id}/')
 
     context = {
         'prop': prop,

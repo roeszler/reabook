@@ -34,6 +34,7 @@
                         </table>
                         <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Update Details">
                     </form>
+
                     <a href="{% url 'property-detail' prop.id %}">
                         <button type="button" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</button>
                     </a>
@@ -41,10 +42,7 @@
                         <button type="button" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
                     </a>
                     <div>
-                        <!-- <a href="{% url 'delete-property' prop.id %}">
-                            <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1">Delete Property</button>
-                        </a> -->
-                        <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1" data-toggle="modal" data-target="#deleteModalCenter">Delete Property Modal</button>
+                        <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1" data-toggle="modal" data-target="#deleteModalCenter">Delete Property</button>
                     </div>
                 </div>
             </div>
