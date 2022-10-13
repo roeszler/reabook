@@ -687,7 +687,7 @@ The live application ([ReaBook](https://reabook.herokuapp.com/)) has been tested
 - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
 ## 8. Testing
-A hybrid between a manual and automated approach to testing Python, Javascript and was followed using an Model, View and Controller (MVC) framework...
+A primarily manual testing of code  was followed. Automated testing was applied using a Model, View and Controller (MVC) framework built-in to the Python standard library of [Django](https://docs.djangoproject.com/en/4.1/topics/testing/) called [unittest](https://docs.python.org/3/library/unittest.html#module-unittest).
 
 ### MVC Testing
 Model, View and Controller (MVC) testing....
