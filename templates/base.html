@@ -125,6 +125,7 @@
                         {% if user.is_authenticated %}
                         <a href="{% url 'user-diary' user.id %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link"><span
                             class="fa-solid fa-book-bookmark {% if grand_total %}text-info font-weight-bold{% else %}text-grey{% endif %}"></span> Bookings : <span class="my-0">
+                                {{ user.id }}
                                 {% if grand_total %}
                                 ${{ grand_total | floatformat:2 }}
                                 {% else %}
