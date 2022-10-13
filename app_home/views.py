@@ -16,6 +16,7 @@ def index(request):
     user = request.user
     users_bookings = Booking.objects.filter(user=user) # noqa
     bookings_count = users_bookings.count()
+    request.session['bookings_count'] = users_bookings.count()
 
     context = {
         'properties': properties,
