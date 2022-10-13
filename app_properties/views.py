@@ -101,8 +101,8 @@ def manage_properties(request, user_id):
 @login_required
 def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
-    # prop = Property.objects.get(pk=property_id)
-    prop = get_object_or_404(Property, pk=property_id)
+    prop = Property.objects.get(pk=property_id)  # noqa
+    # prop = get_object_or_404(Property, pk=property_id)
     property_form = PropertyForm(instance=prop)
 
     if prop.realtor == request.user:

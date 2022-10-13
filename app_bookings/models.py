@@ -25,7 +25,7 @@ class Booking(models.Model):
     client_phone = models.IntegerField(null=True, blank=True, default='')
     client_city = models.CharField(max_length=140, null=True, blank=True)
     client_state = models.CharField(max_length=10, null=True, blank=True)
-    client_zip = models.CharField(max_length=10, default='')
+    client_zip = models.CharField(max_length=10, blank=True,)
     client_country = models.CharField(max_length=2, choices=pytz.country_names.items(), null=True, blank=True)
     viewing_active = models.BooleanField(default=True)
     contact_ok = models.BooleanField(default=False)

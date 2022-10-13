@@ -15,8 +15,7 @@ from .forms import BookingForm
 @login_required
 def add_to_diary(request, property_id):
     """ Add a quantity of the specified prop to the shopping diary """
-    # properties = Property.objects.all()  # noqa
-    properties = get_object_or_404(Property, all)
+    properties = Property.objects.all()  # noqa
     prop = get_object_or_404(Property, pk=property_id)
     diary = request.session.get('diary', {})
     props_with_viewings = properties.filter(viewings=True)
@@ -48,13 +47,12 @@ def add_to_diary(request, property_id):
 @login_required
 def booking_detail(request, property_id):
     """ A view to show individual property booking details """
-    # bookings = Booking.objects.all()  # noqa
-    bookings = get_object_or_404(Booking, all)
+    bookings = Booking.objects.all()  # noqa
     props_with_booking_slots = bookings.filter(viewing_active=True)
     prop = get_object_or_404(Property, pk=property_id)
     booking_form = BookingForm(instance=prop)
     user = request.user
-    users_bookings = bookings.objects.filter(user=user) # noqa
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     context = {
         'booking_form': booking_form,
@@ -70,12 +68,10 @@ def booking_detail(request, property_id):
 @login_required
 def add_booking(request, property_id):
     """ View to render a successful booking on prop-booking.html """
-    # prop = Property.objects.get(pk=property_id)  # noqa
-    prop = get_object_or_404(Property, pk=property_id)
+    prop = Property.objects.get(pk=property_id)  # noqa
     booking_form = BookingForm(instance=prop)
     user = request.user
-    bookings = get_object_or_404(Booking, all)
-    users_bookings = bookings.objects.filter(user=user) # noqa
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     property_id = f'{prop.id}'
     date_of_viewing = request.POST.get('date_of_viewing', 'n/p')
@@ -150,12 +146,10 @@ def add_booking(request, property_id):
 @login_required
 def choose_bookings(request):
     """ View to render the choose bookings page """
-    # properties = Property.objects.all() # noqa
-    properties = get_object_or_404(Property, all)
-    bookings = get_object_or_404(Booking, all)
+    properties = Property.objects.all() # noqa
     props_with_viewings = properties.filter(viewings=True)
     user = request.user
-    users_bookings = bookings.objects.filter(user=user) # noqa
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     query = None
 
@@ -200,9 +194,8 @@ def my_diary(request, user_id):
 
 def parked(request):
     """ View to render the bookings the parked page """
-    bookings = get_object_or_404(Booking, all)
     user = request.user
-    users_bookings = bookings.objects.filter(user=user) # noqa
+    users_bookings = Booking.objects.filter(user=user) # noqa
 
     return render(request, 'book/parked.html', {'users_bookings': users_bookings, })
 
@@ -211,10 +204,10 @@ def parked(request):
 def update_booking(request, booking_id):
     """ To update the bookings made by each user """
     booking = Booking.objects.get(pk=booking_id) # noqa
-    # bookings = get_object_or_404(Booking, all)
     booking_form = BookingForm(instance=booking)
     user = request.user
     users_bookings = Booking.objects.filter(user=user) # noqa
+    property_id = booking.property_id
 
     if booking.user == request.user:
         if request.method == 'POST':
@@ -223,28 +216,33 @@ def update_booking(request, booking_id):
                 book_f = booking_form.save(False)
                 book_f.user = request.user
                 book_f.client_zip = booking.client_zip
+                book_f.property_id = property_id
                 book_f.save()
 
                 # Send an email
                 send_mail(
                     f'UPDATE Reabook appointment request: {user.email} - for\
                         booking no.{booking_id}',
-                    f'Property: {booking.property_id}\n\
-                        User  {f_name}  {l_name}.\n\
-                        Email: {client_email}\n\
-                        Proposed time: {time_of_viewing}\n\
-                        Proposed date: {date_of_viewing}\n\
-                        Additional: {client_message}\n\
+                    f'Property: {book_f.property_id}\n\
+                        Address:\n\
+                        {book_f.property_id.house_no} {book_f.property_id.street}\n\
+                        {book_f.property_id.suburb} {book_f.property_id.postcode}\n\
+                        User  {booking.f_name} {booking.l_name}.\n\
+                        Email: {booking.client_email}\n\
+                        Proposed time: {booking.time_of_viewing}\n\
+                        Proposed date: {booking.date_of_viewing}\n\
+                        Additional: {booking.client_message}\n\
                         User id. {user.id}\n',
                     'bookings@reabook.net',
                     ['viewings@reabook.net', 'agent@example.com\
-                        ', booking.property_id.realtor.email, booking.client_email, ],
+                        ', book_f.property_id.realtor.email,
+                        booking.client_email, ],
                     fail_silently=False,
                 )
 
                 print('Edit to your booking request has been saved')
-                messages.success(request, f'Booking request id.{booking_id} has\
-                    been updated and an email sent to the Managing Agent')
+                messages.success(request, f'Booking request id.{booking_id}\
+                    has been updated and an email sent to the Managing Agent')
             else:
                 messages.error(request, 'Sorry, there has been an error in\
                      updating your booking details')

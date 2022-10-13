@@ -368,47 +368,37 @@ Graphics of the application have been designed to show member users and users ea
 * The logical approach to code creation, promoting readability and aiding future fault-finding processes
 * The experience as users navigate through the booking application processes
 
-### Flowchart Mockups:
+### Flowcharts Mockups:
 
 <details>
     <summary>
-    Create Property Listing Flowchart
-    </summary>
-    
-![Create Property Listing Flowchart](https://lucid.app/documents#/dashboard)
-</details>
-
-<details>
-    <summary>
-    Create Booking Flowchart
+    Site Map
     </summary>
         
-![Create Booking Flowchart]()
+![Site Map]()
 </details>
 
 <details>
     <summary>
-    Update Property Flowchart
+    Member User C.R.U.D. Flowcharts
     </summary>
-        
-![Update Property Flowchart]()
+
+Flowchart 1:
+![Member User C.R.U.D. Flowchart 1](https://lucid.app/documents#/dashboard)
 </details>
 
 <details>
     <summary>
-    Edit / Delete Property Flowchart
+    Customer User C.R.U.D. Flowcharts
     </summary>
-        
-![Edit / Delete Property Flowchart]()
+
+Flowchart 1 - CREATE & READ
+![Customer User C.R.U.D. Flowchart 1](static/documentation/img/Flowchart-1-Customer-User-ReaBook.png)
+
+Flowchart 2 - UPDATE & DELETE
+![Customer User C.R.U.D. Flowchart 2](static/documentation/img/Flowchart-2-Customer-User-ReaBook.png)
 </details>
 
-<details>
-    <summary>
-    Critical Pathway - Booking
-    </summary>
-        
-![Critical Pathway - Booking]()
-</details>
 
 ### Database Model:
 The model is fairly simple, however of note is:
