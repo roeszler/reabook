@@ -1,7 +1,6 @@
 """ Tests the home index.html view """
 from django.test import TestCase
 
-# from app_bookings.models import Booking
 from app_properties.models import Property, Category
 
 
@@ -27,11 +26,6 @@ class TestHomeViews(TestCase):
         self.category.title_page = self.page
         self.category.save()
 
-        # self.event = Booking.objects.create(
-        #     booking_number='Test Booking 1234',
-        #     booking_name='Test Booking',
-        #     client_phone=123455678
-        # )
 
     def test_landing_page(self):
         """ Tests loading the landing page """

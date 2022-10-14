@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+from app_bookings.models import Booking
 from app_bookings.forms import BookingForm
 from .forms import RegisterUserFrom
 
@@ -87,6 +88,7 @@ def my_profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     user_form = RegisterUserFrom(instance=user)
     booking_form = BookingForm(instance=user)
+    users_bookings = Booking.objects.filter(user=user)  # noqa
 
     if request.method == 'POST':
         if user_form.is_valid():
@@ -100,5 +102,6 @@ def my_profile(request, user_id):
         'user': user,
         'user_form': user_form,
         'booking_form': booking_form,
+        'users_bookings': users_bookings,
     }
     return render(request, 'diary/profile.html', context)
