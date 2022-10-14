@@ -933,23 +933,119 @@ Destroying test database for alias 'default'...
 </details>
 
 ### Automated JavaSCript Testing
-...
+[Jest](https://jestjs.io/) is a popular JavaScript Testing Framework that can be applied to the JavaScript functions contained in this project. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) approach as detailed in the Pythonic testing seen above. 
+
+Jest uses [Node.JS](https://nodejs.org/en/) JavaScript runtime environment via the node package manager (NPM) utility.
+
+Due to the reliance on pythonic code and the relatively simple nature of the javascript components contained in the project, testing was done manually for each JS component at the time.
+
+The custom JavaScript code is located in the `scrollfade.js` file, and line 54 of the `main.js` file, both located in the project static folders:
+
+<details>
+    <summary>
+    Calendar radio buttons converted into fields ...
+    </summary>
+
+```
+ var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date_of_viewing' id='"+day+"' value='"+year+"-"+month+"-"+day+"'/></td>");
+```
+</details>
+
+<details>
+    <summary>
+    Fade navigation bars on scroll (at different rates)...
+    </summary>
+
+```
+$(window).scroll(function(){
+    $("#sub-nav").css("opacity", 1 - $(window).scrollTop() / ($('#sub-nav').height() / 2));
+    $("#topnav").css("opacity", 1 - $(window).scrollTop() / ($('#topnav').height() / 0.01));
+});
+```
+</details>
+
+<details>
+    <summary>
+    Sub Nav dropdown list display on hover...
+    </summary>
+
+```
+$('.dropdown').hover(function(){
+    $('.auto-dropdown', this).trigger('click');
+});
+```
+</details>
+
+<details>
+    <summary>
+    To control the click on "Select Viewing Time" radio inputs...
+    </summary>
+
+```
+$('.radio-wrapper').on('click','.time-slot',function () {
+    $('.time-slot').removeClass('selected');
+    $(this).addClass('selected');
+});
+```
+</details>
+
+</details>
+
+<details>
+    <summary>
+    A handy "Go back one page" function seen as the '< previous' buttons...
+    </summary>
+
+```
+$(document).ready(function(){
+$('.btn-back').click(function(){
+    parent.history.back();
+    return false;
+});
+```
+</details>
+
 ### Manual Testing
 
-A [testing tree](#critical-pathway-and-testing-tree) process has been performed to a documented process. Users/testers complete tasks by clicking through the app in a sequential way. In a live version the results of the task would indicate:
+A [Critical Pathway Method](https://asana.com/resources/critical-path-method) (CPM) using a [testing tree](https://www.optimalworkshop.com/learn/101s/tree-testing/) process has been used to documented the manual testing process. This has been integrated with the [GitHub issues management utility](https://github.com/roeszler/reabook/issues) to collect and coordinate testing within each defined User Story for the project. 
+
+In the CPM, users/testers complete tasks by clicking through the app in a sequential way. In a live version the results of the task would indicate:
 * How many users got it right?
 * How many users got it wrong?
 * The paths users took before they selected an answer.
 * How long it took users to complete the task?
-* Sample: see [critical pathway and testing tree](#critical-pathway-and-testing-tree) mentioned previously.
 
-### Validator Testing
+For the purposes of this project, manual feature testing was performed within each sprint cycle of the development process. These sprints (or [milestones](https://github.com/roeszler/reabook/labels/test)) were managed in the GitHub repository. Testing was tracked using the "[test](https://github.com/roeszler/reabook/labels/test)" label, that was defined to work across the whole project. 
+
+Transposed over this process was a testing tree, used as an information radiator and keep the progress of the testing at one visual location.
+<details>
+    <summary>
+    Reabook and testing tree...
+    </summary>
+
+* Sample Only:
+
+![critical pathway and testing tree](static/documentation/img/reabook-test-tree.png).
+</details>
+
+
+### Validator Testing of Custom Code
 * [W3 Markup Validator](validator.w3.org)
     * No errors were found when passing through the W3 Markup validator
     * Results : [All right]()
+
 * [W3 CSS Validator](https://jigsaw.w3.org/css-validator/)
     * No errors were found when passing through the W3 CSS validator
-    * Results : [All right]()
+    * Results URL : [No Error Found.](https://jigsaw.w3.org/css-validator/validator)
+    * 
+        <details>
+        <summary>
+        Results Image...
+        </summary>
+
+        ![CSS Passed](static/documentation/img/WC3-css.png)
+        </details>
+    
 * [PEP8 Python Validator](http://pep8online.com/)
     * No errors were found when passing through the PEP8 validator
     * Results : [All right]()

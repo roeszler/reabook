@@ -118,7 +118,7 @@ font-weight: 100;
 
 .btn-outline {
     color: #7F7F7F;
-    border-color: none;
+    border-color: rgba(255, 255, 255, 0);
 }
 
 .btn-outline:hover {
@@ -127,7 +127,7 @@ font-weight: 100;
 
 #headerSubmitButton:hover {
     color: #20514C;
-    border-color: #f8f9fa;
+    border-color: rgba(255, 255, 255, 0);
     background-color: #f8f9fa;
 }
 
@@ -149,7 +149,7 @@ font-weight: 100;
 }
 
 .subnav-light {
-    background-color: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .subnav-light span {
@@ -712,7 +712,7 @@ https://colorlib.com/wp/bootstrap-calendars/
     }
 
     .table-date:not(.nil):hover {
-        background-color: none;
+        background-color: rgba(255, 255, 255, 0);
     }
 
     .cal-btn {
