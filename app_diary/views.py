@@ -23,8 +23,8 @@ def login_user(request):
             else:
                 return redirect(f'/book/diary/{user.id}/')
         else:
-            messages.success(request, 'Sorry! There was an error.\n\
-                Please try again...')
+            messages.success(request, 'Sorry! There was an error\n\
+                Logging in. Please try again...')
             # Return an 'invalid login' error message.
             return redirect('login')
     else:

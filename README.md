@@ -172,7 +172,10 @@ Used to confirm understanding and documented check that each requirement is:
 Consideration and documentation at this point as to:
 * How will each requirement be implemented?
 * How will each requirement be Tested?
+    * Unittest 
 * What is the process to evaluate each requirement? (to meet initial requirements)
+    * Unittest
+    * Manual testing tree
 
 <details>
 <summary style="font-size: 1rem;">
@@ -201,7 +204,7 @@ User Story:
 
 * [x] Create the code for the model, viewer and controller.
 
-* [x] Test the completed functionality that incldes email submission.
+* [x] Test the completed functionality that includes email submission.
 
 </details>
 
@@ -690,8 +693,192 @@ The live application ([ReaBook](https://reabook.herokuapp.com/)) has been tested
 A primarily manual testing of code  was followed. Automated testing was applied using a Model, View and Controller (MVC) framework built-in to the Python standard library of [Django](https://docs.djangoproject.com/en/4.1/topics/testing/) called [unittest](https://docs.python.org/3/library/unittest.html#module-unittest).
 
 ### MVC Testing
-Model, View and Controller (MVC) testing....
+Model, View and Controller (MVC) testing with [unittest](https://docs.python.org/3/library/unittest.html).[TestCase](https://pypi.org/project/testcase/)
 
+#### 3 Phases of a test:
+1. Arrange: Creating the conditions for the unit-test to run within like an instance object
+2. Act: Giving the object some sort of input / data
+3. Assert: Checking wether the output data turned out as expected
+
+**F** Fast to complete
+**I** Independent of other tests
+**R** Repeatable
+**S** Self validating
+**T** Timely (right place and time)
+
+### Automated Python Testing
+
+A variety unittest.TestCase [methods](https://docs.python.org/3/library/unittest.html#deprecated-aliases) can be used to create a test case. For the purposes of this project a sample test case was created to test the `integer_type_check` function that requires only an integer is entered into a field.
+
+Important to note that during testing, the development environment settings were set to:
+
+```
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+```
+
+The test is located at:
+`app-bookings > test_views > TestTypeInteger`
+
+The early form of the test was defined with `assertIsInstance()` method with an `integer` input value of `233`. This expects the `integer_type_check` function to have an input of an integer (`int`) to pass:
+
+```
+def test_entry_is_integer(self):
+    """ To test that input is an integer """
+    self.assertIsInstance(integer_type_check(233), int)
+```
+
+<details>
+    <summary>
+    This is repeated ad nauseam with different values...
+    </summary>
+
+```
+class TestTypeInteger(TestCase):
+    """ To test the integer_type_check function in working """
+    
+    def test_entry_is_integer(self):
+        """ To test that input is an integer """
+        self.assertIsInstance(integer_type_check(233), int)
+    
+    def test_entry_is_integer(self):
+        """ To test that input is exactly equal to 10 """
+        self.assertEqual(integer_type_check(10), True)
+    
+    def test_entry_is_integer(self):
+        """ To test that input is not a string """
+        self.assertIsInstance(integer_type_check('233'), int)
+    
+    def test_entry_is_integer(self):
+        """ To test that input is not a float """
+        self.assertIsInstance(integer_type_check(233.3), int)
+    
+    def test_entry_is_integer(self):
+        """ No more than one input required """
+        self.assertIsInstance(integer_type_check(21, 22), int)
+```
+</details>
+
+### Test Driven Development
+
+Following a Red-Green-Refactor approach to Test-driven development (TDD), the `integer_type_check` function was altered to produce firstly a failing test, then a passing test, and finally a passing test with refactored code:
+
+<details>
+    <summary>
+    Failing Test (red)...
+    </summary>
+
+```
+def integer_type_check(request):
+    """ To ensure that only an integer is entered into a field """
+    if isinstance(request, int):
+        if request == 1.4:
+            return True
+        else:
+            raise TypeError('An integer was not passed into the field')
+    
+    if __name__ == '__main__':
+        print(integer_type_check(1.4))
+```
+CLI output:
+```
+(main) $ python3 manage.py test
+
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+E
+======================================================================
+ERROR: test_entry_is_integer (app_bookings.test_views.TestTypeInteger)
+To test that input is an integer
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/reabook/app_bookings/test_views.py", line 16, in test_entry_is_integer
+    self.assertEqual(integer_type_check(1), True)
+  File "/workspace/reabook/app_bookings/views.py", line 285, in integer_type_check
+    raise TypeError('An integer was not passed into the field')
+TypeError: An integer was not passed into the field
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+Destroying test database for alias 'default'...
+```
+</details>
+
+<details>
+    <summary>
+    Passing Test (green)...
+    </summary>
+
+```
+def integer_type_check(request):
+    """ To ensure that only an integer is entered into a field """
+    if isinstance(request, int):
+        if request == 10:
+            return True
+        else:
+            raise TypeError('An integer was not passed into the field')
+    
+    if __name__ == '__main__':
+        print(integer_type_check(10))
+```
+CLI output:
+```
+(main) $ python3 manage.py test
+
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+Destroying test database for alias 'default'...
+```
+</details>
+
+<details>
+    <summary>
+    Refactored Code...
+    </summary>
+
+```
+def integer_type_check(request):
+    """ To ensure that only an integer is entered into a field """
+    if isinstance(request, int):
+        return True
+    else:
+        raise TypeError('An integer was not passed into the field')
+    
+    if __name__ == '__main__':
+        print(integer_type_check(10))
+```
+CLI output:
+```
+(main) $ python3 manage.py test
+
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+Destroying test database for alias 'default'...
+```
+        
+</details>
+
+
+
+
+### Automated JavaSCript Testing
+...
 ### Manual Testing
 
 A [testing tree](#critical-pathway-and-testing-tree) process has been performed to a documented process. Users/testers complete tasks by clicking through the app in a sequential way. In a live version the results of the task would indicate:

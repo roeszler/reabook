@@ -150,7 +150,6 @@ def choose_bookings(request):
     props_with_viewings = properties.filter(viewings=True)
     user = request.user
     users_bookings = Booking.objects.filter(user=user) # noqa
-
     query = None
 
     # Available viewings search function
@@ -198,14 +197,6 @@ def my_diary(request, user_id):
         'bookings_count': bookings_count,
         }
     return render(request, 'book/my-diary.html', context)
-
-
-def parked(request):
-    """ View to render the bookings the parked page """
-    user = request.user
-    users_bookings = Booking.objects.filter(user=user) # noqa
-
-    return render(request, 'book/parked.html', {'users_bookings': users_bookings, })
 
 
 @login_required
@@ -279,5 +270,26 @@ def delete_booking(request, booking_id):
     else:
         # booking.delete()
         print(f'Booking id.{booking_id} Deleted')
+        print(f'booking.user: {booking.user.id}')
+        print(f'request.user: {request.user.id}')
         messages.success(request, f'Booking id.{booking_id} deleted!')
         return redirect(f'/book/diary/{user.id}/')
+
+
+def integer_type_check(request):
+    """ To ensure that only an integer is entered into a field """
+    if isinstance(request, int):
+        return True
+    else:
+        raise TypeError('An integer was not passed into the field')
+    
+    if __name__ == '__main__':
+        print(integer_type_check(10))
+
+
+def parked(request):
+    """ View to render the bookings the parked page """
+    user = request.user
+    users_bookings = Booking.objects.filter(user=user) # noqa
+
+    return render(request, 'book/parked.html', {'users_bookings': users_bookings, })

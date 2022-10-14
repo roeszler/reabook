@@ -40,7 +40,7 @@ class Sector(models.Model):
 
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
-    realtor = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=False, default=User)
+    realtor = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, default=User)
     title_no = models.CharField(max_length=254)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     name = models.CharField(max_length=30)
