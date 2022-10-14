@@ -120,8 +120,9 @@ The primary directive was to make an online community looking for one-stop acces
 
 > ReaBook: A single cross-agency site where users can interact to find and visit their next property solution. Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store. Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
 
+#### User Personas
+Three primary user personas were defined from the above requirements engineering process:
 
-From this process, three primary user personas were defined:
 <details>
     <summary>Customer User</summary>
 
@@ -181,8 +182,7 @@ Consideration and documentation at this point as to:
 <summary style="font-size: 1rem;">
 Sample user story with acceptance criteria for the ReaBook project
 </summary>
-
-
+<br>
 User Story: 
 * As a **user**, I can **select the time I would like to visit a property** so that **I can arrange my day efficiently with little difficulty**.
 
@@ -255,27 +255,30 @@ Epics are larger multiple iteration that can be broken into user stories.
 </summary>
         
 - Reabook Epics
-    - [Dataset Design]()
-    - [Site Framework]()
-        - User Profile
-            - [Admin User](static/documentation/wireframes/IT-Admin-Persona-ReaBook.png)
-            - [Agent Member](static/documentation/wireframes/Owner-Agent-Persona-ReaBook.png) User (staff)
-            - [Customer User](static/documentation/wireframes/Home-seeker-Persona-ReaBook.png)
-        - [Sign In]()
-        - [Register]()
+    1. Dataset Design (see: [Design Section](#5-design))
+    2. [Site Framework](https://github.com/roeszler/reabook/milestone/1)
+        - User Profile Framework
+            - Admin User (see [Admin Persona](#user-personas))
+            - Agent Member User (see [Staff Persona](#user-personas)) 
+            - Customer User (see [User Persona](#user-personas)) 
         - [Site Pages]()
             - Login
             - Register
-            - 
-    - [User Experience]()
-        - [Read Dataset]()
-        - [Display Properties / Products]()
-        - [Create Property Listing]() (staff)
-        - [Edit Property Listing]() (staff)
-        - [Delete Property Listing]() (staff)
-        - [Book Viewing]()
-        - [Edit Viewing]()
-        - [Delete Viewing]()
+            - Profile
+            - Index
+            - ...
+    3. [User Experience]()
+        - [View & Search Properties](https://github.com/roeszler/reabook/milestone/6)
+            - Read Dataset
+            - Display Properties
+        - [Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7)
+            - Book Viewing
+            - Edit Viewing
+            - Delete Viewing
+        - [Create Property Listing](https://github.com/roeszler/reabook/milestone/11) (staff)
+            - Edit Property Listing (staff)
+            - Delete Property Listing (staff)
+        - [Account Administration](https://github.com/roeszler/reabook/milestone/8) (staff)
 </details>
 
 ### 3.3 User Stories
@@ -292,9 +295,9 @@ Reabook user stories have been produced in a brief format for simplicity. In a p
     - Are relative estimations focused on the amount of work needed to be done to complete the story
     - Are relative estimations compared to the other stories in the project
 
-- Sample Story Card: https://github.com/roeszler/reabook/issues/48
+- [Sample Story Card with acceptance criteria](https://github.com/roeszler/reabook/issues/48).
 
-### Reabook User Stories (summary)
+### Reabook User Stories (GitHub)
 
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
