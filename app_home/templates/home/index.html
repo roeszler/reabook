@@ -62,7 +62,7 @@
                                 {% else %}
                                     <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_sale">
-                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
+                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/media/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder for no image">
                                     </a>
                                 {% endif %}
                             
@@ -93,11 +93,11 @@
                         <p class="ribbon">Sell Properties</p>
                         {% if user.is_authenticated %}
                         <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
                         </a>
                         {% else %}
                         <a href="{% url 'login' %}" aria-label="login link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
@@ -138,7 +138,7 @@
                                 {% else %}
                                     <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_rent">
-                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
+                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder rentals image">
                                     </a>
                                 {% endif %}
                             
@@ -178,7 +178,7 @@
                                 {% else %}
                                     <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_lease">
-                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}">
+                                        <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/media/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder for no image">
                                     </a>
                                 {% endif %}
                             
@@ -214,8 +214,8 @@
         Project Information
     </div>
     <div class="card-body">
-        <h5 class="card-title">Dreamed, Designed, Developed and Deployed by <a href="https://www.linkedin.com/in/stuartroeszler/" target="_blank" class="text-primary">s.roeszler</a></h5>
-        <h6>in consideration for completion of Project 4: Full Stack with <a href="https://codeinstitute.net/global/" class="text-primary">the Code Institute</a></h6>
+        <h5 class="card-title">Dreamed, Designed, Developed and Deployed by <a href="https://www.linkedin.com/in/stuartroeszler/" target="_blank" class="text-primary" aria-label="linkedin">s.roeszler</a></h5>
+        <h6>in consideration for completion of Project 4: Full Stack with <a href="https://codeinstitute.net/global/" class="text-primary" aria-label="code institute">the Code Institute</a></h6>
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="text-center justified col-lg-6 col-12">

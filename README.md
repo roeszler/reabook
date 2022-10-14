@@ -734,7 +734,7 @@ def test_entry_is_integer(self):
 
 <details>
     <summary>
-    This is repeated ad nauseam with different values...
+    This is sequentially repeated with a variety of related values...
     </summary>
 
 ```
