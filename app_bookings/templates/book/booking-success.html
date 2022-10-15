@@ -3,7 +3,6 @@
 
 {% block content %}
 {% include 'includes/bookings-base.html' %}
-<!-- <div class="col-md-6 col-sm-12 text-center"> -->
     <h1>Thanks {{ user.first_name }}!</h1>
     <h5>This information has been received and emailed to the registered managing agent.</h5>
     <div class="row">
@@ -23,7 +22,6 @@
             {% for error in booking_form.errors %}
                 <p class="text-danger">{{ error }}</p>
             {% endfor %}
-            <!-- <strong>Booking Ref:</strong> {{ booking.id }}/{{ booking }} -->
             <br><strong>Property Id :</strong> {{ prop.id }}
             <br><strong>Property :</strong> {{ prop.house_no }} {{ prop.street }}, {{ prop.suburb }} {{ prop.postcode }}
             <br><strong>Date Requested:</strong> {{ date_of_viewing }} <strong>at</strong> {{ time_of_viewing }}</strong>
@@ -61,8 +59,5 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <!-- To include the parent block -->
     {{ block.super }}
-    
-
 {% endblock %}

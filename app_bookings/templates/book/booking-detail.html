@@ -6,7 +6,6 @@
 {% include 'includes/bookings-base.html' %}
 <div class="row justify-content-center">
     <div class="col-md-12 text-center mb-md-5 h-100">
-        <!-- <h4 class="heading-section">ReaBook Viewings</h4> -->
         <div class="progress">
             <div class="progress-bar bg-green" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
         </div>
@@ -91,11 +90,8 @@
     </div>
 </div>
 {% include 'includes/bookings-base-calendar.html' %}
-
 {% endblock %}
 
 {% block postloadjs %}
-<!-- To include the parent block -->
-{{ block.super }}
-
+    {{ block.super }}
 {% endblock %}

@@ -1061,18 +1061,17 @@ Transposed over this process was a testing tree, used as an information radiator
 
 ### Bugs & Debugging
 At the point of deployment, the site appears to be free of errors and bugs. The coordination and management of a systematic debugging process can be seen at:
-- [Notifying Team of a Bug (Sample Template)](https://github.com/roeszler/reabook/issues/50)
-- [Link to Current Bugs](https://github.com/roeszler/reabook/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+- [Sample Template to Notifying Team of a Bug](https://github.com/roeszler/reabook/issues/50)
+- [Summary of Bugs](https://github.com/roeszler/reabook/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
 ### Validator Testing of Custom Code
-* [W3 Markup Validator](validator.w3.org)
-    * No errors were found when passing through the W3 Markup validator
-    * Results : [All right]()
+The manipulation of `.html` documents throughout the project highlights limitations the generic W3 html Validator. The use of things like 'includes templates' and `{{  }}` or `{%  %}` consistently throws errors in the validator. Outside of these errors, that code has been thoroughly checked and no other errors were found when passing each `.html` document through the [W3 Markup Validator](https://validator.w3.org/);
+    * Results : [All right.]()
 
 * [W3 CSS Validator](https://jigsaw.w3.org/css-validator/)
     * No errors were found when passing through the W3 CSS validator
     * Results URL : [No Error Found.](https://jigsaw.w3.org/css-validator/validator)
-    * 
+    
         <details>
         <summary>
         Results Image...
@@ -1080,8 +1079,9 @@ At the point of deployment, the site appears to be free of errors and bugs. The 
 
         ![CSS Passed](static/documentation/img/WC3-css.png)
         </details>
+
     
-* [PEP8 Python Validator](http://pep8online.com/)
+* [PEP8 Python Validator](https://pep8.org/)
     * No errors were found when passing through the PEP8 validator
     * Results : [All right]()
 
@@ -1199,22 +1199,21 @@ The steps to create a server side Database and deploy to Heroku...
 ### Content
 
 * Hosted at [Heroku](https://www.heroku.com/platform).
+* Repository and issue management features provided at [GitHub](https://github.com/roeszler/reabook).
+* Developed using the [GitPod Development Environment](https://www.gitpod.io/).
 * Primary and additional Python coding was studied and reworked from modules provided through the Code Institute's [Diploma in Full Stack Software Development](https://codeinstitute.net/se/full-stack-software-development-diploma/), [W3 Schools](https://www.w3schools.com/), [Stack overflow](https://stackoverflow.com/), [mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Django Project](https://www.djangoproject.com/).
 * Testing tree process sourced from [Optimal Workshop](https://www.optimalworkshop.com/learn/101s/tree-testing/).
-* 
+* Images were altered from original layout using [pixlr](https://pixlr.com/).
+* Images have been stored for delivery using the [cloudinary](https://cloudinary.com/) content delivery network.
+* Test Case scenarios researched from [softwaretestingo.com](https://www.softwaretestingo.com/), [Software Testing Help](https://www.softwaretestinghelp.com/test-execution-software-testing-qa-training-on-a-live-project-day-5/) and [QA Test Lab](https://qatestlab.com/).
+* Code styling and error detection by systematic code refactoring following a run of the `python3 -m flake8` command to evoke the [flake8](https://flake8.pycqa.org/en/latest/) style enforcement tool.
 
 ### Media
-- The photos, videos and vector graphics used on the home and each for property are from [pixbay.com](https://pixabay.com/users/openclipart-vectors-30363/), upsplash and [freepik.com](https://www.freepik.com/home)
-
-  - all penguin images - sourced from Pixbay user [OpenClipart-Vectors](https://pixabay.com/vectors/tux-anchor-animal-bird-boat-ferry-161379/).
-  - palmtree.webp - sourced from [Palm tree icon vector created by brgfx - www.freepik.com](https://www.freepik.com/vectors/palm-tree-icon)
-  - contact-us.webp - sourced from [unsplash.com](https://unsplash.com/photos/4SNUcHPiC8c)
-  - success.webp - sourced from [pixabay.com](https://pixabay.com/photos/children-win-success-video-game-593313/)
-  - sally-provider.webp - sourced from [unsplash.com](https://unsplash.com/s/photos/owner)
-  - all bus images were sourced from pexels user [@nubikini](https://www.pexels.com/@nubikini)
-  - Video by [Jess Loiterton](https://www.pexels.com/video/sea-waves-kissing-the-beach-shore-4782135/) from pexels
-
-- The images used for the gallery page were taken from a pexels.com collection curated [here](https://www.pexels.com/collections/kapthol-wqxkprh/) and [here](https://www.pexels.com/search/cafe/).
+- The photos, videos and vector graphics used on the home and each for property were sourced and/or researched from [Pexels](https://www.pexels.com/collections/aparments-9aglwiv/), [pixbay.com](https://pixabay.com/users/openclipart-vectors-30363/) and [freepik.com](https://www.freepik.com/home).
+  * All property images - sourced from users seen in curated pexels collection [apartments](https://www.pexels.com/collections/aparments-9aglwiv/).
+  * 404 imagery sourced from user [storyset](https://www.freepik.com/author/stories) on [freepik.com](https://www.freepik.com/home).
+  * No Image picture sourced from user [Code Institute](https://github.com/Code-Institute-Solutions) walkthrough project [boutique_ado_v1](https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/250e2c2b8e43cccb56b4721cd8a8bd4de6686546/media/noimage.png).
+  * All icons sourced and edited from [Font Awesome](https://fontawesome.com/).
 
 ---
 __COPYRIGHT NOTICE__ :
