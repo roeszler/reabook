@@ -1066,7 +1066,15 @@ At the point of deployment, the site appears to be free of errors and bugs. The 
 
 ### Validator Testing of Custom Code
 The manipulation of `.html` documents throughout the project highlights limitations the generic W3 html Validator. The use of things like 'includes templates' and `{{  }}` or `{%  %}` consistently throws errors in the validator. Outside of these errors, that code has been thoroughly checked and no other errors were found when passing each `.html` document through the [W3 Markup Validator](https://validator.w3.org/);
-    * Results : [All right.]()
+    * Results : [All right.](https://validator.w3.org/nu/?doc=https%3A%2F%2Freabook.herokuapp.com%2F)
+
+        <details>
+        <summary>
+        Results Image...
+        </summary>
+
+        ![CSS Passed](static/documentation/img/W3-Html-Validation.png)
+        </details>
 
 * [W3 CSS Validator](https://jigsaw.w3.org/css-validator/)
     * No errors were found when passing through the W3 CSS validator
@@ -1081,7 +1089,7 @@ The manipulation of `.html` documents throughout the project highlights limitati
         </details>
 
     
-* [PEP8 Python Validator](https://pep8.org/)
+* [PEP8 Python Validator](https://pypi.org/project/pep8/)
     * No errors were found when passing through the PEP8 validator
     * Results : [All right]()
 
