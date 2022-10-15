@@ -5,24 +5,23 @@ from django import forms
 
 
 class RegisterUserFrom(UserCreationForm):
-    # client_phone = forms.IntegerField()
-    # password1 = forms.CharField(widget=forms.PasswordInput)
+    """ Form to manage the new client registration data """
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput(attrs={
-            'class':'pass form-control col-12',
-            'type':'password',
-            'align':'left',
-            'placeholder':'password',
+            'class': 'pass form-control col-12',
+            'type': 'password',
+            'align': 'left',
+            'placeholder': 'password',
             }),
     )
     password2 = forms.CharField(
         label="Confirm password",
         widget=forms.PasswordInput(attrs={
-            'class':'pass form-control col-12',
-            'type':'password',
-            'align':'left',
-            'placeholder':'repeat password',
+            'class': 'pass form-control col-12',
+            'type': 'password',
+            'align': 'left',
+            'placeholder': 'repeat password',
             }),
     )
 
@@ -35,12 +34,11 @@ class RegisterUserFrom(UserCreationForm):
             'email',
             'password1',
             'password2',
-            # 'client_phone',
         )
 
         widgets = {
-            'username': forms.TextInput(attrs={'class':'form-control my-0 col-12', 'placeholder': 'ReaBookBob1', 'placeholder': 'ReaBookBob1', }),
-            'email': forms.EmailInput(attrs={'class':'form-control col-12', 'placeholder': 'your@email.com', }),
-            'first_name': forms.TextInput(attrs={'class':'form-control col-12', 'placeholder': 'First Name', }),
-            'last_name': forms.TextInput(attrs={'class':'form-control col-12', 'placeholder': 'Last Name', }),
+            'username': forms.TextInput(attrs={'class': 'form-control my-0 col-12', 'placeholder': 'ReaBookBob1', }), # noqa
+            'email': forms.EmailInput(attrs={'class': 'form-control col-12', 'placeholder': 'your@email.com', }), # noqa
+            'first_name': forms.TextInput(attrs={'class': 'form-control col-12', 'placeholder': 'First Name', }), # noqa
+            'last_name': forms.TextInput(attrs={'class': 'form-control col-12', 'placeholder': 'Last Name', }), # noqa
         }

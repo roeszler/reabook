@@ -1,2 +1,2 @@
 """ Import Modules """
-from django.db import models
+from django.db import models # noqa

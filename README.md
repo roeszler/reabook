@@ -1090,8 +1090,8 @@ The manipulation of `.html` documents throughout the project highlights limitati
 
     
 * [PEP8 Python Validator](https://pypi.org/project/pep8/)
-    * No errors were found when passing through the PEP8 validator
-    * Results : [All right]()
+    * No relevant errors were found when passing through the PEP8 validator using `python3 -m flake8`.
+    * Results : [All Ok]()
 
 ## 9. Deployment
 This project was deployed using the Django Framework into Heroku. The steps to deploy are as follows:

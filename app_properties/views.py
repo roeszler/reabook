@@ -29,7 +29,7 @@ def all_properties(request):
 
             if sortkey == 'name':
                 sortkey = 'lower_name_annotation'
-                properties = properties.annotate(lower_name_annotation=Lower('name'))
+                properties = properties.annotate(lower_name_annotation=Lower('name')) # noqa
 
             if sortkey == 'category':
                 sortkey = 'category__name'
@@ -38,7 +38,6 @@ def all_properties(request):
                 direction = request.GET['direction']
                 if direction == 'descending':
                     sortkey = f'-{sortkey}'
-            
             properties = properties.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -59,8 +58,8 @@ def all_properties(request):
                     )
                 return redirect(reverse('properties'))
 
-            # Using Q to generate a non-sensitive search query by name OR description
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            # Q to generate a non-sensitive query by name OR description
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)  # noqa
             properties = properties.filter(queries)
 
     # To return the current sorting methodology to the template
@@ -116,7 +115,7 @@ def edit_property(request, property_id):
 
     if prop.realtor == request.user:
         if request.method == 'POST':
-            property_form = PropertyForm(request.POST, request.FILES, instance=prop)
+            property_form = PropertyForm(request.POST, request.FILES, instance=prop) # noqa
             if property_form.is_valid():
                 prop_f = property_form.save(False)
                 prop_f.user = request.user
@@ -124,9 +123,7 @@ def edit_property(request, property_id):
                 print('Edit to property information has been saved')
                 messages.success(request, f'Property id.{property_id}\
                     has been successfully updated!')
-                # return redirect(f'/properties/{property_id}/')
                 return redirect(f'/properties/{prop.id}/')
-                
     else:
         print('You do not have permission to edit this property')
         messages.success(request, f'You do not have permission to\
@@ -147,7 +144,7 @@ def add_property(request, realtor_id):
     user = request.user
 
     if request.method == 'POST':
-        property_form = PropertyForm(request.POST, request.FILES, instance=prop)
+        property_form = PropertyForm(request.POST, request.FILES, instance=prop) # noqa
         if property_form.is_valid():
             prop_f = property_form.save(commit=False)
             prop_f.user = user
@@ -171,7 +168,6 @@ def delete_property(request, property_id):
     user = request.user
 
     if prop.realtor != request.user:
-    # if not request.user.is_superuser:
         messages.error(request, 'Sorry, only authorized agents can do that.')
         return redirect(reverse('properties'))
     else:

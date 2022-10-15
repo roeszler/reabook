@@ -40,7 +40,7 @@ class Sector(models.Model):
 
 class Property(models.Model):
     """ To contain the data from the properties.json fixtures file  """
-    realtor = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, default=User)
+    realtor = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, default=User) # noqa
     title_no = models.CharField(max_length=254)
     ribbon_feature = models.CharField(max_length=20, default="New Listing")
     name = models.CharField(max_length=30)
@@ -76,7 +76,7 @@ class Property(models.Model):
     city = models.CharField(max_length=40)
     state = models.CharField(max_length=40, null=True, blank=True)
     postcode = models.CharField(max_length=10)
-    country = models.CharField(max_length=2, choices=pytz.country_names.items(), null=True, blank=True)
+    country = models.CharField(max_length=2, choices=pytz.country_names.items(), null=True, blank=True) # noqa
     land_area = models.IntegerField(null=True, blank=True)
     building_area = models.IntegerField(null=True, blank=True)
     build_date = models.DateField(null=True, blank=True)
@@ -94,10 +94,4 @@ class Property(models.Model):
 
     def __str__(self):
         """ Takes in product display model and returns name """
-        # return f"{self.id} = {self.house_no} {self.street}, {self.suburb}, {self.city}"
-        # return f"ID.{self.id} ({self.house_no} {self.street}, {self.suburb}, {self.city})"
-        return f"{self.id}"
-    
-    # def __int__(self):
-    #     """ Takes in product display model and returns name """
-    #     return self.title_no
+        return f"{self.id}" # noqa

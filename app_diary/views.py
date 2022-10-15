@@ -50,8 +50,8 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, (f'Registration Successful! A new user\
-                 has been created \n User id.{user.id} with conformation sent to\
-                     {user.email}.\n Please log in again with the details\
+                 has been created \n User id.{user.id} with conformation sent\
+                     to {user.email}.\n Please log in again with the details\
                          emailed to you'))
             send_mail(
                 'New Registration at ReaBook.net',
@@ -96,7 +96,7 @@ def my_profile(request, user_id):
             booking_form.save()
 
         print('Your Profile has been Successfully Updated')
-        messages.success(request, 'Your Profile has been Successfully Updated!')
+        messages.success(request, 'Your Profile has been Successfully Updated!') # noqa
 
     context = {
         'user': user,

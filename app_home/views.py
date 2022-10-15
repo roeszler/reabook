@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from app_properties.models import Property
 
+
 def index(request):
     """ View to return the index.html page """
     properties = Property.objects.all() # noqa

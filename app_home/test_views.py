@@ -26,7 +26,6 @@ class TestHomeViews(TestCase):
         self.category.title_page = self.page
         self.category.save()
 
-
     def test_landing_page(self):
         """ Tests loading the landing page """
         response = self.client.get('/')

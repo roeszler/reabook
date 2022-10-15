@@ -32,4 +32,4 @@ urlpatterns = [
 
 # add a flag for
 # handling the 404 error
-error_404_view = 'proj_reabook.views.error_404_view'
+error_404_view = 'proj_reabook.views.error_404_view' # noqa

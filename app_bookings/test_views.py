@@ -5,7 +5,7 @@ from .views import integer_type_check
 
 class TestTypeInteger(TestCase):
     """ To test the integer_type_check function in working """
-    
+
     def test_entry_is_integer(self):
         """ To test that input is an integer """
         self.assertIsInstance(integer_type_check(233), int)
@@ -13,15 +13,15 @@ class TestTypeInteger(TestCase):
     # def test_entry_is_integer(self):
     #     """ To test that input is exactly equal to 10 """
     #     self.assertEqual(integer_type_check(10), True)
-    
+
     # def test_entry_is_integer(self):
     #     """ To test that input is not a string """
     #     self.assertIsInstance(integer_type_check('233'), int)
-    
+
     # def test_entry_is_integer(self):
     #     """ To test that input is not a float """
     #     self.assertIsInstance(integer_type_check(233.3), int)
-    
+
     # def test_entry_is_integer(self):
     #     """ No more than one input required """
     #     self.assertIsInstance(integer_type_check(21, 22), int)

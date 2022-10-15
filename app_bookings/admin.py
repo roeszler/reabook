@@ -29,7 +29,8 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
     ordering = (
-        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id', 'date_submitted',
+        '-pk', 'date_of_viewing', 'time_of_viewing', 'property_id',
+        'date_submitted',
     )
 
 

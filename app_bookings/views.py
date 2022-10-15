@@ -15,7 +15,7 @@ from .forms import BookingForm
 @login_required
 def add_to_diary(request, property_id):
     """ Add a quantity of the specified prop to the shopping diary """
-    properties = Property.objects.all()  # noqa
+    properties = Property.objects.all() # noqa
     prop = get_object_or_404(Property, pk=property_id)
     diary = request.session.get('diary', {})
     props_with_viewings = properties.filter(viewings=True)
@@ -163,7 +163,7 @@ def choose_bookings(request):
                     )
                 return redirect(reverse('choose_bookings'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(ribbon_feature__icontains=query) | Q(sale_price__icontains=query) | Q(rent_pw__icontains=query) | Q(suburb__icontains=query) | Q(street__icontains=query) | Q(city__icontains=query) | Q(state__icontains=query) | Q(country__icontains=query) | Q(postcode__icontains=query) # noqa
             props_with_viewings = props_with_viewings.filter(queries)
 
     context = {
@@ -224,8 +224,10 @@ def update_booking(request, booking_id):
                         booking no.{booking_id}',
                     f'Property: {book_f.property_id}\n\
                         Address:\n\
-                        {book_f.property_id.house_no} {book_f.property_id.street}\n\
-                        {book_f.property_id.suburb} {book_f.property_id.postcode}\n\
+                        {book_f.property_id.house_no} \
+                            {book_f.property_id.street}\n\
+                        {book_f.property_id.suburb} \
+                            {book_f.property_id.postcode}\n\
                         User  {booking.f_name} {booking.l_name}.\n\
                         Email: {booking.client_email}\n\
                         Proposed time: {booking.time_of_viewing}\n\
@@ -282,7 +284,7 @@ def integer_type_check(request):
         return True
     else:
         raise TypeError('An integer was not passed into the field')
-    
+
     if __name__ == '__main__':
         print(integer_type_check(10))
 
@@ -292,4 +294,4 @@ def parked(request):
     user = request.user
     users_bookings = Booking.objects.filter(user=user) # noqa
 
-    return render(request, 'book/parked.html', {'users_bookings': users_bookings, })
+    return render(request, 'book/parked.html', {'users_bookings': users_bookings, }) # noqa
