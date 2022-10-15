@@ -226,7 +226,7 @@ Industry Segment :
 ---
 
 ## B2B Content Strategy
-### Relevant to Project X site:
+### Relevant to Project 4 site:
 - Users looking for as much information as possible
 - Acknowledge that purchase will almost never be on the first visit
 - Lead nurturing important

@@ -1,7 +1,7 @@
-# Project X - UCD Skeleton Plane
-Stuart Roeszler - Portfolio Project X
+# Project 4 - UCD Skeleton Plane
+Stuart Roeszler - Portfolio Project 4
 
-_This section is for display purposes only and has not been completed as parth of CI Project X - Project X. It is included as an initial template only and is intended as a quick refrence for use within projects in the future._
+_This section is for display purposes only and has not been completed as parth of CI Project 4. It is included as an initial template only and is intended as a quick refrence for use within projects in the future._
 
 ## 4 of 5 Planes - Skeleton Plane
 
@@ -114,44 +114,44 @@ Revisit our strategy and goals.
 - Have we got this right?
 - If not, then what do we need to revise?
 
-### Project X Wireframes Mockup
+### Project 4 Wireframes Mockup
 __The Landing Sections__ 
 
 Desktop 
 
-![1920 x 1080 Desktop - Home](../images/1920x1080-desktop-home.png)
+![1920 x 1080 Desktop - Home](#)
 
 Tablet
 
-![1024 x 768 Tablet - Home](../images/1024x768-index.html-tablet.png)
+![1024 x 768 Tablet - Home](#)
 
 Mobile
 
-<img src="../images/414x896-index.html-mobile.png" alt="html-mobile" width="414"/>
+![414 x vh-100 Mobile - Home](#)
 
 __What We Do (About Us)__
 
 
 __Desktop__
-![1920 x 1080 Desktop - About](../images/1920x1080-desktop-about.png)
+![1920 x 1080 Desktop - About](#)
 
 __Our Clients__
-![1920 x 1080 Desktop - Gallery](../images/1920x1080-desktop-gallery.png)
+![1920 x 1080 Desktop - Gallery](#)
 
 __Contact Us__
-![1920 x 1080 Desktop - Contact](../images/1920x1080-desktop-contact.png)
+![1920 x 1080 Desktop - Contact](#)
 
 __Successful Submission__
-![1920 x 1080 Desktop - Success](../images/1920x1080-success-desktop.png)
+![1920 x 1080 Desktop - Success](#)
 
 __Provider Stories__
-![1920 x 1080 Desktop - Experience](../images/1920x1080-exp.html-desktop.png)
+![1920 x 1080 Desktop - Experience](#)
 
 __Client Stories__
-![1920 x 1080 Desktop - Holiday](../images/1920x1080-hol.html-desktop.png)
+![1920 x 1080 Desktop - Holiday](#)
 
 __Login / Register__
-![1920 x 1080 Desktop - Login](../images/1920x1080-login-desktop.png)
+![1920 x 1080 Desktop - Login](#)
 
-_Please see attached link to view the entire proposed early layout of the site in a .pdf format document at : [XX-wireframes.pdf](../images/XX_wireframes.pdf). The exchange process detailed in the XX-wireframes.pdf was reserved for future releases due to the scope of this as an initial project._
+_Please see attached link to view the entire proposed early layout of the site in a .pdf format document at : [XX-wireframes.pdf](#). The exchange process detailed in the XX-wireframes.pdf was reserved for future releases due to the scope of this as an initial project._
 

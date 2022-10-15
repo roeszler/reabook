@@ -7,9 +7,9 @@
 
 ### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL), c
 
-* Repository link : https://github.com/roeszler/reabook
-* Terminal : https://reabook.herokuapp.com/
-* User Stories : https://github.com/users/roeszler/projects/4
+* Repository link : [github.com/roeszler/reabook](https://github.com/roeszler/reabook)
+* Terminal : [reabook.herokuapp.com](https://reabook.herokuapp.com/)
+* User Stories : [github.com/users/roeszler](https://github.com/users/roeszler/projects/4)
 
 ---
 
@@ -17,43 +17,61 @@
 <summary style="font-size: 1.5rem;">Table of Contents (dropdown list)</summary>
 
 1. [Project Purpose](#1-project-purpose)
+    * [Database Functionality](#database-functionality)
+    * [Considerations](#important-consideration)
 2. [Agile Development Process](#2-agile-development-process)
     * [Requirements Engineering](#21-understanding-requirements)
         * [User Centered Design](#22-implementation)
         * [Defining Requirements](#defining-the-requirements)
-
-2. [User Experience Design](#2-user-experience-design)
-    * [User Stories](#user-stories)
-        * [First Time Visitor Goals](#first-time-visitors)
-        * [Returning Visitor Goals](#returning-visitors)
-        * [Coding Colleagues](#coding-colleagues)
-    * [Design](#design)
-        * [Imagery](#imagery)
-        * [Fonts](#fonts)
-        * [Color Scheme](#color-scheme)
-        * [Site Mockup & Wireframe](#site-mockup--wireframe)
-3. [Features](#3-features)
-    * [Existing Features](#existing-features)
-        * [Splash Screen (Gameplay & Rules)](#splash-screen--rules)
-        * [Game Area](#game-area)
-        * [Bet Amount Area](#bet-amount-area)
-        * [Bet Type Area](#bet-type-area)
-        * [Spin Button](#spin-button)
-        * [Score Area](#score--bank-balance-area)
-        * [Footer](#footer)
-        * [PopUps](#popups-modals)
-        * [Record User Choices](#choice-html)
-    * [Future Features](#possible-future-features)
-4. [Technologies](#4-technologies)
+        * [User Personas](#user-personas)
+        * [Requirements Analysis](#requirements-analysis)
+3. [Concept Development](#3-concept-development)
+    * [Themes](#31-themes)
+    * [Epics](#32-epics)
+    * [User Story Framework](#33-user-stories)
+        * [Integrating User Stories](#user-story-integration-github)
+4. [Project Management](#4-project-management)
+    * [Story Point Estimation](#41-story-point-estimation)
+    * [Team Velocity](#42-team-velocity)
+    * [MoSCow Prioritization](#43-moscow-prioritization)
+    * [Information Radiators](#44-information-radiators)
+    * [Sprints](#45-sprints)
+5. [User Experience Design](#5-ux-design)
+    * [Structure](#51-structure)
+    * [Mockup & Wireframes](#52-application-mockup--wireframes)
+        * [UX Flowcharts](#ux-flowcharts-mockups)
+            * Customer
+            * Admin / Member
+        * [Database](#the-database-model)
+        * [Wireframes](#ux-wireframes)
+6. [Features](#6-features)
+    * [Existing Features](#61-existing-features)
+        * [Login / Registration](#registration-and-login)
+        * [Main Navigation Bar](#main-navigation-bar)
+        * [Sub Navigation Bar](#sub-navigation-bar)
+        * [Main Page](#main-landing-page-indexhtml)
+        * [View Properties / Search Results](#search-results--view-properties)
+        * [Bookings](#request-booking-page)
+        * [User Diary](#user-diary-page)
+        * [View / Update / Edit Booking](#view--update--edit-a-booking-request)
+        * [As Agent / Member User](#as-a-member--agent)
+            * [Manage Properties](#property-management-landing-page)
+            * [Create a Property](#list-a-property)
+            * [Edit a Property](#edit--update-a-property-listing)
+        * [Successful Submission](#successful-submission)
+    * [Future Features](#62-future-features)
+7. [Technologies](#7-technologies)
     * [Tools](#tools)
-    * [Browsers](#supported-screens-and-browsers)
-5. [Testing](#5-testing)
-    * [Issues and Resolutions](#issues--resolutions)
-    * [Validator Testing](#validator-testing)
-6. [Deployment](#6-deployment)
-    * [Display Environment](#display-environment-github--gitlab--bitbucket)
-    * [Development Environment](#development-environment-gitpod)
-7. [Credits](#7-credits)
+    * [Supported Browsers](#supported-screens-and-browsers)
+8. [Testing](#8-testing)
+    * [MVC Testing](#mvc-testing)
+        * [Python](#automated-python-testing)
+        * [JavaScript](#automated-javascript-testing)
+        * [Manual](#manual-testing)
+    * [Debugging](#bugs--debugging)
+    * [Validation](#validator-testing-of-custom-code)
+9. [Deployment](#9-deployment)
+10. [Credits](#10-credits)
     * [Content](#content)
     * [Media](#media)
 </details>
@@ -61,12 +79,15 @@
 ---
 
 ## 1. Project Purpose
-ReaBook (the Site) is the scaffold of a real estate advertising site used to present the deployment of an appointment booking system (the App) using a Full Stack Frameworks.
+ReaBook (the Site) is a framework for a real estate advertising site used to present the deployment of an appointment booking system (the App) using the [Django](https://www.djangoproject.com/) Full Stack Framework.
 
-A primary personal focus of this project has been to learn to integrate agile processes, database functionality and form part of a larger professional portfolio. As a student I decided to extend myself into a scope larger than was required for portfolio project 4. This was done to practice, test and increase the depth of my experience in planning, design and implementation of full stack solutions.
+### Professional Development
+A primary focus of this project has been to practice, test theories and increase the depth of my experience in planning, design and implementation of full stack solutions. As a student developer, I decided to take the opportunity to extend myself into a scope larger than was required for the [Code Institutes](https://codeinstitute.net/) portfolio project 4. 
+
+From this process, I am more fluent and comfortable with the implementation of the agile processes, database design and management, debugging and deployment. I am pleased to include the Reabook project to form part of my larger professional portfolio.
 
 ### Database Functionality
-At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at https://reabook.herokuapp.com/. Here users can:
+At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at [reabook.herokuapp.com](https://reabook.herokuapp.com/). Here users can:
 * Select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
     > Main nav > Book > (login) > Reabook Viewings
 
@@ -82,21 +103,15 @@ At the time of release, the site is deployed via the [Heroku](https://www.heroku
 
     > Property Edit = Manage Properties > Edit / Delete
 
-### Note:
-The ReaBook business premise is to collate and drive leads into existing appointment management systems, **not** provide appointment management service.
-
-Reabook.site is a cross-agency site to dive leads for properties available for sale, rent, or spaces to lease. It is acknowledged that most all real estate services will already have well developed appointment management systems, so the ReaBook app is focused on enhancing the lead generation into these systems and provide advertising across all agents. 
-
-<div align="right">
-
-[Back to Top :arrow_up:](#table-of-contents)
-</div>
+### Important Consideration:
+The ReaBook business premise is to collate and drive leads into existing appointment management systems. Specifically, it **is not to provide appointment management service**. Most all real estate agencies will already have well developed appointment management systems, so the ReaBook app is focused on enhancing the lead generation into these systems and provide advertising across all agents. 
 
 ## 2. Agile Development Process
 
 Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stuartroeszler/), the Reabook project has been developed following an Agile methodology as part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
 
-Agile [Project management](#23-project-management) processes, like [team velocity](#team-velocity) do not easily translate to a single person team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
+Some of the Agile [Project management](#4-project-management) processes (like [team velocity](#42-team-velocity)) do not easily translate into a single person development team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
+
 ### 2.1 Requirements Engineering
 #### User Centered Design (UCD) Process:
 * User Centered Design (UCD) Process was used to identify key goals and structure the development process.
@@ -114,9 +129,9 @@ Agile [Project management](#23-project-management) processes, like [team velocit
     </details>
 
 #### Defining the Requirements
-Seen from activities undertaken in the UCD [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
+Seen from activities undertaken in the User Centered Design (UCD) [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
 
-The primary directive was to make an online community looking for one-stop access to real estate available in an area.
+To make an online community looking for one-stop access to real estate available in an area.
 
 > ReaBook: A single cross-agency site where users can interact to find and visit their next property solution. Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store. Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
 
@@ -124,7 +139,7 @@ The primary directive was to make an online community looking for one-stop acces
 Three primary user personas were defined from the above requirements engineering process:
 
 <details>
-    <summary>Customer User</summary>
+    <summary>1. Customer User</summary>
 
 - **Who are they?**
     - 18 to 45 years old, fully employed, professional couple &/or early stage family, further educated, non-local.
@@ -138,7 +153,7 @@ Three primary user personas were defined from the above requirements engineering
 </details>
 
 <details>
-    <summary>Agent / Member User</summary>
+    <summary>2. Agent / Member User</summary>
 
 - **Who are they?**
     - Early to established real-estate business with expertise in local region.
@@ -151,7 +166,7 @@ Three primary user personas were defined from the above requirements engineering
 </details>
 
 <details>
-    <summary>Admin User</summary>
+    <summary>3. Admin User</summary>
 
 - **Who are they?**
     - New to intermediate, IT literate professionals looking for platform to manage B2C connections 
@@ -173,10 +188,9 @@ Used to confirm understanding and documented check that each requirement is:
 Consideration and documentation at this point as to:
 * How will each requirement be implemented?
 * How will each requirement be Tested?
-    * Unittest 
-* What is the process to evaluate each requirement? (to meet initial requirements)
-    * Unittest
-    * Manual testing tree
+    * [Automated Testing](#automated-python-testing)
+    * [Manual testing tree](#manual-testing)
+* What is the agreed [process](#33-user-stories) and outcomes to evaluate each requirement? (to meet initial requirements)
 
 <details>
 <summary style="font-size: 1rem;">
@@ -205,6 +219,8 @@ User Story:
 * [x] Create the code for the model, viewer and controller.
 
 * [x] Test the completed functionality that includes email submission.
+
+[Live sample of a user story card with acceptance criteria (GitHub)](https://github.com/roeszler/reabook/issues/48).
 
 </details>
 
@@ -251,7 +267,7 @@ Collect related epics that have something in common. In the project, this can b
 Epics are larger multiple iteration that can be broken into user stories.
 <details>
 <summary style="font-size: 1rem;">
-Epics are larger multiple iteration that can be broken into user stories.
+List if Reabook Epics.
 </summary>
         
 - Reabook Epics
@@ -261,13 +277,19 @@ Epics are larger multiple iteration that can be broken into user stories.
             - Admin User (see [Admin Persona](#user-personas))
             - Agent Member User (see [Staff Persona](#user-personas)) 
             - Customer User (see [User Persona](#user-personas)) 
-        - [Site Pages]()
+        - [Site Pages](#61-existing-features)
             - Login
             - Register
             - Profile
             - Index
-            - ...
-    3. [User Experience]()
+            - Properties
+            - Bookings Diary
+                - Make Booking
+                - Edit / Delete Booking
+            - Manage Properties
+                - Add Properties
+                - Edit / Delete Properties
+    3. [User Experience](#5-ux-design)
         - [View & Search Properties](https://github.com/roeszler/reabook/milestone/6)
             - Read Dataset
             - Display Properties
@@ -282,7 +304,7 @@ Epics are larger multiple iteration that can be broken into user stories.
 </details>
 
 ### 3.3 User Stories
-Reabook user stories have been produced in a brief format for simplicity. In a project with a team, a User Story Card would be used. Each card would contain:
+Reabook user stories have been produced in a brief format for simplicity. In a team environment, a [User Story Card](https://github.com/roeszler/reabook/issues/48) would be used. Each card would contain:
 
 - Acceptance Criteria
     - Subjectively confirms that the work on a particular user story is completed
@@ -295,17 +317,23 @@ Reabook user stories have been produced in a brief format for simplicity. In a p
     - Are relative estimations focused on the amount of work needed to be done to complete the story
     - Are relative estimations compared to the other stories in the project
 
-- [Sample Story Card with acceptance criteria](https://github.com/roeszler/reabook/issues/48).
+- [Sample Story Card with acceptance criteria (GitHub)](https://github.com/roeszler/reabook/issues/48).
 
-### Reabook User Stories (GitHub)
+### User Story Integration (GitHub)
+Key to Agile process is the looping process of define, design, develop and test over short, well defined periods (sprints). The integration of this process into the day to day operation of the development team requires a shared repository that displays live information on where the project is at any given time. 
 
+For the purposes of this project, the GitHub issues management feature has been used to coordinate development, albeit with a single student developer.
+
+By coordinating user stories in this way, each added to the formation of an overall [project feature](#61-existing-features) and deliver the value users gain by using the ReaBook app.
+
+Users & their stories:
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
 
 For a full description, jump ahead to: [Section 6. Features](#61-existing-features).
 ## 4. Project Management
-Adhering to the Agile framework, where possible the following processes were completed during each [user story](https://github.com/roeszler/reabook/issues):  
+Adhering to the Agile framework, where possible the following processes were completed during each user story:  
 ### 4.1 Story Point Estimation
 Difficult to estimate with current level of experience, focused on the amount of work done posthumously in most cases. This was primarily due to the errors that came with each development iteration and the relative simple or solutions to solve the problem. 
 
@@ -361,7 +389,7 @@ These reflect the iterative Agile approach, where development focus is on autono
 
 </details>
 
-## 5. Design
+## 5. UX Design
 ### 5.1 Structure
 The application is intended to allow users to easily navigate through an appointment request process. Users journey through finding and selecting property, choosing booking, booking conformation and summaries and tables to confirm their booking request have been sent.
 
@@ -374,7 +402,7 @@ Graphics of the application have been designed to show member users and users ea
 * The logical approach to code creation, promoting readability and aiding future fault-finding processes
 * The experience as users navigate through the booking application processes
 
-### Flowcharts Mockups:
+### UX Flowcharts Mockups:
 
 <!-- <details>
     <summary>
@@ -409,7 +437,7 @@ Flowchart 4 - UPDATE & DELETE
 ![Admin / Member User C.R.U.D. Flowchart 4](static/documentation/img/Flowchart-4-Member-User-ReaBook.png)
 </details>
 
-### Database Model:
+### The Database Model:
 The model is fairly simple, however of note is:
 
 * The central part of the model is the Property table. This stores all the details about Member / Agent listed properties. 
@@ -450,7 +478,7 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 ### 6.1 Existing Features
 
 <!-- ### [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1) -->
-### Sign Up (Registration) and Login
+### Registration and Login
 The [allauth](https://django-allauth.readthedocs.io/en/latest/) third party package has been installed into the framework to handle the logic of user login, logout and registrations.
 
 ![Login Mobile](static/documentation/img/reabook-login-mobile.png) ![Register Mobile](static/documentation/img/reabook-register-mobile.png)
@@ -651,7 +679,7 @@ Key Features:
 
 ![Success Message](static/documentation/img/reabook-success.png)
 
-### 6.2 Possible Future Features
+### 6.2 Future Features
 * Edit User Profile & Passwords
 * Extend account management functions 
 * Member subscription model
@@ -1031,6 +1059,10 @@ Transposed over this process was a testing tree, used as an information radiator
 ![critical pathway and testing tree](static/documentation/img/reabook-test-tree.png).
 </details>
 
+### Bugs & Debugging
+At the point of deployment, the site appears to be free of errors and bugs. The coordination and management of a systematic debugging process can be seen at:
+- [Notifying Team of a Bug (Sample Template)](https://github.com/roeszler/reabook/issues/50)
+- [Link to Current Bugs](https://github.com/roeszler/reabook/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
 ### Validator Testing of Custom Code
 * [W3 Markup Validator](validator.w3.org)
@@ -1164,10 +1196,25 @@ The steps to create a server side Database and deploy to Heroku...
 </details>
 
 ## 10. Credits
+### Content
+
 * Hosted at [Heroku](https://www.heroku.com/platform).
 * Primary and additional Python coding was studied and reworked from modules provided through the Code Institute's [Diploma in Full Stack Software Development](https://codeinstitute.net/se/full-stack-software-development-diploma/), [W3 Schools](https://www.w3schools.com/), [Stack overflow](https://stackoverflow.com/), [mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Django Project](https://www.djangoproject.com/).
 * Testing tree process sourced from [Optimal Workshop](https://www.optimalworkshop.com/learn/101s/tree-testing/).
 * 
+
+### Media
+- The photos, videos and vector graphics used on the home and each for property are from [pixbay.com](https://pixabay.com/users/openclipart-vectors-30363/), upsplash and [freepik.com](https://www.freepik.com/home)
+
+  - all penguin images - sourced from Pixbay user [OpenClipart-Vectors](https://pixabay.com/vectors/tux-anchor-animal-bird-boat-ferry-161379/).
+  - palmtree.webp - sourced from [Palm tree icon vector created by brgfx - www.freepik.com](https://www.freepik.com/vectors/palm-tree-icon)
+  - contact-us.webp - sourced from [unsplash.com](https://unsplash.com/photos/4SNUcHPiC8c)
+  - success.webp - sourced from [pixabay.com](https://pixabay.com/photos/children-win-success-video-game-593313/)
+  - sally-provider.webp - sourced from [unsplash.com](https://unsplash.com/s/photos/owner)
+  - all bus images were sourced from pexels user [@nubikini](https://www.pexels.com/@nubikini)
+  - Video by [Jess Loiterton](https://www.pexels.com/video/sea-waves-kissing-the-beach-shore-4782135/) from pexels
+
+- The images used for the gallery page were taken from a pexels.com collection curated [here](https://www.pexels.com/collections/kapthol-wqxkprh/) and [here](https://www.pexels.com/search/cafe/).
 
 ---
 __COPYRIGHT NOTICE__ :

@@ -55,12 +55,10 @@
                         {% for prop in props_for_sale %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_sale">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_sale">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/media/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder for no image">
                                     </a>
@@ -84,42 +82,6 @@
                             </div>
                             {% endif %}
                         {% endfor %}
-                    </div>
-                </div>
-
-                <!-- Sell -->
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-                    <div class="card index-property-card h-100 border-0 text-center">
-                        <p class="ribbon">Sell Properties</p>
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'login' %}" aria-label="login link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-2">
-                            <p class="mb-0 font-weight-bold">Beachside Beauty</p>
-                        </div>
-                        <div class="card-footer bg-light mt-1 bt-1">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold"></p>
-                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
-                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
-                                        <br><small>Listed: Monday 29 August 2022</small>
-                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
-                                    </p>
-                                </div>
-                            </div>
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link" class="btn btn-primary text-center btn-block">List</a>
-                            {% else %}
-                            <a href="{% url 'login' %}" aria-label="login link" class="btn btn-primary text-center btn-block">List</a>
-                            {% endif %}
-                        </div>
                     </div>
                 </div>
 
@@ -203,15 +165,53 @@
                     </div>
                 </div>
 
+                <!-- Sell -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                    <div class="card index-property-card h-100 border-0 text-center">
+                        <p class="ribbon">Sell Properties</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" aria-label="login link">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-2">
+                            <p class="mb-0 font-weight-bold">Beachside Beauty</p>
+                        </div>
+                        <div class="card-footer bg-light mt-1 bt-1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold"></p>
+                                    <p class="fw-lighter fs-5"><i class="fas fa-gavel reabook-logo"></i> Sample Property for Sale.
+                                        <br><i class="fas fa-bookmark reabook-logo"></i> $<strong>987,654</strong>
+                                        <br><small>Listed: Monday 29 August 2022</small>
+                                        <br><small class="text-muted"><i class="fas fa-star my-auto mr-1"></i>4.8 / 5</small>
+                                    </p>
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link" class="btn btn-primary text-center btn-block">List</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" aria-label="login link" class="btn btn-primary text-center btn-block">List</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 
 <!-- Feature Card -->
-<div class="card text-center my-5">
-    <div class="card-header mb-4">
-        Project Information
+<div class="card text-center my-5 border-0">
+    <div class="card-header mb-4 bg-reabook">
+        <h3 class="font-weight-light">
+            Project Information
+        </h3>
     </div>
     <div class="card-body">
         <h5 class="card-title">Dreamed, Designed, Developed and Deployed by <a href="https://www.linkedin.com/in/stuartroeszler/" target="_blank" class="text-primary" aria-label="linkedin">s.roeszler</a></h5>
@@ -222,13 +222,13 @@
                 <p class="card-text">Full Stack Framework based on business logic to control a centrally-owned dataset.</p>
                 <p>Project constructed using HTML, CSS, JavaScript, Python+Django and a Postgres relational database. Authentication mechanisms and role-based access activities to demonstrate a simple appointment / diary service that allows users to register and book appointment to view properties with a variety of land agents through a lead handling service: 
                     <i class="fa fa-bookmark reabook-logo"></i> ReaBook</p>
-                <a href="https://github.com/roeszler" class="btn btn-secondary mt-3">View GitHub Repo</a>
+                <a href="https://github.com/roeszler" class="btn btn-outline-reabook mt-3">View GitHub Repo</a>
             </div>
         </div>
     </div>
-    <div class="card-footer font-weight-light text-muted mt-4">
+    <!-- <div class="card-footer font-weight-light mt-4 bg-reabook">
         18 October 2022
-    </div>
+    </div> -->
 </div>
 {% endblock %}
 
