@@ -61,10 +61,11 @@
         </div>
     </a>
     {% else %}
-    <a href="{% url 'login' %}" aria-label="user-diary" class="bookings-nav pl-0 nav-link text-gray font-weight-normal"><i
-        class="fa-solid fa-book-bookmark fa-lg"></i><span class="my-0">
-            --
-        </span>
+    <a href="{% url 'login' %}" aria-label="user-diary" class="pl-0 text-gray nav-link d-block d-lg-none">
+        <div class="text-center">
+            <div><i class="fa-solid fa-book-bookmark fa-lg"></i></div>
+            <p class="my-0">--</p>
+        </div>
     </a>
     {% endif %}
 </li>
