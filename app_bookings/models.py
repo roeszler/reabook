@@ -33,7 +33,7 @@ class Booking(models.Model):
 
     class Meta:
         """ to adjust the verbose name or the plural form from defaults """
-        verbose_name_plural = 'Bookings',
+        verbose_name_plural = 'Bookings'
 
     def _generate_booking_number(self):
         """ Generate a random, unique booking number using UUID """
