@@ -27,6 +27,14 @@
                 <label>Email Address</label>
                 {{ user_form.email }}
             </div>
+            <div class="text-left text-muted mb-3">
+                <label>Current Password (required)</label>
+                {{ user_form.password1 }}
+            </div>
+            <div class="text-left text-muted mb-3">
+                <!-- <label>Repeat Current Password (required)</label> -->
+                {{ user_form.password2 }}
+            </div>
             <button type="submit" class="btn btn-warning float-left mt-3">Update Details</button>
         </div>
     </form>

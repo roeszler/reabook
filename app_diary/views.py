@@ -87,21 +87,21 @@ def my_profile(request, user_id):
     """ View to render the profile edit page """
     user = get_object_or_404(User, pk=user_id)
     user_form = RegisterUserFrom(instance=user)
-    booking_form = BookingForm(instance=user)
     users_bookings = Booking.objects.filter(user=user)  # noqa
 
     if request.method == 'POST':
         if user_form.is_valid():
             user_form.save()
-            booking_form.save()
-
-        print('Your Profile has been Successfully Updated')
-        messages.success(request, 'Your Profile has been Successfully Updated!') # noqa
+            print('Your Profile has been Successfully Updated')
+            messages.success(request, 'Your Profile has been Successfully Updated!') # noqa
+        else:
+            print('There has been an issue with updating your profile')
+            print(user_form.errors)
+            messages.error(request, 'Sorry, there has been an issue with updating your profile') # noqa
 
     context = {
         'user': user,
         'user_form': user_form,
-        'booking_form': booking_form,
         'users_bookings': users_bookings,
     }
     return render(request, 'diary/profile.html', context)
