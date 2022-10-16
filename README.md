@@ -963,11 +963,11 @@ Destroying test database for alias 'default'...
 </details>
 
 ### Automated JavaSCript Testing
-[Jest](https://jestjs.io/) is a popular JavaScript Testing Framework that can be applied to the JavaScript functions contained in this project. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) approach as detailed in the Pythonic testing seen above. 
+JavaScript Testing Framework [Jest](https://jestjs.io/) can be applied to the JavaScript functions contained in this project. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) approach as detailed in the Pythonic testing seen above. 
 
 Jest uses [Node.JS](https://nodejs.org/en/) JavaScript runtime environment via the node package manager (NPM) utility.
 
-Due to the reliance on pythonic code and the relatively simple nature of the javascript components contained in the project, testing was done manually for each JS component at the time.
+A JavaScript (Js) testing folder located at `static > js > tests` has been created using Jest to demonstrate the process of testing. Considering the reliance on pythonic code, the use of [jQuery](https://jquery.com/) syntax and the relatively simple nature of the javascript components contained in the project, manual testing was chosen for each JS component. This can be seen as part of the overall [manual testing](#manual-testing) critical pathway approach.
 
 The custom JavaScript code is located in the `scrollfade.js` file, and line 54 of the `main.js` file, both located in the project static folders:
 

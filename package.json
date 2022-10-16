@@ -1,0 +1,22 @@
+{
+  "name": "reabook",
+  "version": "1.0.0",
+  "description": "<!-- ![Reabook.net](https://res.cloudinary.com/yodakode/image/upload/v1661790281/ReaBook/ReaBook_Icon_00402B_gray_szgzia.ico) --> # ReaBook Booking System",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roeszler/reabook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roeszler/reabook/issues"
+  },
+  "homepage": "https://github.com/roeszler/reabook#readme",
+  "devDependencies": {
+    "jest": "^29.2.0"
+  }
+}

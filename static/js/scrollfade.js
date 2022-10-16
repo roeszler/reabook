@@ -11,12 +11,6 @@ $(document).ready(function(){
         $('.auto-dropdown', this).trigger('click');
     });
 
-    // Control property choice list on book/choose/ booking-choose-property.html
-    // $('#choice-list a').on('click', function (e) {
-    //     e.preventDefault()
-    //     $(this).tab('show')
-    // });
-
     // Control select viewing time radio inputs
     $('.radio-wrapper').on('click','.time-slot',function () {
         $('.time-slot').removeClass('selected');
