@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from app_bookings.models import Booking
-from app_bookings.forms import BookingForm
 from .forms import RegisterUserFrom
 
 

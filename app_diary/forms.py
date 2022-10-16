@@ -42,11 +42,11 @@ class RegisterUserFrom(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control col-12', 'placeholder': 'First Name', }), # noqa
             'last_name': forms.TextInput(attrs={'class': 'form-control col-12', 'placeholder': 'Last Name', }), # noqa
         }
-    
+
     def clean_email(self):
         username = self.cleaned_data.get('username')
         email = self.cleaned_data.get('email')
 
-        if email and User.objects.filter(email=email).exclude(username=username).count():
-            raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
+        if email and User.objects.filter(email=email).exclude(username=username).count():  # noqa
+            raise forms.ValidationError('This email address is already in use. Please supply a different email address.') # noqa
         return email
