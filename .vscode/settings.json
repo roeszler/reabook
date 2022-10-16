@@ -26,18 +26,29 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
     "colorlib",
+    "curr",
     "CUST",
     "Glenelg",
     "hlink",
+    "Optimiser",
     "postload",
     "postloadjs",
+    "pythonic",
     "pytz",
     "Radbrook",
+    "scrollfade",
+    "softwaretestingo",
+    "startapp",
+    "startproject",
+    "storyset",
     "subnav",
+    "subnavbar",
     "subpages",
     "Timeslot",
     "topnav",
-    "Wireframe"
+    "Traceback",
+    "Wireframe",
+    "wontfix"
 ],
    "[yaml]": {
       "editor.tabSize": 4

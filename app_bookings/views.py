@@ -270,7 +270,7 @@ def delete_booking(request, booking_id):
         messages.error(request, 'Sorry, only booking owners can do that.')
         return redirect(reverse('user-diary'))
     else:
-        # booking.delete()
+        booking.delete()
         print(f'Booking id.{booking_id} Deleted')
         print(f'booking.user: {booking.user.id}')
         print(f'request.user: {request.user.id}')
@@ -286,7 +286,7 @@ def integer_type_check(request):
         raise TypeError('An integer was not passed into the field')
 
     if __name__ == '__main__':
-        print(integer_type_check(10))
+        print(integer_type_check(request))
 
 
 def parked(request):

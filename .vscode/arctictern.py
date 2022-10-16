@@ -2,7 +2,7 @@
 arctictern.py
 A little script that does a big migration
 """
-
+# flake8: noqa
 import json
 import os
 import requests

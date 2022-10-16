@@ -21,7 +21,7 @@
     * [Considerations](#important-consideration)
 2. [Agile Development Process](#2-agile-development-process)
     * [Requirements Engineering](#21-understanding-requirements)
-        * [User Centered Design](#22-implementation)
+        * [User Centred Design](#22-implementation)
         * [Defining Requirements](#defining-the-requirements)
         * [User Personas](#user-personas)
         * [Requirements Analysis](#requirements-analysis)
@@ -113,8 +113,8 @@ Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stua
 Some of the Agile [Project management](#4-project-management) processes (like [team velocity](#42-team-velocity)) do not easily translate into a single person development team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
 
 ### 2.1 Requirements Engineering
-#### User Centered Design (UCD) Process:
-* User Centered Design (UCD) Process was used to identify key goals and structure the development process.
+#### User Centred Design (UCD) Process:
+* User Centred Design (UCD) Process was used to identify key goals and structure the development process.
     <details>
     <summary style="font-size: 1rem;">
     For a more detailed look at the ReaBook UCD Process (dropdown list)
@@ -129,7 +129,7 @@ Some of the Agile [Project management](#4-project-management) processes (like [t
     </details>
 
 #### Defining the Requirements
-Seen from activities undertaken in the User Centered Design (UCD) [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
+Seen from activities undertaken in the User Centred Design (UCD) [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
 
 To make an online community looking for one-stop access to real estate available in an area.
 
@@ -272,39 +272,39 @@ List if Reabook Epics.
         
 - Reabook Epics
     1. Dataset Design (see: [Design Section](#5-design))
-    2. [Site Framework](https://github.com/roeszler/reabook/milestone/1)
+    2. [Site Framework](https://github.com/roeszler/reabook/milestone/1?closed=1)
         - User Profile Framework
             - Admin User (see [Admin Persona](#user-personas))
             - Agent Member User (see [Staff Persona](#user-personas)) 
             - Customer User (see [User Persona](#user-personas)) 
         - [Site Pages](#61-existing-features)
-            - Login
-            - Register
-            - Profile
-            - Index
-            - Properties
-            - Bookings Diary
-                - Make Booking
-                - Edit / Delete Booking
-            - Manage Properties
-                - Add Properties
-                - Edit / Delete Properties
+            - [Login](https://github.com/roeszler/reabook/issues/54)
+            - [Register](https://github.com/roeszler/reabook/issues/55)
+            - [Profile](https://github.com/roeszler/reabook/issues/56)
+            - [Index](https://github.com/roeszler/reabook/issues/57)
+            - [Properties](https://github.com/roeszler/reabook/issues/58)
+            - [Bookings Diary](https://github.com/roeszler/reabook/issues/59)
+                - [Make Booking](https://github.com/roeszler/reabook/issues/13)
+                - [Edit / Delete Booking](https://github.com/roeszler/reabook/issues/62)
+            - [Manage Properties](https://github.com/roeszler/reabook/issues/66)
+                - [Add Properties](https://github.com/roeszler/reabook/issues/35)
+                - [Edit / Delete Properties](https://github.com/roeszler/reabook/issues/68)
     3. [User Experience](#5-ux-design)
         - [View & Search Properties](https://github.com/roeszler/reabook/milestone/6)
-            - Read Dataset
-            - Display Properties
+            - [Display Properties](https://github.com/roeszler/reabook/issues/58)
+            - [Display Property](https://github.com/roeszler/reabook/issues/69)
         - [Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7)
-            - Book Viewing
-            - Edit Viewing
-            - Delete Viewing
+            - [Book Viewing](https://github.com/roeszler/reabook/issues/13)
+            - [Edit Viewing](https://github.com/roeszler/reabook/issues/62)
+            - [Delete Viewing](https://github.com/roeszler/reabook/issues/63)
         - [Create Property Listing](https://github.com/roeszler/reabook/milestone/11) (staff)
-            - Edit Property Listing (staff)
-            - Delete Property Listing (staff)
+            - [Edit Property Listing (staff)](https://github.com/roeszler/reabook/issues/68)
+            - [Delete Property Listing (staff)](https://github.com/roeszler/reabook/issues/67)
         - [Account Administration](https://github.com/roeszler/reabook/milestone/8) (staff)
 </details>
 
 ### 3.3 User Stories
-Reabook user stories have been produced in a brief format for simplicity. In a team environment, a [User Story Card](https://github.com/roeszler/reabook/issues/48) would be used. Each card would contain:
+Reabook user stories have been produced in a brief format for simplicity. In a team environment, an User Story Card would be used, containing:
 
 - Acceptance Criteria
     - Subjectively confirms that the work on a particular user story is completed
@@ -379,13 +379,13 @@ These reflect the iterative Agile approach, where development focus is on autono
     For a more detailed look at the ReaBook development sprints (dropdown list)
     </summary>
 
-- [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1)
-- [Sprint 2 - View & Search Property](https://github.com/roeszler/reabook/milestone/6)
-- [Sprint 3 - Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7)
-- [Sprint 4 - Create Properties](https://github.com/roeszler/reabook/milestone/11)
-- [Sprint 5 - Account Administration](https://github.com/roeszler/reabook/milestone/8)
-- [Sprint 6 - Refactor Dependencies](https://github.com/roeszler/reabook/milestone/9)
-- [Sprint 7 - Bugs, General Refactoring and Documentation](https://github.com/roeszler/reabook/milestone/10)
+- [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1?closed=1)
+- [Sprint 2 - View & Search Property](https://github.com/roeszler/reabook/milestone/6?closed=1)
+- [Sprint 3 - Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7?closed=1)
+- [Sprint 4 - Create Properties](https://github.com/roeszler/reabook/milestone/11?closed=1)
+- [Sprint 5 - Account Administration](https://github.com/roeszler/reabook/milestone/8?closed=1)
+- [Sprint 6 - Refactor Dependencies](https://github.com/roeszler/reabook/milestone/9?closed=1)
+- [Sprint 7 - Bugs, General Refactoring and Documentation](https://github.com/roeszler/reabook/milestone/10?closed=1)
 
 </details>
 
@@ -477,7 +477,6 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 ## 6. Features
 ### 6.1 Existing Features
 
-<!-- ### [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1) -->
 ### Registration and Login
 The [allauth](https://django-allauth.readthedocs.io/en/latest/) third party package has been installed into the framework to handle the logic of user login, logout and registrations.
 
@@ -708,9 +707,9 @@ The skill-sets used in the creation and review of this project are based around 
 * [Convertio Image Optimiser](https://convertio.co/)
   * Able to reduce the file size and format of images ready for rapid access, improving device performance, accessibility and user experience.
 * [Lucidchart Flowchart Diagrams](https://www.lucidchart.com/pages/)
-  * A diagramming application that allows the mapping and creation of flowcharts to visualise design workflows.
+  * A diagramming application that allows the mapping and creation of flowcharts to visualize design workflows.
 * [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
-  * A computer based low-fidelity UI wireframing tool to sketch up simple visuals assisting the concept development and planning stages.
+  * A computer based low-fidelity UI wireframe tool to sketch up simple visuals assisting the concept development and planning stages.
 
 
 ### Supported Screens and Browsers
@@ -1190,7 +1189,7 @@ The steps to create a server side Database and deploy to Heroku...
 </summary>
 
 * Login Heroku and create new Heroku app
-* In 'settings' tab: set the buildpacks to `heroku/python`.
+* In 'settings' tab: set the build packs to `heroku/python`.
 * In 'resources' tab: search and set the add-on to `heroku-postgresql` under a `hobby-dev` plan.
 * In 'settings' tab: Reveal config vars, add and save KEY : VALUE variables in this order :
   * CREDS : Copy and paste entire contents of 'your' creds.json file

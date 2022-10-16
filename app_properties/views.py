@@ -110,7 +110,6 @@ def manage_properties(request, user_id):
 def edit_property(request, property_id):
     """ A view to allow staff to edit individual property details """
     prop = Property.objects.get(pk=property_id)  # noqa
-    # prop = get_object_or_404(Property, pk=property_id)
     property_form = PropertyForm(instance=prop)
 
     if prop.realtor == request.user:
@@ -150,7 +149,6 @@ def add_property(request, realtor_id):
             prop_f.user = user
             prop_f.save()
             print('New Property information has been listed')
-            # return redirect(f'/properties/manage/{user.id}/')
             return redirect(f'/properties/{prop_f.id}/')
 
     context = {
@@ -171,7 +169,7 @@ def delete_property(request, property_id):
         messages.error(request, 'Sorry, only authorized agents can do that.')
         return redirect(reverse('properties'))
     else:
-        # prop.delete()
+        prop.delete()
         print(f'Property id.{property_id} Deleted')
         messages.success(request, f'Property id.{property_id} deleted!')
         return redirect(f'/properties/manage/{user.id}/')
