@@ -1035,6 +1035,21 @@ $('.btn-back').click(function(){
 ```
 </details>
 
+<details>
+    <summary>
+    A snippet of the test function contained in the scrollfade.test.js file...
+    </summary>
+
+```
+describe("Check class has changed Function", () => {
+    test("expects class content to change to 'selected'", () => {
+        buttonClick();
+        expect(document.getElementsByClassName("time-slot").innerHTML).toEqual("selected");
+    })
+});
+```
+</details>
+
 ### Manual Testing
 
 A [Critical Pathway Method](https://asana.com/resources/critical-path-method) (CPM) using a [testing tree](https://www.optimalworkshop.com/learn/101s/tree-testing/) process has been used to documented the manual testing process. This has been integrated with the [GitHub issues management utility](https://github.com/roeszler/reabook/issues) to collect and coordinate testing within each defined User Story for the project. 
