@@ -6,38 +6,23 @@
 {% include 'includes/bookings-base.html' %}
 
 <h1>My Profile</h1>
-<form action="{% url 'my-profile' user.id %}" method="POST">
-    {% csrf_token %}
-    <div class="row mx-lg-5 mx-md-0">
-        <div class="col-lg-3 col-md-0"></div>
-        <div class="col-lg-6 col-md-12">
-            <div class="text-left text-muted mb-3">
-                <label>Username</label>
-                {{ user_form.username }}
+<div class="row">
+    <div class="col-lg-3 col-md-0"></div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">User Number : <span class="text-green font-weight-bold">{{ user.id }}</span></h5>
+                Username : <span class="text-green font-weight-bold">{{ user.username }}</span>
+                <br>First Name : <span class="text-green font-weight-bold">{{ user.first_name }}</span>
+                <br>Last Name : <span class="text-green font-weight-bold">{{ user.last_name }}</span>
+                <br>Email Address : <span class="text-green font-weight-bold">{{ user.email }}</span>
             </div>
-            <div class="text-left text-muted mb-3">
-                <label>First Name</label>
-                {{ user_form.first_name }}
-            </div>
-            <div class="text-left text-muted mb-3">
-                <label>Last Name</label>
-                {{ user_form.last_name }}
-            </div>
-            <div class="text-left text-muted mb-3">
-                <label>Email Address</label>
-                {{ user_form.email }}
-            </div>
-            <div class="text-left text-muted mb-3">
-                <label>Current Password (required)</label>
-                {{ user_form.password1 }}
-            </div>
-            <div class="text-left text-muted mb-3">
-                <!-- <label>Repeat Current Password (required)</label> -->
-                {{ user_form.password2 }}
-            </div>
-            <button type="submit" class="btn btn-warning float-left mt-3">Update Details</button>
+            <p>
+                <a href="{% url 'user-diary' user.id %}" class="btn btn-outline-reabook">Back to My Diary</a>
+            </p>
         </div>
-    </form>
+    </div>
+    <div class="col-lg-3 col-md-0"></div>
 </div>
 {% include 'includes/bookings-base-calendar.html' %}
 {% else %}
