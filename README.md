@@ -290,17 +290,17 @@ List if Reabook Epics.
                 - [Add Properties](https://github.com/roeszler/reabook/issues/35)
                 - [Edit / Delete Properties](https://github.com/roeszler/reabook/issues/68)
     3. [User Experience](#5-ux-design)
-        - [View & Search Properties](https://github.com/roeszler/reabook/milestone/6)
+        - [View & Search Properties](https://github.com/roeszler/reabook/milestone/6?closed=1)
             - [Display Properties](https://github.com/roeszler/reabook/issues/58)
             - [Display Property](https://github.com/roeszler/reabook/issues/69)
-        - [Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7)
+        - [Make & Manage Bookings](https://github.com/roeszler/reabook/milestone/7?closed=1)
             - [Book Viewing](https://github.com/roeszler/reabook/issues/13)
             - [Edit Viewing](https://github.com/roeszler/reabook/issues/62)
             - [Delete Viewing](https://github.com/roeszler/reabook/issues/63)
-        - [Create Property Listing](https://github.com/roeszler/reabook/milestone/11) (staff)
+        - [Create Property Listing](https://github.com/roeszler/reabook/milestone/11?closed=1) (staff)
             - [Edit Property Listing (staff)](https://github.com/roeszler/reabook/issues/68)
             - [Delete Property Listing (staff)](https://github.com/roeszler/reabook/issues/67)
-        - [Account Administration](https://github.com/roeszler/reabook/milestone/8) (staff)
+        - [Account Administration](https://github.com/roeszler/reabook/milestone/8?closed=1) (staff)
 </details>
 
 ### 3.3 User Stories
@@ -963,14 +963,161 @@ Destroying test database for alias 'default'...
 </details>
 
 ### Automated JavaSCript Testing
-JavaScript Testing Framework [Jest](https://jestjs.io/) can be applied to the JavaScript functions contained in this project. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) approach as detailed in the Pythonic testing seen above. 
+A JavaScript (Js) testing folder located at `static > js > tests >` has been created using Jest to demonstrate the process of testing. Considering the reliance on pythonic code, the use of [jQuery](https://jquery.com/) syntax and the relatively simple nature of the javascript components contained in the project, manual testing was chosen as the primary method for each JS component. This can be seen as part of the overall [manual testing](#manual-testing) critical pathway approach.
+
+Notwithstanding, the JavaScript Testing Framework [Jest](https://jestjs.io/) has been applied to commonly used property calculation functions created in JavaScript. This can be seen as the `static > js > calculators.js` file. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) Red, Green, Refactor approach as detailed in the Pythonic testing seen previously. 
 
 Jest uses [Node.JS](https://nodejs.org/en/) JavaScript runtime environment via the node package manager (NPM) utility.
 
-A JavaScript (Js) testing folder located at `static > js > tests` has been created using Jest to demonstrate the process of testing. Considering the reliance on pythonic code, the use of [jQuery](https://jquery.com/) syntax and the relatively simple nature of the javascript components contained in the project, manual testing was chosen for each JS component. This can be seen as part of the overall [manual testing](#manual-testing) critical pathway approach.
 
+<details>
+    <summary>
+    Step 1 : A snippet of the failed tests (red)...
+    </summary>
+
+```
+ FAIL  static/js/tests/calculators.test.js
+  Property Calculator
+    Property Yield Function
+      ✕ should return 0.06 for sale price of 250,000 and 1250 pcm rent (1 ms)
+      ✕ should return 0.08 for sale price of 1,875,000 and 12500 pcm rent (1 ms)
+
+  ● Property Calculator › Property Yield Function › should return 0.06 for sale price of 250,000 and 1250 pcm rent
+
+    TypeError: propYield is not a function
+
+       5 |     describe("Property Yield Function", () => {
+       6 |         test("should return 0.06 for sale price of 250,000 and 1250 pcm rent", () => {
+    >  7 |             expect(propYield(250000, 1250)).toBe(0.06);
+         |                    ^
+       8 |         })
+       9 |         test("should return 0.08 for sale price of 1,875,000 and 12500 pcm rent", () => {
+      10 |             expect(propYield(1875000, 12500)).toBe(0.08);
+
+      at Object.propYield (static/js/tests/calculators.test.js:7:20)
+
+  ● Property Calculator › Property Yield Function › should return 0.08 for sale price of 1,875,000 and 12500 pcm rent
+
+    TypeError: propYield is not a function
+
+       8 |         })
+       9 |         test("should return 0.08 for sale price of 1,875,000 and 12500 pcm rent", () => {
+    > 10 |             expect(propYield(1875000, 12500)).toBe(0.08);
+         |                    ^
+      11 |         })
+      12 |     })
+      13 | })
+
+      at Object.propYield (static/js/tests/calculators.test.js:10:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.399 s, estimated 1 s
+Ran all test suites.
+```
+</details>
+
+
+<details>
+    <summary>
+    Step 2 : A snippet of the function to be tested in 'calculators.js'...
+    </summary>
+
+```
+function propYield(salePrice, monthlyRental) {
+    return 0.06;
+};
+
+module.exports = propYield;
+```
+</details>
+<details>
+    <summary>
+    Step 3: A snippet of one pass & one fail test (green, red)...
+    </summary>
+
+```
+ FAIL  static/js/tests/calculators.test.js
+  Property Calculator
+    Property Yield Function
+      ✓ should return 0.06 for sale price of 250,000 and 1250 pcm rent (2 ms)
+      ✕ should return 0.08 for sale price of 1,875,000 and 12500 pcm rent (2 ms)
+
+  ● Property Calculator › Property Yield Function › should return 0.8 for sale price of 1,875,000 and 12500 pcm rent
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0.08
+    Received: 0.06
+
+       8 |         })
+       9 |         test("should return 0.8 for sale price of 1,875,000 and 12500 pcm rent", () => {
+    > 10 |             expect(propYield(1875000, 12500)).toBe(0.08);
+         |                                               ^
+      11 |         })
+      12 |     })
+      13 | })
+
+      at Object.toBe (static/js/tests/calculators.test.js:10:47)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        0.369 s, estimated 1 s
+Ran all test suites.
+```
+</details>
+
+
+
+<details>
+    <summary>
+    Step 4A: Refactor the code to be tested to pass all tests...
+    </summary>
+
+```
+function propYield(salePrice, monthlyRental) {
+    return (monthlyRental * 12) / salePrice;
+};
+
+module.exports = propYield;
+```
+</details>
+
+
+<details>
+    <summary>
+    Step 4B: snippet of all tests successful (green)...
+    </summary>
+
+```
+ PASS  static/js/tests/calculators.test.js
+  Property Calculator
+    Property Yield Function
+      ✓ should return 0.06 for sale price of 250,000 and 1250 pcm rent (2 ms)
+      ✓ should return 0.08 for sale price of 1,875,000 and 12500 pcm rent (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.292 s, estimated 1 s
+Ran all test suites.
+```
+</details>
+
+### Additional Custom JavaScript
 The custom JavaScript code is located in the `scrollfade.js` file, and line 54 of the `main.js` file, both located in the project static folders:
 
+<details>
+    <summary>
+    Calendar radio buttons converted into fields ...
+    </summary>
+
+```
+ var curr_date = $("<td class='table-date'><label for='"+day+"' class='mb-0'>"+day+"</label><input class='sr-only' type='radio' name='date_of_viewing' id='"+day+"' value='"+year+"-"+month+"-"+day+"'/></td>");
+```
+</details>
 <details>
     <summary>
     Calendar radio buttons converted into fields ...
@@ -1060,7 +1207,7 @@ In the CPM, users/testers complete tasks by clicking through the app in a sequen
 * The paths users took before they selected an answer.
 * How long it took users to complete the task?
 
-For the purposes of this project, manual feature testing was performed within each sprint cycle of the development process. These sprints (or [milestones](https://github.com/roeszler/reabook/labels/test)) were managed in the GitHub repository. Testing was tracked using the "[test](https://github.com/roeszler/reabook/labels/test)" label, that was defined to work across the whole project. 
+For the purposes of this project, manual feature testing was performed within each sprint cycle of the development process. These sprints (or [milestones](https://github.com/roeszler/reabook/milestones)) were managed in the GitHub repository. Testing was tracked using the "[test](https://github.com/roeszler/reabook/issues?q=is%3Aissue+label%3Atest+is%3Aclosed)" label, that was defined to work across the whole project. 
 
 Transposed over this process was a testing tree, used as an information radiator and keep the progress of the testing at one visual location.
 <details>
