@@ -1,7 +1,7 @@
 <!-- ![Reabook.net](https://res.cloudinary.com/yodakode/image/upload/v1661790281/ReaBook/ReaBook_Icon_00402B_gray_szgzia.ico) -->
 # ReaBook Booking System
 
-> **ReaBook** - attracts and drives initial bookings to view real estate for sale, rent or lease.
+> **ReaBook** - gathers booking requests to view real estate for sale, rent or lease.
 
 ## Full Stack Toolkit with Django - [Code Institute](https://codeinstitute.net/)
 
@@ -18,7 +18,7 @@
 
 1. [Project Purpose](#1-project-purpose)
     * [Database Functionality](#database-functionality)
-    * [Considerations](#important-consideration)
+    * [Considerations](#project-focus)
 2. [Agile Development Process](#2-agile-development-process)
     * [Requirements Engineering](#21-understanding-requirements)
         * [User Centred Design](#22-implementation)
@@ -79,38 +79,41 @@
 ---
 
 ## 1. Project Purpose
-ReaBook (the Site) is a framework for a real estate advertising site used to present the deployment of an appointment booking system (the App) using the [Django](https://www.djangoproject.com/) Full Stack Framework.
+ReaBook (the Project) is a framework for a real estate advertising site used to present the deployment of an appointment booking system (the App) using the [Django](https://www.djangoproject.com/) Full Stack Framework.
 
-### Professional Development
-A primary focus of this project has been to practice, test theories and increase the depth of my experience in planning, design and implementation of full stack solutions. As a student developer, I decided to take the opportunity to extend myself into a scope larger than was required for the [Code Institutes](https://codeinstitute.net/) portfolio project 4. 
+### Project Focus
+The project has been used as an opportunity to practice, test theories and increase the depth of my experience in planning, design and implementation of full stack solutions. As such, a student developer, I engaged to extend myself into a scope larger than was required for the [CI](https://codeinstitute.net/) Portfolio Project 4.
 
-From this process, I am more fluent and comfortable with the implementation of the agile processes, database design and management, debugging and deployment. I am pleased to include the Reabook project to form part of my larger professional portfolio.
+From this process, I have gained fluency and comfort with the implementation of the agile processes, database design, database management, debugging and deployment. I am pleased to include the Reabook project as part of my larger professional portfolio.
 
 ### Database Functionality
 At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at [reabook.herokuapp.com](https://reabook.herokuapp.com/). Here users can:
 * Select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
-    > Main nav > Book > (login) > Reabook Viewings
+    * Pathway
+        > Main nav > Book > (login) > Reabook Viewings
 
 * Create, retrieve and navigate through orders to update information, check production status and/or re-book properties.
-    > Create = Book Viewings button
-
-    > Retrieve = View / Edit link
-
-    > Navigate = Quick Links / My ReaBook menus
+    * Pathway:
+        > Create = Book Viewings button
+        
+        > Retrieve = View / Edit link
+        
+        > Navigate = Quick Links / My ReaBook menus
 
 * Agent / Member / Admin users can list, edit and advertise times for potential customers to view properties currently for sale or rent in their business portfolio.
-    > Property List = Manage Properties > Add Property
+    * Pathway:
+        > Property List = Manage Properties > Add Property
 
-    > Property Edit = Manage Properties > Edit / Delete
+        > Property Edit = Manage Properties > Edit / Delete
 
 ### Important Consideration:
-The ReaBook business premise is to collate and drive leads into existing appointment management systems. Specifically, it **is not to provide appointment management service**. Most all real estate agencies will already have well developed appointment management systems, so the ReaBook app is focused on enhancing the lead generation into these systems and provide advertising across all agents. 
+The ReaBook business premise is to collate and drive leads into existing appointment management systems. Specifically, it **is not to provide appointment management service**. Most all real estate agencies will already have well developed appointment management systems. The project is focused toward a B2B solution, adding value by enhancing the lead generation and advertising spread to all businesses looking to, sell rent or lease real estate. 
 
 ## 2. Agile Development Process
 
-Created by student developer; [Stuart Roeszler](https://www.linkedin.com/in/stuartroeszler/), the Reabook project has been developed following an Agile methodology as part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
+The Reabook project has been developed following an Agile methodology as part of the assessment process at the [Code Institutes](https://codeinstitute.net/) - [Full Stack development program](https://codeinstitute.net/se/full-stack-software-development-diploma/). 
 
-Some of the Agile [Project management](#4-project-management) processes (like [team velocity](#42-team-velocity)) do not easily translate into a single person development team. They would however form a crucial part of a live, team based project and have been outlined accordingly.
+Some of the Agile [Project management](#4-project-management) processes (like [team velocity](#42-team-velocity)) do not easily translate into a solitary [student developer](https://www.linkedin.com/in/stuartroeszler/). They would however form a crucial part of a live, multi-disciplinary project, so have been outlined accordingly.
 
 ### 2.1 Requirements Engineering
 #### User Centred Design (UCD) Process:
@@ -131,9 +134,13 @@ Some of the Agile [Project management](#4-project-management) processes (like [t
 #### Defining the Requirements
 Seen from activities undertaken in the User Centred Design (UCD) [strategy](static/documentation/ucd/1-strategy.md) and [scope](static/documentation/ucd/2-scope.md) panes, the requirements for the ReaBook project are: 
 
-To make an online community looking for one-stop access to real estate available in an area.
+* To make an online community looking for one-stop access to real estate available in an area.
+    
+    > ReaBook: A single cross-agency site where users can interact to find and visit their next property solution. 
 
-> ReaBook: A single cross-agency site where users can interact to find and visit their next property solution. Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store. Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
+        > Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store. 
+
+        > Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
 
 #### User Personas
 Three primary user personas were defined from the above requirements engineering process:
@@ -220,7 +227,7 @@ User Story:
 
 * [x] Test the completed functionality that includes email submission.
 
-[Live sample of a user story card with acceptance criteria (GitHub)](https://github.com/roeszler/reabook/issues/48).
+[Example **User Ctory Card** with acceptance criteria (GitHub)](https://github.com/roeszler/reabook/issues/48).
 
 </details>
 
@@ -267,7 +274,7 @@ Collect related epics that have something in common. In the project, this can b
 Epics are larger multiple iteration that can be broken into user stories.
 <details>
 <summary style="font-size: 1rem;">
-List if Reabook Epics.
+List of Reabook Epics...
 </summary>
         
 - Reabook Epics
@@ -320,38 +327,30 @@ Reabook user stories have been produced in a brief format for simplicity. In a t
 - [Sample Story Card with acceptance criteria (GitHub)](https://github.com/roeszler/reabook/issues/48).
 
 ### User Story Integration (GitHub)
-Key to Agile process is the looping process of define, design, develop and test over short, well defined periods (sprints). The integration of this process into the day to day operation of the development team requires a shared repository that displays live information on where the project is at any given time. 
+Key to the Agile development process is a looping process of **define**, **design**, **develop** and **test** over relatively short sprints. The integration of this process into the day to day operation of the development team requires a shared repository that displays live information on where the project is at any given time. 
 
 For the purposes of this project, the GitHub issues management feature has been used to coordinate development, albeit with a single student developer.
 
-By coordinating user stories in this way, each added to the formation of an overall [project feature](#61-existing-features) and deliver the value users gain by using the ReaBook app.
+By coordinating user stories in this way, each added to create a [project feature](#61-existing-features) and ensure the project adds measurable value to its users.
 
 Users & their stories:
 - [Customer User](https://github.com/roeszler/reabook/labels/User%20%28Customer%29)
 - [Agent / Member User](https://github.com/roeszler/reabook/labels/User%20%28Member%29)
 - [Admin User](https://github.com/roeszler/reabook/labels/User%20%28Admin%29)
 
-For a full description, jump ahead to: [Section 6. Features](#61-existing-features).
+For more complete description, see: [Section 6. Features](#61-existing-features).
 ## 4. Project Management
 Adhering to the Agile framework, where possible the following processes were completed during each user story:  
 ### 4.1 Story Point Estimation
-Difficult to estimate with current level of experience, focused on the amount of work done posthumously in most cases. This was primarily due to the errors that came with each development iteration and the relative simple or solutions to solve the problem. 
-
-One such instance was the inclusion of a bootstrap dropdown as part of the booking process. This was aimed to sequentially lead the user booking a viewing appointment to the next step. 
-
-The combined front end JavaScrip and backend Python solution to achieve the sequential update and display of the data entered became out of scope for the project and story points I had allocated to the task. 
-
-As part of the [agile manifesto](https://agilemanifesto.org/) approach (responding to change over following a plan) the code was refactored to provide a more basic, consistent user experience that was achievable in the time-frame. 
+As a relative measure of work, story point estimation (SPE) was difficult to determine for a student developer working on an assignment project. The nature of learning, testing and research did not prove to be reliable inputs to estimation methods (like the he [Modified Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_number) and the Doubling Score). In this light SPE has not been estimated for this project. 
 
 ### 4.2 Team Velocity
 Considers an average amount of story points the development 'team' can manage to finish in one iteration of a particular length. 
 
-As this is an average measure, and focus the ReaBook project was placed on gathering experience and testing hypotheses in my journey as a student, Team Velocity has not been calculated for a single student developer.
+As this is an average measure, and the focus the ReaBook project was to gather experience and test hypotheses in my journey as a student, Team Velocity has also not been calculated.
 
 ### 4.3 MoSCow Prioritization
-This technique was invaluable to each stage of the development process with the looping approach of Agile development and continuous revision throughout each sprint. 
-
-Each task was reviewed and re-reviewed considering where it's importance lies:
+This technique was invaluable to each stage of the development process. The looping approach of Agile development and continuous revision throughout each sprint allowed each task to be reviewed and re-reviewed:
 * Must Have - non negotiable (core, legal, security)
 * Should Have - if work around available, not vital. Add significant value. (Performance improvements, minor defects fixes, new functionality).
 * Could Have - delivered in their entirety in a best-case scenario. When a problem occurs and the deadline is at risk, one or more “could-have” items are dropped.
@@ -360,7 +359,7 @@ Each task was reviewed and re-reviewed considering where it's importance lies:
 The culmination of the MoSCow prioritization process can be seen in those with an [on hold](https://github.com/roeszler/reabook/labels/on%20hold), [wontfix](https://github.com/roeszler/reabook/labels/wontfix) or [future release](https://github.com/roeszler/reabook/labels/future%20release) tags respectively.
 
 ### 4.4 Information Radiator(s)
-As real-time, informative and straightforward work status display, a magnetic whiteboard with post-it notes was used to clarify current tasks and manage development time. 
+As a work status display, a magnetic whiteboard with post-it notes was used to clarify current tasks and manage development time. 
 
 Common contents included:
 * Remaining user stories,
@@ -376,7 +375,7 @@ These reflect the iterative Agile approach, where development focus is on autono
 
 <details>
     <summary style="font-size: 1rem;">
-    For a more detailed look at the ReaBook development sprints (dropdown list)
+    Dropdown for more detail on the ReaBook development sprints...
     </summary>
 
 - [Sprint 1 - Site Framework](https://github.com/roeszler/reabook/milestone/1?closed=1)
@@ -438,7 +437,7 @@ Flowchart 4 - UPDATE & DELETE
 </details>
 
 ### The Database Model:
-The model is fairly simple, however of note is:
+A relatively simple model, with the following:
 
 * The central part of the model is the Property table. This stores all the details about Member / Agent listed properties. 
 * Two tables Category and Sector act as dictionaries to the Property table. 
@@ -448,7 +447,7 @@ The model is fairly simple, however of note is:
 
 <details>
     <summary>
-    Database Model
+    Database Model...
     </summary>
         
 ![Database Model](static/documentation/img/reaboo-db-models.png)
@@ -460,7 +459,7 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 
 <details>
     <summary>
-    Initial Concept - Landing Page Wireframe
+    Initial Concept - Landing Page Wireframe...
 </summary>
 
 ![Booking App Page Wireframe](static/documentation/wireframes/ReaBook_Index_v1.0.png)
@@ -468,7 +467,7 @@ Early representation of the look, feel and HTML structure of the project. Aids c
 
 <details>
     <summary>
-    Initial Concept - Booking App Wireframe
+    Initial Concept - Booking App Wireframe...
     </summary>
         
 ![Booking App Page Wireframe](static/documentation/wireframes/Bookings_Page.png)
@@ -493,20 +492,20 @@ Mobile:
         ![visitor-menu](static/documentation/img/visitor-menu.png)
     
     <details>
-    <summary>Admin</summary>
+    <summary>Admin...</summary>
 
     ![Admin-menu](static/documentation/img/admin-menu.png)
     </details>
-    <details><summary>Agent / Member Menu</summary>
+    <details><summary>Agent / Member Menu...</summary>
     
     ![member-menu](static/documentation/img/member-user.png)
     </details>
-    <details><summary>User Menu</summary>
+    <details><summary>User Menu...</summary>
     
     ![user-menu](static/documentation/img/user-menu.png)
     </details>
 
-* Bookings tally displays the number of bookings is indicated for authenticated users. This links to the [users diary](#existing-bookings-page) and indicated the total number of current bookings.
+* A bookings tally displays the number of bookings is indicated for authenticated users. This links to the [users diary](#existing-bookings-page) and indicated the total number of current bookings.
 ![bookings tally](static/documentation/img/reabook-bookings-tally.png)
 
 ### Sub Navigation Bar
@@ -515,49 +514,52 @@ This feature has been added to include quick access to common classes and sector
 ![subnavbar](static/documentation/img/reabook-subnav.png)
 
 Key Features:
-* JavaScript / JQuery event handler monitors the mouseover, dropdown and fade on scroll functions for this and the main navigation bar to a lesser extent.
+* JavaScript / JQuery event handler monitors the mouseover.
+* Dropdown and fade on scroll functions for this and the main navigation bar.
+
 ![scrollfade](static/documentation/img/reabook-scrollfade.png)
-* SubNav not present on mobile browsers
+* SubNav hidden on mobile browsers
 
 ### Main Landing Page (index.html)
 * The landing page is intended to ground the user into the primary purpose of the application, options to explore and key branding and iconography throughout the site.
 
 <details>
     <summary>
-    ReaBook Landing Page Image
+    ReaBook Landing Page Image...
     </summary>
         
 ![ReaBook Landing Page](static/documentation/img/ReaBook_index.png)
 </details>
 
 Key Features:
-* Landing page panels will automatically be updated with the newest properties first.
+* Landing page panels will automatically be updated with the newly listed properties first.
 
     ![order-by](static/documentation/img/order_by-function.png)
 
     ![order-by](static/documentation/img/order_by-function-2.png)
 
 ### Search Results / View Properties
-* The main view properties / search results page is intended to provide the user with a familiar format and function to searching properties as they would do with selecting a product on many popular e-commerce sites.
+* The main view properties / search results page is intended to provide the user with an intuitive search function.
 
 <details>
     <summary>
-    ReaBook Properties View Page
+    ReaBook Properties View Page...
     </summary>
         
 ![ReaBook Properties View Page](static/documentation/img/ReaBook_view.png)
 </details>
 
 Key Features:
-* Responsive layout from mobile first design principles to increased options for desktop users.
-* If statements to automate the summary information displayed for each card
+* Responsive layout from mobile first design.
+* Increased options for desktop users.
+* If statements to automate the summary information displayed for each card.
 * Fallback image for properties without specific images supplied by user. 
 
 ### Request Booking Page
-* Takes the user through the process of submitting a request to the property agent for an appointment to view the property: 
+* Takes the user through the process of submitting a request for an appointment to view a property: 
 <details>
     <summary>
-    1. Choose Property
+    1. Choose Property...
     </summary>
         
 ![Choose Property](static/documentation/img/reabook-choose-prop.png)
@@ -565,7 +567,7 @@ Key Features:
 
 <details>
     <summary>
-    2. Choose date and time
+    2. Choose date and time...
     </summary>
         
 ![Choose date and time](static/documentation/img/reabook-choose-time.png)
@@ -573,7 +575,7 @@ Key Features:
 
 <details>
     <summary>
-    3. Enter Details & Submit
+    3. Enter Details & Submit...
     </summary>
         
 ![Enter Details](static/documentation/img/reabook-enter-details.png)
@@ -581,7 +583,7 @@ Key Features:
 
 <details>
     <summary>
-    4. Receive Conformation Email & Next Steps.
+    4. Receive Conformation Email & Next Steps...
     </summary>
         
 ![Conformation Email](static/documentation/img/reabook-conformation-booking.png)
@@ -592,7 +594,7 @@ Key Features:
 * Local search function included should user land directly to bookings page
 * Only displays properties checked as 'for viewing' by member agent user
 * JavaScript function to manage time and date UI
-* User delete as part of agents external booking system(s)
+* User delete function for **member / agent users** only
 * Request appears in user specific right sidebar 'Quick Links'
 
 ### User Diary Page
@@ -622,12 +624,13 @@ Key Features:
 * Email sent to agent to confirm changes
 
 ### Forms
-Django [forms](https://docs.djangoproject.com/en/4.1/topics/forms/) have been used to integrate the submitted data into the app. They are represented to the user in the add, edit and update both properties and bookings
+Django [forms](https://docs.djangoproject.com/en/4.1/topics/forms/) have been used to integrate the submitted data into the app. Represented by the **add**, **edit** and **update** functions.
 ### As a Member / Agent: 
 
 ### Property Management Landing Page
 * Provides admin / member users a brief summary table of their current properties.
-* This is intended to be the main pivot point for agent / member users that have created a property. Properties will appear in table format in the main section of this page, with navigation options through the site on the left.
+* Intended to be the main pivot point for agent / member users that have created a property. 
+* Properties will appear in table format in the main section of this page, with navigation options through the site on the left.
 
 <details>
     <summary>
@@ -679,16 +682,18 @@ Key Features:
 ![Success Message](static/documentation/img/reabook-success.png)
 
 ### 6.2 Future Features
-* Edit User Profile & Passwords
-* Extend account management functions 
-* Member subscription model
-* Refinement of style and feel. Current focus to have working C.R.U.D. functions
-* Age depreciation of bookings / property listings according to days active
-* ...
+* Extend account management functions.
+* Member subscription model.
+* Refinement of style and feel. Current focus to have working C.R.U.D. functions.
+* Age depreciation of bookings / property listings according to days active.
+* Edit User Profile & Passwords.
+* See [complete list of future features](https://github.com/roeszler/reabook/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Future+Features%22).
 
 ## 7. Technologies
 ### Tools
-The skill-sets used in the creation and review of this project are based around a working knowledge of a full stack development approach using Agile methodologies with HTML, CSS, JavaScript (JQuery), Python, the Django framework, Bootstrap and Relational Database Design (SQLite and PostgreSQL). The tools and the benefit of using each in the application development are : 
+The skill-sets used in the creation and review of this project are based around a working knowledge of a full stack development approach using Agile methodologies with HTML, CSS, JavaScript (JQuery), Python, the Django framework, Bootstrap and Relational Database Design (SQLite and PostgreSQL). 
+
+The tools and the benefit of using each in the application development are : 
 
 * [GitHub](https://github.com/)
   * Allows a variety of benefits to create, document, store, showcase and share a project in development.
@@ -710,6 +715,8 @@ The skill-sets used in the creation and review of this project are based around 
   * A diagramming application that allows the mapping and creation of flowcharts to visualize design workflows.
 * [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
   * A computer based low-fidelity UI wireframe tool to sketch up simple visuals assisting the concept development and planning stages.
+* [Pixlr E](https://pixlr.com/e/#home)
+    * Online editor for photos, animations and design platform to assist in the manipulation of images to be suitable for the style of the project.
 
 
 ### Supported Screens and Browsers
@@ -963,9 +970,9 @@ Destroying test database for alias 'default'...
 </details>
 
 ### Automated JavaSCript Testing
-A JavaScript (Js) testing folder located at `static > js > tests >` has been created using Jest to demonstrate the process of testing. Considering the reliance on pythonic code, the use of [jQuery](https://jquery.com/) syntax and the relatively simple nature of the javascript components contained in the project, manual testing was chosen as the primary method for each JS component. This can be seen as part of the overall [manual testing](#manual-testing) critical pathway approach.
+A JavaScript (Js) testing folder located at `static > js > tests >` has been created using Jest to demonstrate the process of testing. 
 
-Notwithstanding, the JavaScript Testing Framework [Jest](https://jestjs.io/) has been applied to commonly used property calculation functions created in JavaScript. This can be seen as the `static > js > calculators.js` file. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) Red, Green, Refactor approach as detailed in the Pythonic testing seen previously. 
+The JavaScript Testing Framework [Jest](https://jestjs.io/) has been applied to commonly used property calculation functions created in JavaScript. This can be seen as the `static > js > calculators.js` file. It follows the same [MVC testing](#mvc-testing) and [Test Driven Development](#test-driven-development) Red, Green, Refactor approach as detailed in the [Automated Python Testing](#automated-python-testing) section previously. 
 
 Jest uses [Node.JS](https://nodejs.org/en/) JavaScript runtime environment via the node package manager (NPM) utility.
 
@@ -1197,17 +1204,18 @@ describe("Check class has changed Function", () => {
 ```
 </details>
 
+The use of [jQuery](https://jquery.com/) and the relatively simple nature of the javascript components contained in the project, manual testing was chosen as the primary method for each JS component.
 ### Manual Testing
 
 A [Critical Pathway Method](https://asana.com/resources/critical-path-method) (CPM) using a [testing tree](https://www.optimalworkshop.com/learn/101s/tree-testing/) process has been used to documented the manual testing process. This has been integrated with the [GitHub issues management utility](https://github.com/roeszler/reabook/issues) to collect and coordinate testing within each defined User Story for the project. 
 
-In the CPM, users/testers complete tasks by clicking through the app in a sequential way. In a live version the results of the task would indicate:
+In the CPM, users/testers complete tasks by clicking through the app sequentially. In a live version the results of the task would indicate:
 * How many users got it right?
 * How many users got it wrong?
 * The paths users took before they selected an answer.
 * How long it took users to complete the task?
 
-For the purposes of this project, manual feature testing was performed within each sprint cycle of the development process. These sprints (or [milestones](https://github.com/roeszler/reabook/milestones)) were managed in the GitHub repository. Testing was tracked using the "[test](https://github.com/roeszler/reabook/issues?q=is%3Aissue+label%3Atest+is%3Aclosed)" label, that was defined to work across the whole project. 
+For the purposes of this project, manual feature testing was performed within each sprint cycle of the development process. The sprints have been managed on the [GitHub repository](https://github.com/roeszler/reabook/milestones). Testing was tracked using the "[test](https://github.com/roeszler/reabook/issues?q=is%3Aissue+label%3Atest+is%3Aclosed)" label, that was defined to work across the whole project. 
 
 Transposed over this process was a testing tree, used as an information radiator and keep the progress of the testing at one visual location.
 <details>
