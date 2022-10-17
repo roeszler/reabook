@@ -93,12 +93,10 @@
                         {% for prop in props_for_rent %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_rent">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_rent">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/v1661942864/ReaBook/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder rentals image">
                                     </a>
@@ -133,12 +131,10 @@
                         {% for prop in props_for_lease %}
                             {% if forloop.last %}
                                 {% if prop.main_image %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_lease">
                                         <img src="{{ prop.main_image.url }}" alt="{{ prop.name }}" class="card-img-top img-fluid rounded">
                                     </a>
                                 {% else %}
-                                    <!-- <a href="{% url 'property-detail' prop.id %}"> -->
                                     <a href="{% url 'properties' %}?category=for_lease">
                                         <img class="card-img-top img-fluid rounded" src="https://res.cloudinary.com/yodakode/image/upload/media/noimage_448px_fwcaik.jpg" alt="{{ prop.name }}" aria-label="placeholder for no image">
                                     </a>
@@ -226,9 +222,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="card-footer font-weight-light mt-4 bg-reabook">
-        18 October 2022
-    </div> -->
 </div>
 {% endblock %}
 

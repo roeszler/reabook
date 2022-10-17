@@ -8,7 +8,6 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        # fields = '__all__'
         fields = (
             'contact_ok', 'viewing_active', 'property_id',
             'date_of_viewing', 'client_username', 'time_of_viewing',

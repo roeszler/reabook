@@ -14,7 +14,6 @@
             <hr class="w-50 mb-2">
         </div>
     </div>
-    <!-- <section class="border"> -->
         {% if user.is_authenticated %}
             {% if user == prop.realtor or user.is_superuser %}
         <div class="col-12 col-md-6 col-lg-8 offset-lg-2 py-3 w-100 border bg-light" style="border-radius: 25px;">
@@ -37,7 +36,6 @@
                 {% endif %}
             {% endif %}
         </div>
-    <!-- </section> -->
     <!-- Property Container -->
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">

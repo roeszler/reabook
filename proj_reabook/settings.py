@@ -32,8 +32,6 @@ CUST_ALLAUTH_DIR = os.path.join(BASE_DIR, 'templates', 'allauth')
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-# DEBUG = os.environ.get('DEVELOPMENT')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['reabook.herokuapp.com', 'localhost']
@@ -152,10 +150,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Stockholm'
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

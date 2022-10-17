@@ -25,7 +25,6 @@ def login_user(request):
         else:
             messages.success(request, 'Sorry! There was an error\n\
                 Logging in. Please try again...')
-            # Return an 'invalid login' error message.
             return redirect('login')
     else:
         return render(request, 'diary/login.html', {})
