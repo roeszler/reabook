@@ -14,24 +14,12 @@
         <div class="col-lg-2 pr-3 border-right" id="control-bar">
             <h5 class="logo-font"><i class="fa-solid fa-bookmark reabook-logo"></i><strong> My <span class="text-black">Rea</span>Book</strong></h5>
             <div class="list-group list-group list-group-flush text-lg-left">
-                <a href="{% url 'manage-properties' user.id %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light"><i class="fas fa-people-roof reabook-logo"></i>&nbsp; Manage Properties</button>
-                </a>
-                <a href="{% url 'user-diary' user.id %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light"><i class="fas fa-book-bookmark reabook-logo"></i>&nbsp; My Diary</button>
-                </a>
-                <a href="{% url 'choose_bookings' %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light"><i class="fa-solid fa-clipboard-list reabook-logo"></i>&nbsp; Book a Viewing</button>
-                </a>
-                <a href="{% url 'my-profile' user.id %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light"><i class="fa-solid fa-user reabook-logo"></i>&nbsp; My Profile</i></button>
-                </a>
-                <a href="{% url 'parked' %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light" disabled><i class="fa-regular fa-comment-dots reabook-logo"></i>&nbsp; My Communications</button>
-                </a>
-                <a href="{% url 'parked' %}">
-                    <button type="button" class="list-group-item list-group-item-action font-weight-light" disabled><i class="fa-solid fa-gavel"></i>&nbsp;Lease / Sell</button>
-                </a>
+                <a href="{% url 'manage-properties' user.id %}" class="list-group-item list-group-item-action font-weight-light"><i class="fas fa-people-roof reabook-logo"></i>&nbsp; Manage Properties</a>
+                <a href="{% url 'user-diary' user.id %}" class="list-group-item list-group-item-action font-weight-light"><i class="fas fa-book-bookmark reabook-logo"></i>&nbsp; My Diary</a>
+                <a href="{% url 'choose_bookings' %}" class="list-group-item list-group-item-action font-weight-light"><i class="fa-solid fa-clipboard-list reabook-logo"></i>&nbsp; Book a Viewing</a>
+                <a href="{% url 'my-profile' user.id %}" class="list-group-item list-group-item-action font-weight-light"><i class="fa-solid fa-user reabook-logo"></i>&nbsp; My Profile</a>
+                <a href="{% url 'parked' %}" class="list-group-item list-group-item-action font-weight-light" disabled><i class="fa-regular fa-comment-dots reabook-logo"></i>&nbsp; My Communications</a>
+                <a href="{% url 'parked' %}" class="list-group-item list-group-item-action font-weight-light" disabled><i class="fa-solid fa-gavel"></i>&nbsp;Lease / Sell</a>
                 </div>
         </div>
 

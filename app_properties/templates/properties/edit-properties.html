@@ -33,12 +33,8 @@
                         <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Update Details">
                     </form>
 
-                    <a href="{% url 'property-detail' prop.id %}">
-                        <button type="button" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</button>
-                    </a>
-                    <a href="{% url 'properties' %}">
-                        <button type="button" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
-                    </a>
+                    <a href="{% url 'property-detail' prop.id %}" aria-label="View Listing" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</a>
+                    <a href="{% url 'properties' %}" aria-label="Previous Page" class="btn btn-outline text-uppercase float-left mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</a>
                     <div>
                         <button type="button" class="btn btn-outline-danger text-uppercase float-right mt-2 mr-1" data-toggle="modal" data-target="#deleteModalCenter">Delete Property</button>
                     </div>
@@ -263,9 +259,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No Tanks</button>
-                <a href="{% url 'delete-property' prop.id %}">
-                    <button type="button" class="btn btn-danger text-uppercase">Confirm Deletion</button>
-                </a>
+                <a href="{% url 'delete-property' prop.id %}" aria-label="Confirm Deletion"  class="btn btn-danger text-uppercase">Confirm Deletion</a>
             </div>
         </div>
     </div>

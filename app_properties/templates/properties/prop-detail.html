@@ -89,13 +89,9 @@
                 <!-- Buttons -->
                 <div class="row">
                     <div class="col-10 col-lg-12">
-                        <a href="mailto:test@test.com?subject=New Agent Information" aria-label="open email program to send" target="_blank">
-                            <button class="btn btn-outline-reabook text-uppercase mt-1 w-100">Contact Agent</button>
-                        </a>
+                        <a href="mailto:test@test.com?subject=New Agent Information" aria-label="open email program to send" target="_blank" class="btn btn-outline-reabook text-uppercase mt-1 w-100">Contact Agent</a>
                         {% if prop.viewings and user.is_authenticated %}
-                        <a href="{% url 'booking-detail' prop.id %}" aria-label="open email program to send">
-                            <button class="btn btn-outline-reabook text-uppercase mt-1 w-100">Book Viewing</button>
-                        </a>
+                        <a href="{% url 'booking-detail' prop.id %}" aria-label="open email program to send" class="btn btn-outline-reabook text-uppercase mt-1 w-100">Book Viewing</a>
                     </div>
                     {% endif %}
                 </div>

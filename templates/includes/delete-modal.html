@@ -16,9 +16,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                <a href="{% url 'delete-property' prop.id %}">
-                    <button type="button" class="btn btn-danger text-uppercase">Confirm Deletion</button>
-                </a>
+                <a href="{% url 'delete-property' prop.id %}" class="btn btn-danger text-uppercase">Confirm Deletion</a>
             </div>
         </div>
     </div>

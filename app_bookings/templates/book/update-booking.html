@@ -122,9 +122,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No Thanks</button>
-                    <a href="{% url 'delete-booking' booking.id %}">
-                        <button type="button" class="btn btn-danger text-uppercase">Confirm Deletion</button>
-                    </a>
+                    <a href="{% url 'delete-booking' booking.id %}" aria-label="Confirm Deletion" class="btn btn-danger text-uppercase">Confirm Deletion</a>
                 </div>
             </div>
         </div>

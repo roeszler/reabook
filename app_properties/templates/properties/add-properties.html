@@ -33,13 +33,7 @@
                         </table>
                         <input type="submit" class="btn btn-warning text-uppercase mt-2 float-right" value="Add Property">
                     </form>
-
-                    <!-- <a href="{% url 'property-detail' prop.id %}">
-                        <button type="button" class="btn btn-outline-reabook text-uppercase float-right mt-2 mr-1 btn-back">View Listing</button>
-                    </a> -->
-                    <a href="{% url 'properties' %}">
-                        <button type="button" class="btn btn-outline text-uppercase float-right mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</button>
-                    </a>
+                    <a href="{% url 'properties' %}" aria-label="Previous Page" class="btn btn-outline text-uppercase float-right mt-2 mr-1 btn-back"><i class="fas fa-chevron-left"></i> Previous Page</a>
                 </div>
             </div>
 
