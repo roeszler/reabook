@@ -1384,6 +1384,10 @@ The steps to create a server side Database and deploy to Heroku...
 * Images have been stored for delivery using the [cloudinary](https://cloudinary.com/) content delivery network.
 * Test Case scenarios researched from [softwaretestingo.com](https://www.softwaretestingo.com/), [Software Testing Help](https://www.softwaretestinghelp.com/test-execution-software-testing-qa-training-on-a-live-project-day-5/) and [QA Test Lab](https://qatestlab.com/).
 * Code styling and error detection by systematic code refactoring following a run of the `python3 -m flake8` command to evoke the [flake8](https://flake8.pycqa.org/en/latest/) style enforcement tool.
+* Scrollfade.js code developed from research at stack overflow: 
+    * [Fade on scroll](https://stackoverflow.com/questions/34093732/fade-out-div-on-scroll), 
+    * [Date time event listeners](https://stackoverflow.com/questions/14544104/checkbox-check-event-listener), 
+    * [Radio inputs into buttons](https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead), 
 
 ### Media
 - The photos, videos and vector graphics used on the home and each for property were sourced and/or researched from [Pexels](https://www.pexels.com/collections/aparments-9aglwiv/), [pixbay.com](https://pixabay.com/users/openclipart-vectors-30363/) and [freepik.com](https://www.freepik.com/home).
