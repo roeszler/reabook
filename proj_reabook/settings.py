@@ -35,7 +35,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = False
 
-ALLOWED_HOSTS = ['reabook.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = ['reabook.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['reabook.onrender.com', 'localhost']
 
 # Add Render.com URL to allowed hosts
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -162,16 +163,15 @@ USE_TZ = True
 
 USE_THOUSAND_SEPARATOR = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 # Connect cloudinary to static files:
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # noqa
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
