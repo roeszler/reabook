@@ -167,11 +167,11 @@
                         <p class="ribbon">Sell Properties</p>
                         {% if user.is_authenticated %}
                         <a href="{% url 'manage-properties' user.id %}" aria-label="manage properties link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ulu8nh_nr5pbj.png" alt="{{ property.name }}" aria-label="placeholder selling image">
                         </a>
                         {% else %}
                         <a href="{% url 'login' %}" aria-label="login link">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ei3hra.png" alt="{{ property.name }}" aria-label="placeholder selling image">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/yodakode/image/upload/media/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_ulu8nh_nr5pbj.png" alt="{{ property.name }}" aria-label="placeholder selling image">
                         </a>
                         {% endif %}
                         <div class="card-body pb-2">
@@ -211,14 +211,14 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Dreamed, Designed, Developed and Deployed by <a href="https://www.linkedin.com/in/stuartroeszler/" target="_blank" class="text-primary" aria-label="linkedin">s.roeszler</a></h5>
-        <h6>in consideration for completion of Project 4: Full Stack with <a href="https://codeinstitute.net/global/" class="text-primary" aria-label="code institute">the Code Institute</a></h6>
+        <h6>in consideration for completion of Project 4: Full Stack with <a href="https://codeinstitute.net/global/" class="text-primary" aria-label="code institute" target="_blank">the Code Institute</a></h6>
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="text-center justified col-lg-6 col-12">
                 <p class="card-text">Full Stack Framework based on business logic to control a centrally-owned dataset.</p>
                 <p>Project constructed using HTML, CSS, JavaScript, Python+Django and a Postgres relational database. Authentication mechanisms and role-based access activities to demonstrate a simple appointment / diary service that allows users to register and book appointment to view properties with a variety of land agents through a lead handling service: 
                     <i class="fa fa-bookmark reabook-logo"></i> ReaBook</p>
-                <a href="https://github.com/roeszler" class="btn btn-outline-reabook mt-3">View GitHub Repo</a>
+                <a href="https://github.com/roeszler/reabook/blob/main/README.md" class="btn btn-outline-reabook mt-3" target="_blank">View GitHub Repo</a>
             </div>
         </div>
     </div>
