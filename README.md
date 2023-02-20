@@ -8,7 +8,7 @@
 ### Applying: HTML, CSS, JavaScript, Python+Django, Relational Databases (PostgreSQL), c
 
 * Repository link : [github.com/roeszler/reabook](https://github.com/roeszler/reabook)
-* Terminal : [reabook.herokuapp.com](https://reabook.herokuapp.com/)
+* Terminal : [reabook.onrender.com](https://reabook.onrender.com/)
 * User Stories : [github.com/users/roeszler](https://github.com/users/roeszler/projects/4)
 
 ---
@@ -87,7 +87,7 @@ The project has been used as an opportunity to practice, test theories and incre
 From this process, I have gained fluency and comfort with the implementation of the agile processes, database design, database management, debugging and deployment. I am pleased to include the Reabook project as part of my larger professional portfolio.
 
 ### Database Functionality
-At the time of release, the site is deployed via the [Heroku](https://www.heroku.com/platform) platform at [reabook.herokuapp.com](https://reabook.herokuapp.com/). Here users can:
+At the time of release, the site is deployed via the [Render](https://www.render.com/platform) platform at [reabook.onrender.com](https://reabook.onrender.com/). Here users can:
 * Select and submit requests to attend store owner users arranged viewing times for properties listed for sale or rent.
     * Pathway
         > Main nav > Book > (login) > Reabook Viewings
@@ -699,7 +699,7 @@ The tools and the benefit of using each in the application development are :
   * Allows a variety of benefits to create, document, store, showcase and share a project in development.
 * [GitPod](https://www.gitpod.io/)
   * Provides a relatively secure workspace to code and develop software projects in a remotely accessible cloud based platform.
-* [Heroku Platform](https://www.heroku.com/platform)
+* [Render Platform](https://www.render.com/platform)
   * Provides a platform for deploying and running python based apps.
 * The [Django Framework](https://www.djangoproject.com/) with embedded technologies as at version 3.2.15 and additional installations of:
   * [Allauth](https://django-allauth.readthedocs.io/en/latest/) to manage user authentication and management.
@@ -720,7 +720,7 @@ The tools and the benefit of using each in the application development are :
 
 
 ### Supported Screens and Browsers
-The live application ([ReaBook](https://reabook.herokuapp.com/)) has been tested on each of the following popular browsers to check for maintained function and interactivity :
+The live application ([ReaBook](https://reabook.onrender.com/)) has been tested on each of the following popular browsers to check for maintained function and interactivity :
 - [Google Chrome](https://www.google.com/chrome/)
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge) 
 - [Apple Safari](https://www.apple.com/safari/)
@@ -1235,7 +1235,7 @@ At the point of deployment, the site appears to be free of errors and bugs. The 
 
 ### Validator Testing of Custom Code
 The manipulation of `.html` documents throughout the project highlights limitations the generic W3 html Validator. The use of things like 'includes templates' and `{{  }}` or `{%  %}` consistently throws errors in the validator. Outside of these errors, that code has been thoroughly checked and no other errors were found when passing each `.html` document through the [W3 Markup Validator](https://validator.w3.org/);
-    * Results : [All right.](https://validator.w3.org/nu/?doc=https%3A%2F%2Freabook.herokuapp.com%2F)
+    * Results : [All right.](https://validator.w3.org/nu/?doc=https%3A%2F%2Freabook.onrender.com%2F)
 
         <details>
         <summary>
@@ -1263,7 +1263,7 @@ The manipulation of `.html` documents throughout the project highlights limitati
     * Results : [All Ok]()
 
 ## 9. Deployment
-This project was deployed using the Django Framework into Heroku. The steps to deploy are as follows:
+This project was deployed using the Django Framework into Render. The steps to deploy are as follows:
 
 * Fork or clone the [Code-Institute-Org: python-essentials-template](https://github.com/Code-Institute-Org/python-essentials-template)
 * Click the Use this template to create a clone in GitHub
@@ -1284,7 +1284,7 @@ The steps to deploy a clone of the GitHub repository...
 * Committed to the save and waited a few moments for the settings to coordinate with the server. 
 * On refresh of the browser, the dedicated ribbon changed to the selected web address, indicating a successful deployment.
 
-> The live application link can be found here - https://reabook.herokuapp.com/
+> The live application link can be found here - https://reabook.onrender.com/
 
 > The accessible GitHub repository for this application is https://github.com/roeszler/reabook
 </details>
@@ -1352,15 +1352,15 @@ Once database models are configured...
 </details>
 
 
-### Deployment Environment (Heroku)
+### Deployment Environment (Render)
 <details>
 <summary >
-The steps to create a server side Database and deploy to Heroku...
+The steps to create a server side Database and deploy to Render...
 </summary>
 
-* Login Heroku and create new Heroku app
-* In 'settings' tab: set the build packs to `heroku/python`.
-* In 'resources' tab: search and set the add-on to `heroku-postgresql` under a `hobby-dev` plan.
+* Login Render and create new Render app
+* In 'settings' tab: set the build packs to `Render/python`.
+* In 'resources' tab: search and set the add-on to `Render-postgresql` under a `hobby-dev` plan.
 * In 'settings' tab: Reveal config vars, add and save KEY : VALUE variables in this order :
   * CREDS : Copy and paste entire contents of 'your' creds.json file
   * PORT : 8000
@@ -1375,7 +1375,7 @@ The steps to create a server side Database and deploy to Heroku...
 ## 10. Credits
 ### Content
 
-* Hosted at [Heroku](https://www.heroku.com/platform).
+* Hosted at [Render](https://www.render.com/platform).
 * Repository and issue management features provided at [GitHub](https://github.com/roeszler/reabook).
 * Developed using the [GitPod Development Environment](https://www.gitpod.io/).
 * Primary and additional Python coding was studied and reworked from modules provided through the Code Institute's [Diploma in Full Stack Software Development](https://codeinstitute.net/se/full-stack-software-development-diploma/), [W3 Schools](https://www.w3schools.com/), [Stack overflow](https://stackoverflow.com/), [mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Django Project](https://www.djangoproject.com/).
