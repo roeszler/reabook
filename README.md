@@ -137,7 +137,9 @@ Seen from activities undertaken in the User Centred Design (UCD) [strategy](stat
 * To make an online community looking for one-stop access to real estate available in an area.
     
     > ReaBook: A single cross-agency site where users can interact to find and visit their next property solution.
+    
     > Users would be able to seek to properties in their region and be able to make bookings direct to member agents from our bookings store.
+    
     > Member Agent users will be able to list properties for sale, rent or lease and receive a customer stream into their businesses.
 
 #### User Personas
